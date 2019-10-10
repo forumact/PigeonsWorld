@@ -1,14 +1,14 @@
 import React, {Component} from 'react';
 import Logo from '../assets/logo.png';
 import Avatar from '../assets/avatar.jpg';
-import {NavLink, Link} from "react-router-dom";
+import {Link, NavLink} from "react-router-dom";
 
 class Header extends Component {
     render() {
         return (
             <div className="header-wrap">
                 <header>
-                    <NavLink  exact to="/">
+                    <NavLink exact to="/">
                         <figure className="logo">
                             <img src={Logo} alt="logo"/>
                         </figure>
@@ -36,11 +36,11 @@ class Header extends Component {
                             </a>
                         </div>
                         <div className="account-information">
-                            <a href="http://odindesign-themes.com/emerald-dragon/favourites.html">
+                            <Link to={'/your-favourites'}>
                                 <div className="account-wishlist-quickview">
                                     <span className="icon-heart"></span>
                                 </div>
-                            </a>
+                            </Link>
                         </div>
                         <div className="account-actions">
                             {/* <a href="http://odindesign-themes.com/emerald-dragon/index.html#"

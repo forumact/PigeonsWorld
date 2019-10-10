@@ -11,10 +11,11 @@ import SimpleLineIcon from "react-simple-line-icons";
 
 class App extends Component {
     render() {
+        let WithoutHeader = ['/login', '/user-register'];
         const current_path = this.props.location.pathname;
         return (
             <div className="App">
-                {(current_path !== '/login') ? (
+                {(current_path !== '/login' || current_path !== '/user-register') ? (
                     <>
                         <Header></Header>
                         <MainMenu></MainMenu>
