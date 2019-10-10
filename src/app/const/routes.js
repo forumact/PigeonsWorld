@@ -11,7 +11,7 @@ export const MyRoutes = [
         path: '/how-to-shop',
         component: lazy(() => import('../containers/HowToShop')),
         title: "HOW TO SHOP",
-        menu: "yes",
+        menu: "no",
     },
     {
         path: '/products',

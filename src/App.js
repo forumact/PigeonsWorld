@@ -15,7 +15,7 @@ class App extends Component {
         const current_path = this.props.location.pathname;
         return (
             <div className="App">
-                {(current_path !== '/login' || current_path !== '/user-register') ? (
+                {!(WithoutHeader.indexOf(current_path) > -1) ? (
                     <>
                         <Header></Header>
                         <MainMenu></MainMenu>
