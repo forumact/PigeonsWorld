@@ -1,0 +1,12 @@
+.headline h4 {
+    float: left;
+    line-height: 66px;
+}
+.section-headline-wrap {
+    background: url('./app/assets/section_headline_bg.png') no-repeat center, linear-gradient(to right, #05e6aa, #1cbdf9);
+    background-size: cover;
+}
+.section-headline-wrap.v2 {
+    background: url('./app/assets/section_headline_bg.png') no-repeat center, linear-gradient(to right, #f21c5e, #1cc1e4);
+}
+
