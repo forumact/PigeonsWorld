@@ -1,13 +1,20 @@
-import React, {Component} from 'react';
+import React from 'react';
+import HeadLine from "../components/HeadLine";
+import {useTitle} from "../helper/MainHelper";
 
-class NotFound extends Component {
-    render() {
-        return (
-            <div>
-                I am from Page Not found
+const NotFound = () => {
+    const title = '404'
+    useTitle(title);
+    return (
+        <div>
+            <HeadLine title={title}></HeadLine>
+            <div className="section-wrap">
+                <div className="section">
+                    <p>Sorry! The page your were looking Doesn't exists.</p>
+                </div>
             </div>
-        );
-    }
+        </div>
+    );
 }
 
 export default NotFound;

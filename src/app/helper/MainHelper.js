@@ -1,5 +1,9 @@
-import { useEffect } from 'react'
+import {useEffect} from 'react'
 
+/**
+ * Method used to set page title
+ * @param titleOrFn
+ */
 export function useTitle(titleOrFn) {
     useEffect(
         () => {
@@ -7,3 +11,9 @@ export function useTitle(titleOrFn) {
         }
     );
 }
+
+/**
+ * Const used to hide Header and Footer regions.
+ * @type {*[]}
+ */
+export const HideHeaderRegion = ['/login', '/user-register'];

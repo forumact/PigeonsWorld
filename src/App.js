@@ -8,27 +8,33 @@ import MainMenu from "./app/components/MainMenu";
 import Routes from "./app/components/Routes";
 import {withRouter} from 'react-router-dom'
 import SimpleLineIcon from "react-simple-line-icons";
+import {HideHeaderRegion} from "./app/helper/MainHelper";
+import {Provider} from "react-redux";
+import {getStore} from './app/Redux/store';
+
+const store = getStore();
 
 class App extends Component {
-    render() {
-        let WithoutHeader = ['/login', '/user-register'];
-        const current_path = this.props.location.pathname;
-        return (
-            <div className="App">
-                {!(WithoutHeader.indexOf(current_path) > -1) ? (
-                    <>
-                        <Header></Header>
-                        <MainMenu></MainMenu>
-                        <Routes></Routes>
-                        <Footer></Footer>
-                    </>
-                ) : (
-                    <Routes></Routes>
-                )}
-                <SimpleLineIcon name={'bulb'}></SimpleLineIcon>
-            </div>
-        );
-    }
+  render() {
+    const current_path = this.props.location.pathname;
+    return (
+        <Provider store={store}>
+          <div className="App">
+            {!(HideHeaderRegion.indexOf(current_path) > -1) ? (
+                <>
+                  <Header/>
+                  <MainMenu/>
+                  <Routes/>
+                  <Footer/>
+                </>
+            ) : (
+                <Routes/>
+            )}
+            <SimpleLineIcon name={'bulb'} className={'hide'}/>
+          </div>
+        </Provider>
+    );
+  }
 }
 
 export default withRouter(App);
