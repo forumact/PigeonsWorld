@@ -73,4 +73,10 @@ export const MyRoutes = [
         title: "Your Favourites",
         menu: "no",
     },
+    {
+        path: '/contact',
+        component: lazy(() => import('../containers/Contact')),
+        title: "Contact",
+        menu: "yes",
+    },
 ];
