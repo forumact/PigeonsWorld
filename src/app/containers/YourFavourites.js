@@ -2,7 +2,6 @@ import React from 'react';
 import {useTitle} from "../helper/MainHelper";
 import HeadLine from "../components/HeadLine";
 import FavouriteCard from "../components/FavouriteCard";
-import ProductCard from "../components/ProductCard";
 
 const YourFavourites = () => {
     const title = 'Your Favourites';
@@ -16,8 +15,8 @@ const YourFavourites = () => {
                         <div className="headline primary">
                             <h4>124 Favourites Found</h4>
                             <div className="view-selectors">
-                                <a href="favourites.html" className="view-selector grid"></a>
-                                <a href="favourites-listview.html" className="view-selector list active"></a>
+                                <a href="/" className="view-selector grid">&nbsp;</a>
+                                <a href="/" className="view-selector list active">&nbsp;</a>
                             </div>
                             <form id="shop_filter_form" name="shop_filter_form">
                                 <label htmlFor="price_filter" className="select-block">

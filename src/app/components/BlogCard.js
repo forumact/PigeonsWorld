@@ -1,18 +1,19 @@
 import React, {Component} from 'react';
 import BlogImg from "../assets/04s.jpg";
+import {Link} from "react-router-dom";
 
 class BlogCard extends Component {
   render() {
     return (
         <div className="blog-post-preview-item column">
-          <a href="open-post.html">
+          <Link to={'/product-details/1'}>
             <figure className="product-preview-image big liquid">
               <img src={BlogImg} alt=""/>
             </figure>
-          </a>
+          </Link>
           <div className="blog-post-preview-item-info">
             <p className="text-header mid">
-              <a href="open-post.html">Check out the best web themes of the last year</a>
+              <Link to={'/product-details/1'}>Check out the best web themes of the last year</Link>
             </p>
             <div className="meta-line">
               <a href="open-post.html">
@@ -33,7 +34,7 @@ class BlogCard extends Component {
                 <p>68</p>
               </div>
             </div>
-            <a href="open-post.html" className="more-button primary">Read More...</a>
+            <Link to={'/product-details/1'} className={"more-button primary"}>Read More...</Link>
           </div>
         </div>
     );

@@ -7,7 +7,7 @@ class FavouriteCard extends Component {
             <div className="product-item">
                 <a href="item-v1.html">
                     <figure className="product-preview-image small">
-                        <img src={avatar} alt="product-image"/>
+                        <img src={avatar} alt="product"/>
                     </figure>
                 </a>
                 <div className="product-info">
@@ -53,10 +53,10 @@ class FavouriteCard extends Component {
                     <p className="text-header tiny">
                         Tags:
                         <span>
-                            <a href="#">custom</a>,
-                            <a href="#">clothing</a>,
-                            <a href="#">monsters</a>,
-                            <a href="#">photoshop</a>, ...
+                            <a href="/">custom</a>,
+                            <a href="/">clothing</a>,
+                            <a href="/">monsters</a>,
+                            <a href="/">photoshop</a>, ...
                         </span>
                     </p>
                 </div>
@@ -64,7 +64,7 @@ class FavouriteCard extends Component {
                     <p className="text-header tiny">Reputation</p>
                 </div>
                 <div className="item-actions">
-                    <a href="#" className="tooltip" title="Add to Favourites">
+                    <a href="/" className="tooltip" title="Add to Favourites">
                         <div className="circle tiny">
                             <span className="icon-heart"></span>
                         </div>
