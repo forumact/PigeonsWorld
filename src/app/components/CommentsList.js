@@ -1,8 +1,12 @@
 import React, {Component} from 'react';
 import Avatar from '../assets/avatar.jpg';
-import CommentForm from "./CommentForm";
+import CommentForm from "../Forms/CommentForm";
 
 class CommentsList extends Component {
+    submit = values => {
+        // print the form values to the console
+        console.log(values)
+    }
     render() {
         return (
             <div>
@@ -50,7 +54,7 @@ class CommentsList extends Component {
                             </div>
                             <div className="clearfix"></div>
                             <hr className="line-separator"/>
-                            <CommentForm></CommentForm>
+                            <CommentForm onSubmit={this.submit} />
                         </div>
                     </div>
                 </div>

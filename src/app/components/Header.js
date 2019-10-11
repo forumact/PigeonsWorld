@@ -43,11 +43,8 @@ class Header extends Component {
                 </Link>
               </div>
               <div className="account-actions">
-                {/* <a href="http://odindesign-themes.com/emerald-dragon/index.html#"
-                               className="button primary">Become a Seller</a> */}
                 <Link to={'/user-edit'} className="button primary">Become a Seller</Link>
-                <a href="http://odindesign-themes.com/emerald-dragon/index.html#"
-                   className="button secondary">Logout</a>
+                <Link to={'/login'} className="button secondary">Login</Link>
               </div>
             </div>
           </header>

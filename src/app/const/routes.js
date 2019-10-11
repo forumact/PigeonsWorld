@@ -47,7 +47,7 @@ export const MyRoutes = [
         path: '/login',
         component: lazy(() => import('../containers/Login')),
         title: "Login",
-        menu: "yes",
+        menu: "no",
     },
     {
         path: '/user-register',
@@ -77,6 +77,6 @@ export const MyRoutes = [
         path: '/contact',
         component: lazy(() => import('../containers/Contact')),
         title: "Contact",
-        menu: "yes",
+        menu: "no",
     },
 ];
