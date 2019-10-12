@@ -19,6 +19,10 @@ class Login extends React.Component {
     );
   }
 
+  componentDidMount(){
+    document.title = `Pigeons World | Login`;
+  }
+
 }
 
 

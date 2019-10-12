@@ -66,6 +66,10 @@ class UploadItem extends Component {
           </div>
       );
    }
+
+   componentDidMount(){
+      document.title = `Pigeons World | Upload Items`;
+   }
 }
 
 export default UploadItem;
