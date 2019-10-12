@@ -6,7 +6,7 @@ import Avator from "../assets/avatar.jpg";
 class ProductCard extends Component {
     constructor(props) {
         super(props);
-        console.log(props.product);
+        //console.log(props)
     }
     render() {
         return (
@@ -46,7 +46,7 @@ class ProductCard extends Component {
                     <a href="products.html">
                         <p className="category tertiary">{this.props.product.website}</p>
                     </a>
-                    <p className="price"><span>$</span>24</p>
+                    <p className="price"><span>$</span>{this.props.product.id * 5}</p>
                 </div>
                 <hr className="line-separator" />
                 <div className="user-rating">
@@ -55,9 +55,9 @@ class ProductCard extends Component {
                             <img src={Avator} alt="user-avatar" />
                         </figure>
                     </a>
-                    <a href="author-profile.html">
-                        <p className="text-header tiny">Kratos Cave</p>
-                    </a>
+                    <NavLink to={`/user-profile`}>
+                        <p className="text-header tiny">{this.props.product.username}</p>
+                    </NavLink>
                 </div>
             </div>
         );

@@ -15,6 +15,7 @@ class Products extends Component {
 
   componentDidMount() {
     this.props.getProducts();
+    document.title = `Pigeons World | Products`;
   }
 
   render() {
