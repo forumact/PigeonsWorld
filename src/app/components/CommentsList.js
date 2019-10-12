@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import Avatar from '../assets/avatar.jpg';
 import CommentForm from "../Forms/CommentForm";
 
@@ -21,7 +21,7 @@ class CommentsList extends Component {
                             <div className="comment-wrap">
                                 <a href="user-profile.html">
                                     <figure className="user-avatar medium">
-                                        <img src={Avatar} alt=""/>
+                                        <img src={Avatar} alt="" />
                                     </figure>
                                 </a>
                                 <div className="comment">
@@ -36,11 +36,11 @@ class CommentsList extends Component {
                                         pariatur.</p>
                                 </div>
                             </div>
-                            <hr className="line-separator"/>
+                            <hr className="line-separator" />
                             <div className="comment-wrap">
                                 <a href="user-profile.html">
                                     <figure className="user-avatar medium">
-                                        <img src={Avatar} alt=""/>
+                                        <img src={Avatar} alt="" />
                                     </figure>
                                 </a>
                                 <div className="comment">
@@ -53,7 +53,7 @@ class CommentsList extends Component {
                                 </div>
                             </div>
                             <div className="clearfix"></div>
-                            <hr className="line-separator"/>
+                            <hr className="line-separator" />
                             <CommentForm onSubmit={this.submit} />
                         </div>
                     </div>

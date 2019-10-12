@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import LogoSmall from '../assets/logo_small.png';
 class Footer extends Component {
     render() {
@@ -8,7 +8,7 @@ class Footer extends Component {
                     <div id="footer-top">
                         <div className="company-info">
                             <figure className="logo small">
-                                <img src={LogoSmall} alt="logo-small"/>
+                                <img src={LogoSmall} alt="logo-small" />
                             </figure>
                             <p>Lorem ipsum dolor sit amet, consectetur isicing elit, sed do eiusmod tempor incididunt ut
                                 labo dolore magna ua.</p>

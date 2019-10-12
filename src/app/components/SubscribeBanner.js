@@ -1,5 +1,5 @@
-import React, {Component} from 'react';
-import  NewIcon from '../assets/news_icon.png';
+import React, { Component } from 'react';
+import NewIcon from '../assets/news_icon.png';
 
 class SubscribeBanner extends Component {
     render() {
@@ -16,8 +16,8 @@ class SubscribeBanner extends Component {
                         </div>
                         <form className="subscribe-form">
                             <input type="text" name="subscribe_email" id="subscribe_email"
-                                   placeholder="Enter your email here..." />
-                                <button className="button medium dark">Subscribe!</button>
+                                placeholder="Enter your email here..." />
+                            <button className="button medium dark">Subscribe!</button>
                         </form>
                     </div>
                 </div>

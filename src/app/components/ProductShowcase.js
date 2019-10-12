@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import ProductCard from "./ProductCard";
 
 class ProductShowcase extends Component {

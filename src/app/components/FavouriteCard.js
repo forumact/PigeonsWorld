@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import avatar from '../assets/avatar.jpg';
 
 class FavouriteCard extends Component {
@@ -7,7 +7,7 @@ class FavouriteCard extends Component {
             <div className="product-item">
                 <a href="item-v1.html">
                     <figure className="product-preview-image small">
-                        <img src={avatar} alt="product"/>
+                        <img src={avatar} alt="product" />
                     </figure>
                 </a>
                 <div className="product-info">
@@ -23,7 +23,7 @@ class FavouriteCard extends Component {
                     <div className="user-rating">
                         <a href="author-profile.html">
                             <figure className="user-avatar small">
-                                <img src={avatar} alt="user-avatar"/>
+                                <img src={avatar} alt="user-avatar" />
                             </figure>
                         </a>
                         <a href="author-profile.html">

@@ -1,5 +1,5 @@
 import React from 'react';
-import {useTitle} from "../helper/MainHelper";
+import { useTitle } from "../helper/MainHelper";
 import HeadLine from "../components/HeadLine";
 import FavouriteCard from "../components/FavouriteCard";
 

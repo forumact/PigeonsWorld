@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
 import ProductImage from "../assets/joystick_m.jpg";
 import Avator from "../assets/avatar.jpg";
@@ -9,7 +9,7 @@ class ProductCard extends Component {
             <div className="product-item column">
                 <div className="product-preview-actions">
                     <figure className="product-preview-image">
-                        <img src={ProductImage} alt="product"/>
+                        <img src={ProductImage} alt="product" />
                     </figure>
                     <div className="preview-actions">
                         <div className="preview-action">
@@ -48,7 +48,7 @@ class ProductCard extends Component {
                 <div className="user-rating">
                     <a href="author-profile.html">
                         <figure className="user-avatar small">
-                            <img src={Avator} alt="user-avatar"/>
+                            <img src={Avator} alt="user-avatar" />
                         </figure>
                     </a>
                     <a href="author-profile.html">

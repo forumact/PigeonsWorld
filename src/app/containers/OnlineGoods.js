@@ -1,7 +1,7 @@
 import React from 'react';
 import HeadLine from "../components/HeadLine";
 import ProductCard from "../components/ProductCard";
-import {useTitle} from "../helper/MainHelper";
+import { useTitle } from "../helper/MainHelper";
 
 const OnlineGoods = () => {
     const title = "Shop Version";

@@ -9,15 +9,15 @@ class UserRegister extends React.Component {
 
   render() {
     return (
-        <div className="section-wrap">
-          <div className="section">
-            <RegisterForm onSubmit={this.submit}/>
-          </div>
+      <div className="section-wrap">
+        <div className="section">
+          <RegisterForm onSubmit={this.submit} />
         </div>
+      </div>
     );
   }
 
-  componentDidMount(){
+  componentDidMount() {
     document.title = `Pigeons World | User Register`;
   }
 }

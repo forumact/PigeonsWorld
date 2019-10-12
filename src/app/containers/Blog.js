@@ -1,7 +1,7 @@
 import React from 'react';
 import HeadLine from "../components/HeadLine";
 import BlogCard from "../components/BlogCard";
-import {useTitle} from "../helper/MainHelper";
+import { useTitle } from "../helper/MainHelper";
 
 const Blog = () => {
     const title = "Blog";
