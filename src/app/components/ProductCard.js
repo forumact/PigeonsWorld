@@ -4,6 +4,10 @@ import ProductImage from "../assets/joystick_m.jpg";
 import Avator from "../assets/avatar.jpg";
 
 class ProductCard extends Component {
+    constructor(props) {
+        super(props);
+        console.log(props.product);
+    }
     render() {
         return (
             <div className="product-item column">
@@ -13,12 +17,12 @@ class ProductCard extends Component {
                     </figure>
                     <div className="preview-actions">
                         <div className="preview-action">
-                            <NavLink exact to="/product-details/1">
+                            <NavLink exact to={`/product-details/${this.props.product.id}`}>
                                 <div className="circle tiny primary">
                                     <span className="icon-tag"></span>
                                 </div>
                             </NavLink>
-                            <NavLink exact to="/product-details/1">
+                            <NavLink exact to={`/product-details/${this.props.product.id}`}>
                                 <p>Go to Item</p>
                             </NavLink>
                         </div>
@@ -35,12 +39,12 @@ class ProductCard extends Component {
                     </div>
                 </div>
                 <div className="product-info">
-                    <NavLink exact to="/product-details/1">
-                        <p className="text-header">PX4 Crimson Joystick (Used)</p>
+                    <NavLink exact to={`/product-details/${this.props.product.id}`}>
+                        <p className="text-header">{this.props.product.name}</p>
                     </NavLink>
-                    <p className="product-description">Lorem ipsum dolor sit urarde...</p>
+                    <p className="product-description">{this.props.product.phone}</p>
                     <a href="products.html">
-                        <p className="category tertiary">Accesories</p>
+                        <p className="category tertiary">{this.props.product.website}</p>
                     </a>
                     <p className="price"><span>$</span>24</p>
                 </div>
