@@ -5789,6 +5789,12 @@ header .account-actions .button:last-child {
     right: 32px;
 }
 
+.author-profile-banner {
+    background: url("../app/assets/profile_banner.jpg") no-repeat center;
+    background-size: cover;
+    min-height: 300px;
+    }
+
 /*--------------------
   	BLOG COMMENTS
 --------------------*/
