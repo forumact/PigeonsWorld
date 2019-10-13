@@ -8,11 +8,17 @@ export const watchGetProducts = function* () {
 
 function* workerGetProducts() {
   try {
-    const uri = 'https://jsonplaceholder.typicode.com/users';
-    const result = yield call(Axios.get, uri);
+    //const uri = 'https://jsonplaceholder.typicode.com/users';
+    const uri = 'http://pigeonsworld.local/api/pigeons';
+    const headerParams = {
+      'Content-Type': `application/json`,
+      'X-CSRF-Token': `b2wIWp7bpSjA1DVoTQv8ED4E2X6WMzd6QEUDXvTtE2c`
+    };
+    const result = yield call(Axios.post, uri, '', { headers: headerParams });
+    console.log(result);
     yield put({ type: SET_PRODUCTS, value: result.data });
   }
-  catch {
-    console.log('Failed');
+  catch (err) {
+    console.log(err);
   }
 } 

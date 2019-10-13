@@ -43,9 +43,9 @@ class ProductCard extends Component {
                         <p className="text-header">{this.props.product.name}</p>
                     </NavLink>
                     <p className="product-description">{this.props.product.phone}</p>
-                    <a href="products.html">
+                    <NavLink exact to={`/product-details/${this.props.product.id}`}>
                         <p className="category tertiary">{this.props.product.website}</p>
-                    </a>
+                    </NavLink>
                     <p className="price"><span>$</span>{this.props.product.id * 5}</p>
                 </div>
                 <hr className="line-separator" />
