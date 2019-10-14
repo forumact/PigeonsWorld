@@ -5,13 +5,13 @@ import axios from 'axios';
 class Login extends React.Component {
   submit = values => {
     try {
-      //axios.get(`http://pigeonsworld.local/api/pigeons`)
+      //axios.get(`http://pegionsworld.local/api/pigeons`)
       console.log(values);
       const userdata = {
         name: values.username,
         pass: values.password
       };
-      axios.post(`http://pigeonsworld.local/user/login?_format=json`, userdata, {
+      axios.post(`http://pegionsworld.local/user/login?_format=json`, userdata, {
         headers: {
           'Content-Type': 'application/json',
         }

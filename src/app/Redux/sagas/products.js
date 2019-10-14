@@ -9,7 +9,7 @@ export const watchGetProducts = function* () {
 function* workerGetProducts() {
   try {
     //const uri = 'https://jsonplaceholder.typicode.com/users';
-    const uri = 'http://pigeonsworld.local/api/pigeons';
+    const uri = 'http://pegionsworld.local/api/pigeons';
     const headerParams = {
       'Content-Type': `application/json`,
       'X-CSRF-Token': `b2wIWp7bpSjA1DVoTQv8ED4E2X6WMzd6QEUDXvTtE2c`
