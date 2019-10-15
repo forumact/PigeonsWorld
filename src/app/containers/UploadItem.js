@@ -68,7 +68,7 @@ class UploadItem extends Component {
   }
 
   componentDidMount() {
-    document.title = `Pigeons World | Upload Items`;
+    document.title = `Pegions World | Upload Items`;
   }
 }
 

@@ -1,66 +1,86 @@
 import React, { Component } from 'react';
 import Avatar from '../assets/avatar.jpg';
 import CommentForm from "../Forms/CommentForm";
+import { fetchCommentList } from '../Networks';
 
 class CommentsList extends Component {
-    submit = values => {
-        // print the form values to the console
-        console.log(values)
+
+  constructor() {
+    super();
+    this.state = {
+      commentlist: []
     }
-    render() {
-        return (
-            <div>
-                <div className="post-tab xmtab">
-                    <div className="tab-header primary">
-                        <div className="tab-item selected">
-                            <p className="text-header">Comments (35)</p>
-                        </div>
-                    </div>
-                    <div className="tab-content void open">
-                        <div className="comment-list">
-                            <div className="comment-wrap">
-                                <a href="user-profile.html">
-                                    <figure className="user-avatar medium">
-                                        <img src={Avatar} alt="" />
-                                    </figure>
-                                </a>
-                                <div className="comment">
-                                    <p className="text-header">View as Customer</p>
-                                    <span className="pin greyed">Purchased</span>
-                                    <p className="timestamp">5 Hours Ago</p>
-                                    <a href="/" className="report">Report</a>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-                                        incididunt ut labore et dolore magnada. Ut enim ad minim veniam, quis nostrud
-                                        exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
-                                        irure dolor in henderit in voluptate velit esse cillum dolore eu fugiat nulla
-                                        pariatur.</p>
-                                </div>
-                            </div>
-                            <hr className="line-separator" />
-                            <div className="comment-wrap">
-                                <a href="user-profile.html">
-                                    <figure className="user-avatar medium">
-                                        <img src={Avatar} alt="" />
-                                    </figure>
-                                </a>
-                                <div className="comment">
-                                    <p className="text-header">View as Customer</p>
-                                    <p className="timestamp">6 Days Ago</p>
-                                    <a href="/" className="report">Report</a>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-                                        incididunt ut labore et dolore magnada. Ut enim ad minim veniam, quis nostrud
-                                        exercitation ullamco laboris.</p>
-                                </div>
-                            </div>
-                            <div className="clearfix"></div>
-                            <hr className="line-separator" />
-                            <CommentForm onSubmit={this.submit} />
-                        </div>
-                    </div>
-                </div>
+  }
+
+
+  submit = values => {
+    // print the form values to the console
+    console.log(values.comment)
+    const msg = {
+      id: 10,
+      comment_body: values.comment,
+      created: '2018-06-15',
+      uid: 1,
+      uname: 'admin'
+    };
+
+    this.setState({
+      commentlist: [...this.state.commentlist, msg],
+    });
+  }
+
+  render() {
+    return (
+      <div>
+        <div className="post-tab xmtab">
+          <div className="tab-header primary">
+            <div className="tab-item selected">
+              <p className="text-header">Comments ({this.state.commentlist.length})</p>
             </div>
-        );
-    }
+          </div>
+          <div className="tab-content void open">
+            <div className="comment-list">
+              {this.state.commentlist.map(c => (
+                <div key={c.id}>
+                  <div className="comment-wrap" key={c.id}>
+                    <a href="user-profile.html">
+                      <figure className="user-avatar medium">
+                        <img src={Avatar} alt="" />
+                      </figure>
+                    </a>
+                    <div className="comment">
+                      <p className="text-header">{c.uname}</p>
+                      <span className="pin greyed">Purchased</span>
+                      <p className="timestamp">{c.created}</p>
+                      <a href="/" className="report">Report</a>
+                      <div dangerouslySetInnerHTML={{ __html: c.comment_body }} />
+                    </div>
+                  </div>
+                  <hr className="line-separator" />
+                </div>
+              ))}
+              <div className="clearfix"></div>
+              <hr className="line-separator" />
+              <CommentForm onSubmit={this.submit} />
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  componentDidMount() {
+    const data = {
+      id: this.props.nid
+    };
+
+    fetchCommentList(data).then((response) => {
+      this.setState({
+        commentlist: response.data
+      })
+      document.title = `Pigeons World | ${response.data.title}`;
+    });
+  }
 }
 
 export default CommentsList;

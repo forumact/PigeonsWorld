@@ -1,9 +1,7 @@
 import React from 'react'
 import { Field, reduxForm } from 'redux-form'
 import { Link } from "react-router-dom";
-import { renderField } from "../helper/MainHelper";
-import FacebookLogin from 'react-facebook-login';
-import GoogleLogin from 'react-google-login';
+import { renderField } from "../helper/MainHelper"
 
 
 const validate = values => {
@@ -15,14 +13,6 @@ const validate = values => {
     errors.password = 'Required'
   }
   return errors
-}
-
-const responseFacebook = (response) => {
-  console.log(response);
-}
-
-const responseGoogle = (response) => {
-  console.log(response);
 }
 
 let LoginForm = props => {
@@ -52,22 +42,8 @@ let LoginForm = props => {
           </button>
         </form>
         <hr className="line-separator double" />
-        {/* <a href="/" className="button mid fb half">Login with Facebook</a> */}
-        {/* <a href="/" className="button mid twt half">Login with Twitter</a> */}
-       
-        <GoogleLogin
-          clientId="451309071348-qq8j6k6fqomtcr6tlk83vihpk627apb2.apps.googleusercontent.com" //CLIENTID NOT CREATED YET
-          buttonText="GOOGLE LOGIN"
-          onSuccess={responseGoogle}
-          onFailure={responseGoogle}
-        />
-        <FacebookLogin
-          appId="" //APP ID NOT CREATED YET
-          size="small"
-          fields="name,email,picture"
-          callback={responseFacebook}
-          textButton="FACEBOOK"
-        />
+        <a href="/" className="button mid fb half">Login with Facebook</a>
+        <a href="/" className="button mid twt half">Login with Twitter</a>
       </div>
     </div>
   )

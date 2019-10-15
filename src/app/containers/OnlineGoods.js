@@ -53,7 +53,7 @@ class OnlineGoods extends Component {
   }
 
   componentDidMount() {
-    document.title = `Pigeons World | Online Goods`;
+    document.title = `Pegions World | Online Goods`;
   }
 
 }

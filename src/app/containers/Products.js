@@ -28,7 +28,7 @@ class Products extends Component {
           <div className="section">
             <div className="content">
               <div className="headline tertiary">
-                <h4>12.580 Products Found</h4>
+                <h4>{this.props.products.length} Products Found</h4>
                 <form id="shop_filter_form" name="shop_filter_form">
                   <label htmlFor="price_filter" className="select-block">
                     <select name="price_filter" id="price_filter">
@@ -60,7 +60,7 @@ class Products extends Component {
 }
 
 
-const mapStateToProps = (state) => {  
+const mapStateToProps = (state) => {
   return {
     products: state.products
   }

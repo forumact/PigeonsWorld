@@ -362,7 +362,7 @@ input {
     display: block;
 }
 
-input[type="text"].invalid, input[type="email"].invalid, input[type="password"].invalid {
+input[type="text"].invalid, input[type="email"].invalid, input[type="password"].invalid, textarea.invalid {
     border-color: #ea2e68;
 }
 

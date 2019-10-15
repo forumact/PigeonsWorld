@@ -7,7 +7,7 @@ import React, { useEffect } from 'react'
 export function useTitle(titleOrFn) {
   useEffect(
     () => {
-      document.title = `Pigeons World | ${titleOrFn}`;
+      document.title = `Pegions World | ${titleOrFn}`;
     }
   );
 }
@@ -29,6 +29,16 @@ export const renderField = ({
     </div>
   )
 
+  export const renderFieldTextarea = ({
+    input,
+    placeholder,
+    type,
+    meta: { touched, error, warning }
+  }) => (
+      <div>
+        <textarea {...input} placeholder={placeholder} type={type} className={(touched && error) ? 'invalid' : ''}></textarea>
+      </div>
+    )
 
 export const renderFieldError = ({
   input,
@@ -43,3 +53,11 @@ export const renderFieldError = ({
           (warning && <span>{warning}</span>))}
     </div>
   )
+
+export function substring(string, limit, ellipsis) {
+  let text = string;
+  if (string.length > limit) {
+    text = string.substring(0, 20) + ellipsis;
+  }
+  return text;
+}

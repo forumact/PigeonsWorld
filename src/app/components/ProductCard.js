@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
+import { substring } from '../helper/MainHelper';
 import ProductImage from "../assets/joystick_m.jpg";
 import Avator from "../assets/avatar.jpg";
 
@@ -9,11 +10,12 @@ class ProductCard extends Component {
         //console.log(props)
     }
     render() {
+        let img = this.props.product.img ? this.props.product.img : ProductImage;
         return (
             <div className="product-item column">
                 <div className="product-preview-actions">
                     <figure className="product-preview-image">
-                        <img src={ProductImage} alt="product" />
+                        <img src={img} alt="product" />
                     </figure>
                     <div className="preview-actions">
                         <div className="preview-action">
@@ -40,7 +42,7 @@ class ProductCard extends Component {
                 </div>
                 <div className="product-info">
                     <NavLink exact to={`/product-details/${this.props.product.id}`}>
-                        <p className="text-header">{this.props.product.name}</p>
+                        <p className="text-header">{substring(this.props.product.title, 25, '.....')}</p>
                     </NavLink>
                     <p className="product-description">{this.props.product.phone}</p>
                     <NavLink exact to={`/product-details/${this.props.product.id}`}>

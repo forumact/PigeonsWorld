@@ -18,7 +18,7 @@ class UserRegister extends React.Component {
   }
 
   componentDidMount() {
-    document.title = `Pigeons World | User Register`;
+    document.title = `Pegions World | User Register`;
   }
 }
 

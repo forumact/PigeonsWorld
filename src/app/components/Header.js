@@ -26,14 +26,14 @@ class Header extends Component {
           </div>
           <div className="user-board">
             <div className="user-quickview">
-              <a href="http://odindesign-themes.com/emerald-dragon/author-profile.html">
+              <Link to={'/user-edit'}>
                 <div className="outer-ring">
                   <div className="inner-ring"></div>
                   <figure className="user-avatar">
                     <img src={Avatar} alt="avatar" />
                   </figure>
                 </div>
-              </a>
+              </Link>
             </div>
             <div className="account-information">
               <Link to={'/your-favourites'}>
