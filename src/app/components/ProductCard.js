@@ -5,10 +5,10 @@ import ProductImage from "../assets/joystick_m.jpg";
 import Avator from "../assets/avatar.jpg";
 
 class ProductCard extends Component {
-    constructor(props) {
-        super(props);
-        //console.log(props)
-    }
+    // constructor(props) {
+    //     super(props);
+    //     //console.log(props)
+    // }
     render() {
         let img = this.props.product.img ? this.props.product.img : ProductImage;
         return (
@@ -42,7 +42,7 @@ class ProductCard extends Component {
                 </div>
                 <div className="product-info">
                     <NavLink exact to={`/product-details/${this.props.product.id}`}>
-                        <p className="text-header">{substring(this.props.product.title, 25, '.....')}</p>
+                        <p className="text-header">{substring(this.props.product.title, 20, '.....')}</p>
                     </NavLink>
                     <p className="product-description">{this.props.product.phone}</p>
                     <NavLink exact to={`/product-details/${this.props.product.id}`}>

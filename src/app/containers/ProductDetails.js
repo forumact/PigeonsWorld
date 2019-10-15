@@ -34,7 +34,8 @@ class ProductDetails extends Component {
                 </div>
                 <div className="post-content">
                   <div className="post-paragraph">
-                    {body}
+                    {/* {body} */}
+                    <div dangerouslySetInnerHTML={{ __html: body }} />
                   </div>
                 </div>
                 <hr className="line-separator" />
@@ -58,7 +59,7 @@ class ProductDetails extends Component {
   }
 
 
-  componentDidMount() {    
+  componentDidMount() {
     const data = {
       id: this.props.match.params.pid
     };

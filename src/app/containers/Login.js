@@ -1,6 +1,5 @@
 import React from 'react';
 import LoginForm from '../Forms/LoginForm';
-import axios from 'axios';
 import { login } from '../Networks';
 
 class Login extends React.Component {

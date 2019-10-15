@@ -57,7 +57,7 @@ export const renderFieldError = ({
 export function substring(string, limit, ellipsis) {
   let text = string;
   if (string.length > limit) {
-    text = string.substring(0, 20) + ellipsis;
+    text = string.substring(0, 18) + ellipsis;
   }
   return text;
 }

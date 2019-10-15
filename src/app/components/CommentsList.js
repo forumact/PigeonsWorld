@@ -18,7 +18,7 @@ class CommentsList extends Component {
     console.log(values.comment)
     const msg = {
       id: 10,
-      comment_body: values.comment,
+      comment_body: (values.comment) ? values.comment: 'Pakkalam',
       created: '2018-06-15',
       uid: 1,
       uname: 'admin'
