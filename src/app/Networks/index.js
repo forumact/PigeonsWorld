@@ -21,3 +21,11 @@ export async function fetchProductDetails(data) {
 export async function fetchCommentList(data) {
   return await instance.post('/api/comment', data);
 }
+
+export async function commentcreate(data) {
+  return await instance.post('/api/comment/create', data);
+}
+
+export async function fetchBlogList(data) {
+  return await instance.get('/api/blog', data);
+}

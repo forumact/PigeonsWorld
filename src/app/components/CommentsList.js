@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import Avatar from '../assets/avatar.jpg';
 import CommentForm from "../Forms/CommentForm";
-import { fetchCommentList } from '../Networks';
+import { fetchCommentList, commentcreate } from '../Networks';
+import { reset } from 'redux-form';
+import { preparecommentobject } from '../helper/MainHelper';
 
 class CommentsList extends Component {
 
@@ -13,20 +15,15 @@ class CommentsList extends Component {
   }
 
 
-  submit = values => {
+  submit = (values, dispatch) => {
     // print the form values to the console
     console.log(values.comment)
-    const msg = {
-      id: 10,
-      comment_body: (values.comment) ? values.comment: 'Pakkalam',
-      created: '2018-06-15',
-      uid: 1,
-      uname: 'admin'
-    };
-
+    let msg = preparecommentobject(values.comment, this.props.nid);
     this.setState({
       commentlist: [...this.state.commentlist, msg],
     });
+    dispatch(reset('comment'));
+    commentcreate(msg);
   }
 
   render() {
