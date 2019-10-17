@@ -5,6 +5,7 @@ import ShippingInformation from '../Forms/ShippingInformation';
 import AccountSettingsForm from '../Forms/AccountSettingsForm';
 import { userUpdate } from '../Networks';
 import FormTesting from '../components/FormTesting';
+import FileUpload from '../components/FileUpload';
 
 class AccountSettings extends Component {
 
@@ -42,14 +43,14 @@ class AccountSettings extends Component {
             <h4>Profile Information</h4>
             <hr className="line-separator" />
             <div className="profile-image">
-              <div className="profile-image-data">
+              {/* <div className="profile-image-data">
                 <figure className="user-avatar medium">
                   <img src="images/dashboard/profile-default-image.png" alt="profile-default" />
                 </figure>
                 <p className="text-header">Profile Photo</p>
                 <p className="upload-details">Minimum size 70x70px</p>
-              </div>
-              <a href="/" className="button mid-short dark-light">Upload Image...</a>
+              </div> */}
+              <FileUpload></FileUpload>              
             </div>
             <AccountSettingsForm onSubmit={this.submit}></AccountSettingsForm>
           </div>
