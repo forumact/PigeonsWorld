@@ -1,6 +1,6 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form'
-import { renderField } from "../helper/MainHelper"
+import { renderField, city } from "../helper/MainHelper"
 
 
 const validate = values => {
@@ -64,14 +64,13 @@ let AccountSettingsForm = props => {
         </div>
 
         <div className="input-container half">
-          <label htmlFor="country1" className="rl-label required">Country</label>
+          <label htmlFor="country1" className="rl-label required">City</label>
           <label htmlFor="country1" className="select-block">
             <Field name="country1" component="select">
-              <option value="0">Select your Country...</option>
-              <option value="1">United States</option>
-              <option value="2">Argentina</option>
-              <option value="3">Brasil</option>
-              <option value="4">Japan</option>
+              <option value="0">Select your City...</option>
+              {city.map((c, i) => (
+                <option value={c} key={i}>{c}</option>
+              ))}
             </Field>
           </label>
         </div>

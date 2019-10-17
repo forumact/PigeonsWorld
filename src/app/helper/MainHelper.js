@@ -95,3 +95,9 @@ export function preparecommentobject(commenttxt, nid) {
 
   return msg;
 }
+
+export const city = ['Chennai', 'Coimbatore', 'Madurai', 'Tiruchirappalli', 'Tiruppur',
+  'Salem', 'Erode', 'Tirunelveli', 'Vellore', 'Thoothukkudi', 'Dindigul', 'Thanjavur',
+  'Ranipet', 'Sivakasi', 'Karur', 'Udhagamandalam', 'Hosur', 'Nagercoil', 'Kancheepuram',
+  'Kumarapalayam', 'Karaikkudi', 'Neyveli', 'Cuddalore', 'Kumbakonam', 'Tiruvannamalai', 'Pollachi',
+  'Rajapalayam', 'Gudiyatham', 'Pudukkottai', 'Vaniyambadi', 'Ambur', 'Nagapattinam'];

@@ -2,9 +2,13 @@ import React, { Component } from 'react';
 import Logo from '../assets/logo.png';
 import Avatar from '../assets/avatar.jpg';
 import { Link, NavLink } from "react-router-dom";
+import { withRouter } from 'react-router-dom';
 
 class Header extends Component {
+
   render() {
+    const loggedin = localStorage.getItem('csrf');
+
     return (
       <div className="header-wrap">
         <header>
@@ -43,14 +47,25 @@ class Header extends Component {
               </Link>
             </div>
             <div className="account-actions">
-              <Link to={'/user-edit'} className="button primary">Become a Seller</Link>
-              <Link to={'/login'} className="button secondary">Login</Link>
+              {!(loggedin) ?
+                <Link to={'/login'} className="button secondary">Login</Link> :
+                <>
+                  <Link to={'/user-edit'} className="button primary">Become a Seller</Link>
+                  <button type="submit" className="button secondary" onClick={() => { this.onSubmit(this.props) }}>Logout</button>
+                </>
+              }
             </div>
           </div>
         </header>
       </div>
     );
   }
+
+  onSubmit = (props) => {
+    console.log('login session removed');
+    localStorage.removeItem('csrf');
+    this.props.history.push("/");
+  }
 }
 
-export default Header;
+export default withRouter(Header);

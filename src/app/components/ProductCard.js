@@ -42,7 +42,7 @@ class ProductCard extends Component {
                 </div>
                 <div className="product-info">
                     <NavLink exact to={`/product-details/${this.props.product.id}`}>
-                        <p className="text-header">{substring(this.props.product.title, 20, '.....')}</p>
+                        <p className="text-header" title={this.props.product.title}>{substring(this.props.product.title, 18, '.....')}</p>
                     </NavLink>
                     <p className="product-description">{this.props.product.phone}</p>
                     <NavLink exact to={`/product-details/${this.props.product.id}`}>

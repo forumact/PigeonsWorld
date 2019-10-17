@@ -36,6 +36,41 @@ let SocialMediaForm = props => {
           <Field id="social_twt_link" name="social_twt_link" type="text" component={renderField}
             placeholder="Enter your social link here..." />
         </div>
+        <div className="input-container">
+          <ul className="share-links">
+            <li><a href="/" className="twt">&nbsp;</a></li>
+          </ul>
+          <Field id="social_twt_link" name="social_twt_link" type="text" component={renderField}
+            placeholder="Enter your social link here..." />
+        </div>
+        <div className="input-container">
+          <ul className="share-links">
+            <li><a href="/" className="twt">&nbsp;</a></li>
+          </ul>
+          <Field id="social_twt_link" name="social_twt_link" type="text" component={renderField}
+            placeholder="Enter your social link here..." />
+        </div>
+        <div className="input-container">
+          <ul className="share-links">
+            <li><a href="/" className="twt">&nbsp;</a></li>
+          </ul>
+          <Field id="social_twt_link" name="social_twt_link" type="text" component={renderField}
+            placeholder="Enter your social link here..." />
+        </div>
+        <div className="input-container">
+          <ul className="share-links">
+            <li><a href="/" className="twt">&nbsp;</a></li>
+          </ul>
+          <Field id="social_twt_link" name="social_twt_link" type="text" component={renderField}
+            placeholder="Enter your social link here..." />
+        </div>
+        <div className="input-container">
+          <ul className="share-links">
+            <li><a href="/" className="twt">&nbsp;</a></li>
+          </ul>
+          <Field id="social_twt_link" name="social_twt_link" type="text" component={renderField}
+            placeholder="Enter your social link here..." />
+        </div>        
         <button form="profile-info-form" className="button mid-short primary">Save Changes</button>
       </form>
     </div>
