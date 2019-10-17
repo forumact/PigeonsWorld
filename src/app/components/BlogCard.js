@@ -1,30 +1,33 @@
 import React, { Component } from 'react';
-import BlogImg from "../assets/04s.jpg";
 import { Link } from "react-router-dom";
+import { substring } from '../helper/MainHelper';
 
 class BlogCard extends Component {
   render() {
-    let { id, img, title, created } = this.props.blog;
+    let { id, img, title, created, body, country_of_origin } = this.props.blog;
     return (
       <div className="blog-post-preview-item column">
         <Link to={`/product-details/${id}`}>
           <figure className="product-preview-image big liquid">
-            <img src={img} alt="" />
+            <img src={img} alt="pigeon" />
           </figure>
         </Link>
         <div className="blog-post-preview-item-info">
           <p className="text-header mid">
-            <Link to={`/product-details/${id}`}>{title}</Link>
+            <Link to={`/product-details/${id}`}>{substring(title, 20, '.....')}</Link>
           </p>
           <div className="meta-line">
             <a href="open-post.html">
-              <p className="category primary">Design Inspires</p>
+              <p className="category primary">{country_of_origin}</p>
             </a>
             <p>{created}</p>
           </div>
-          <p className="description-preview">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-            sed do eiusmod tempor incididunt ut labore et dolore magna ua. Ut enim ad minim veniam,
-              quis nostrud exercitation.</p>
+          <div className="description-preview">
+            <p>
+              {substring(body, 180, '.....')}
+            </p>
+            {/* <div dangerouslySetInnerHTML={{ __html: body }} /> */}
+          </div>
           <div className="metadata">
             <div className="meta-item">
               <span className="icon-bubble"></span>

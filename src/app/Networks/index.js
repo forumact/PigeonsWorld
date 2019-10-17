@@ -29,3 +29,7 @@ export async function commentcreate(data) {
 export async function fetchBlogList(data) {
   return await instance.get('/api/blog', data);
 }
+
+export async function userUpdate(data) {
+  return await instance.post('/api/user/update', data);
+}
