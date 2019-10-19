@@ -4,7 +4,7 @@ import { substring } from '../helper/MainHelper';
 
 class BlogCard extends Component {
   render() {
-    let { id, img, title, created, body, country_of_origin } = this.props.blog;
+    let { id, img, title, created, body, country_of_origin, comment_count } = this.props.blog;
     return (
       <div className="blog-post-preview-item column">
         <Link to={`/product-details/${id}`}>
@@ -31,7 +31,7 @@ class BlogCard extends Component {
           <div className="metadata">
             <div className="meta-item">
               <span className="icon-bubble"></span>
-              <p>05</p>
+              <p>{comment_count}</p>
             </div>
             <div className="meta-item">
               <span className="icon-eye"></span>

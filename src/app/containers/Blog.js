@@ -14,6 +14,7 @@ class Blog extends Component {
 
   render() {
     const title = "Blog";
+    console.log(this.state.bloglist);
     return (
       <div>
         <HeadLine title={title}></HeadLine>
