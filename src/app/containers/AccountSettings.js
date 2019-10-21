@@ -4,7 +4,6 @@ import BillingInformation from '../Forms/BillingInformation';
 import ShippingInformation from '../Forms/ShippingInformation';
 import AccountSettingsForm from '../Forms/AccountSettingsForm';
 import { userUpdate } from '../Networks';
-import FormTesting from '../components/FormTesting';
 import FileUpload from '../components/FileUpload';
 
 class AccountSettings extends Component {

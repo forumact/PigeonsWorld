@@ -53,3 +53,11 @@ export async function fetchBlogList(data) {
 export async function userUpdate(data) {
   return await instance.post('/api/v1/user/update', data);
 }
+
+export async function flag(data) {
+  return await instance.post('/api/v1/flag/create', data);
+}
+
+export async function fetchFlag(data){
+  return await instance.post('/api/v1/flag', data);
+}

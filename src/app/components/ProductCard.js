@@ -3,12 +3,19 @@ import { NavLink } from 'react-router-dom';
 import { substring } from '../helper/MainHelper';
 import ProductImage from "../assets/joystick_m.jpg";
 import Avator from "../assets/avatar.jpg";
+import { flag } from '../Networks';
 
 class ProductCard extends Component {
     // constructor(props) {
     //     super(props);
     //     //console.log(props)
     // }
+
+    yourfavorites(e, id) {
+        e.preventDefault();
+        flag(id);
+        alert(id);
+    }
     render() {
         let img = this.props.product.img ? this.props.product.img : ProductImage;
         return (
@@ -31,7 +38,7 @@ class ProductCard extends Component {
                         <div className="preview-action">
                             <a href="/">
                                 <div className="circle tiny secondary">
-                                    <span className="icon-heart"></span>
+                                    <span onClick={(e) => this.yourfavorites(e, this.props.product.id)} className="icon-heart"></span>
                                 </div>
                             </a>
                             <a href="/">

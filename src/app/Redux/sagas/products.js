@@ -9,8 +9,7 @@ export const watchGetProducts = function* () {
 function* workerGetProducts() {
   try {   
     //const result = yield call(Axios.post, uri, '', { headers: headerParams });
-    const result = yield call(fetchPigeons);
-    console.log(result.data);
+    const result = yield call(fetchPigeons);    
     yield put({ type: SET_PRODUCTS, value: result.data });
   }
   catch (err) {
