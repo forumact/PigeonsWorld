@@ -47,7 +47,7 @@ export async function commentcreate(data) {
 }
 
 export async function fetchBlogList(data) {
-  return await instance.get('/api/v1/blog', data);
+  return await instance.get('/api/v1/blog?_format=json', {});
 }
 
 export async function userUpdate(data) {

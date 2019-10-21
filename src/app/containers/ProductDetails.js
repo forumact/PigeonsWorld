@@ -3,13 +3,15 @@ import HeadLine from "../components/HeadLine";
 import CommentsList from "../components/CommentsList";
 import ProductInfo from '../components/ProductInfo';
 import { fetchProductDetails } from '../Networks';
+import ProductSeller from '../components/ProductSeller';
+import ProductMarketing from '../components/ProductMarketing';
 
 class ProductDetails extends Component {
   constructor() {
     super();
 
     this.state = {
-      product: ''
+      product: []
     }
   }
 
@@ -22,7 +24,9 @@ class ProductDetails extends Component {
         <div className="section-wrap">
           <div className="section">
             <div className="sidebar right">
-              <ProductInfo></ProductInfo>
+              <ProductMarketing></ProductMarketing>
+              <ProductInfo product={this.state.product}></ProductInfo>
+              <ProductSeller product={this.state.product}></ProductSeller>
             </div>
             <div className="content left">
               <article className="post">

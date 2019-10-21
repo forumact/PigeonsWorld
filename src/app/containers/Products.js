@@ -3,6 +3,8 @@ import HeadLine from "../components/HeadLine";
 import ProductCard from "../components/ProductCard";
 import { connect } from "react-redux";
 import { GET_PRODUCTS } from '../Redux/actions';
+import ProductSideBar from '../components/ProductSideBar';
+import ProductsFilter from '../components/ProductsFilter';
 
 class Products extends Component {
 
@@ -29,7 +31,7 @@ class Products extends Component {
             <div className="content">
               <div className="headline tertiary">
                 <h4>{this.props.products.length} Products Found</h4>
-                <form id="shop_filter_form" name="shop_filter_form">
+                {/* <form id="shop_filter_form" name="shop_filter_form">
                   <label htmlFor="price_filter" className="select-block">
                     <select name="price_filter" id="price_filter">
                       <option value="0">Price (High to Low)</option>
@@ -42,7 +44,7 @@ class Products extends Component {
                       <option value="1">6 Items Per Page</option>
                     </select>
                   </label>
-                </form>
+                </form> */}
               </div>
               <div className="product-showcase">
                 <div className="product-list grid column3-4-wrap">
@@ -51,6 +53,10 @@ class Products extends Component {
                   })}
                 </div>
               </div>
+            </div>
+            <div className="sidebar">
+              <ProductSideBar></ProductSideBar>
+              <ProductsFilter></ProductsFilter>
             </div>
           </div>
         </div>
