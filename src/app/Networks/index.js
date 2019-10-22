@@ -63,6 +63,10 @@ export async function flag(data) {
   return await instance.post('/api/v1/flag/create', data);
 }
 
-export async function fetchFlag(data){
+export async function fetchFlag(data) {
   return await instance.post('/api/v1/flag', data);
+}
+
+export async function userLogout(data) {
+  return await instance.post('/api/v1/user-logout', {});
 }

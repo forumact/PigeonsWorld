@@ -101,3 +101,5 @@ export const city = ['Chennai', 'Coimbatore', 'Madurai', 'Tiruchirappalli', 'Tir
   'Ranipet', 'Sivakasi', 'Karur', 'Udhagamandalam', 'Hosur', 'Nagercoil', 'Kancheepuram',
   'Kumarapalayam', 'Karaikkudi', 'Neyveli', 'Cuddalore', 'Kumbakonam', 'Tiruvannamalai', 'Pollachi',
   'Rajapalayam', 'Gudiyatham', 'Pudukkottai', 'Vaniyambadi', 'Ambur', 'Nagapattinam'];
+
+export const PigeonCategory = ['All', 'Fancy', 'Racing', 'Homing', 'Chicks', 'Patta'];

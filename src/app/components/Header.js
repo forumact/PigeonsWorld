@@ -3,6 +3,7 @@ import Logo from '../assets/logo.png';
 import Avatar from '../assets/avatar.jpg';
 import { Link, NavLink } from "react-router-dom";
 import { withRouter } from 'react-router-dom';
+import { userLogout } from '../Networks';
 
 class Header extends Component {
 
@@ -64,6 +65,7 @@ class Header extends Component {
   onSubmit = (props) => {
     console.log('login session removed');
     localStorage.removeItem('csrf');
+    userLogout();
     this.props.history.push("/");
   }
 }
