@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 import HeadLine from "../components/HeadLine";
-import ProductCard from "../components/ProductCard";
+import ProductCard from "../components/Product/ProductCard";
 import { connect } from "react-redux";
 import { GET_PRODUCTS } from '../Redux/actions';
-import ProductSideBar from '../components/ProductSideBar';
-import ProductsFilter from '../components/ProductsFilter';
+import ProductSideBar from '../components/Product/ProductSideBar';
+import ProductsFilter from '../components/Product/ProductsFilter';
 
 class Products extends Component {
 

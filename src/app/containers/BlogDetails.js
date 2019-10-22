@@ -1,33 +1,27 @@
 import React, { Component } from 'react';
 import HeadLine from "../components/HeadLine";
 import CommentsList from "../components/CommentsList";
-import ProductInfo from '../components/Product/ProductInfo';
-import { fetchProductDetails } from '../Networks';
-import ProductSeller from '../components/Product/ProductSeller';
-import ProductMarketing from '../components/Product/ProductMarketing';
+import { fetchBlogDetails } from '../Networks';
 import SocilaMediaShareLinks from '../components/SocilaMediaShareLinks';
 
-class ProductDetails extends Component {
+class BlogDetails extends Component {
   constructor() {
     super();
 
     this.state = {
-      product: []
+      blog: []
     }
   }
 
 
   render() {
-    const { title, body, img } = this.state.product;
+    const { title, body, img } = this.state.blog;
     return (
       <div>
         <HeadLine title={title}></HeadLine>
         <div className="section-wrap">
           <div className="section">
             <div className="sidebar right">
-              <ProductMarketing></ProductMarketing>
-              <ProductInfo product={this.state.product}></ProductInfo>
-              <ProductSeller product={this.state.product}></ProductSeller>
             </div>
             <div className="content left">
               <article className="post">
@@ -46,7 +40,7 @@ class ProductDetails extends Component {
                 <hr className="line-separator" />
                 <SocilaMediaShareLinks></SocilaMediaShareLinks>
               </article>
-              <CommentsList nid={this.props.match.params.pid}></CommentsList>
+              <CommentsList nid={this.props.match.params.id}></CommentsList>
             </div>
           </div>
         </div>
@@ -57,12 +51,12 @@ class ProductDetails extends Component {
 
   componentDidMount() {
     const data = {
-      id: this.props.match.params.pid
+      id: this.props.match.params.id
     };
 
-    fetchProductDetails(data).then((response) => {
+    fetchBlogDetails(data).then((response) => {
       this.setState({
-        product: response.data
+        blog: response.data
       })
       document.title = `Pigeons World | ${response.data.title}`;
     });
@@ -70,4 +64,4 @@ class ProductDetails extends Component {
 
 }
 
-export default ProductDetails;
+export default BlogDetails;

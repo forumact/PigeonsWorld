@@ -7,14 +7,14 @@ class BlogCard extends Component {
     let { id, img, title, created, body, country_of_origin, comment_count } = this.props.blog;
     return (
       <div className="blog-post-preview-item column">
-        <Link to={`/product-details/${id}`}>
+        <Link to={`/blog/${id}`}>
           <figure className="product-preview-image big liquid">
             <img src={img} alt="pigeon" />
           </figure>
         </Link>
         <div className="blog-post-preview-item-info">
           <p className="text-header mid">
-            <Link to={`/product-details/${id}`}>{substring(title, 20, '.....')}</Link>
+            <Link to={`/blog/${id}`}>{substring(title, 20, '.....')}</Link>
           </p>
           <div className="meta-line">
             <a href="open-post.html">
@@ -38,7 +38,7 @@ class BlogCard extends Component {
               <p>68</p>
             </div>
           </div>
-          <Link to={`/product-details/${id}`} className={"more-button primary"}>Read More...</Link>
+          <Link to={`/blog/${id}`} className={"more-button primary"}>Read More...</Link>
         </div>
       </div>
     );

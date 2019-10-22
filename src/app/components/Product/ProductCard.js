@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
-import { substring } from '../helper/MainHelper';
-import ProductImage from "../assets/joystick_m.jpg";
-import Avator from "../assets/avatar.jpg";
-import { flag } from '../Networks';
+import { substring } from '../../helper/MainHelper';
+import ProductImage from "../../assets/joystick_m.jpg";
+import Avator from "../../assets/avatar.jpg";
+import { flag } from '../../Networks';
 
 class ProductCard extends Component {
   // constructor(props) {

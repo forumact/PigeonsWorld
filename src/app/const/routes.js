@@ -84,5 +84,11 @@ export const MyRoutes = [
     component: lazy(() => import('../containers/UserProfile')),
     title: "Author's Profile",
     menu: "no",
-  }
+  },
+  {
+    path: '/blog/:id',
+    component: lazy(() => import('../containers/BlogDetails')),
+    title: "Blog",
+    menu: "yes",
+  },
 ];

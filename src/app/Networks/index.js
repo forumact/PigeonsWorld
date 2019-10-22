@@ -51,6 +51,10 @@ export async function fetchBlogList(data) {
   return await instance.get('/api/v1/blog?_format=json', {});
 }
 
+export async function fetchBlogDetails(data) {
+  return await instance.post('/api/v1/blog-details', data);
+}
+
 export async function userUpdate(data) {
   return await instance.post('/api/v1/user/update', data);
 }

@@ -1,14 +1,15 @@
 import React, { Component } from 'react'
-import { flag } from '../Networks';
+import { flag } from '../../Networks';
 
 export default class ProductMarketing extends Component {
 
   yourfavorites(e, id) {
     e.preventDefault();
-    flag(id);    
+    flag(id);
+
   }
 
-  render() {      
+  render() {
     return (
       <div className="sidebar-item void buttons">
         <a href="/" className="button big dark purchase">

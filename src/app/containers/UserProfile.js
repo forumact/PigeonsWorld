@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import HeadLine from '../components/HeadLine'
-import ProductCard from '../components/ProductCard';
+import ProductCard from '../components/Product/ProductCard';
 import { connect } from "react-redux";
 
 class UserProfile extends Component {
