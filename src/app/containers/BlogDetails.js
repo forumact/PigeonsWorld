@@ -65,6 +65,21 @@ class BlogDetails extends Component {
     });
   }
 
+  componentDidUpdate(prevProps) {
+    //Typical usage, don't forget to compare the props
+    if (this.props.match.params.id !== prevProps.match.params.id) {
+      const data = {
+        id: this.props.match.params.id
+      };
+      fetchBlogDetails(data).then((response) => {
+        this.setState({
+          blog: response.data
+        })
+        document.title = `Pigeons World | ${response.data.title}`;
+      });
+    }
+  }
+
 }
 
 export default BlogDetails;

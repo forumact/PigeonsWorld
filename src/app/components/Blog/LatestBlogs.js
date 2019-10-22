@@ -1,26 +1,27 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import { Link } from "react-router-dom";
 
-export default class LatestBlogs extends Component {
-  render() {
+class LatestBlogs extends Component {
+  render() {    
     return (
-      <div class="sidebar-item author-items-v2">
+      <div className="sidebar-item author-items-v2">
         <h4>Latest Posts</h4>
-        <hr class="line-separator" />
-        <div class="item-preview">
-          <a href="/">
-            <figure class="product-preview-image small liquid">
+        <hr className="line-separator" />
+        <div className="item-preview">
+          <Link to={'/blog/137'} replace>
+            <figure className="product-preview-image small liquid">
               <img src="images/blog/01t.jpg" alt="" />
             </figure>
-          </a>
-          <a href="/"><p class="text-header small">Check out the best web themes of the last year</p></a>
-          <p class="category tiny primary"><a href="/">Design Inspires</a></p>
-          <div class="metadata">
-            <div class="meta-item">
-              <span class="icon-bubble"></span>
+          </Link>
+          <a href="/"><p className="text-header small">Check out the best web themes of the last year</p></a>
+          <p className="category tiny primary"><a href="/">Design Inspires</a></p>
+          <div className="metadata">
+            <div className="meta-item">
+              <span className="icon-bubble"></span>
               <p>05</p>
             </div>
-            <div class="meta-item">
-              <span class="icon-eye"></span>
+            <div className="meta-item">
+              <span className="icon-eye"></span>
               <p>68</p>
             </div>
           </div>
@@ -29,3 +30,6 @@ export default class LatestBlogs extends Component {
     )
   }
 }
+
+
+export default LatestBlogs;
