@@ -13,6 +13,7 @@ const instance = axios.create({
 instance.interceptors.request.use(function (config) {
   // spinning start to show
   //self.props.loading(true)
+  //console.log(config);
   return config
 }, function (error) {
   return Promise.reject(error);

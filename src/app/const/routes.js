@@ -80,7 +80,7 @@ export const MyRoutes = [
     menu: "no",
   },
   {
-    path: '/user-profile',
+    path: '/user-profile/:uid',
     component: lazy(() => import('../containers/UserProfile')),
     title: "Author's Profile",
     menu: "no",

@@ -10,15 +10,15 @@ class ProductInfo extends Component {
         <div className="information-layout">
           <div className="information-layout-item">
             <p className="text-header">Upload Date:</p>
-            <p>August 18th, 2015</p>
+            <p>{this.props.product.update}</p>
           </div>
           <div className="information-layout-item">
             <p className="text-header">Item Condition:</p>
-            <p>New</p>
+            <p className="strtoupper">{this.props.product.condition}</p>
           </div>
           <div className="information-layout-item">
             <p className="text-header">Author's Country:</p>
-            <p>United States</p>
+            <p>{this.props.product.city}</p>
           </div>
           <div className="information-layout-item">
             <p className="text-header">International Shipping:</p>

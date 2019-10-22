@@ -6171,6 +6171,37 @@ header .account-actions .button:last-child {
     background-color: #15e159;
 }
 
+.share-links li a.fb {
+    background-image: url("../app/assets/social/fb.png");
+    background-color: #355599;
+}
+
+.share-links li a.twt {
+    background-image: url("../app/assets/social/twt.png");
+    background-color: #0fccf4; 
+}
+.share-links li a.db {
+    background-image: url("../app/assets/social/db.png");
+    background-color: #f63f6e; 
+}
+.share-links li a.rss {
+    background-image: url("../app/assets/social/rss.png");
+    background-position: 50% 45%;
+    background-color: #ffa312; 
+}
+.share-links li a.gplus {
+    background-image: url("../app/assets/social/gplus.png");
+    background-color: #e0133a; 
+}
+.share-links li a.be {
+    background-image: url("../app/assets/social/be.png");
+    background-color: #0d79ab; 
+}
+.share-links li a.de {
+    background-image: url("../app/assets/social/de.png");
+    background-color: #05cc47; 
+}
+
 .share-links li:last-child {
     margin-right: 0;
 }

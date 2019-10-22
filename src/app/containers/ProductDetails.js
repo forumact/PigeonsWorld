@@ -5,6 +5,7 @@ import ProductInfo from '../components/ProductInfo';
 import { fetchProductDetails } from '../Networks';
 import ProductSeller from '../components/ProductSeller';
 import ProductMarketing from '../components/ProductMarketing';
+import SocilaMediaShareLinks from '../components/SocilaMediaShareLinks';
 
 class ProductDetails extends Component {
   constructor() {
@@ -43,16 +44,7 @@ class ProductDetails extends Component {
                   </div>
                 </div>
                 <hr className="line-separator" />
-                <div className="share-links-wrap">
-                  <p className="text-header small">Share this:</p>
-                  <ul className="share-links hoverable">
-                    <li><a href="/" className="fb">FB</a></li>
-                    <li><a href="/" className="twt">Twt</a></li>
-                    <li><a href="/" className="db">Db</a></li>
-                    <li><a href="/" className="rss">Rss</a></li>
-                    <li><a href="/" className="gplus">Gplus</a></li>
-                  </ul>
-                </div>
+                <SocilaMediaShareLinks></SocilaMediaShareLinks>
               </article>
               <CommentsList nid={this.props.match.params.pid}></CommentsList>
             </div>

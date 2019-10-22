@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Avator from "../assets/avatar.jpg";
+import { Link } from "react-router-dom";
 
 export default class ProductSeller extends Component {
   render() {
@@ -19,7 +20,7 @@ export default class ProductSeller extends Component {
           <li><a href="/" className="twt"></a></li>
           <li><a href="/" className="db"></a></li>
         </ul>
-        <a href="/" className="button mid dark spaced">Go to Profile Page</a>
+        <Link to={`/user-profile/${this.props.product.uid}`} className="button mid dark spaced">Go to Profile Page</Link>
         <a href="/" className="button mid dark-light">Send a Private Message</a>
       </div>
     )
