@@ -3,6 +3,7 @@ import HeadLine from "../components/HeadLine";
 import CommentsList from "../components/CommentsList";
 import { fetchBlogDetails } from '../Networks';
 import SocilaMediaShareLinks from '../components/SocilaMediaShareLinks';
+import LatestBlogs from '../components/Blog/LatestBlogs';
 
 class BlogDetails extends Component {
   constructor() {
@@ -22,6 +23,8 @@ class BlogDetails extends Component {
         <div className="section-wrap">
           <div className="section">
             <div className="sidebar right">
+              <LatestBlogs></LatestBlogs>
+              <LatestBlogs></LatestBlogs>
             </div>
             <div className="content left">
               <article className="post">

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import HeadLine from "../components/HeadLine";
-import BlogCard from "../components/BlogCard";
+import BlogCard from "../components/Blog/BlogCard";
 import { fetchBlogList } from '../Networks';
 
 class Blog extends Component {

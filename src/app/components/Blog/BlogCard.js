@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from "react-router-dom";
-import { substring } from '../helper/MainHelper';
+import { substring } from '../../helper/MainHelper';
 
 class BlogCard extends Component {
   render() {
