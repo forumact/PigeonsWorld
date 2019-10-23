@@ -1,10 +1,20 @@
 import React, { Component } from 'react';
 import UploaditemForm from "../Forms/UploadItemForm";
+import { productCreate } from '../Networks';
+import { reset } from 'redux-form';
 
 class UploadItem extends Component {
+
+
   submit = values => {
     // print the form values to the console
     console.log(values)
+    productCreate(values).then((response) => {
+      //console.log(response);
+      this.props.history.push(`/products/${response.data.nid}`);
+    });
+
+    reset('UploaditemForm');
   }
 
   render() {
@@ -66,7 +76,7 @@ class UploadItem extends Component {
       </div>
     );
   }
- 
+
 }
 
 export default UploadItem;

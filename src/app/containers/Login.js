@@ -27,8 +27,7 @@ class Login extends React.Component {
 
   }
 
-  render() {
-    console.log(this.projectName);
+  render() {    
     return (
       <div className="section-wrap">
         <div className="section">

@@ -50,6 +50,10 @@ export async function fetchBlogList(data) {
   return await axiosInstance.get('/api/v1/blog?_format=json', {});
 }
 
+export async function fetchBlogLatest(data) {
+  return await axiosInstance.post('/api/v1/blog-latest', data);
+}
+
 export async function fetchBlogDetails(data) {
   return await axiosInstance.post('/api/v1/blog-details', data);
 }
@@ -68,4 +72,8 @@ export async function fetchFlag(data) {
 
 export async function userLogout(data) {
   return await axiosInstance.post('/api/v1/user-logout', {});
+}
+
+export async function productCreate(data){
+  return await axiosInstance.post('/api/v1/pigeons/create', data);
 }

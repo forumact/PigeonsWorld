@@ -1,5 +1,5 @@
 export const ItemCategory = ['Fancy', 'Homing', 'Racing'];
 
-export const Sv = ['Adobe Suite CS6', 'Adobe Suite CS7'];
+export const ItemConditions = ['Chick', 'Patta', 'Adult', 'Pair'];
 
 export const Vr = ['Vectorized', 'Rasterized'];
