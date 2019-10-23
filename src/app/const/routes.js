@@ -91,4 +91,10 @@ export const MyRoutes = [
     title: "Blog Details",
     menu: "no",
   },
+  {
+    path: '*',
+    component: lazy(() => import('../containers/NotFound')),
+    title: "Blog Details",
+    menu: "no",
+  },
 ];

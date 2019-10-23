@@ -66,10 +66,7 @@ class UploadItem extends Component {
       </div>
     );
   }
-
-  componentDidMount() {
-    document.title = `Pegions World | Upload Items`;
-  }
+ 
 }
 
 export default UploadItem;

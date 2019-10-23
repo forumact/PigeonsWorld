@@ -5,9 +5,8 @@ import { login } from '../Networks';
 class Login extends React.Component {
   constructor() {
     super();
-
     this.state = {
-      projectName: ''
+      csrf: ''
     }
   }
 
@@ -18,6 +17,7 @@ class Login extends React.Component {
         pass: values.password
       };
       login(userdata).then((response) => {
+        this.setState({ csrf: response.data.csrf_token })
         localStorage.setItem('csrf', response.data.csrf_token);
         this.props.history.push("/");
       });
@@ -36,11 +36,7 @@ class Login extends React.Component {
         </div>
       </div>
     );
-  }
-
-  componentDidMount() {
-    document.title = `Pegions World | Login`;
-  }
+  }  
 
 }
 

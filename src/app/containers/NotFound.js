@@ -1,10 +1,8 @@
 import React from 'react';
 import HeadLine from "../components/HeadLine";
-import { useTitle } from "../helper/MainHelper";
 
 const NotFound = () => {
   const title = '404'
-  useTitle(title);
   return (
     <div>
       <HeadLine title={title}></HeadLine>

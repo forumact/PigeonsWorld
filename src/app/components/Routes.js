@@ -3,20 +3,27 @@ import { Route, Switch } from "react-router-dom";
 import { MyRoutes } from "../const/routes";
 import NotFound from "../containers/NotFound";
 import Loader from "./Loader";
+import { useTitle } from "../helper/MainHelper"
+
+function RouteWithTitle({ title, ...props }) {
+  useTitle(title);
+  return (
+    <Route {...props} />
+  )
+}
 
 class Routes extends Component {
-    render() {
-        return (
-            <Suspense fallback={<Loader></Loader>}>
-                <Switch>
-                    {MyRoutes.map((route) => {
-                        return <Route key={route.path} path={route.path} exact component={route.component} />
-                    })}
-                    <Route component={NotFound}></Route>
-                </Switch>
-            </Suspense>
-        );
-    }
+  render() {
+    return (
+      <Suspense fallback={<Loader></Loader>}>
+        <Switch>
+          {MyRoutes.map((route) => {
+            return <RouteWithTitle title={route.title} key={route.path} path={route.path} exact component={route.component} />
+          })}
+        </Switch>
+      </Suspense>
+    );
+  }
 }
 
 export default Routes;

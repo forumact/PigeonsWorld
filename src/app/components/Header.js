@@ -63,9 +63,11 @@ class Header extends Component {
   }
 
   onSubmit = (props) => {
-    console.log('login session removed');
-    localStorage.removeItem('csrf');
-    userLogout();
+    userLogout().then((response) => {
+      localStorage.removeItem('csrf');
+      this.props.history.push("/");
+      console.log('login session removed');
+    });
     this.props.history.push("/");
   }
 }

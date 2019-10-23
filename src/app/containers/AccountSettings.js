@@ -67,10 +67,6 @@ class AccountSettings extends Component {
     );
   }
 
-  componentDidMount() {
-    document.title = `Pigeons World | User Edit`;
-  }
-
 }
 
 export default AccountSettings;

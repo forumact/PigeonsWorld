@@ -40,8 +40,7 @@ class Blog extends Component {
       this.setState({
         bloglist: response.data
       })
-    });
-    document.title = `Pigeons World | Blog`;
+    });  
 
   }
 

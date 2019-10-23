@@ -3,11 +3,8 @@ import HomeBanner from "../components/HomeBanner";
 import OurServices from "../components/OurServices";
 import ProductShowcase from "../components/ProductShowcase";
 import SubscribeBanner from "../components/SubscribeBanner";
-import { useTitle } from "../helper/MainHelper";
 
-const Home = () => {
-  const title = "Home";
-  useTitle(title);
+const Home = () => {  
   return (
     <div>
       <HomeBanner></HomeBanner>

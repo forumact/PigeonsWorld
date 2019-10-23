@@ -43,8 +43,6 @@ class YourFavourites extends Component {
   }
 
   componentDidMount() {
-
-    const title = "Your Favourites";
     const data = {
       id: this.props.match.params.pid
     };
@@ -53,7 +51,6 @@ class YourFavourites extends Component {
       this.setState({
         yourfavourites: response.data
       })
-      document.title = `Pigeons World | ${title}`;
     });
   }
 

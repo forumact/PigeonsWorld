@@ -52,10 +52,6 @@ class OnlineGoods extends Component {
     );
   }
 
-  componentDidMount() {
-    document.title = `Pegions World | Online Goods`;
-  }
-
 }
 
 

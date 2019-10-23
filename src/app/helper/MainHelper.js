@@ -7,7 +7,7 @@ import React, { useEffect } from 'react'
 export function useTitle(titleOrFn) {
   useEffect(
     () => {
-      document.title = `Pegions World | ${titleOrFn}`;
+      document.title = `Pigeons World | ${titleOrFn}`;
     }
   );
 }

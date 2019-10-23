@@ -16,10 +16,6 @@ class UserRegister extends React.Component {
       </div>
     );
   }
-
-  componentDidMount() {
-    document.title = `Pegions World | User Register`;
-  }
 }
 
 export default UserRegister;
