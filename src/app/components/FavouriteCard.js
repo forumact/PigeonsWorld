@@ -7,13 +7,13 @@ class FavouriteCard extends Component {
   render() {
     return (
       <div className="product-item">
-        <Link to={`/product-details/${this.props.fav.nid}`}>
+        <Link to={`/products/${this.props.fav.nid}`}>
           <figure className="product-preview-image small">
-            <img src={avatar} alt="product" />
+            <img src={this.props.fav.img} alt="product" />
           </figure>
         </Link>
         <div className="product-info">
-          <Link to={`/product-details/${this.props.fav.nid}`}>
+          <Link to={`/products/${this.props.fav.nid}`}>
             <p className="text-header">{this.props.fav.title}</p>
           </Link>
           <p className="product-description">{substring(this.props.fav.body, 15, '.....')}</p>
