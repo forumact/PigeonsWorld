@@ -1,4 +1,10 @@
-import React, { useEffect } from 'react'
+import React, { useEffect } from 'react';
+import defaultPic from '../assets/avatar.jpg';
+
+
+export const Avatar = (localStorage.getItem('avatar')) ? localStorage.getItem('avatar') : defaultPic;
+
+export const Uid = (localStorage.getItem('uid')) ? localStorage.getItem('uid') : '';
 
 /**
  * Method used to set page title
@@ -20,8 +26,8 @@ export const HideHeaderRegion = ['/login', '/user-register'];
 
 /**
  * Method used to render input field with error highlight.
- * 
- * @param {*} param0 
+ *
+ * @param {*} param0
  */
 export const renderField = ({
   input,
@@ -36,8 +42,8 @@ export const renderField = ({
 
 /**
  * Method used to render textarea field with error highlight.
- * 
- * @param {*} param0 
+ *
+ * @param {*} param0
  */
 export const renderFieldTextarea = ({
   input,
@@ -52,8 +58,8 @@ export const renderFieldTextarea = ({
 
 /**
 * Method used to render input field with error message.
-* 
-* @param {*} param0 
+*
+* @param {*} param0
 */
 export const renderFieldError = ({
   input,
@@ -70,10 +76,10 @@ export const renderFieldError = ({
   )
 
 /**
- * 
- * @param {string} string 
- * @param {integer} limit 
- * @param {placeholder} ellipsis 
+ *
+ * @param {string} string
+ * @param {integer} limit
+ * @param {placeholder} ellipsis
  */
 export function substring(string, limit, ellipsis) {
   let text = string;
@@ -87,10 +93,11 @@ export function preparecommentobject(commenttxt, nid) {
   const msg = {
     comment_body: (commenttxt) ? commenttxt : 'Pakkalam',
     created: + new Date(),
-    uid: 1,
+    uid: Uid,
     subject: commenttxt,
     uname: 'admin',
-    id: nid
+    id: nid,
+    avatar: Avatar
   };
 
   return msg;
@@ -103,3 +110,7 @@ export const city = ['Chennai', 'Coimbatore', 'Madurai', 'Tiruchirappalli', 'Tir
   'Rajapalayam', 'Gudiyatham', 'Pudukkottai', 'Vaniyambadi', 'Ambur', 'Nagapattinam'];
 
 export const PigeonCategory = ['All', 'Fancy', 'Racing', 'Homing', 'Chicks', 'Patta'];
+
+
+
+

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import avatar from '../assets/avatar.jpg';
 import { Link } from 'react-router-dom';
 import { substring } from '../helper/MainHelper';
 
@@ -23,14 +22,14 @@ class FavouriteCard extends Component {
         </div>
         <div className="author-data">
           <div className="user-rating">
-            <a href="author-profile.html">
+            <Link to={`/user-profile/${this.props.fav.uid}`}>
               <figure className="user-avatar small">
-                <img src={avatar} alt="user-avatar" />
+                <img src={this.props.fav.avatar} alt="user-avatar" />
               </figure>
-            </a>
-            <a href="author-profile.html">
+            </Link>
+            <Link to={`/user-profile/${this.props.fav.uid}`}>
               <p className="text-header tiny">{this.props.fav.uname}</p>
-            </a>
+            </Link>
           </div>
           <div className="metadata">
             <div className="meta-item">

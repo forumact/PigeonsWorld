@@ -5,18 +5,18 @@ import FavouriteCard from "../components/FavouriteCard";
 import { fetchFlag } from '../Networks';
 
 
-class YourFavourites extends Component {
+class Favourites extends Component {
 
   constructor() {
     super();
 
     this.state = {
-      yourfavourites: [],
+      favourites: [],
     }
   }
 
   render() {
-    const title = "Your Favourites";
+    const title = "Favourites";
     return (
       <div>
         <HeadLine title={title}></HeadLine>
@@ -24,12 +24,12 @@ class YourFavourites extends Component {
           <div className="section">
             <div className="content full">
               <div className="headline primary">
-                <h4>{this.state.yourfavourites.length} Favourites Found</h4>
+                <h4>{this.state.favourites.length} Favourites Found</h4>
                 <div className="clearfix"></div>
               </div>
               <div className="product-showcase">
                 <div className="product-list list full">
-                  {(this.state.yourfavourites || []).map(fav => {
+                  {(this.state.favourites || []).map(fav => {
                     return <FavouriteCard key={fav.id} fav={fav}></FavouriteCard>
                   })}
                 </div>
@@ -44,15 +44,15 @@ class YourFavourites extends Component {
 
   componentDidMount() {
     const data = {
-      id: this.props.match.params.pid
+      uid: this.props.match.params.uid
     };
 
     fetchFlag(data).then((response) => {
       this.setState({
-        yourfavourites: response.data
+        favourites: response.data
       })
     });
   }
 
 }
-export default YourFavourites;
+export default Favourites;

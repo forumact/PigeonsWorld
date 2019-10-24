@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import Logo from '../../assets/logo.png';
-import Avatar from '../../assets/avatar.jpg';
 import { Link, NavLink } from "react-router-dom";
 import { withRouter } from 'react-router-dom';
 import { userLogout } from '../../Networks';
+import { Avatar, Uid } from "../../helper/MainHelper";
 
 class Header extends Component {
+
 
   render() {
     const loggedin = localStorage.getItem('csrf');
@@ -41,7 +42,7 @@ class Header extends Component {
               </Link>
             </div>
             <div className="account-information">
-              <Link to={'/your-favourites'}>
+              <Link to={`/favourites/${Uid}`}>
                 <div className="account-wishlist-quickview">
                   <span className="icon-heart"></span>
                 </div>
@@ -65,6 +66,7 @@ class Header extends Component {
   onSubmit = (props) => {
     userLogout().then((response) => {
       localStorage.removeItem('csrf');
+      localStorage.removeItem('avatar');
       this.props.history.push("/");
       console.log('login session removed');
     });

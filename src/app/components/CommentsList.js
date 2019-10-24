@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import Avatar from '../assets/avatar.jpg';
+import { Avatar } from "../helper/MainHelper";
+import { Link } from "react-router-dom";
 import CommentForm from "../Forms/CommentForm";
 import { fetchCommentList, commentcreate } from '../Networks';
 import { reset } from 'redux-form';
@@ -40,24 +41,23 @@ class CommentsList extends Component {
               {this.state.commentlist.map(c => (
                 <div key={c.id}>
                   <div className="comment-wrap" key={c.id}>
-                    <a href="user-profile.html">
+                    <Link to={`/user-profile/${c.uid}`}>
                       <figure className="user-avatar medium">
-                        <img src={Avatar} alt="" />
+                        <img src={c.avatar} alt="" />
                       </figure>
-                    </a>
+                    </Link>
                     <div className="comment">
                       <p className="text-header">{c.uname}</p>
-                      <span className="pin greyed">Purchased</span>
+                      {/* <span className="pin greyed">Purchased</span> */}
                       <p className="timestamp">{c.created}</p>
-                      <a href="/" className="report">Report</a>
+                      {/* <a href="/" className="report">Report</a> */}
                       <div dangerouslySetInnerHTML={{ __html: c.comment_body }} />
                     </div>
                   </div>
                   <hr className="line-separator" />
                 </div>
               ))}
-              <div className="clearfix"></div>
-              <hr className="line-separator" />
+              <div className="clearfix"></div>              
               <CommentForm onSubmit={this.submit} />
             </div>
           </div>

@@ -27,7 +27,7 @@ axiosInstance.interceptors.response.use(function (response) {
 });
 
 export async function login(data) {
-  return await axiosInstance.post('/user/login?_format=json', data);
+  return await axiosInstance.post('/api/v1/user/login?_format=json', data);
 }
 
 export async function fetchPigeons() {

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Avator from "../../assets/avatar.jpg";
+import Avatar from "../../assets/avatar.jpg";
 import { Link } from "react-router-dom";
 
 export default class ProductSeller extends Component {
@@ -10,7 +10,7 @@ export default class ProductSeller extends Component {
         <hr className="line-separator" />
         <a href="user-profile.html" className="user-avatar-wrap medium">
           <figure className="user-avatar medium">
-            <img src={Avator} alt="" />
+            <img src={Avatar} alt="" />
           </figure>
         </a>
         <p className="text-header">Kratos Cave</p>

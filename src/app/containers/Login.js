@@ -19,6 +19,8 @@ class Login extends React.Component {
       login(userdata).then((response) => {
         this.setState({ csrf: response.data.csrf_token })
         localStorage.setItem('csrf', response.data.csrf_token);
+        localStorage.setItem('avatar', response.data.user_pic);
+        localStorage.setItem('uid', response.data.current_user.uid);
         this.props.history.push("/");
       });
     } catch (e) {
@@ -27,7 +29,7 @@ class Login extends React.Component {
 
   }
 
-  render() {    
+  render() {
     return (
       <div className="section-wrap">
         <div className="section">
@@ -35,7 +37,7 @@ class Login extends React.Component {
         </div>
       </div>
     );
-  }  
+  }
 
 }
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import Avatar from "../assets/avatar.jpg";
+import { Avatar } from "../helper/MainHelper";
 import { Field, reduxForm } from "redux-form";
 import { renderFieldTextarea } from '../helper/MainHelper';
 
@@ -7,7 +7,7 @@ const validate = values => {
   const errors = {}
   if (!values.comment) {
     errors.comment = 'Required'
-  }  
+  }
   return errors
 }
 

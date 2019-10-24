@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
 import { substring } from '../../helper/MainHelper';
 import ProductImage from "../../assets/joystick_m.jpg";
-import Avator from "../../assets/avatar.jpg";
+import { Avatar } from "../../helper/MainHelper";
 import { flag } from '../../Networks';
 
 class ProductCard extends Component {
@@ -62,7 +62,7 @@ class ProductCard extends Component {
         <div className="user-rating">
           <a href="author-profile.html">
             <figure className="user-avatar small">
-              <img src={Avator} alt="user-avatar" />
+              <img src={Avatar} alt="user-avatar" />
             </figure>
           </a>
           <NavLink to={`/user-profile`}>

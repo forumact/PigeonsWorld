@@ -68,9 +68,9 @@ export const MyRoutes = [
     menu: "no",
   },
   {
-    path: '/your-favourites',
-    component: lazy(() => import('../containers/YourFavourites')),
-    title: "Your Favourites",
+    path: '/favourites/:uid',
+    component: lazy(() => import('../containers/Favourites')),
+    title: "Favourites",
     menu: "no",
   },
   {
