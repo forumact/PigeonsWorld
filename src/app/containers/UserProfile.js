@@ -1,7 +1,11 @@
 import React, { Component } from 'react'
 import HeadLine from '../components/HeadLine'
 import ProductCard from '../components/Product/ProductCard';
+import UserBio from "../components/UserProfile/UserBio";
 import { connect } from "react-redux";
+import UserActivity from '../components/UserProfile/UserActivity';
+import UserReputation from '../components/UserProfile/UserReputation';
+import UserProfileMeta from '../components/UserProfile/UserProfileMeta';
 
 class UserProfile extends Component {
 
@@ -18,42 +22,27 @@ class UserProfile extends Component {
       <div>
         <HeadLine title={title}></HeadLine>
         <div className={'author-profile-banner'}></div>
-        <div class="author-profile-meta-wrap">
-          <div class="author-profile-meta">
-            <div class="author-profile-info">
-              <div class="author-profile-info-item">
-                <p class="text-header">Member Since:</p>
-                <p>December 26th, 2013</p>
-              </div>
-              <div class="author-profile-info-item">
-                <p class="text-header">Total Sales:</p>
-                <p>820</p>
-              </div>
-              <div class="author-profile-info-item">
-                <p class="text-header">Freelance Work:</p>
-                <p>Available</p>
-              </div>
-              <div class="author-profile-info-item">
-                <p class="text-header">Website:</p>
-                <p><a href="http://www.odindesign-themes.com/" class="primary">www.odindesign-themes.com</a></p>
-              </div>
-            </div>
-          </div>
-        </div>
+        <UserProfileMeta></UserProfileMeta>
         <div className="section-wrap">
           <div className="section overflowable">
+            <div className="sidebar left author-profile">
+              <UserBio></UserBio>
+              <UserActivity></UserActivity>
+              <UserReputation></UserReputation>
+            </div>
             <div className="content right">
-              <div class="headline buttons primary">
+              <div className="headline buttons primary">
                 <h4>Latest Items</h4>
-                <a href="author-profile-items.html" class="button mid-short dark-light">See all the items</a>
+                <a href="author-profile-items.html" className="button mid-short dark-light">See all the items</a>
               </div>
               <div className="product-list grid column3-4-wrap">
                 {(this.props.products || []).map(product => {
                   return <ProductCard key={product.id} product={product}></ProductCard>
                 })}
               </div>
-              <div class="clearfix"></div>
+              <div className="clearfix"></div>
             </div>
+            <div className="clearfix"></div>
           </div>
         </div>
       </div>

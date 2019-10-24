@@ -23,8 +23,8 @@ class BlogDetails extends Component {
         <div className="section-wrap">
           <div className="section">
             <div className="sidebar right">
-              <LatestBlogs></LatestBlogs>
-              <LatestBlogs></LatestBlogs>
+              <LatestBlogs title="Latest Blogs"></LatestBlogs>
+              <LatestBlogs title="Popular Blogs"></LatestBlogs>
             </div>
             <div className="content left">
               <article className="post">

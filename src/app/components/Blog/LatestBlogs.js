@@ -31,7 +31,7 @@ class LatestBlogs extends Component {
             <div className="metadata">
               <div className="meta-item">
                 <span className="icon-bubble"></span>
-                <p>05</p>
+                <p>{blog.comment_count}</p>
               </div>
               <div className="meta-item">
                 <span className="icon-eye"></span>

@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import './css/App.css';
 import './css/Style.css';
 import './css/Banner.css';
-import Header from "./app/components/Header";
-import Footer from "./app/components/Footer";
-import MainMenu from "./app/components/MainMenu";
+import Header from "./app/components/Navigation/Header";
+import Footer from "./app/components/Navigation/Footer";
+import MainMenu from "./app/components/Navigation/MainMenu";
 import Routes from "./app/components/Routes";
 import { withRouter } from 'react-router-dom'
 import SimpleLineIcon from "react-simple-line-icons";

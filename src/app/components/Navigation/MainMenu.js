@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import SearchIcon from '../assets/search-icon.png';
-import { MyRoutes } from "../const/routes";
+import SearchIcon from '../../assets/search-icon.png';
+import { MyRoutes } from "../../const/routes";
 import { NavLink } from 'react-router-dom';
 
 class MainMenu extends Component {

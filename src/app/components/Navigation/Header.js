@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import Logo from '../assets/logo.png';
-import Avatar from '../assets/avatar.jpg';
+import Logo from '../../assets/logo.png';
+import Avatar from '../../assets/avatar.jpg';
 import { Link, NavLink } from "react-router-dom";
 import { withRouter } from 'react-router-dom';
-import { userLogout } from '../Networks';
+import { userLogout } from '../../Networks';
 
 class Header extends Component {
 
@@ -31,7 +31,7 @@ class Header extends Component {
           </div>
           <div className="user-board">
             <div className="user-quickview">
-              <Link to={'/user-edit'}>
+              <Link to={'/user-profile/1'}>
                 <div className="outer-ring">
                   <div className="inner-ring"></div>
                   <figure className="user-avatar">

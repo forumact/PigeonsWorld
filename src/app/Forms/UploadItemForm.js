@@ -15,10 +15,11 @@ const validate = values => {
   return errors
 }
 
+
 let UploaditemForm = props => {
-  const { handleSubmit } = props
+  //const { handleSubmit, fileupload } = props
   return (
-    <form id="upload_form" onSubmit={handleSubmit}>
+    <form id="upload_form" onSubmit={props.handleSubmit}>
       <div className="input-container">
         <label htmlFor="category" className="rl-label required">Select Category</label>
         <label htmlFor="category" className="select-block">
@@ -44,6 +45,7 @@ let UploaditemForm = props => {
         <div className="upload-file">
           <div className="upload-file-actions">
             <a href="/" className="button dark-light">Upload File...</a>
+            <Field name="user_pic" component="input" type="file"></Field>
             <p>Pack of Cartoon Illustrations.zip</p>
           </div>
           <div className="upload-file-progress">
@@ -73,52 +75,6 @@ let UploaditemForm = props => {
           </div>
         </div>
       </div>
-      {/* <div className="input-container">
-          <label className="rl-label">Additional Screenshots </label>
-          <div className="upload-file">
-            <div className="upload-file-actions">
-              <a href="/" className="button dark-light">Upload File...</a>
-              <p>Screenshot 01.jpeg</p>
-            </div>
-            <div className="upload-file-progress">
-              <div className="upload-bar">
-              </div>
-              <p className="text-header">68%</p>
-              <a href="/" className="button dark-light square">
-                <img src={CloseIcon} alt="close-icon"/>
-              </a>
-            </div>
-          </div>
-          <div className="upload-file multiupload">
-            <div className="upload-file-actions">
-              <a href="/" className="button dark-light">Upload File...</a>
-              <p>Screenshot 02.jpeg</p>
-            </div>
-            <div className="upload-file-progress">
-              <div className="upload-bar">
-                <div className="upload-pg4 xmlinefill"></div>
-              </div>
-              <p className="text-header">73%</p>
-              <a href="/" className="button dark-light square">
-                <img src={CloseIcon} alt="close-icon"/>
-              </a>
-            </div>
-          </div>
-          <div className="upload-file multiupload">
-            <div className="upload-file-actions">
-              <a href="/" className="button dark-light">Upload File...</a>
-              <p>Screenshot 03.jpeg</p>
-            </div>
-            <div className="upload-file-progress">
-              <div className="upload-bar">
-              </div>
-              <p className="text-header">92%</p>
-              <a href="/" className="button dark-light square">
-                <img src={CloseIcon} alt="close-icon"/>
-              </a>
-            </div>
-          </div>
-        </div> */}
       <div className="input-container half">
         <label htmlFor="price" className="rl-label required">Price</label>
         <Field name="price" component="input" type="text"
@@ -158,7 +114,7 @@ let UploaditemForm = props => {
           placeholder="Enter them item tags separated by a comma..." />
       </div>
       <hr className="line-separator" />
-      <button className="button big dark">Submit Item <span className="primary">for Review</span></button>
+      <button className="button big dark" disabled={props.submitting}>Submit Item <span className="primary">for Review</span></button>
     </form>
   );
 }
@@ -166,7 +122,7 @@ let UploaditemForm = props => {
 
 UploaditemForm = reduxForm({
   // a unique name for the form
-  form: 'uploaditem',  
+  form: 'uploaditem',
   validate
 })(UploaditemForm)
 
