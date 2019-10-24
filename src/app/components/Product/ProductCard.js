@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
-import { substring } from '../../helper/MainHelper';
+import { Avatar, substring } from '../../helper';
 import ProductImage from "../../assets/joystick_m.jpg";
-import { Avatar } from "../../helper/MainHelper";
 import { flag } from '../../Networks';
 
 class ProductCard extends Component {

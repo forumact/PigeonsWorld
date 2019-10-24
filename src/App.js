@@ -8,7 +8,7 @@ import MainMenu from "./app/components/Navigation/MainMenu";
 import Routes from "./app/components/Routes";
 import { withRouter } from 'react-router-dom'
 import SimpleLineIcon from "react-simple-line-icons";
-import { HideHeaderRegion } from "./app/helper/MainHelper";
+import { HideHeaderRegion } from "./app/helper";
 import { Provider } from "react-redux";
 import { getStore } from './app/Redux/store';
 

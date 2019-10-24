@@ -3,7 +3,7 @@ import { Route, Switch } from "react-router-dom";
 import { MyRoutes } from "../const/routes";
 import NotFound from "../containers/NotFound";
 import Loader from "./Loader";
-import { useTitle } from "../helper/MainHelper"
+import { useTitle } from "../helper"
 
 function RouteWithTitle({ title, ...props }) {
   useTitle(title);

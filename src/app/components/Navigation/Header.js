@@ -3,7 +3,7 @@ import Logo from '../../assets/logo.png';
 import { Link, NavLink } from "react-router-dom";
 import { withRouter } from 'react-router-dom';
 import { userLogout } from '../../Networks';
-import { Avatar, Uid } from "../../helper/MainHelper";
+import { Avatar, Uid } from "../../helper";
 
 class Header extends Component {
 

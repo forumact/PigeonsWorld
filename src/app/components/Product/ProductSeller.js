@@ -1,6 +1,6 @@
-import React, { Component } from 'react'
-import Avatar from "../../assets/avatar.jpg";
+import React, { Component } from 'react';
 import { Link } from "react-router-dom";
+import { Avatar } from '../../helper';
 
 export default class ProductSeller extends Component {
   render() {

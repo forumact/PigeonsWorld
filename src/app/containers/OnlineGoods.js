@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import HeadLine from "../components/HeadLine";
 import ProductCard from "../components/Product/ProductCard";
 import { connect } from "react-redux";
-//import { useTitle, renderField } from "../helper/MainHelper";
 
 class OnlineGoods extends Component {
 

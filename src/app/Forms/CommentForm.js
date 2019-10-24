@@ -1,7 +1,6 @@
 import React from 'react';
-import { Avatar } from "../helper/MainHelper";
+import { Avatar, renderFieldTextarea } from "../helper";
 import { Field, reduxForm } from "redux-form";
-import { renderFieldTextarea } from '../helper/MainHelper';
 
 const validate = values => {
   const errors = {}
