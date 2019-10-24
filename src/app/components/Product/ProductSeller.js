@@ -16,11 +16,11 @@ export default class ProductSeller extends Component {
         <p className="text-header">Kratos Cave</p>
         <p className="text-oneline">Lorem ipsum dolor sit amet,<br />consectetur sicing elit.</p>
         <ul className="share-links">
-          <li><a href="/" className="fb"></a></li>
-          <li><a href="/" className="twt"></a></li>
-          <li><a href="/" className="db"></a></li>
+          <li><a href="/" className="fb">&nbsp;</a></li>
+          <li><a href="/" className="twt">&nbsp;</a></li>
+          <li><a href="/" className="db">&nbsp;</a></li>
         </ul>
-        <Link to={`/user-profile/${this.props.product.uid}`} className="button mid dark spaced">Go to Profile Page</Link>
+        <Link to={`/user/${this.props.product.uid}`} className="button mid dark spaced">Go to Profile Page</Link>
         <a href="/" className="button mid dark-light">Send a Private Message</a>
       </div>
     )

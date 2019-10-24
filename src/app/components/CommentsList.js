@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import CommentForm from "../Forms/CommentForm";
 import { fetchCommentList, commentcreate } from '../Networks';
 import { reset } from 'redux-form';
-import { preparecommentobject, Avatar } from '../helper';
+import { preparecommentobject } from '../helper';
 
 class CommentsList extends Component {
 
@@ -40,7 +40,7 @@ class CommentsList extends Component {
               {this.state.commentlist.map(c => (
                 <div key={c.id}>
                   <div className="comment-wrap" key={c.id}>
-                    <Link to={`/user-profile/${c.uid}`}>
+                    <Link to={`/user/${c.uid}`}>
                       <figure className="user-avatar medium">
                         <img src={c.avatar} alt="" />
                       </figure>

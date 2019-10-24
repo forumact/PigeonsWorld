@@ -1,7 +1,6 @@
 import React, { Component, Suspense } from 'react';
 import { Route, Switch } from "react-router-dom";
 import { MyRoutes } from "../const/routes";
-import NotFound from "../containers/NotFound";
 import Loader from "./Loader";
 import { useTitle } from "../helper"
 

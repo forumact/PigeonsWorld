@@ -34,6 +34,10 @@ export async function fetchPigeons() {
   return await axiosInstance.post('/api/v1/pigeons', {});
 }
 
+export async function fetchUserPigeons() {
+  return await axiosInstance.post('/api/v1/pigeons', { 'uid': 5 });
+}
+
 export async function fetchProductDetails(data) {
   return await axiosInstance.post('/api/v1/pigeons-details', data);
 }
@@ -74,6 +78,6 @@ export async function userLogout(data) {
   return await axiosInstance.post('/api/v1/user-logout', {});
 }
 
-export async function productCreate(data){
+export async function productCreate(data) {
   return await axiosInstance.post('/api/v1/pigeons/create', data);
 }

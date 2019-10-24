@@ -6,7 +6,7 @@ class Login extends React.Component {
   constructor() {
     super();
     this.state = {
-      csrf: ''
+      user: []
     }
   }
 
@@ -17,7 +17,12 @@ class Login extends React.Component {
         pass: values.password
       };
       login(userdata).then((response) => {
-        this.setState({ csrf: response.data.csrf_token })
+        const userdetails = {
+          'csrf': response.data.csrf_token,
+          'uid': response.data.uid,
+          'avatar': response.data.avatar
+        }
+        this.setState({ user: userdetails })
         localStorage.setItem('csrf', response.data.csrf_token);
         localStorage.setItem('avatar', response.data.user_pic);
         localStorage.setItem('uid', response.data.current_user.uid);

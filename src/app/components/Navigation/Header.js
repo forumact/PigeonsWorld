@@ -32,7 +32,7 @@ class Header extends Component {
           </div>
           <div className="user-board">
             <div className="user-quickview">
-              <Link to={'/user-profile/1'}>
+              <Link to={'/user/1'}>
                 <div className="outer-ring">
                   <div className="inner-ring"></div>
                   <figure className="user-avatar">

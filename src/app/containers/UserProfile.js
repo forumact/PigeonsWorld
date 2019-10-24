@@ -6,13 +6,15 @@ import { connect } from "react-redux";
 import UserActivity from '../components/UserProfile/UserActivity';
 import UserReputation from '../components/UserProfile/UserReputation';
 import UserProfileMeta from '../components/UserProfile/UserProfileMeta';
+import { GET_USER_PRODUCTS } from '../Redux/actions';
+
 
 class UserProfile extends Component {
 
   constructor(props) {
     super(props);
     this.state = {
-      products: []
+      userProducts: []
     }
   }
 
@@ -36,7 +38,7 @@ class UserProfile extends Component {
                 <a href="author-profile-items.html" className="button mid-short dark-light">See all the items</a>
               </div>
               <div className="product-list grid column3-4-wrap">
-                {(this.props.products || []).map(product => {
+                {(this.props.userProducts || []).map(product => {
                   return <ProductCard key={product.id} product={product}></ProductCard>
                 })}
               </div>
@@ -48,14 +50,27 @@ class UserProfile extends Component {
       </div>
     )
   }
-}
 
+  componentDidMount() {
+    this.props.getUserProducts();
+    const title = "Arulraj"
+    document.title = `Pigeons World | ${title}`;
+  }
+}
 
 
 const mapStateToProps = (state) => {
   return {
-    products: state.products
+    userProducts: state.userProducts
   }
 }
 
-export default connect(mapStateToProps, null)(UserProfile);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    getUserProducts: () => {
+      dispatch({ type: GET_USER_PRODUCTS });
+    },
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(UserProfile);

@@ -12,12 +12,12 @@ export default class AuthorBio extends Component {
         <p className="text-header">Odin_Design</p>
         <p className="text-oneline">Super Samurai Developers<br />Los Angeles, Usa</p>
         <ul className="share-links">
-          <li><a href="#" className="fb"></a></li>
-          <li><a href="#" className="twt"></a></li>
-          <li><a href="#" className="db"></a></li>
+          <li><a href="/" className="fb">&nbsp;</a></li>
+          <li><a href="/" className="twt">&nbsp;</a></li>
+          <li><a href="/" className="db">&nbsp;</a></li>
         </ul>
-        <a href="#" className="button mid dark spaced">Add to <span className="primary">Followers</span></a>
-        <a href="#" className="button mid dark-light">Send a Private Message</a>
+        <a href="/" className="button mid dark spaced">Add to <span className="primary">Followers</span></a>
+        <a href="/" className="button mid dark-light">Send a Private Message</a>
       </div>
     )
   }

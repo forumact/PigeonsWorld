@@ -22,12 +22,12 @@ class FavouriteCard extends Component {
         </div>
         <div className="author-data">
           <div className="user-rating">
-            <Link to={`/user-profile/${this.props.fav.uid}`}>
+            <Link to={`/user/${this.props.fav.uid}`}>
               <figure className="user-avatar small">
                 <img src={this.props.fav.avatar} alt="user-avatar" />
               </figure>
             </Link>
-            <Link to={`/user-profile/${this.props.fav.uid}`}>
+            <Link to={`/user/${this.props.fav.uid}`}>
               <p className="text-header tiny">{this.props.fav.uname}</p>
             </Link>
           </div>
