@@ -1,19 +1,20 @@
 import React, { Component } from 'react'
 //import { useTitle } from "../helper/MainHelper";
+import { connect } from "react-redux";
 import HeadLine from "../components/HeadLine";
 import FavouriteCard from "../components/FavouriteCard";
-import { fetchFlag } from '../Networks';
+import { GET_USER_FAVOURITES } from '../Redux/actions';
 
 
 class Favourites extends Component {
 
-  constructor() {
-    super();
+  // constructor() {
+  //   super();
 
-    this.state = {
-      favourites: [],
-    }
-  }
+  //   this.state = {
+  //     userFavourites: [],
+  //   }
+  // }
 
   render() {
     const title = "Favourites";
@@ -24,12 +25,12 @@ class Favourites extends Component {
           <div className="section">
             <div className="content full">
               <div className="headline primary">
-                <h4>{this.state.favourites.length} Favourites Found</h4>
+                <h4>{this.props.userFavourites.length} Favourites Found</h4>
                 <div className="clearfix"></div>
               </div>
               <div className="product-showcase">
                 <div className="product-list list full">
-                  {(this.state.favourites || []).map(fav => {
+                  {(this.props.userFavourites || []).map(fav => {
                     return <FavouriteCard key={fav.id} fav={fav}></FavouriteCard>
                   })}
                 </div>
@@ -43,16 +44,24 @@ class Favourites extends Component {
   }
 
   componentDidMount() {
-    const data = {
-      uid: this.props.match.params.uid
-    };
-
-    fetchFlag(data).then((response) => {
-      this.setState({
-        favourites: response.data
-      })
-    });
+    const uid = this.props.match.params.uid;
+    this.props.getUserFavourites(uid);
   }
 
 }
-export default Favourites;
+
+const mapStateToProps = (state) => {
+  return {
+    userFavourites: state.userFavourites
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    getUserFavourites: (uid) => {
+      dispatch({ type: GET_USER_FAVOURITES, payload: { uid: uid } });
+    },
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Favourites);

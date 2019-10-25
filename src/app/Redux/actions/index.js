@@ -6,3 +6,5 @@ export const GET_USER_PRODUCTS = 'getUserProducts'
 export const SET_USER_PRODUCTS = 'setUserProducts'
 export const GET_BLOGS = 'getBlogs';
 export const SET_BLOGS = 'setBlogs';
+export const GET_USER_FAVOURITES = 'getUserFavourites'
+export const SET_USER_FAVOURITES = 'setUserFavourites'

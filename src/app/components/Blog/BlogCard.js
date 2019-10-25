@@ -17,9 +17,9 @@ class BlogCard extends Component {
             <Link to={`/blog/${id}`}>{substring(title, 20, '.....')}</Link>
           </p>
           <div className="meta-line">
-            <a href="open-post.html">
+            <Link to={`/blog/${id}`}>
               <p className="category primary">{country_of_origin}</p>
-            </a>
+            </Link>
             <p>{created}</p>
           </div>
           <div className="description-preview">
