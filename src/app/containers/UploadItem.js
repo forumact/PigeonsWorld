@@ -11,10 +11,10 @@ class UploadItem extends Component {
   submit = values => {
     // print the form values to the console
     console.log(values)
-    productCreate(values).then((response) => {
-      console.log(response);
-      this.props.history.push(`/products/${response.data.nid}`);
-    });
+    // productCreate(values).then((response) => {
+    //   console.log(response);
+    //   this.props.history.push(`/products/${response.data.nid}`);
+    // });
 
     reset('UploaditemForm');
   }
@@ -29,7 +29,7 @@ class UploadItem extends Component {
           <div className="form-box-item full">
             <h4>Item Specifications</h4>
             <hr className="line-separator" />
-            <UploaditemForm />
+            <UploaditemForm onSubmit={this.submit} />
           </div>
         </div>
         <div className="form-box-items wrap-1-3 right">

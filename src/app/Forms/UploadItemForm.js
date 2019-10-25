@@ -2,6 +2,7 @@ import React from 'react';
 import { Field, reduxForm } from "redux-form";
 import CloseIcon from "../assets/close-icon-small.png";
 import { ItemCategory, ItemConditions, city } from "../const";
+import FileUpload from '../components/FileUpload';
 
 
 const validate = values => {
@@ -17,9 +18,9 @@ const validate = values => {
 
 
 let UploaditemForm = props => {
-  //const { handleSubmit, fileupload } = props
+  const { handleSubmit } = props
   return (
-    <form id="upload_form" onSubmit={props.handleSubmit}>
+    <form id="upload_form" onSubmit={handleSubmit}>
       <div className="input-container">
         <label htmlFor="category" className="rl-label required">Select Category</label>
         <label htmlFor="category" className="select-block">
@@ -44,17 +45,14 @@ let UploaditemForm = props => {
         <label className="rl-label required">Upload Main File</label>
         <div className="upload-file">
           <div className="upload-file-actions">
-            <a href="/" className="button dark-light">Upload File...</a>
-            <Field name="user_pic" component="input" type="file"></Field>
+            {/* <a href="/" className="button dark-light">Upload File...</a> */}
+            <FileUpload></FileUpload>
+            <Field name="fid" component="input" type="text" id="pic1"></Field>
             <p>Pack of Cartoon Illustrations.zip</p>
           </div>
           <div className="upload-file-progress">
             <div className="upload-bar">
             </div>
-            <p className="text-header">46%</p>
-            <a href="/" className="button dark-light square">
-              <img src={CloseIcon} alt="close-icon" />
-            </a>
           </div>
         </div>
       </div>
@@ -114,7 +112,7 @@ let UploaditemForm = props => {
           placeholder="Enter them item tags separated by a comma..." />
       </div>
       <hr className="line-separator" />
-      <button className="button big dark" disabled={props.submitting}>Submit Item <span className="primary">for Review</span></button>
+      <button className="button big dark">Submit Item <span className="primary">for Review</span></button>
     </form>
   );
 }

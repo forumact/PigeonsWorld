@@ -11,7 +11,15 @@ axiosInstance.interceptors.request.use(function (config) {
     'Access-Control-Allow-Origin': '*',
     'X-CSRF-Token': localStorage.getItem('csrf'),
   }
-  //console.log(config);
+  if (config.url === '/file/upload/node/pegion/field_pegion?_format=json') {
+    let filename = `pigeon_${Date.now()}.png`;
+    config.headers = {
+      'Content-Type': 'application/octet-stream',
+      'Content-Disposition': `file; filename="${filename}"`,
+      'Access-Control-Allow-Origin': '*',
+      'X-CSRF-Token': localStorage.getItem('csrf'),
+    }
+  }
   return config
 }, function (error) {
   return Promise.reject(error);
@@ -80,4 +88,12 @@ export async function userLogout(data) {
 
 export async function productCreate(data) {
   return await axiosInstance.post('/api/v1/pigeons/create', data);
+}
+
+export async function seach(data) {
+  return await axiosInstance.get(`/entity/search_page/${data}`);
+}
+
+export async function fileupload(data) {
+  return await axiosInstance.post('/file/upload/node/pegion/field_pegion?_format=json', data);
 }

@@ -92,6 +92,12 @@ export const MyRoutes = [
     menu: "no",
   },
   {
+    path: '/demo',
+    component: lazy(() => import('../components/FileUpload')),
+    title: "File Upload Demo",
+    menu: "yes",
+  },
+  {
     path: '*',
     component: lazy(() => import('../containers/NotFound')),
     title: "Blog Details",
