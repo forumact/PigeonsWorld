@@ -35,7 +35,6 @@ class ProductShowcase extends Component {
 
 
 const mapStateToProps = (state) => {
-  console.log(state);
   return {
     products: state.products
   }

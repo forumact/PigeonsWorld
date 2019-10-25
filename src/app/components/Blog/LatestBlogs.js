@@ -48,6 +48,7 @@ class LatestBlogs extends Component {
   componentDidMount() {
     const data = {
       type: this.props.title,
+      nid: this.props.nid
     };
 
     fetchBlogLatest(data).then((response) => {
@@ -56,6 +57,21 @@ class LatestBlogs extends Component {
       })
     });
 
+  }
+
+  componentDidUpdate(prevProps) {
+    if (this.props.nid !== prevProps.nid) {
+      const data = {
+        type: this.props.title,
+        nid: this.props.nid
+      };
+
+      fetchBlogLatest(data).then((response) => {
+        this.setState({
+          latestblog: response.data
+        })
+      });
+    }
   }
 
 }

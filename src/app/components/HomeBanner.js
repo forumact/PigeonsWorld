@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import TopImage from '../assets/top_items.png';
-import { PigeonCategory } from '../helper';
+import { PigeonCategory } from '../const';
 
 class HomeBanner extends Component {
   render() {

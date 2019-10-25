@@ -1,8 +1,8 @@
 import React from 'react';
 import { Field, reduxForm } from "redux-form";
 import CloseIcon from "../assets/close-icon-small.png";
-import { ItemCategory, ItemConditions } from "../const/const";
-import { city } from '../helper';
+import { ItemCategory, ItemConditions, city } from "../const";
+
 
 const validate = values => {
   const errors = {}

@@ -23,8 +23,8 @@ class BlogDetails extends Component {
         <div className="section-wrap">
           <div className="section">
             <div className="sidebar right">
-              <LatestBlogs title="Latest Blogs"></LatestBlogs>
-              <LatestBlogs title="Popular Blogs"></LatestBlogs>
+              <LatestBlogs title="Latest Blogs" nid={this.props.match.params.id}></LatestBlogs>
+              <LatestBlogs title="Popular Blogs" nid={this.props.match.params.id}></LatestBlogs>
             </div>
             <div className="content left">
               <article className="post">

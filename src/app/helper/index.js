@@ -5,6 +5,7 @@ import defaultPic from '../assets/avatar.jpg';
 export const Avatar = (localStorage.getItem('avatar')) ? localStorage.getItem('avatar') : defaultPic;
 
 export const Uid = (localStorage.getItem('uid')) ? localStorage.getItem('uid') : '';
+export const Username = (localStorage.getItem('username')) ? localStorage.getItem('username') : 'Anonymous';
 
 /**
  * Method used to set page title
@@ -95,22 +96,10 @@ export function preparecommentobject(commenttxt, nid) {
     created: + new Date(),
     uid: Uid,
     subject: commenttxt,
-    uname: 'admin',
+    uname: Username,
     id: nid,
     avatar: Avatar
   };
 
   return msg;
 }
-
-export const city = ['Chennai', 'Coimbatore', 'Madurai', 'Tiruchirappalli', 'Tiruppur',
-  'Salem', 'Erode', 'Tirunelveli', 'Vellore', 'Thoothukkudi', 'Dindigul', 'Thanjavur',
-  'Ranipet', 'Sivakasi', 'Karur', 'Udhagamandalam', 'Hosur', 'Nagercoil', 'Kancheepuram',
-  'Kumarapalayam', 'Karaikkudi', 'Neyveli', 'Cuddalore', 'Kumbakonam', 'Tiruvannamalai', 'Pollachi',
-  'Rajapalayam', 'Gudiyatham', 'Pudukkottai', 'Vaniyambadi', 'Ambur', 'Nagapattinam'];
-
-export const PigeonCategory = ['All', 'Fancy', 'Racing', 'Homing', 'Chicks', 'Patta'];
-
-
-
-

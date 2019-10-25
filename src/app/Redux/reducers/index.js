@@ -1,13 +1,15 @@
 import users from './users';
 import products from './products';
 import userProducts from './userProducts';
+import blogs from './Blogs';
 import { combineReducers } from 'redux';
 import { reducer as formReducer } from 'redux-form'
 
 const rootReducer = combineReducers({
   users: users,
   products: products,
-  userProducts:userProducts,
+  userProducts: userProducts,
+  blogs: blogs,
   form: formReducer,
 });
 

@@ -52,7 +52,8 @@ class UserProfile extends Component {
   }
 
   componentDidMount() {
-    this.props.getUserProducts();
+    const uid = this.props.match.params.uid;
+    this.props.getUserProducts(uid);
     const title = "Arulraj"
     document.title = `Pigeons World | ${title}`;
   }
@@ -67,8 +68,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    getUserProducts: () => {
-      dispatch({ type: GET_USER_PRODUCTS });
+    getUserProducts: (uid) => {
+      dispatch({ type: GET_USER_PRODUCTS,  payload: {uid: uid}});
     },
   }
 }

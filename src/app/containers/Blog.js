@@ -1,27 +1,27 @@
 import React, { Component } from 'react'
 import HeadLine from "../components/HeadLine";
 import BlogCard from "../components/Blog/BlogCard";
-import { fetchBlogList } from '../Networks';
+import { connect } from "react-redux";
+import { GET_BLOGS } from '../Redux/actions';
 
 class Blog extends Component {
 
-  constructor() {
-    super();
-    this.state = {
-      bloglist: []
-    }
-  }
+  // constructor() {
+  //   super();
+  //   this.state = {
+  //     bloglist: []
+  //   }
+  // }
 
   render() {
     const title = "Blog";
-    console.log(this.state.bloglist);
     return (
       <div>
         <HeadLine title={title}></HeadLine>
         <div className="section-wrap">
           <div className="section">
             <div className="blog-post-preview v1 column3-wrap">
-              {this.state.bloglist.map(blog => (
+              {this.props.blogs.map(blog => (
                 <BlogCard key={blog.id} blog={blog}></BlogCard>
               ))}
             </div>
@@ -32,18 +32,24 @@ class Blog extends Component {
   }
 
   componentDidMount() {
-    const data = {
-      id: this.props.nid
-    };
-
-    fetchBlogList(data).then((response) => {
-      this.setState({
-        bloglist: response.data
-      })
-    });  
-
+    this.props.getBlogs();
   }
 
 }
 
-export default Blog;
+
+const mapStateToProps = (state) => {
+  return {
+    blogs: state.blogs
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    getBlogs: () => {
+      dispatch({ type: GET_BLOGS });
+    },
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Blog);

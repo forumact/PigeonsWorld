@@ -1,6 +1,7 @@
 import React from 'react';
-import { Field, reduxForm } from 'redux-form'
-import { renderField, city } from "../helper"
+import { Field, reduxForm } from 'redux-form';
+import { renderField } from "../helper";
+import { city } from '../const';
 
 
 const validate = values => {

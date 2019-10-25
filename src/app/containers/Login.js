@@ -26,6 +26,7 @@ class Login extends React.Component {
         localStorage.setItem('csrf', response.data.csrf_token);
         localStorage.setItem('avatar', response.data.user_pic);
         localStorage.setItem('uid', response.data.current_user.uid);
+        localStorage.setItem('username', response.data.current_user.name);
         this.props.history.push("/");
       });
     } catch (e) {

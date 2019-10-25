@@ -34,8 +34,8 @@ export async function fetchPigeons() {
   return await axiosInstance.post('/api/v1/pigeons', {});
 }
 
-export async function fetchUserPigeons() {
-  return await axiosInstance.post('/api/v1/pigeons', { 'uid': 5 });
+export async function fetchUserPigeons(payload) {
+  return await axiosInstance.post('/api/v1/pigeons', payload);
 }
 
 export async function fetchProductDetails(data) {
