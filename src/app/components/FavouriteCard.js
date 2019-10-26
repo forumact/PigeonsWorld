@@ -17,7 +17,7 @@ class FavouriteCard extends Component {
           </Link>
           <p className="product-description">{substring(this.props.fav.body, 15, '.....')}</p>
           <a href="shop-gridview-v1.html">
-            <p className="category primary">PSD Templates</p>
+            <p className="category primary">{this.props.fav.category}</p>
           </a>
         </div>
         <div className="author-data">
