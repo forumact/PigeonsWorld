@@ -14,12 +14,13 @@ class UserProfile extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      userProducts: []
+      userProducts: {}
     }
   }
 
   render() {
     const title = "Author's Profile";
+    const { products } = this.props.userProducts;
     return (
       <div>
         <HeadLine title={title}></HeadLine>
@@ -38,7 +39,7 @@ class UserProfile extends Component {
                 <a href="author-profile-items.html" className="button mid-short dark-light">See all the items</a>
               </div>
               <div className="product-list grid column3-4-wrap">
-                {(this.props.userProducts || []).map(product => {
+                {(products || []).map(product => {
                   return <ProductCard key={product.id} product={product}></ProductCard>
                 })}
               </div>
@@ -52,8 +53,12 @@ class UserProfile extends Component {
   }
 
   componentDidMount() {
-    const uid = this.props.match.params.uid;
-    this.props.getUserProducts(uid);
+    const payload = {
+      'numberofitem': 9,
+      'pagenumber': 0,
+      'uid': this.props.match.params.uid,
+    }
+    this.props.getUserProducts(payload);
     const title = "Arulraj"
     document.title = `Pigeons World | ${title}`;
   }
@@ -61,6 +66,7 @@ class UserProfile extends Component {
 
 
 const mapStateToProps = (state) => {
+  console.log(state);
   return {
     userProducts: state.userProducts
   }
@@ -68,8 +74,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    getUserProducts: (uid) => {
-      dispatch({ type: GET_USER_PRODUCTS,  payload: {uid: uid}});
+    getUserProducts: (payload) => {
+      dispatch({ type: GET_USER_PRODUCTS, payload: payload });
     },
   }
 }

@@ -103,3 +103,9 @@ export function preparecommentobject(commenttxt, nid) {
 
   return msg;
 }
+
+
+export function querystring(params) {
+  const querystring = Object.keys(params).map(key => key + '=' + params[key]).join('&');
+  return querystring;
+}

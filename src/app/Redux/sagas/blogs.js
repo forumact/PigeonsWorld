@@ -8,9 +8,9 @@ export const watchGetBlogs = function* () {
 }
 
 
-function* workerGetBlogs() {
+function* workerGetBlogs(action) {
   try {
-    const result = yield call(fetchBlogList);
+    const result = yield call(fetchBlogList, action.payload);
     yield put({ type: SET_BLOGS, value: result.data });
   }
   catch (err) {

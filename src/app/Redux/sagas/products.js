@@ -8,9 +8,9 @@ export const watchGetProducts = function* () {
 }
 
 
-function* workerGetProducts() {
+function* workerGetProducts(action) {
   try {    
-    const result = yield call(fetchPigeons);
+    const result = yield call(fetchPigeons, action.payload);
     yield put({ type: SET_PRODUCTS, value: result.data });
   }
   catch (err) {

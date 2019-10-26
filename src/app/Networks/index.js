@@ -1,4 +1,5 @@
 import axios from "axios";
+import { querystring } from "../helper";
 
 const axiosInstance = axios.create({
   baseURL: 'http://pigeonsworld.local',
@@ -38,8 +39,8 @@ export async function login(data) {
   return await axiosInstance.post('/api/v1/user/login?_format=json', data);
 }
 
-export async function fetchPigeons() {
-  return await axiosInstance.post('/api/v1/pigeons', {});
+export async function fetchPigeons(data) {
+  return await axiosInstance.post('/api/v1/pigeons', data);
 }
 
 export async function fetchUserPigeons(payload) {
@@ -59,7 +60,8 @@ export async function commentcreate(data) {
 }
 
 export async function fetchBlogList(data) {
-  return await axiosInstance.get('/api/v1/blog?_format=json', {});
+  let params = querystring(data);
+  return await axiosInstance.get(`/api/v1/blog?_format=json&${params}`, data);
 }
 
 export async function fetchBlogLatest(data) {

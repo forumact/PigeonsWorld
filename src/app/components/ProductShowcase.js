@@ -7,11 +7,12 @@ class ProductShowcase extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      products: []
+      products: {}
     }
   }
 
   render() {
+    const { products, count } = this.props.products;
     return (
       <div id="product-sideshow-wrap">
         <div id="product-sideshow">
@@ -20,7 +21,7 @@ class ProductShowcase extends Component {
               <h4>Latest Online Products</h4>
             </div>
             <div id="pl-1" className="product-list grid column4-wrap">
-              {(this.props.products || []).map(product => {
+              {(products || []).map(product => {
                 return <ProductCard key={product.id} product={product}></ProductCard>
               })}
             </div>

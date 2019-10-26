@@ -56,7 +56,7 @@ class CommentsList extends Component {
                   <hr className="line-separator" />
                 </div>
               ))}
-              <div className="clearfix"></div>              
+              <div className="clearfix"></div>
               <CommentForm onSubmit={this.submit} />
             </div>
           </div>
@@ -74,8 +74,26 @@ class CommentsList extends Component {
       this.setState({
         commentlist: response.data
       })
-      document.title = `Pigeons World | ${response.data.title}`;
+      //document.title = `Pigeons World | ${response.data.title}`;
     });
+  }
+
+  componentDidUpdate(prevProps) {
+
+    if (this.props.nid !== prevProps.nid) {
+      //Typical usage, don't forget to compare the props
+      const data = {
+        id: this.props.nid
+      };
+
+      fetchCommentList(data).then((response) => {
+        this.setState({
+          commentlist: response.data
+        })
+        //document.title = `Pigeons World | ${response.data.title}`;
+      });
+    }
+
   }
 }
 

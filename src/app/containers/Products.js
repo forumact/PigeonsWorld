@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import HeadLine from "../components/HeadLine";
 import ProductCard from "../components/Product/ProductCard";
 import { connect } from "react-redux";
+import Pagination from "react-js-pagination";
 import { GET_PRODUCTS } from '../Redux/actions';
 import ProductSideBar from '../components/Product/ProductSideBar';
 import ProductsFilter from '../components/Product/ProductsFilter';
@@ -11,18 +12,40 @@ class Products extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      products: []
+      products: {},
+      activePage: 1,
+      itemsCountPerPage: 9,
+      totalItemsCount: 1
     }
+
+    //Bind this event on click method
+    this.handlePageChange = this.handlePageChange.bind(this);
+  }
+
+  handlePageChange(pageNumber) {
+    const payload = {
+      'numberofitem': 9,
+      'pagenumber': pageNumber - 1,
+    }
+    console.log(`active page is ${pageNumber}`);
+    this.props.getProducts(payload);
+    this.setState({
+      activePage: pageNumber
+    })
   }
 
   componentDidMount() {
-    this.props.getProducts();
+    const payload = {
+      'numberofitem': 9,
+      'pagenumber': 0,
+    }
+    this.props.getProducts(payload);
     document.title = `Pigeons World | Products`;
   }
 
   render() {
     const title = 'Products';
-    //console.log(this.props.products);
+    const { products, count } = this.props.products;
     return (
       <div>
         <HeadLine title={title}></HeadLine>
@@ -30,28 +53,29 @@ class Products extends Component {
           <div className="section">
             <div className="content">
               <div className="headline tertiary">
-                <h4>{this.props.products.length} Products Found</h4>
-                {/* <form id="shop_filter_form" name="shop_filter_form">
-                  <label htmlFor="price_filter" className="select-block">
-                    <select name="price_filter" id="price_filter">
-                      <option value="0">Price (High to Low)</option>
-                      <option value="1">Price (Low to High)</option>
-                    </select>
-                  </label>
-                  <label htmlFor="itemspp_filter" className="select-block">
-                    <select name="itemspp_filter" id="itemspp_filter">
-                      <option value="0">12 Items Per Page</option>
-                      <option value="1">6 Items Per Page</option>
-                    </select>
-                  </label>
-                </form> */}
+                <h4>{count} Products Found</h4>
               </div>
               <div className="product-showcase">
                 <div className="product-list grid column3-4-wrap">
-                  {(this.props.products || []).map(product => {
+                  {(products || []).map(product => {
                     return <ProductCard key={product.id} product={product}></ProductCard>
                   })}
                 </div>
+              </div>
+              <div className="clearfix"></div>
+              <div className="pager tertiary">
+                {count ?
+                  <Pagination
+                    activePage={this.state.activePage}
+                    itemsCountPerPage={9}
+                    totalItemsCount={count}
+                    pageRangeDisplayed={5}
+                    onChange={this.handlePageChange}
+                    itemClass="pager-item"
+                    linkClass="page-link-class"
+                  />
+                  : null
+                }
               </div>
             </div>
             <div className="sidebar">
@@ -65,7 +89,6 @@ class Products extends Component {
   }
 }
 
-
 const mapStateToProps = (state) => {
   return {
     products: state.products
@@ -73,9 +96,10 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = (dispatch) => {
+
   return {
-    getProducts: () => {
-      dispatch({ type: GET_PRODUCTS });
+    getProducts: (payload) => {
+      dispatch({ type: GET_PRODUCTS, payload: payload });
     },
   }
 }

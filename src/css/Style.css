@@ -4668,8 +4668,16 @@ header .account-actions .button:last-child {
 }
 
 .section .pager {
-    width: 174px;
+    /* width: 174px; */
     margin: 34px auto 0;
+}
+
+.section .page-link-class{
+    color: #fff;
+    font-size: 0.75em;
+    font-weight: 700;
+    line-height: 30px;
+    text-align: center;
 }
 
 .section > .product-showcase {
@@ -5063,6 +5071,7 @@ header .account-actions .button:last-child {
     border-radius: 2px;
     background-color: #535d5f;
     cursor: pointer;
+    text-align: center;
 }
 
 .pager .pager-item:hover {
