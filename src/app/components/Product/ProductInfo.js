@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 
 class ProductInfo extends Component {
   render() {
-    console.log(this.props);    
     return (
       <div className="sidebar-item product-info">
         <h4>Product Information</h4>

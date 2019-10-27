@@ -47,7 +47,7 @@ class FavouriteCard extends Component {
           </div>
         </div>
         <div className="item-metadata">
-          <p className="text-header tiny">Files Included: <span>Psd, Ai, Jpeg, Png</span>
+          <p className="text-header tiny">Item Condition: <span>{this.props.fav.condition}</span>
           </p>
           <p className="text-header tiny">Dimensions: <span>4x6 Inches (with 0,25 bleed)</span>
           </p>
@@ -72,7 +72,7 @@ class FavouriteCard extends Component {
           </a>
         </div>
         <div className="price-info">
-          <p className="price medium"><span>$</span>14</p>
+          <p className="price medium"><span>$</span>{this.props.fav.price}</p>
         </div>
       </div>
     );

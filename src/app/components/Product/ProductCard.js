@@ -10,10 +10,13 @@ class ProductCard extends Component {
   //     //console.log(props)
   // }
 
-  yourfavorites(e, id) {
+  yourfavorites(e, id, flagstatus) {
     e.preventDefault();
+    if(flagstatus === 'Flagged'){
+      console.log(id, 'item already flagged');
+      return false;
+    }    
     flag(id);
-    alert(id);
   }
   render() {
     let img = this.props.product.img ? this.props.product.img : ProductImage;
@@ -37,7 +40,7 @@ class ProductCard extends Component {
             <div className="preview-action">
               <a href="/">
                 <div className="circle tiny secondary">
-                  <span onClick={(e) => this.yourfavorites(e, this.props.product.id)} className="icon-heart"></span>
+                  <span onClick={(e) => this.yourfavorites(e, this.props.product.id, this.props.product.flag)} className="icon-heart"></span>
                 </div>
               </a>
               <a href="/">
