@@ -30,7 +30,7 @@ class UserProfile extends Component {
         <div className="section-wrap">
           <div className="section overflowable">
             <div className="sidebar left author-profile">
-              <UserBio></UserBio>
+              <UserBio uid={this.props.match.params.uid}></UserBio>
               <UserActivity></UserActivity>
               <UserReputation></UserReputation>
             </div>

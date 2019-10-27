@@ -67,7 +67,7 @@ class ProductCard extends Component {
               <img src={Avatar} alt="user-avatar" />
             </figure>
           </a>
-          <NavLink to={`/user-profile`}>
+          <NavLink to={`/user/${this.props.product.uid}`}>
             <p className="text-header tiny">{this.props.product.username}</p>
           </NavLink>
         </div>

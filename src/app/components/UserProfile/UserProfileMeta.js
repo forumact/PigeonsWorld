@@ -38,8 +38,8 @@ export default class UserProfileMeta extends Component {
 
   componentDidMount() {
     //console.log(this.props);
-    getUserBasicInfo(this.props).then((response) => {     
-      this.setState({ userbasic: response.data })      
+    getUserBasicInfo(this.props).then((response) => {
+      this.setState({ userbasic: response.data })
     });
   }
 }
