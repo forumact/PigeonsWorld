@@ -98,6 +98,12 @@ export const MyRoutes = [
     menu: "yes",
   },
   {
+    path: '/user/:uid/items',
+    component: lazy(() => import('../containers/UserItems')),
+    title: "User Items",
+    menu: "no",
+  },
+  {
     path: '*',
     component: lazy(() => import('../containers/NotFound')),
     title: "Blog Details",

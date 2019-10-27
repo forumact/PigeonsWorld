@@ -10,7 +10,7 @@ import { GET_USER_PRODUCTS } from '../Redux/actions';
 import { Link } from "react-router-dom";
 
 
-class UserProfile extends Component {
+class UserItems extends Component {
 
   constructor(props) {
     super(props);
@@ -26,7 +26,7 @@ class UserProfile extends Component {
       <div>
         <HeadLine title={title}></HeadLine>
         <div className={'author-profile-banner'}></div>
-        <UserProfileMeta uid={this.props.match.params.uid}></UserProfileMeta>
+        <UserProfileMeta></UserProfileMeta>
         <div className="section-wrap">
           <div className="section overflowable">
             <div className="sidebar left author-profile">
@@ -37,9 +37,6 @@ class UserProfile extends Component {
             <div className="content right">
               <div className="headline buttons primary">
                 <h4>Arulraj Items</h4>
-                <Link to={`/user/${this.props.match.params.uid}/items`} className="button mid-short dark-light">
-                  See all the items
-                </Link>
               </div>
               <div className="product-list grid column3-4-wrap">
                 {(products || []).map(product => {
@@ -82,4 +79,4 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(UserProfile);
+export default connect(mapStateToProps, mapDispatchToProps)(UserItems);

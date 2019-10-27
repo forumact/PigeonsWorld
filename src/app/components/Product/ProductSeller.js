@@ -12,17 +12,17 @@ export default class ProductSeller extends Component {
     }
   }
 
-  render() {    
-    const {name, picture, uid, created} = this.state.sellerInfo;
+  render() {
+    const { name, picture, uid, created } = this.state.sellerInfo;
     return (
       <div className="sidebar-item author-bio">
         <h4>Product Seller</h4>
         <hr className="line-separator" />
-        <a href="user-profile.html" className="user-avatar-wrap medium">
+        <Link to={`/user/${uid}`} className="user-avatar-wrap medium">
           <figure className="user-avatar medium">
             <img src={picture} alt="" />
           </figure>
-        </a>
+        </Link>
         <p className="text-header">{name}</p>
         <p className="text-oneline">User Since: {created}</p>
         <ul className="share-links">
@@ -36,11 +36,11 @@ export default class ProductSeller extends Component {
     )
   }
 
-  componentDidMount() {    
+  componentDidMount() {
     const payload = {
       'uid': 5,
-    }    
-    getSellerInfo(payload).then((response) => {      
+    }
+    getSellerInfo(payload).then((response) => {
       this.setState({
         sellerInfo: response.data,
       });

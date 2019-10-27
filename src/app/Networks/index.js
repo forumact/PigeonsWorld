@@ -100,6 +100,14 @@ export async function fileupload(data) {
   return await axiosInstance.post('/file/upload/node/pegion/field_pegion?_format=json', data);
 }
 
-export async function getSellerInfo(data){
+export async function getSellerInfo(data) {
   return await axiosInstance.post('/api/v1/seller-info', data);
+}
+
+export async function getProductFilter(data) {
+  return await axiosInstance.post('/api/v1/product-filter', {});
+}
+
+export async function getUserBasicInfo(data) {
+  return await axiosInstance.post('/api/v1/user-basic-info', data);
 }
