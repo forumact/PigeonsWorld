@@ -1,18 +1,17 @@
 import { takeEvery, call, put } from 'redux-saga/effects';
-import { SET_USERS, GET_USERS } from '../actions';
-import Axios from 'axios';
+import { SET_USER, GET_USER } from '../actions';
+import { login } from '../../Networks';
 
-export const watchGetUsers = function* () {  
-  yield takeEvery(GET_USERS, workerGetUsers);
+export const watchGetUser = function* () {
+  yield takeEvery(GET_USER, workerGetUser);
 }
 
-function* workerGetUsers() {
+function* workerGetUser(action) {
   try {
-    const uri = 'https://jsonplaceholder.typicode.com/users';
-    const result = yield call(Axios.get, uri);
-    yield put({ type: SET_USERS, value: result.data });
-  } 
-  catch {
-    console.log('Failed');
+    const result = yield call(login, action.payload);
+    yield put({ type: SET_USER, value: result.data });
+  }
+  catch (e) {
+    console.log('Failed', e);
   }
 } 

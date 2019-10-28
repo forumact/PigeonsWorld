@@ -14,6 +14,7 @@ import { getStore } from './app/Redux/store';
 
 const store = getStore();
 
+
 class App extends Component {
   render() {
     const current_path = this.props.location.pathname;
@@ -34,6 +35,10 @@ class App extends Component {
         </div>
       </Provider>
     );
+  }
+
+  componentDidMount() {
+    console.log('From App');
   }
 }
 

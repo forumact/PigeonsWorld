@@ -19,12 +19,12 @@ export default class ProductsFilter extends Component {
         <form id="shop_search_form" name="shop_search_form">
           {(this.state.productFilter || []).map((product, i) => {
             return (
-              <div>
+              <div key={i}>
                 <input type="checkbox" id={`filter${i}`} name={`filter${i}`} />
                 <label htmlFor={`filter${i}`}>
                   <span className="checkbox tertiary"><span></span></span>
                   {product.field_item_category}
-              <span className="quantity">{product.nid_count}</span>
+                  <span className="quantity">{product.nid_count}</span>
                 </label>
               </div>
             )

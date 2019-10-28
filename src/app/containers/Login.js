@@ -1,22 +1,27 @@
 import React from 'react';
 import LoginForm from '../Forms/LoginForm';
+import { connect } from "react-redux";
 import { login } from '../Networks';
+import { GET_USER } from '../Redux/actions';
 
 class Login extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
-      user: []
+      userobject: ''
     }
   }
 
   submit = values => {
     try {
-      const userdata = {
+      const payload = {
         name: values.username,
         pass: values.password
       };
-      login(userdata).then((response) => {
+
+      //this.props.getUserlogin(payload);
+
+      login(payload).then((response) => {
         const userdetails = {
           'csrf': response.data.csrf_token,
           'uid': response.data.uid,
@@ -35,10 +40,21 @@ class Login extends React.Component {
 
   }
 
+  redirect() {
+    this.props.history.push('/');
+  }
+
   render() {
+    const { userobject } = this.props;
+    const isactive = Object.keys(userobject).length;
+    console.log(isactive);
     return (
       <div className="section-wrap">
         <div className="section">
+          {/* {(isactive > 0) ?
+            this.redirect() :
+            <LoginForm onSubmit={this.submit} />
+          } */}
           <LoginForm onSubmit={this.submit} />
         </div>
       </div>
@@ -47,5 +63,18 @@ class Login extends React.Component {
 
 }
 
+const mapStateToProps = (state) => {
+  return {
+    userobject: state.user
+  }
+}
 
-export default Login;
+const mapDispatchToProps = (dispatch) => {
+  return {
+    getUserlogin: (payload) => {
+      dispatch({ type: GET_USER, payload: payload });
+    },
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Login);

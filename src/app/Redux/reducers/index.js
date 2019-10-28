@@ -1,4 +1,4 @@
-import users from './users';
+import user from './users';
 import products from './products';
 import userProducts from './userProducts';
 import blogs from './Blogs';
@@ -7,7 +7,7 @@ import { reducer as formReducer } from 'redux-form'
 import userFavourites from './userFavourites';
 
 const rootReducer = combineReducers({
-  users: users,
+  user: user,
   products: products,
   userProducts: userProducts,
   userFavourites: userFavourites,

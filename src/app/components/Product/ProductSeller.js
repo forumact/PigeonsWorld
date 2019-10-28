@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Link } from "react-router-dom";
-import { Avatar } from '../../helper';
 import { getSellerInfo } from '../../Networks';
 
 export default class ProductSeller extends Component {

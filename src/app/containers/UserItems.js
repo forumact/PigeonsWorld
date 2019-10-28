@@ -7,7 +7,7 @@ import UserActivity from '../components/UserProfile/UserActivity';
 import UserReputation from '../components/UserProfile/UserReputation';
 import UserProfileMeta from '../components/UserProfile/UserProfileMeta';
 import { GET_USER_PRODUCTS } from '../Redux/actions';
-import { Link } from "react-router-dom";
+//import { Link } from "react-router-dom";
 
 
 class UserItems extends Component {

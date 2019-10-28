@@ -8,12 +8,13 @@ class OnlineGoods extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      products: []
+      products: {}
     }
   }
 
   render() {
     const title = 'Online Goods';
+    const { products, count } = this.props.products;
     return (
       <div>
         <HeadLine title={title}></HeadLine>
@@ -21,7 +22,7 @@ class OnlineGoods extends Component {
           <div className="section">
             <div className="content">
               <div className="headline tertiary">
-                <h4>14.850 Products Found</h4>
+                <h4>{count} Products Found</h4>
                 <form id="shop_filter_form" name="shop_filter_form">
                   <label htmlFor="price_filter" className="select-block">
                     <select name="price_filter" id="price_filter">
@@ -39,7 +40,7 @@ class OnlineGoods extends Component {
               </div>
               <div className="product-showcase">
                 <div className="product-list grid column3-4-wrap">
-                  {(this.props.products || []).map(product => {
+                  {(products || []).map(product => {
                     return <ProductCard key={product.id} product={product}></ProductCard>
                   })}
                 </div>

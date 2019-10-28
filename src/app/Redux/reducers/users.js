@@ -1,11 +1,11 @@
-import { SET_USERS } from '../actions';
+import { SET_USER } from '../actions';
 
-const users = (state = [], action) => {    
-  switch (action.type) {    
-    case SET_USERS:        
-      return [...action.value];
+const user = (state = {}, action) => {
+  switch (action.type) {
+    case SET_USER:
+      return { ...action.value };
     default: return state;
   }
 }
 
-export default users;
+export default user;

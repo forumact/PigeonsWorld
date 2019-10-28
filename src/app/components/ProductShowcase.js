@@ -12,7 +12,7 @@ class ProductShowcase extends Component {
   }
 
   render() {
-    const { products, count } = this.props.products;
+    const { products } = this.props.products;
     return (
       <div id="product-sideshow-wrap">
         <div id="product-sideshow">
