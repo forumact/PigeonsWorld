@@ -15,7 +15,7 @@ class ProductCard extends Component {
     if(flagstatus === 'Flagged'){
       console.log(id, 'item already flagged');
       return false;
-    }    
+    }
     flag(id);
   }
   render() {
@@ -62,11 +62,11 @@ class ProductCard extends Component {
         </div>
         <hr className="line-separator" />
         <div className="user-rating">
-          <a href="author-profile.html">
+          <NavLink to={`/user/${this.props.product.uid}`}>
             <figure className="user-avatar small">
-              <img src={Avatar} alt="user-avatar" />
+              <img src={this.props.product.avatar} alt="user-avatar" />
             </figure>
-          </a>
+          </NavLink>
           <NavLink to={`/user/${this.props.product.uid}`}>
             <p className="text-header tiny">{this.props.product.username}</p>
           </NavLink>

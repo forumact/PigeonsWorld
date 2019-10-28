@@ -10,8 +10,7 @@ export default class AuthorBio extends Component {
     }
   }
 
-  render() {
-    console.log(this.state.userBio);
+  render() {    
     return (
       <div className="sidebar-item author-bio">
         <a href="user-profile.html" className="user-avatar-wrap medium">

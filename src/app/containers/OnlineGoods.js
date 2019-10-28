@@ -57,8 +57,7 @@ class OnlineGoods extends Component {
 
 //export default OnlineGoods;
 
-const mapStateToProps = (state) => {
-  console.log(state);
+const mapStateToProps = (state) => {  
   return {
     products: state.products
   }

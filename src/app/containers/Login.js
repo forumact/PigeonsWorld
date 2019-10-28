@@ -30,8 +30,8 @@ class Login extends React.Component {
         this.setState({ user: userdetails })
         localStorage.setItem('csrf', response.data.csrf_token);
         localStorage.setItem('avatar', response.data.user_pic);
-        localStorage.setItem('uid', response.data.current_user.uid);
-        localStorage.setItem('username', response.data.current_user.name);
+        localStorage.setItem('uid', response.data.uid);
+        localStorage.setItem('username', response.data.name);
         this.props.history.push("/");
       });
     } catch (e) {
@@ -45,9 +45,9 @@ class Login extends React.Component {
   }
 
   render() {
-    const { userobject } = this.props;
-    const isactive = Object.keys(userobject).length;
-    console.log(isactive);
+    // const { userobject } = this.props;
+    // const isactive = Object.keys(userobject).length;
+    // console.log(isactive);
     return (
       <div className="section-wrap">
         <div className="section">
@@ -63,18 +63,20 @@ class Login extends React.Component {
 
 }
 
-const mapStateToProps = (state) => {
-  return {
-    userobject: state.user
-  }
-}
+// const mapStateToProps = (state) => {
+//   return {
+//     userobject: state.user
+//   }
+// }
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    getUserlogin: (payload) => {
-      dispatch({ type: GET_USER, payload: payload });
-    },
-  }
-}
+// const mapDispatchToProps = (dispatch) => {
+//   return {
+//     getUserlogin: (payload) => {
+//       dispatch({ type: GET_USER, payload: payload });
+//     },
+//   }
+// }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Login);
+//export default connect(mapStateToProps, mapDispatchToProps)(Login);
+
+export default Login;
