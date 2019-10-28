@@ -11,6 +11,7 @@ import SimpleLineIcon from "react-simple-line-icons";
 import { HideHeaderRegion } from "./app/helper";
 import { Provider } from "react-redux";
 import { getStore } from './app/Redux/store';
+import { userloginCheck } from './app/Networks';
 
 const store = getStore();
 
@@ -39,6 +40,9 @@ class App extends Component {
 
   componentDidMount() {
     console.log('From App');
+    userloginCheck().then((response) => {
+      console.log(response);
+    });
   }
 }
 

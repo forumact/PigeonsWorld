@@ -111,3 +111,7 @@ export async function getProductFilter(data) {
 export async function getUserBasicInfo(data) {
   return await axiosInstance.post('/api/v1/user-basic-info', data);
 }
+
+export async function userloginCheck(data) {
+  return await axiosInstance.post('/api/v1/user-check-status', {});
+}
