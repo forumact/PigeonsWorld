@@ -8,6 +8,12 @@ export const MyRoutes = [
     menu: "yes",
   },
   {
+    path: '/blog',
+    component: lazy(() => import('../containers/Blog')),
+    title: "Blog",
+    menu: "yes",
+  },
+  {
     path: '/how-to-shop',
     component: lazy(() => import('../containers/HowToShop')),
     title: "HOW TO SHOP",
@@ -36,13 +42,7 @@ export const MyRoutes = [
     component: lazy(() => import('../containers/ProductDetails')),
     title: "Product Details",
     menu: "no",
-  },
-  {
-    path: '/blog',
-    component: lazy(() => import('../containers/Blog')),
-    title: "Blog",
-    menu: "yes",
-  },
+  },  
   {
     path: '/login',
     component: lazy(() => import('../containers/Login')),
@@ -59,7 +59,7 @@ export const MyRoutes = [
     path: '/upload-items',
     component: lazy(() => import('../containers/UploadItem')),
     title: "Upload Items",
-    menu: "yes",
+    menu: "no",
   },
   {
     path: '/user-edit',

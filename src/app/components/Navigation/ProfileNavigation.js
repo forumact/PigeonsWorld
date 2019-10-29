@@ -51,26 +51,24 @@ class ProfileNavigation extends Component {
         {(loggedin) ?
           <>
             <div className="user-quickview" onMouseEnter={this.hoverOn}
-              onMouseLeave={this.hoverOff}>
-              <Link to={`/user/${Uid}`}>
+              onMouseLeave={this.hoverOff}>              
                 <div className="outer-ring">
                   <div className="inner-ring"></div>
                   <figure className="user-avatar">
                     <img src={Avatar} alt="avatar" />
                   </figure>
-                </div>
-              </Link>
+                </div>              
               <p className="user-name" >{username}</p>
               <p className="user-money">$745.00</p>
               <ul className={this.state.hover ? "dropdown small hover-effect open" : "dropdown small hover-effect closed"}>
                 <li className="dropdown-item">
                   <div className="dropdown-triangle"></div>
-                  <a href="author-profile.html">Profile Page</a>
+                  <Link to={`/user/${Uid}`}>Profile Page</Link>
                 </li>
                 <li className="dropdown-item">
-                  <a href="dashboard-settings.html">Account Settings</a>
+                <Link to={`/user-edit`}>Account Settings</Link>
                 </li>
-                <li className="dropdown-item">
+                {/* <li className="dropdown-item">
                   <a href="dashboard-purchases.html">Your Purchases</a>
                 </li>
                 <li className="dropdown-item">
@@ -81,9 +79,9 @@ class ProfileNavigation extends Component {
                 </li>
                 <li className="dropdown-item">
                   <a href="dashboard-withdrawals.html">Withdrawals</a>
-                </li>
+                </li> */}
                 <li className="dropdown-item">
-                  <a href="dashboard-uploaditem.html">Upload Item</a>
+                <Link to={`/upload-items`}>Upload Item</Link>
                 </li>
                 <li className="dropdown-item">
                   <a href="dashboard-manageitems.html">Manage Items</a>

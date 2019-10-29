@@ -8,13 +8,13 @@ export default function UploadGuidelines() {
       <div className="plain-text-box">
         <div className="plain-text-box-item">
           <p className="text-header">File Upload:</p>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt
-                    ut labore.</p>
+          <p>Maximum  5 file can be upload per Adv. Please update Quality image with center focuse</p>
         </div>
         <div className="plain-text-box-item">
           <p className="text-header">Photos and Images:</p>
-          <p>Lorem ipsum dolor sit amet.<br />Consectetur adipisicing elit, sed do.</p>
-          <p>Eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+          <p>1. Upload image type is: JPEG, JPG, PNG<br/>
+             2. File size should be below 2 MB</p>
+          
         </div>
         <div className="plain-text-box-item">
           <p className="text-header">Guide with Links:</p>

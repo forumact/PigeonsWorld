@@ -19,7 +19,7 @@ export default class AuthorBio extends Component {
           </figure>
         </a>
         <p className="text-header">{this.state.userBio.name}</p>
-        <p className="text-oneline">Super Samurai Developers<br />Los Angeles, Usa</p>
+        <p className="text-oneline">{this.state.userBio.about}</p>
         <ul className="share-links">
           <li><a href="/" className="fb">&nbsp;</a></li>
           <li><a href="/" className="twt">&nbsp;</a></li>
