@@ -4672,7 +4672,7 @@ header .account-actions .button:last-child {
     margin: 34px auto 0;
 }
 
-.section .page-link-class{
+.section .page-link-class, .dashboard-content .page-link-class{
     color: #fff;
     font-size: 0.75em;
     font-weight: 700;

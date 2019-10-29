@@ -1,65 +1,131 @@
 import React, { Component } from 'react';
-import FileUpload from '../components/FileUpload';
-import uploadnew from '../assets/uploadnew-bg.jpg';
 import ItemNavigation from '../components/Navigation/ItemNavigation';
-import { Link } from "react-router-dom";
+import { GET_USER_PRODUCTS } from '../Redux/actions';
+import { connect } from "react-redux";
+import Pagination from "react-js-pagination";
+import NewProduct from '../components/Product/NewProduct';
+import { NavLink } from 'react-router-dom';
+import { substring } from '../helper';
 
 class ManageItems extends Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      products: {},
+      activePage: 1,
+      itemsCountPerPage: 9,
+      totalItemsCount: 1
+    }
+
+    //Bind this event on click method
+    this.handlePageChange = this.handlePageChange.bind(this);
+  }
+
+  handlePageChange(pageNumber) {
+    const payload = {
+      'numberofitem': 11,
+      'uid': localStorage.getItem('uid'),
+      'pagenumber': pageNumber - 1,
+    }
+    console.log(`active page is ${pageNumber}`);
+    this.props.getUserProducts(payload);
+    this.setState({
+      activePage: pageNumber
+    })
+  }
+
+
+  componentDidMount() {
+    const payload = {
+      'numberofitem': 11,
+      'pagenumber': 0,
+      'uid': localStorage.getItem('uid'),
+    }
+    this.props.getUserProducts(payload);
+    document.title = `Pigeons World | Products`;
+  }
+
+
   render() {
+    const { products, count } = this.props.userProducts;
     return (
       <div className="dashboard-content">
         <div className="headline buttons primary">
-          <h4>Manage Items</h4>
+          <h4>{count} Manage Items</h4>
         </div>
-       <div className="product-list grid column4-wrap">
-       <Link to={`/upload-items`}>
-          <div className="product-item upload-new column">
-            <div className="product-preview-actions">
-              <figure className="product-preview-image">
-                <img src={uploadnew} alt="product-image" />
-              </figure>
-            </div>
-            <div className="product-info">
-              <p className="text-header">Upload New Item</p>
-              <p className="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore.</p>
-            </div>
-          </div>
-        </Link>
-        <div className="product-item column">
-          <div className="product-preview-actions">
-            <figure className="product-preview-image">
-              <img src="images/items/westeros_m.jpg" alt="product-image" />
-            </figure>
-           <ItemNavigation></ItemNavigation>
-          </div>
-          <div className="product-info">
-            <a href="item-v1.html">
-              <p className="text-header">Westeros Custom Clothing</p>
-            </a>
-            <p className="product-description">Lorem ipsum dolor sit urarde...</p>
-            <a href="shop-gridview-v1.html">
-              <p className="category primary">PSD Templates</p>
-            </a>
-            <p className="price"><span>$</span>14</p>
-          </div>
-          <hr className="line-separator" />
-          <div className="user-rating">
-            <a href="author-profile.html">
-              <figure className="user-avatar small">
-                <img src="images/avatars/avatar_01.jpg" alt="user-avatar" />
-              </figure>
-            </a>
-            <a href="author-profile.html">
-              <p className="text-header tiny">Johnny Fisher</p>
-            </a>
-          </div>
+        <div className="product-list grid column4-wrap">
+          <NewProduct></NewProduct>
+          {(products || []).map(product => {
+            return (
+              <div className="product-item column" key={product.id}>
+                <div className="product-preview-actions">
+                  <figure className="product-preview-image">
+                    <img src={product.img} />
+                  </figure>
+                  <ItemNavigation></ItemNavigation>
+                </div>
+                <div className="product-info">
+                  <a href="item-v1.html">
+                    <p className="text-header" title={product.title}>{product.title}</p>
+                  </a>
+                  <p className="product-description">{substring(product.body, 35, '.....')}</p>
+                  <a href="shop-gridview-v1.html">
+                    <p className="category primary">{product.website}</p>
+                  </a>
+                  <p className="price"><span>₹</span>{(product.price) ? product.price : 'NA'}</p>
+                </div>
+                <hr className="line-separator" />
+                <div className="user-rating">
+                  <a href="author-profile.html">
+                    <figure className="user-avatar small">
+                      <img src={product.avatar} alt="user-avatar" />
+                    </figure>
+                  </a>
+                  <NavLink to={`/user/${product.uid}`}>
+                    <p className="text-header tiny">{product.username}</p>
+                  </NavLink>
+                </div>
+              </div>
+            )
+          })}
         </div>
-      </div>
-      <div className="clearfix"></div>
+        <div className="clearfix"></div>
+        <div className="pager tertiary">
+          {count ?
+            <Pagination
+              activePage={this.state.activePage}
+              itemsCountPerPage={this.state.numberofitem}
+              totalItemsCount={count}
+              pageRangeDisplayed={3}
+              onChange={this.handlePageChange}
+              itemClass="pager-item"
+              linkClass="page-link-class"
+            />
+            : null
+          }
+        </div>
       </div>
     );
   }
 }
 
 
-export default ManageItems;
+const mapStateToProps = (state) => {
+  return {
+    userProducts: state.userProducts
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+
+  return {
+    getUserProducts: (payload) => {
+      dispatch({ type: GET_USER_PRODUCTS, payload: payload });
+    },
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ManageItems);
+
+//export default ManageItems;
