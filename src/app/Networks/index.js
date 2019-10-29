@@ -7,20 +7,15 @@ const axiosInstance = axios.create({
 
 
 axiosInstance.interceptors.request.use(function (config) {
-  config.headers = {
-    'Content-Type': 'application/json',
-    'Access-Control-Allow-Origin': '*',
-    'X-CSRF-Token': localStorage.getItem('csrf'),
-  }
-  if (config.url === '/file/upload/node/pegion/field_pegion?_format=json') {
-    let filename = `pigeon_${Date.now()}.png`;
-    config.headers = {
-      'Content-Type': 'application/octet-stream',
-      'Content-Disposition': `file; filename="${filename}"`,
+  console.log(config);
+  if (config.url !== '/file/upload/node/pegion/field_pegion') {
+     config.headers = {
+      'Content-Type': 'application/json',
       'Access-Control-Allow-Origin': '*',
       'X-CSRF-Token': localStorage.getItem('csrf'),
     }
   }
+
   return config
 }, function (error) {
   return Promise.reject(error);
@@ -97,7 +92,13 @@ export async function seach(data) {
 }
 
 export async function fileupload(data) {
-  return await axiosInstance.post('/file/upload/node/pegion/field_pegion?_format=json', data);
+  let image_data = data.image_data;
+  const options = {
+    headers: {'Content-Type': 'application/octet-stream', 'Content-Disposition': `file; filename="${data.file_name}"`,
+      'Access-Control-Allow-Origin': '*', 'X-CSRF-Token': localStorage.getItem('csrf')
+     }
+    }
+  return await axiosInstance.post('/file/upload/node/pegion/field_pegion', image_data, options);
 }
 
 export async function getSellerInfo(data) {

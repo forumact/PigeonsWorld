@@ -42,7 +42,7 @@ export const MyRoutes = [
     component: lazy(() => import('../containers/ProductDetails')),
     title: "Product Details",
     menu: "no",
-  },  
+  },
   {
     path: '/login',
     component: lazy(() => import('../containers/Login')),
@@ -59,6 +59,12 @@ export const MyRoutes = [
     path: '/upload-items',
     component: lazy(() => import('../containers/UploadItem')),
     title: "Upload Items",
+    menu: "no",
+  },
+  {
+    path: '/manage-items',
+    component: lazy(() => import('../containers/ManageItems')),
+    title: "Manage Items",
     menu: "no",
   },
   {

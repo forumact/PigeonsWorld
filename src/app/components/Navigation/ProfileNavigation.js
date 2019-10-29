@@ -51,13 +51,13 @@ class ProfileNavigation extends Component {
         {(loggedin) ?
           <>
             <div className="user-quickview" onMouseEnter={this.hoverOn}
-              onMouseLeave={this.hoverOff}>              
+              onMouseLeave={this.hoverOff}>
                 <div className="outer-ring">
                   <div className="inner-ring"></div>
                   <figure className="user-avatar">
                     <img src={Avatar} alt="avatar" />
                   </figure>
-                </div>              
+                </div>
               <p className="user-name" >{username}</p>
               <p className="user-money">$745.00</p>
               <ul className={this.state.hover ? "dropdown small hover-effect open" : "dropdown small hover-effect closed"}>
@@ -68,23 +68,11 @@ class ProfileNavigation extends Component {
                 <li className="dropdown-item">
                 <Link to={`/user-edit`}>Account Settings</Link>
                 </li>
-                {/* <li className="dropdown-item">
-                  <a href="dashboard-purchases.html">Your Purchases</a>
-                </li>
-                <li className="dropdown-item">
-                  <a href="dashboard-statement.html">Sales Statement</a>
-                </li>
-                <li className="dropdown-item">
-                  <a href="dashboard-buycredits.html">Buy Credits</a>
-                </li>
-                <li className="dropdown-item">
-                  <a href="dashboard-withdrawals.html">Withdrawals</a>
-                </li> */}
                 <li className="dropdown-item">
                 <Link to={`/upload-items`}>Upload Item</Link>
                 </li>
                 <li className="dropdown-item">
-                  <a href="dashboard-manageitems.html">Manage Items</a>
+                  <Link to={`/manage-items`}>Manage Item</Link>
                 </li>
               </ul>
             </div>
