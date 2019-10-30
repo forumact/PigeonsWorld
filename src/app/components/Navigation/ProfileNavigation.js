@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Avatar, Uid } from "../../helper";
 import { userLogout } from '../../Networks';
 import { withRouter } from 'react-router-dom';

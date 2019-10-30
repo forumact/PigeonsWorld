@@ -46,5 +46,9 @@ form >  button[type='submit'][disabled] {
   }
 
   .upload_preview{
-    width: 25%;
+    width: 25%;    
+  }
+
+  .ahide{
+    display: none;
   }

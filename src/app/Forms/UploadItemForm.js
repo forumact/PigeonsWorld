@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import CloseIcon from "../assets/close-icon-small.png";
 import { ItemCategory, ItemConditions, city } from "../const";
 import FileUpload from '../components/FileUpload';
 import { productCreate } from '../Networks';
@@ -37,7 +36,7 @@ class UploadItemForm extends Component {
   }
 
   handleInputFileChange(field, value) {
-    this.setState({ [field] : value });
+    this.setState({ [field]: value });
   }
 
   handleSubmit(event) {
@@ -100,7 +99,7 @@ class UploadItemForm extends Component {
         </div>
         <div className="input-container">
           <label className="rl-label required">Upload Main Image</label>
-           <div className="upload-file">
+          <div className="upload-file">
             <div className="upload-file-actions">
               <FileUpload onChange={this.handleInputFileChange} targetField="item_picture2"></FileUpload>
               <input className="hide" name="item_picture2" id="pic1" type="hidden" placeholder="Enter them item name here..."

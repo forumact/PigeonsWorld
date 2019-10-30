@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from "react-router-dom";
 import uploadnew from '../../assets/uploadnew-bg.jpg';
 
-export default class NewProduct extends Component {
+export default class ProductAddButton extends Component {
   render() {
     return (
       <div>
@@ -10,7 +10,7 @@ export default class NewProduct extends Component {
           <div className="product-item upload-new column">
             <div className="product-preview-actions">
               <figure className="product-preview-image">
-                <img src={uploadnew} alt="product-image" />
+                <img src={uploadnew} alt="product-add"/>
               </figure>
             </div>
             <div className="product-info">

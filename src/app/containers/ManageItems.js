@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
-import ItemNavigation from '../components/Navigation/ItemNavigation';
 import { GET_USER_PRODUCTS } from '../Redux/actions';
 import { connect } from "react-redux";
 import Pagination from "react-js-pagination";
-import NewProduct from '../components/Product/NewProduct';
-import { NavLink } from 'react-router-dom';
-import { substring } from '../helper';
+import ProductAddButton from '../components/Product/ProductAddButton';
+import ManageProductCard from '../components/Product/ManageProductCard';
 
 class ManageItems extends Component {
 
@@ -55,39 +53,9 @@ class ManageItems extends Component {
           <h4>{count} Manage Items</h4>
         </div>
         <div className="product-list grid column4-wrap">
-          <NewProduct></NewProduct>
+          <ProductAddButton></ProductAddButton>
           {(products || []).map(product => {
-            return (
-              <div className="product-item column" key={product.id}>
-                <div className="product-preview-actions">
-                  <figure className="product-preview-image">
-                    <img src={product.img} />
-                  </figure>
-                  <ItemNavigation></ItemNavigation>
-                </div>
-                <div className="product-info">
-                  <a href="item-v1.html">
-                    <p className="text-header" title={product.title}>{product.title}</p>
-                  </a>
-                  <p className="product-description">{substring(product.body, 35, '.....')}</p>
-                  <a href="shop-gridview-v1.html">
-                    <p className="category primary">{product.website}</p>
-                  </a>
-                  <p className="price"><span>₹</span>{(product.price) ? product.price : 'NA'}</p>
-                </div>
-                <hr className="line-separator" />
-                <div className="user-rating">
-                  <a href="author-profile.html">
-                    <figure className="user-avatar small">
-                      <img src={product.avatar} alt="user-avatar" />
-                    </figure>
-                  </a>
-                  <NavLink to={`/user/${product.uid}`}>
-                    <p className="text-header tiny">{product.username}</p>
-                  </NavLink>
-                </div>
-              </div>
-            )
+            return <ManageProductCard product={product}></ManageProductCard>
           })}
         </div>
         <div className="clearfix"></div>

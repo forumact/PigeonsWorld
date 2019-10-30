@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
-import { Avatar, substring } from '../../helper';
+import { substring } from '../../helper';
 import ProductImage from "../../assets/joystick_m.jpg";
 import { flag } from '../../Networks';
 
@@ -12,7 +12,7 @@ class ProductCard extends Component {
 
   yourfavorites(e, id, flagstatus) {
     e.preventDefault();
-    if(flagstatus === 'Flagged'){
+    if (flagstatus === 'Flagged') {
       console.log(id, 'item already flagged');
       return false;
     }

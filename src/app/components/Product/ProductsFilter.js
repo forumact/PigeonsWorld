@@ -11,7 +11,6 @@ export default class ProductsFilter extends Component {
   }
 
   render() {
-    console.log(this.state.productFilter);
     return (
       <div className="sidebar-item">
         <h4>Filter Products</h4>

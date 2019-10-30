@@ -1,14 +1,11 @@
 import React, { Component } from 'react';
 import Logo from '../../assets/logo.png';
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import ProfileNavigation from './ProfileNavigation';
 
 class Header extends Component {
 
   render() {
-    const loggedin = localStorage.getItem('csrf');
-    const username = localStorage.getItem('username');
-
     return (
       <div className="header-wrap">
         <header>
