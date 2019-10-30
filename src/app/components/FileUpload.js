@@ -7,7 +7,6 @@ export default class FileUpload extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      image: '',
       hide: true
     }
 
@@ -15,7 +14,7 @@ export default class FileUpload extends Component {
 
   }
 
-  fileUploadChange(e, previewid) {
+  fileUploadChange(e, previewid, fileApi) {
     let files = e.target.files;
     let filename = files[0].name;
 
@@ -41,7 +40,7 @@ export default class FileUpload extends Component {
         image_data: strImage,
         file_name: filename.split('.').join('-' + Date.now() + '.'),
       }
-      fileupload(fileobject).then((response) => {
+      fileupload(fileobject, fileApi).then((response) => {
         if (response.data.fid[0].value) {
           this.props.onChange(this.props.targetField, response.data.fid[0].value);
           console.log('fid', response.data.fid[0].value);
@@ -59,10 +58,10 @@ export default class FileUpload extends Component {
       <div onSubmit={this.onFormSubmit}>
         <div className={this.state.hide ? "ahide" : ""}>
           <img className="upload_preview" src="" alt="preview" id={`preview_${this.props.targetField}`} />
-          <img className="icon-class" src={CloseIcon} />
+          <img className="icon-class" src={CloseIcon} alt="icon"/>
         </div>
         <div className="clearfix"></div>
-        <input className="file" type="file" name="file" onChange={(e) => this.fileUploadChange(e, this.props.targetField)} />
+        <input className="file" type="file" name="file" onChange={(e) => this.fileUploadChange(e, this.props.targetField, this.props.fileApi)} />
       </div>
     )
   }

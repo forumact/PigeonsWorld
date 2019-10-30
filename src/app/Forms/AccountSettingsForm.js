@@ -1,8 +1,7 @@
-import React from 'react';
-import { Field, reduxForm } from 'redux-form';
-import { renderField } from "../helper";
+import React, { Component } from 'react'
 import { city } from '../const';
-
+import { userUpdate } from '../Networks';
+import FileUpload from '../components/FileUpload';
 
 const validate = values => {
   const errors = {}
@@ -30,81 +29,145 @@ const validate = values => {
   return errors
 }
 
-let AccountSettingsForm = props => {
-  const { handleSubmit } = props;
-  return (
-    <div>
-      <form id="profile-info-form" onSubmit={handleSubmit}>
-        <div className="input-container">
-          <label htmlFor="acc_name" className="rl-label required">Account Name</label>
-          <Field id="acc_name" name="acc_name" type="text" component={renderField}
-            placeholder="Enter your account name here..." />
-        </div>
-        <div className="input-container half">
-          <label htmlFor="new_pwd" className="rl-label">New Password</label>
-          <Field id="new_pwd" name="new_pwd" type="password" component={renderField}
-            placeholder="Enter your password here..." />
-        </div>
 
-        <div className="input-container half">
-          <label htmlFor="new_pwd2" className="rl-label">Repeat Password</label>
-          <Field id="new_pwd2" name="new_pwd2" type="password" component={renderField}
-            placeholder="Repeat your password here..." />
-        </div>
 
-        <div className="input-container">
-          <label htmlFor="new_email" className="rl-label">Email</label>
-          <Field id="new_email" name="new_email" type="email" component={renderField}
-            placeholder="Enter your email address here..." />
-        </div>
+class AccountSettingsForm extends Component {
 
-        <div className="input-container half">
-          <label htmlFor="website_url" className="rl-label">Website</label>
-          <Field id="website_url" name="website_url" type="text" component={renderField}
-            placeholder="Enter your website link here..." />
-        </div>
+  constructor(props) {
+    super(props);
+    this.state = {
+      acc_name: '',
+      mobile: '',
+      new_pwd: '',
+      new_pwd2: '',
+      website_url: '',
+      new_email: '',
+      city: '',
+      about: '',
+      show_balance: '',
+      email_notif: '',
+      user_picture: '',
+    }
+    this.handleInputChange = this.handleInputChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleInputFileChange = this.handleInputFileChange.bind(this);
+  }
 
-        <div className="input-container half">
-          <label htmlFor="country1" className="rl-label required">City</label>
-          <label htmlFor="country1" className="select-block">
-            <Field name="country1" component="select">
-              <option value="0">Select your City...</option>
-              {city.map((c, i) => (
-                <option value={c} key={i}>{c}</option>
-              ))}
-            </Field>
+  handleInputChange(event) {
+    const target = event.target;
+    const value = target.value;
+    const name = target.name;
+    let formv = {
+      [name]: value
+    }
+    this.setState(formv);
+  }
+
+  handleInputFileChange(field, value) {
+    this.setState({ [field]: value });
+  }
+
+
+  handleSubmit(event) {
+    event.preventDefault();
+    console.log(this.state);
+    const file = document.querySelector('.file');
+    file.value = '';
+    userUpdate(this.state).then((response) => {
+      console.log(response);
+      this.setState({
+        acc_name: '',
+        mobile: '',
+        new_pwd: '',
+        new_pwd2: '',
+        website_url: '',
+        new_email: '',
+        city: '',
+        about: '',
+        show_balance: '',
+        email_notif: '',
+        user_picture: '',
+      });
+    });
+  }
+
+
+  render() {
+    const fileApi = '/api/v1/file/upload/user/user/user_picture';
+    return (
+      <div>
+        <form id="profile-info-form" onSubmit={this.handleSubmit}>
+          <h4>Profile Information</h4>
+          <hr className="line-separator" />
+          <div className="profile-image">
+            <FileUpload onChange={this.handleInputFileChange} targetField="user_picture" fileApi={fileApi}></FileUpload>
+            <input className="hide" name="user_picture" id="pic1" type="hidden" placeholder="Enter them item name here..."
+              value={this.state.user_picture} onChange={this.handleInputChange}></input>
+          </div>
+          <div className="input-container">
+            <label htmlFor="acc_name" className="rl-label required">Account Name</label>
+            <input id="acc_name" name="acc_name" value={this.state.acc_name} onChange={this.handleInputChange} type="text" placeholder="Enter your account name here..." />
+          </div>
+          <div className="input-container">
+            <label htmlFor="mobile" className="rl-label required">Mobile</label>
+            <input id="mobile" name="mobile" value={this.state.mobile} onChange={this.handleInputChange} type="text" placeholder="Enter your mobile number here..." />
+          </div>
+          <div className="input-container half">
+            <label htmlFor="new_pwd" className="rl-label">New Password</label>
+            <input id="new_pwd" name="new_pwd" value={this.state.new_pwd} onChange={this.handleInputChange} type="password" placeholder="Enter your password here..." />
+          </div>
+
+          <div className="input-container half">
+            <label htmlFor="new_pwd2" className="rl-label">Repeat Password</label>
+            <input id="new_pwd2" name="new_pwd2" value={this.state.new_pwd2} onChange={this.handleInputChange} type="password" placeholder="Repeat your password here..." />
+          </div>
+
+          <div className="input-container">
+            <label htmlFor="new_email" className="rl-label">Email</label>
+            <input id="new_email" name="new_email" value={this.state.new_email} onChange={this.handleInputChange} type="email" placeholder="Enter your email address here..." />
+          </div>
+
+          <div className="input-container half">
+            <label htmlFor="website_url" className="rl-label">Website</label>
+            <input id="website_url" name="website_url" value={this.state.website_url} onChange={this.handleInputChange} type="text" placeholder="Enter your website link here..." />
+          </div>
+
+          <div className="input-container half">
+            <label htmlFor="city" className="rl-label required">City</label>
+            <label htmlFor="city" className="select-block">
+              <select name="city" form="carform" value={this.state.city} onChange={this.handleInputChange}>
+                <option value="0">Select your City...</option>
+                {city.map((c, i) => (
+                  <option value={c} key={i}>{c}</option>
+                ))}
+              </select>
+            </label>
+          </div>
+
+          <div className="input-container">
+            <label htmlFor="about" className="rl-label">About</label>
+            <input id="about" name="about" value={this.state.about} onChange={this.handleInputChange} type="text" placeholder="This will appear bellow to your avatar... (max 140 char)" />
+          </div>
+
+          <div className="input-container">
+            <label className="rl-label">Preferences</label>
+            <input id="show_balance" name="show_balance" value={this.state.show_balance} onChange={this.handleInputChange} type="checkbox" component="input" />
+            <label htmlFor="show_balance" className="label-check">
+              <span className="checkbox primary"><span></span></span>
+              Show account balance in the status bar
           </label>
-        </div>
-
-        <div className="input-container">
-          <label htmlFor="about" className="rl-label">About</label>
-          <Field id="about" name="about" type="text" component={renderField}
-            placeholder="This will appear bellow your avatar... (max 140 char)" />
-        </div>
-
-        <div className="input-container">
-          <label className="rl-label">Preferences</label>
-          <Field id="show_balance" name="show_balance" type="checkbox" component="input" />
-          <label htmlFor="show_balance" className="label-check">
-            <span className="checkbox primary"><span></span></span>
-            Show account balance in the status bar
+            <input id="email_notif" name="email_notif" value={this.state.email_notif} onChange={this.handleInputChange} type="checkbox" component="input" />
+            <label htmlFor="email_notif" className="label-check">
+              <span className="checkbox primary"><span></span></span>
+              Send me email notifications
           </label>
-          <Field id="email_notif" name="email_notif" type="checkbox" component="input" />
-          <label htmlFor="email_notif" className="label-check">
-            <span className="checkbox primary"><span></span></span>
-            Send me email notifications
-          </label>
-        </div>
-        <button form="profile-info-form" className="button mid-short primary">Save Changes</button>
-      </form>
-    </div>
-  );
+          </div>
+          {/* <button form="profile-info-form" className="button mid-short primary">Save Changes</button> */}
+          <input type="submit" className="button mid-short primary" value="Save Changes" />
+        </form>
+      </div>
+    )
+  }
 }
-
-
-AccountSettingsForm = reduxForm({
-  form: 'accountsettings',
-  validate
-})(AccountSettingsForm)
 
 export default AccountSettingsForm;

@@ -55,7 +55,7 @@ class ManageItems extends Component {
         <div className="product-list grid column4-wrap">
           <ProductAddButton></ProductAddButton>
           {(products || []).map(product => {
-            return <ManageProductCard product={product}></ManageProductCard>
+            return <ManageProductCard key={product.id} product={product}></ManageProductCard>
           })}
         </div>
         <div className="clearfix"></div>

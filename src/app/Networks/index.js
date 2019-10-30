@@ -5,18 +5,28 @@ const axiosInstance = axios.create({
   baseURL: 'http://pigeonsworld.local',
 });
 
-
+// Add a request interceptor
 axiosInstance.interceptors.request.use(function (config) {
-  if (config.url !== '/file/upload/node/pegion/field_pegion') {
+  if (config.url.indexOf('/file/upload/') < 0) {
     config.headers = {
       'Content-Type': 'application/json',
       'Access-Control-Allow-Origin': '*',
       'X-CSRF-Token': localStorage.getItem('csrf'),
     }
   }
-
   return config
 }, function (error) {
+  return Promise.reject(error);
+});
+
+
+// Add a response interceptor
+axiosInstance.interceptors.response.use(function (response) {
+  console.table(JSON.stringify(response.data));
+  return response;
+}, function (error) {
+  // Any status codes that falls outside the range of 2xx cause this function to trigger
+  // Do something with response error
   return Promise.reject(error);
 });
 
@@ -90,7 +100,7 @@ export async function seach(data) {
   return await axiosInstance.get(`/entity/search_page/${data}`);
 }
 
-export async function fileupload(data) {
+export async function fileupload(data, fileApi) {
   let image_data = data.image_data;
   const options = {
     headers: {
@@ -98,7 +108,7 @@ export async function fileupload(data) {
       'Access-Control-Allow-Origin': '*', 'X-CSRF-Token': localStorage.getItem('csrf')
     }
   }
-  return await axiosInstance.post('/file/upload/node/pegion/field_pegion', image_data, options);
+  return await axiosInstance.post(fileApi, image_data, options);
 }
 
 export async function getSellerInfo(data) {

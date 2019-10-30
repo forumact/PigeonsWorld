@@ -63,6 +63,8 @@ class UploadItemForm extends Component {
   }
 
   render() {
+    const fileApi = '/api/v1/file/upload/node/pegion/field_pegion';
+    
     return (
       <form id="upload_form" onSubmit={this.handleSubmit}>
         <div className="input-container">
@@ -89,8 +91,7 @@ class UploadItemForm extends Component {
           <label className="rl-label required">Upload Main File</label>
           <div className="upload-file">
             <div className="upload-file-actions">
-              {/* <a href="/" className="button dark-light">Upload File...</a> */}
-              <FileUpload onChange={this.handleInputFileChange} targetField="item_picture"></FileUpload>
+              <FileUpload onChange={this.handleInputFileChange} targetField="item_picture" fileApi={fileApi}></FileUpload>
               <input className="hide" name="item_picture" id="pic1" type="hidden" placeholder="Enter them item name here..."
                 value={this.state.item_picture} onChange={this.handleInputChange}></input>
               <p>Pack of Cartoon Illustrations.zip</p>
@@ -101,7 +102,7 @@ class UploadItemForm extends Component {
           <label className="rl-label required">Upload Main Image</label>
           <div className="upload-file">
             <div className="upload-file-actions">
-              <FileUpload onChange={this.handleInputFileChange} targetField="item_picture2"></FileUpload>
+              <FileUpload onChange={this.handleInputFileChange} targetField="item_picture2" fileApi={fileApi}></FileUpload>
               <input className="hide" name="item_picture2" id="pic1" type="hidden" placeholder="Enter them item name here..."
                 value={this.state.item_picture} onChange={this.handleInputChange}></input>
               <p>Pack of Cartoon Illustrations.zip</p>

@@ -101,7 +101,7 @@ export const MyRoutes = [
     path: '/demo',
     component: lazy(() => import('../components/FileUpload')),
     title: "File Upload Demo",
-    menu: "yes",
+    menu: "no",
   },
   {
     path: '/user/:uid/items',
