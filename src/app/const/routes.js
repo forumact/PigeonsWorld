@@ -62,6 +62,12 @@ export const MyRoutes = [
     menu: "no",
   },
   {
+    path: '/update-item/:id',
+    component: lazy(() => import('../containers/UpdateItem')),
+    title: "Update Item",
+    menu: "no",
+  },
+  {
     path: '/manage-items',
     component: lazy(() => import('../containers/ManageItems')),
     title: "Manage Items",

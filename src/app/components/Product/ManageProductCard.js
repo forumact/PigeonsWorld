@@ -11,7 +11,7 @@ class ManageProductCard extends Component {
           <figure className="product-preview-image">
             <img src={this.props.product.img} alt="product"/>
           </figure>
-          <ItemNavigation></ItemNavigation>
+          <ItemNavigation nid={this.props.product.id}></ItemNavigation>
         </div>
         <div className="product-info">
           <a href="item-v1.html">

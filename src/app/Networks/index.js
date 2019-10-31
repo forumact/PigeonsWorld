@@ -22,20 +22,11 @@ axiosInstance.interceptors.request.use(function (config) {
 
 // Add a response interceptor
 axiosInstance.interceptors.response.use(function (response) {
-  console.table(JSON.stringify(response.data));
+  console.log('Rest-API', response.data);
   return response;
 }, function (error) {
   // Any status codes that falls outside the range of 2xx cause this function to trigger
   // Do something with response error
-  return Promise.reject(error);
-});
-
-
-axiosInstance.interceptors.response.use(function (response) {
-  // spinning hide
-  //self.props.loading(false)
-  return response;
-}, function (error) {
   return Promise.reject(error);
 });
 
@@ -94,6 +85,10 @@ export async function userLogout(data) {
 
 export async function productCreate(data) {
   return await axiosInstance.post('/api/v1/pigeons/create', data);
+}
+
+export async function productUpdate(data) {
+  return await axiosInstance.post('/api/v1/pigeons/update', data);
 }
 
 export async function seach(data) {

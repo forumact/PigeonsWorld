@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
 import { ItemCategory, ItemConditions, city } from "../const";
 import FileUpload from '../components/FileUpload';
-import { productCreate } from '../Networks';
-
+import { productCreate, productUpdate, fetchProductDetails } from '../Networks';
 
 class UploadItemForm extends Component {
 
@@ -19,6 +18,7 @@ class UploadItemForm extends Component {
       item_conditions: '',
       item_city: '',
       item_tags: '',
+      item_nid: 0,
     }
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -44,38 +44,47 @@ class UploadItemForm extends Component {
     console.log(this.state);
     const file = document.querySelector('.file');
     file.value = '';
+    console.log(this.state.item_nid);
+    if (this.state.item_nid) {
+      productUpdate(this.state).then((response) => {
 
-    productCreate(this.state).then((response) => {
-      console.log(response);
-      this.setState({
-        item_name: '',
-        item_category: '',
-        item_description: '',
-        item_picture: '',
-        item_picture2: '',
-        item_price: '',
-        item_dimensions: '',
-        item_conditions: '',
-        item_city: '',
-        item_tags: '',
       });
-    });
+    } else {
+      productCreate(this.state).then((response) => {
+        console.log(response);
+        this.setState({
+          item_name: '',
+          item_category: '',
+          item_description: '',
+          item_picture: '',
+          item_picture2: '',
+          item_price: '',
+          item_dimensions: '',
+          item_conditions: '',
+          item_city: '',
+          item_tags: '',
+          item_nid: 0,
+        });
+      });
+    }
+    return false;
   }
 
   render() {
     const fileApi = '/api/v1/file/upload/node/pegion/field_pegion';
-    
+
     return (
-      <form id="upload_form" onSubmit={this.handleSubmit}>
+      <form id="upload_form" onSubmit={this.handleSubmit} autoComplete="off">
         <div className="input-container">
-          <label htmlFor="item_name" className="rl-label required">Name of the Item (Max 40 Characters)</label>
+          <label htmlFor="item_name" className="rl-label required">Name of the Item (Max 150 Characters)</label>
           <input name="item_name" type="text" placeholder="Enter them item name here..."
-            value={this.state.item_name} onChange={this.handleInputChange}></input>
+            value={this.state.item_name} onChange={this.handleInputChange} maxLength="150"></input>
         </div>
         <div className="input-container">
           <label htmlFor="category" className="rl-label required">Select Category</label>
           <label htmlFor="category" className="select-block">
-            <select name="item_category" value={this.state.category} onChange={this.handleInputChange}>
+            <select name="item_category" value={this.state.item_category} onChange={this.handleInputChange}>
+              <option />
               {ItemCategory.map((item, index) => {
                 return <option value={item} key={index}>{item}</option>
               })}
@@ -104,7 +113,7 @@ class UploadItemForm extends Component {
             <div className="upload-file-actions">
               <FileUpload onChange={this.handleInputFileChange} targetField="item_picture2" fileApi={fileApi}></FileUpload>
               <input className="hide" name="item_picture2" id="pic1" type="hidden" placeholder="Enter them item name here..."
-                value={this.state.item_picture} onChange={this.handleInputChange}></input>
+                value={this.state.item_picture2} onChange={this.handleInputChange}></input>
               <p>Pack of Cartoon Illustrations.zip</p>
             </div>
           </div>
@@ -134,7 +143,7 @@ class UploadItemForm extends Component {
         <div className="input-container half">
           <label htmlFor="city" className="rl-label required">City</label>
           <label htmlFor="city" className="select-block">
-            <select name="item_city" form="carform" value={this.state.city} onChange={this.handleInputChange}>
+            <select name="item_city" form="carform" value={this.state.item_city} onChange={this.handleInputChange}>
               <option />
               {city.map((item, index) => {
                 return <option value={item} key={index}>{item}</option>
@@ -149,9 +158,35 @@ class UploadItemForm extends Component {
         </div>
         <hr className="line-separator" />
         {/* <button  type="submit" className="button big dark">Submit Item <span className="primary">for Review</span></button> */}
-        <input type="submit" className="button big dark" value="Submit" />
+        <input type="submit" className="button big dark" value={this.state.item_nid > 0 ? 'Update' : 'Submit'} />
       </form>
     )
+  }
+
+  componentDidMount() {
+    console.log(this.props);
+    const data = {
+      id: (this.props.nid) ? (this.props.nid) : '',
+    };
+
+    if (data.id) {
+      fetchProductDetails(data).then((response) => {
+        this.setState({
+          item_name: response.data.title,
+          item_category: response.data.category,
+          item_description: response.data.body,
+          item_picture2: response.data.title,
+          item_price: response.data.price,
+          item_dimensions: response.data.title,
+          item_conditions: response.data.condition,
+          item_city: response.data.city,
+          item_tags: response.data.title,
+          item_picture: response.data.imguri,
+          item_nid: response.data.nid,
+        });
+        document.title = `Pigeons World | ${response.data.title}`;
+      });
+    }
   }
 }
 

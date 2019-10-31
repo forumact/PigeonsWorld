@@ -12,21 +12,22 @@ class ProductInfo extends Component {
             <p>{this.props.product.update}</p>
           </div>
           <div className="information-layout-item">
+            <p className="text-header">Item Category:</p>
+            <p>{this.props.product.category}</p>
+          </div>
+          <div className="information-layout-item">
             <p className="text-header">Item Condition:</p>
             <p className="strtoupper">{this.props.product.condition}</p>
           </div>
           <div className="information-layout-item">
-            <p className="text-header">Author's Country:</p>
+            <p className="text-header">Author's City:</p>
             <p>{this.props.product.city}</p>
           </div>
           <div className="information-layout-item">
-            <p className="text-header">International Shipping:</p>
-            <p>Free - Except USA</p>
+            <p className="text-header">Price:</p>
+            <p>{this.props.product.price}</p>
           </div>
-          <div className="information-layout-item">
-            <p className="text-header">Returns:</p>
-            <p>No Returns Accepted</p>
-          </div>
+         
         </div>
       </div>
     );

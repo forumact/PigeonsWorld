@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from "react-router-dom";
 
 class ItemNavigation extends Component {
 
@@ -27,26 +28,26 @@ class ItemNavigation extends Component {
 
   render() {
     return (
-        <div onMouseEnter={this.hoverOn} onMouseLeave={this.hoverOff}>
-          <div className="product-settings primary dropdown-handle">
-              <span className="sl-icon icon-settings"></span>
-          </div>
-          <ul className={this.state.hover ? "dropdown small hover-effect open" : "dropdown small hover-effect closed"}>
-            <li className="dropdown-item">
-              <div className="dp-triangle"></div>
-              <a href="#">Edit Item</a>
-            </li>
-            <li className="dropdown-item">
-              <a href="#">Duplicate</a>
-            </li>
-            <li className="dropdown-item">
-              <a href="#">Share</a>
-            </li>
-            <li className="dropdown-item">
-              <a href="#">Delete</a>
-            </li>
-          </ul>
+      <div onMouseEnter={this.hoverOn} onMouseLeave={this.hoverOff}>
+        <div className="product-settings primary dropdown-handle">
+          <span className="sl-icon icon-settings"></span>
         </div>
+        <ul className={this.state.hover ? "dropdown small hover-effect open" : "dropdown small hover-effect closed"}>
+          <li className="dropdown-item">
+            <div className="dp-triangle"></div>
+            <Link to={`update-item/${this.props.nid}`}>Edit Item</Link>
+          </li>
+          <li className="dropdown-item">
+            <a href="/">Duplicate</a>
+          </li>
+          <li className="dropdown-item">
+            <a href="/">Share</a>
+          </li>
+          <li className="dropdown-item">
+            <a href="/">Delete</a>
+          </li>
+        </ul>
+      </div>
     );
   }
 }

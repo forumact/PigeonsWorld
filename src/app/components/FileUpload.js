@@ -43,7 +43,6 @@ export default class FileUpload extends Component {
       fileupload(fileobject, fileApi).then((response) => {
         if (response.data.fid[0].value) {
           this.props.onChange(this.props.targetField, response.data.fid[0].value);
-          console.log('fid', response.data.fid[0].value);
         } else {
           alert(JSON.stringify(response.data));
         }
@@ -58,7 +57,7 @@ export default class FileUpload extends Component {
       <div onSubmit={this.onFormSubmit}>
         <div className={this.state.hide ? "ahide" : ""}>
           <img className="upload_preview" src="" alt="preview" id={`preview_${this.props.targetField}`} />
-          <img className="icon-class" src={CloseIcon} alt="icon"/>
+          <img className="icon-class" src={CloseIcon} alt="icon" />
         </div>
         <div className="clearfix"></div>
         <input className="file" type="file" name="file" onChange={(e) => this.fileUploadChange(e, this.props.targetField, this.props.fileApi)} />
