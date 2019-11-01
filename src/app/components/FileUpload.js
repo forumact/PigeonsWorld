@@ -1,17 +1,15 @@
-import React, { Component } from 'react'
-import { fileupload } from '../Networks';
+import React, { Component } from "react";
+import { fileupload } from "../Networks";
 import CloseIcon from "../../app/assets/close-icon-small.png";
 
 export default class FileUpload extends Component {
-
   constructor(props) {
     super(props);
     this.state = {
       hide: true
-    }
+    };
 
     this.fileUploadChange = this.fileUploadChange.bind(this);
-
   }
 
   fileUploadChange(e, previewid, fileApi) {
@@ -26,44 +24,54 @@ export default class FileUpload extends Component {
     readerBase64.readAsDataURL(files[0]);
     this.setState({
       hide: false
-    })
-    readerBase64.onloadend = function (e) {
+    });
+    readerBase64.onloadend = function(e) {
       var base64 = e.target.result;
       document.getElementById("preview_" + previewid).src = base64;
-
     };
 
-    reader.onload = (e) => {
+    reader.onload = e => {
       var strImage = e.target.result;
 
       let fileobject = {
         image_data: strImage,
-        file_name: filename.split('.').join('-' + Date.now() + '.'),
-      }
-      fileupload(fileobject, fileApi).then((response) => {
+        file_name: filename.split(".").join("-" + Date.now() + ".")
+      };
+      fileupload(fileobject, fileApi).then(response => {
         if (response.data.fid[0].value) {
-          this.props.onChange(this.props.targetField, response.data.fid[0].value);
+          this.props.onChange(
+            this.props.targetField,
+            response.data.fid[0].value
+          );
         } else {
           alert(JSON.stringify(response.data));
         }
       });
-    }
-
+    };
   }
-
 
   render() {
     return (
       <div onSubmit={this.onFormSubmit}>
         <div className={this.state.hide ? "ahide" : ""}>
-          <img className="upload_preview" src="" alt="preview" id={`preview_${this.props.targetField}`} />
+          <img
+            className="upload_preview"
+            src=""
+            alt="preview"
+            id={`preview_${this.props.targetField}`}
+          />
           <img className="icon-class" src={CloseIcon} alt="icon" />
         </div>
         <div className="clearfix"></div>
-        <input className="file" type="file" name="file" onChange={(e) => this.fileUploadChange(e, this.props.targetField, this.props.fileApi)} />
+        <input
+          className="file"
+          type="file"
+          name="file"
+          onChange={e =>
+            this.fileUploadChange(e, this.props.targetField, this.props.fileApi)
+          }
+        />
       </div>
-    )
+    );
   }
 }
-
-

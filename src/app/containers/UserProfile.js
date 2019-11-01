@@ -1,22 +1,20 @@
-import React, { Component } from 'react'
-import HeadLine from '../components/HeadLine'
-import ProductCard from '../components/Product/ProductCard';
+import React, { Component } from "react";
+import HeadLine from "../components/HeadLine";
+import ProductCard from "../components/Product/ProductCard";
 import UserBio from "../components/UserProfile/UserBio";
 import { connect } from "react-redux";
-import UserActivity from '../components/UserProfile/UserActivity';
-import UserReputation from '../components/UserProfile/UserReputation';
-import UserProfileMeta from '../components/UserProfile/UserProfileMeta';
-import { GET_USER_PRODUCTS } from '../Redux/actions';
+import UserActivity from "../components/UserProfile/UserActivity";
+import UserReputation from "../components/UserProfile/UserReputation";
+import UserProfileMeta from "../components/UserProfile/UserProfileMeta";
+import { GET_USER_PRODUCTS } from "../Redux/actions";
 import { Link } from "react-router-dom";
 
-
 class UserProfile extends Component {
-
   constructor(props) {
     super(props);
     this.state = {
       userProducts: {}
-    }
+    };
   }
 
   render() {
@@ -25,7 +23,7 @@ class UserProfile extends Component {
     return (
       <div>
         <HeadLine title={title}></HeadLine>
-        <div className={'author-profile-banner'}></div>
+        <div className={"author-profile-banner"}></div>
         <UserProfileMeta uid={this.props.match.params.uid}></UserProfileMeta>
         <div className="section-wrap">
           <div className="section overflowable">
@@ -37,13 +35,21 @@ class UserProfile extends Component {
             <div className="content right">
               <div className="headline buttons primary">
                 <h4>Arulraj Items</h4>
-                <Link to={`/user/${this.props.match.params.uid}/items`} className="button mid-short dark-light">
+                <Link
+                  to={`/user/${this.props.match.params.uid}/items`}
+                  className="button mid-short dark-light"
+                >
                   See all the items
                 </Link>
               </div>
               <div className="product-list grid column3-4-wrap">
                 {(products || []).map(product => {
-                  return <ProductCard key={product.id} product={product}></ProductCard>
+                  return (
+                    <ProductCard
+                      key={product.id}
+                      product={product}
+                    ></ProductCard>
+                  );
                 })}
               </div>
               <div className="clearfix"></div>
@@ -52,34 +58,36 @@ class UserProfile extends Component {
           </div>
         </div>
       </div>
-    )
+    );
   }
 
   componentDidMount() {
     const payload = {
-      'numberofitem': 9,
-      'pagenumber': 0,
-      'uid': this.props.match.params.uid,
-    }
+      numberofitem: 9,
+      pagenumber: 0,
+      uid: this.props.match.params.uid
+    };
     this.props.getUserProducts(payload);
-    const title = "Arulraj"
+    const title = "Arulraj";
     document.title = `Pigeons World | ${title}`;
   }
 }
 
-
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   return {
     userProducts: state.userProducts
-  }
-}
+  };
+};
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = dispatch => {
   return {
-    getUserProducts: (payload) => {
+    getUserProducts: payload => {
       dispatch({ type: GET_USER_PRODUCTS, payload: payload });
-    },
-  }
-}
+    }
+  };
+};
 
-export default connect(mapStateToProps, mapDispatchToProps)(UserProfile);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(UserProfile);

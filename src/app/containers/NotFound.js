@@ -1,8 +1,8 @@
-import React from 'react';
+import React from "react";
 import HeadLine from "../components/HeadLine";
 
 const NotFound = () => {
-  const title = '404'
+  const title = "404";
   return (
     <div>
       <HeadLine title={title}></HeadLine>
@@ -13,6 +13,6 @@ const NotFound = () => {
       </div>
     </div>
   );
-}
+};
 
 export default NotFound;

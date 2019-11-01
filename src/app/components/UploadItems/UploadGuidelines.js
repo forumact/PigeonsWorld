@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 
 export default function UploadGuidelines() {
   return (
@@ -8,19 +8,28 @@ export default function UploadGuidelines() {
       <div className="plain-text-box">
         <div className="plain-text-box-item">
           <p className="text-header">File Upload:</p>
-          <p>Maximum  5 file can be upload per Adv. Please update Quality image with center focuse</p>
+          <p>
+            Maximum 5 file can be upload per Adv. Please update Quality image
+            with center focuse
+          </p>
         </div>
         <div className="plain-text-box-item">
           <p className="text-header">Photos and Images:</p>
-          <p>1. Upload image type is: JPEG, JPG, PNG<br/>
-             2. File size should be below 2 MB</p>
-          
+          <p>
+            1. Upload image type is: JPEG, JPG, PNG
+            <br />
+            2. File size should be below 2 MB
+          </p>
         </div>
         <div className="plain-text-box-item">
           <p className="text-header">Guide with Links:</p>
-          <p><a href="/" className="primary">Click here for the link.</a></p>
+          <p>
+            <a href="/" className="primary">
+              Click here for the link.
+            </a>
+          </p>
         </div>
       </div>
     </div>
-  )
+  );
 }

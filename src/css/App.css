@@ -1,54 +1,56 @@
 .headline h4 {
-    float: left;
-    line-height: 66px;
+  float: left;
+  line-height: 66px;
 }
 .section-headline-wrap {
-    background: url('../app/assets/section_headline_bg.png') no-repeat center, linear-gradient(to right, #05e6aa, #1cbdf9);
-    background-size: cover;
+  background: url("../app/assets/section_headline_bg.png") no-repeat center,
+    linear-gradient(to right, #05e6aa, #1cbdf9);
+  background-size: cover;
 }
 .section-headline-wrap.v2 {
-    background: url('../app/assets/section_headline_bg.png') no-repeat center, linear-gradient(to right, #f21c5e, #1cc1e4);
+  background: url("../app/assets/section_headline_bg.png") no-repeat center,
+    linear-gradient(to right, #f21c5e, #1cc1e4);
 }
 
-form >  button[type='submit'][disabled] {
-    opacity: 0.6;
-    cursor: not-allowed;
+form > button[type="submit"][disabled] {
+  opacity: 0.6;
+  cursor: not-allowed;
 }
 
-.strtoupper{
-    text-transform: uppercase;
+.strtoupper {
+  text-transform: uppercase;
 }
 
 .loader {
-    position: absolute;
-    top: calc(50% - 4em);
-    left: calc(50% - 4em);
-    width: 6em;
-    height: 6em;
-    border: 1.1em solid rgba(0, 0, 0, 0.2);
-    border-left: 1.1em solid #000000;
-    border-radius: 50%;
-    animation: load8 1.1s infinite linear;
-    transition: opacity 0.3s;
-  }
+  position: absolute;
+  top: calc(50% - 4em);
+  left: calc(50% - 4em);
+  width: 6em;
+  height: 6em;
+  border: 1.1em solid rgba(0, 0, 0, 0.2);
+  border-left: 1.1em solid #000000;
+  border-radius: 50%;
+  animation: load8 1.1s infinite linear;
+  transition: opacity 0.3s;
+}
 
-  .loader--hide {
-    opacity: 0;
-  }
+.loader--hide {
+  opacity: 0;
+}
 
-  @keyframes load8 {
-    0% {
-      transform: rotate(0deg);
-    }
-    100% {
-      transform: rotate(360deg);
-    }
+@keyframes load8 {
+  0% {
+    transform: rotate(0deg);
   }
+  100% {
+    transform: rotate(360deg);
+  }
+}
 
-  .upload_preview{
-    width: 25%;    
-  }
+.upload_preview {
+  width: 25%;
+}
 
-  .ahide{
-    display: none;
-  }
+.ahide {
+  display: none;
+}

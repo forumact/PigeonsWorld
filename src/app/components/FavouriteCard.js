@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import { substring } from '../helper';
+import React, { Component } from "react";
+import { Link } from "react-router-dom";
+import { substring } from "../helper";
 
 class FavouriteCard extends Component {
   render() {
@@ -15,7 +15,9 @@ class FavouriteCard extends Component {
           <Link to={`/products/${this.props.fav.nid}`}>
             <p className="text-header">{this.props.fav.title}</p>
           </Link>
-          <p className="product-description">{substring(this.props.fav.body, 15, '.....')}</p>
+          <p className="product-description">
+            {substring(this.props.fav.body, 15, ".....")}
+          </p>
           <a href="shop-gridview-v1.html">
             <p className="category primary">{this.props.fav.category}</p>
           </a>
@@ -47,9 +49,11 @@ class FavouriteCard extends Component {
           </div>
         </div>
         <div className="item-metadata">
-          <p className="text-header tiny">Item Condition: <span>{this.props.fav.condition}</span>
+          <p className="text-header tiny">
+            Item Condition: <span>{this.props.fav.condition}</span>
           </p>
-          <p className="text-header tiny">Dimensions: <span>4x6 Inches (with 0,25 bleed)</span>
+          <p className="text-header tiny">
+            Dimensions: <span>4x6 Inches (with 0,25 bleed)</span>
           </p>
           {/* <p className="text-header tiny">
                         Tags:
@@ -72,7 +76,10 @@ class FavouriteCard extends Component {
           </a>
         </div>
         <div className="price-info">
-          <p className="price medium"><span>$</span>{this.props.fav.price}</p>
+          <p className="price medium">
+            <span>$</span>
+            {this.props.fav.price}
+          </p>
         </div>
       </div>
     );

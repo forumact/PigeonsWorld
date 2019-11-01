@@ -1,30 +1,28 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import CommentForm from "../Forms/CommentForm";
-import { fetchCommentList, commentcreate } from '../Networks';
-import { reset } from 'redux-form';
-import { preparecommentobject } from '../helper';
+import { fetchCommentList, commentcreate } from "../Networks";
+import { reset } from "redux-form";
+import { preparecommentobject } from "../helper";
 
 class CommentsList extends Component {
-
   constructor() {
     super();
     this.state = {
       commentlist: []
-    }
+    };
   }
-
 
   submit = (values, dispatch) => {
     // print the form values to the console
-    console.log(values.comment)
+    console.log(values.comment);
     let msg = preparecommentobject(values.comment, this.props.nid);
     this.setState({
-      commentlist: [...this.state.commentlist, msg],
+      commentlist: [...this.state.commentlist, msg]
     });
-    dispatch(reset('comment'));
+    dispatch(reset("comment"));
     commentcreate(msg);
-  }
+  };
 
   render() {
     return (
@@ -32,7 +30,9 @@ class CommentsList extends Component {
         <div className="post-tab xmtab">
           <div className="tab-header primary">
             <div className="tab-item selected">
-              <p className="text-header">Comments ({this.state.commentlist.length})</p>
+              <p className="text-header">
+                Comments ({this.state.commentlist.length})
+              </p>
             </div>
           </div>
           <div className="tab-content void open">
@@ -50,7 +50,9 @@ class CommentsList extends Component {
                       {/* <span className="pin greyed">Purchased</span> */}
                       <p className="timestamp">{c.created}</p>
                       {/* <a href="/" className="report">Report</a> */}
-                      <div dangerouslySetInnerHTML={{ __html: c.comment_body }} />
+                      <div
+                        dangerouslySetInnerHTML={{ __html: c.comment_body }}
+                      />
                     </div>
                   </div>
                   <hr className="line-separator" />
@@ -70,30 +72,28 @@ class CommentsList extends Component {
       id: this.props.nid
     };
 
-    fetchCommentList(data).then((response) => {
+    fetchCommentList(data).then(response => {
       this.setState({
         commentlist: response.data
-      })
+      });
       //document.title = `Pigeons World | ${response.data.title}`;
     });
   }
 
   componentDidUpdate(prevProps) {
-
     if (this.props.nid !== prevProps.nid) {
       //Typical usage, don't forget to compare the props
       const data = {
         id: this.props.nid
       };
 
-      fetchCommentList(data).then((response) => {
+      fetchCommentList(data).then(response => {
         this.setState({
           commentlist: response.data
-        })
+        });
         //document.title = `Pigeons World | ${response.data.title}`;
       });
     }
-
   }
 }
 

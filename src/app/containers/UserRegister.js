@@ -1,11 +1,11 @@
-import React from 'react';
+import React from "react";
 import RegisterForm from "../Forms/RegisterForm";
 
 class UserRegister extends React.Component {
   submit = values => {
     // print the form values to the console
-    console.log(values)
-  }
+    console.log(values);
+  };
 
   render() {
     return (

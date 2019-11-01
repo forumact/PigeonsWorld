@@ -1,12 +1,12 @@
-import React, { Component } from 'react';
-import { getUserBasicInfo } from '../../Networks';
+import React, { Component } from "react";
+import { getUserBasicInfo } from "../../Networks";
 
 export default class UserProfileMeta extends Component {
   constructor() {
     super();
     this.state = {
       userbasic: []
-    }
+    };
   }
 
   render() {
@@ -33,13 +33,13 @@ export default class UserProfileMeta extends Component {
           </div>
         </div>
       </div>
-    )
+    );
   }
 
   componentDidMount() {
     //console.log(this.props);
-    getUserBasicInfo(this.props).then((response) => {
-      this.setState({ userbasic: response.data })
+    getUserBasicInfo(this.props).then(response => {
+      this.setState({ userbasic: response.data });
     });
   }
 }

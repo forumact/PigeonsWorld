@@ -1,13 +1,11 @@
-import React, { Component } from 'react'
+import React, { Component } from "react";
 //import { useTitle } from "../helper/MainHelper";
 import { connect } from "react-redux";
 import HeadLine from "../components/HeadLine";
 import FavouriteCard from "../components/FavouriteCard";
-import { GET_USER_FAVOURITES } from '../Redux/actions';
-
+import { GET_USER_FAVOURITES } from "../Redux/actions";
 
 class Favourites extends Component {
-
   // constructor() {
   //   super();
 
@@ -31,7 +29,9 @@ class Favourites extends Component {
               <div className="product-showcase">
                 <div className="product-list list full">
                   {(this.props.userFavourites || []).map(fav => {
-                    return <FavouriteCard key={fav.id} fav={fav}></FavouriteCard>
+                    return (
+                      <FavouriteCard key={fav.id} fav={fav}></FavouriteCard>
+                    );
                   })}
                 </div>
               </div>
@@ -47,21 +47,23 @@ class Favourites extends Component {
     const uid = this.props.match.params.uid;
     this.props.getUserFavourites(uid);
   }
-
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   return {
     userFavourites: state.userFavourites
-  }
-}
+  };
+};
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = dispatch => {
   return {
-    getUserFavourites: (uid) => {
+    getUserFavourites: uid => {
       dispatch({ type: GET_USER_FAVOURITES, payload: { uid: uid } });
-    },
-  }
-}
+    }
+  };
+};
 
-export default connect(mapStateToProps, mapDispatchToProps)(Favourites);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Favourites);

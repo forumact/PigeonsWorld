@@ -1,14 +1,13 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import ProductCard from "../Product/ProductCard";
 import { connect } from "react-redux";
 
 class ProductShowcase extends Component {
-
   constructor(props) {
     super(props);
     this.state = {
       products: {}
-    }
+    };
   }
 
   render() {
@@ -22,7 +21,9 @@ class ProductShowcase extends Component {
             </div>
             <div id="pl-1" className="product-list grid column4-wrap">
               {(products || []).map(product => {
-                return <ProductCard key={product.id} product={product}></ProductCard>
+                return (
+                  <ProductCard key={product.id} product={product}></ProductCard>
+                );
               })}
             </div>
           </div>
@@ -34,11 +35,13 @@ class ProductShowcase extends Component {
 
 //export default ProductShowcase;
 
-
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   return {
     products: state.products
-  }
-}
+  };
+};
 
-export default connect(mapStateToProps, null)(ProductShowcase);
+export default connect(
+  mapStateToProps,
+  null
+)(ProductShowcase);

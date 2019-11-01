@@ -1,5 +1,5 @@
-export const ItemCategory = ['Fancy', 'Homing', 'Racing'];
+export const ItemCategory = ["Fancy", "Homing", "Racing"];
 
-export const ItemConditions = ['Chick', 'Patta', 'Adult', 'Pair'];
+export const ItemConditions = ["Chick", "Patta", "Adult", "Pair"];
 
-export const Vr = ['Vectorized', 'Rasterized'];
+export const Vr = ["Vectorized", "Rasterized"];

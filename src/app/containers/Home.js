@@ -1,10 +1,10 @@
-import React from 'react';
+import React from "react";
 import HomeBanner from "../components/Home/HomeBanner";
 import OurServices from "../components/OurServices";
 import ProductShowcase from "../components/Home/ProductShowcase";
 import SubscribeBanner from "../components/Home/SubscribeBanner";
 
-const Home = () => {  
+const Home = () => {
   return (
     <div>
       <HomeBanner></HomeBanner>
@@ -14,7 +14,6 @@ const Home = () => {
       <SubscribeBanner></SubscribeBanner>
     </div>
   );
-
-}
+};
 
 export default Home;

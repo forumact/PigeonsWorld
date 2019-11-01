@@ -1,11 +1,10 @@
-import React, { Component } from 'react';
-import { NavLink } from 'react-router-dom';
-import { substring } from '../../helper';
+import React, { Component } from "react";
+import { NavLink } from "react-router-dom";
+import { substring } from "../../helper";
 import ProductImage from "../../assets/joystick_m.jpg";
-import Flag from './Flag';
+import Flag from "./Flag";
 
 class ProductCard extends Component {
-
   render() {
     let img = this.props.product.img ? this.props.product.img : ProductImage;
     return (
@@ -25,19 +24,27 @@ class ProductCard extends Component {
                 <p>Go to Item</p>
               </NavLink>
             </div>
-            <Flag id={this.props.product.id} flag={this.props.product.flag}></Flag>
+            <Flag
+              id={this.props.product.id}
+              flag={this.props.product.flag}
+            ></Flag>
           </div>
         </div>
         <div className="product-info">
           <NavLink exact to={`/products/${this.props.product.id}`}>
-            <p className="text-header" title={this.props.product.title}>{substring(this.props.product.title, 18, '.....')}</p>
+            <p className="text-header" title={this.props.product.title}>
+              {substring(this.props.product.title, 18, ".....")}
+            </p>
           </NavLink>
           <p>&nbsp;</p>
           {/* <p className="product-description">{substring(this.props.product.body, 10, '.....')}</p> */}
           <NavLink exact to={`/products/${this.props.product.id}`}>
             <p className="category tertiary">{this.props.product.website}</p>
           </NavLink>
-          <p className="price"><span>$</span>{(this.props.product.price) ? this.props.product.price : 'NA'}</p>
+          <p className="price">
+            <span>$</span>
+            {this.props.product.price ? this.props.product.price : "NA"}
+          </p>
         </div>
         <hr className="line-separator" />
         <div className="user-rating">

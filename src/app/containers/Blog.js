@@ -1,12 +1,11 @@
-import React, { Component } from 'react'
+import React, { Component } from "react";
 import HeadLine from "../components/HeadLine";
 import BlogCard from "../components/Blog/BlogCard";
 import { connect } from "react-redux";
 import Pagination from "react-js-pagination";
-import { GET_BLOGS } from '../Redux/actions';
+import { GET_BLOGS } from "../Redux/actions";
 
 class Blog extends Component {
-
   constructor(props) {
     super(props);
     this.state = {
@@ -14,7 +13,7 @@ class Blog extends Component {
       activePage: 1,
       itemsCountPerPage: 9,
       totalItemsCount: 1
-    }
+    };
 
     //Bind this event on click method
     this.handlePageChange = this.handlePageChange.bind(this);
@@ -22,14 +21,14 @@ class Blog extends Component {
 
   handlePageChange(pageNumber) {
     const payload = {
-      'numberofitem': 9,
-      'pagenumber': pageNumber - 1,
-    }
+      numberofitem: 9,
+      pagenumber: pageNumber - 1
+    };
     console.log(`active page is ${pageNumber}`);
     this.props.getBlogs(payload);
     this.setState({
       activePage: pageNumber
-    })
+    });
   }
 
   render() {
@@ -46,7 +45,7 @@ class Blog extends Component {
               ))}
             </div>
             <div className="pager tertiary">
-              {(count > this.state.itemsCountPerPage) ?
+              {count > this.state.itemsCountPerPage ? (
                 <Pagination
                   activePage={this.state.activePage}
                   itemsCountPerPage={this.state.itemsCountPerPage}
@@ -56,8 +55,7 @@ class Blog extends Component {
                   itemClass="pager-item"
                   linkClass="page-link-class"
                 />
-                : null
-              }
+              ) : null}
             </div>
           </div>
         </div>
@@ -67,27 +65,28 @@ class Blog extends Component {
 
   componentDidMount() {
     const payload = {
-      'numberofitem': 9,
-      'pagenumber': 0,
-    }
+      numberofitem: 9,
+      pagenumber: 0
+    };
     this.props.getBlogs(payload);
   }
-
 }
 
-
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   return {
     blogs: state.blogs
-  }
-}
+  };
+};
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = dispatch => {
   return {
-    getBlogs: (payload) => {
+    getBlogs: payload => {
       dispatch({ type: GET_BLOGS, payload: payload });
-    },
-  }
-}
+    }
+  };
+};
 
-export default connect(mapStateToProps, mapDispatchToProps)(Blog);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Blog);

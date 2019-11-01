@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import HeadLine from "../components/HeadLine";
 import CommentsList from "../components/CommentsList";
-import { fetchBlogDetails } from '../Networks';
-import SocilaMediaShareLinks from '../components/SocilaMediaShareLinks';
-import LatestBlogs from '../components/Blog/LatestBlogs';
+import { fetchBlogDetails } from "../Networks";
+import SocilaMediaShareLinks from "../components/SocilaMediaShareLinks";
+import LatestBlogs from "../components/Blog/LatestBlogs";
 
 class BlogDetails extends Component {
   constructor() {
@@ -11,9 +11,8 @@ class BlogDetails extends Component {
 
     this.state = {
       blog: []
-    }
+    };
   }
-
 
   render() {
     const { title, body, img } = this.state.blog;
@@ -23,14 +22,19 @@ class BlogDetails extends Component {
         <div className="section-wrap">
           <div className="section">
             <div className="sidebar right">
-              <LatestBlogs title="Latest Blogs" nid={this.props.match.params.id}></LatestBlogs>
-              <LatestBlogs title="Popular Blogs" nid={this.props.match.params.id}></LatestBlogs>
+              <LatestBlogs
+                title="Latest Blogs"
+                nid={this.props.match.params.id}
+              ></LatestBlogs>
+              <LatestBlogs
+                title="Popular Blogs"
+                nid={this.props.match.params.id}
+              ></LatestBlogs>
             </div>
             <div className="content left">
               <article className="post">
                 <div className="post-image">
-                  <figure
-                    className="product-preview-image large liquid imgLiquid_bgSize imgLiquid_ready">
+                  <figure className="product-preview-image large liquid imgLiquid_bgSize imgLiquid_ready">
                     <img src={img} alt="" />
                   </figure>
                 </div>
@@ -51,16 +55,15 @@ class BlogDetails extends Component {
     );
   }
 
-
   componentDidMount() {
     const data = {
       id: this.props.match.params.id
     };
 
-    fetchBlogDetails(data).then((response) => {
+    fetchBlogDetails(data).then(response => {
       this.setState({
         blog: response.data
-      })
+      });
       document.title = `Pigeons World | ${response.data.title}`;
     });
   }
@@ -71,15 +74,14 @@ class BlogDetails extends Component {
       const data = {
         id: this.props.match.params.id
       };
-      fetchBlogDetails(data).then((response) => {
+      fetchBlogDetails(data).then(response => {
         this.setState({
           blog: response.data
-        })
+        });
         document.title = `Pigeons World | ${response.data.title}`;
       });
     }
   }
-
 }
 
 export default BlogDetails;

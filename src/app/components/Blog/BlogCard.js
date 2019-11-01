@@ -1,10 +1,18 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import { substring } from '../../helper';
+import { substring } from "../../helper";
 
 class BlogCard extends Component {
   render() {
-    let { id, img, title, created, body, country_of_origin, comment_count } = this.props.blog;
+    let {
+      id,
+      img,
+      title,
+      created,
+      body,
+      country_of_origin,
+      comment_count
+    } = this.props.blog;
     return (
       <div className="blog-post-preview-item column">
         <Link to={`/blog/${id}`}>
@@ -14,7 +22,7 @@ class BlogCard extends Component {
         </Link>
         <div className="blog-post-preview-item-info">
           <p className="text-header mid">
-            <Link to={`/blog/${id}`}>{substring(title, 20, '.....')}</Link>
+            <Link to={`/blog/${id}`}>{substring(title, 20, ".....")}</Link>
           </p>
           <div className="meta-line">
             <Link to={`/blog/${id}`}>
@@ -23,9 +31,7 @@ class BlogCard extends Component {
             <p>{created}</p>
           </div>
           <div className="description-preview">
-            <p>
-              {substring(body, 180, '.....')}
-            </p>
+            <p>{substring(body, 180, ".....")}</p>
             {/* <div dangerouslySetInnerHTML={{ __html: body }} /> */}
           </div>
           <div className="metadata">
@@ -38,7 +44,9 @@ class BlogCard extends Component {
               <p>68</p>
             </div>
           </div>
-          <Link to={`/blog/${id}`} className={"more-button primary"}>Read More...</Link>
+          <Link to={`/blog/${id}`} className={"more-button primary"}>
+            Read More...
+          </Link>
         </div>
       </div>
     );

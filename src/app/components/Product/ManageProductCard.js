@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
-import { NavLink } from 'react-router-dom';
-import { substring } from '../../helper';
-import ItemNavigation from '../Navigation/ItemNavigation';
+import React, { Component } from "react";
+import { NavLink } from "react-router-dom";
+import { substring } from "../../helper";
+import ItemNavigation from "../Navigation/ItemNavigation";
 
 class ManageProductCard extends Component {
   render() {
@@ -9,19 +9,26 @@ class ManageProductCard extends Component {
       <div className="product-item column" key={this.props.product.id}>
         <div className="product-preview-actions">
           <figure className="product-preview-image">
-            <img src={this.props.product.img} alt="product"/>
+            <img src={this.props.product.img} alt="product" />
           </figure>
           <ItemNavigation nid={this.props.product.id}></ItemNavigation>
         </div>
         <div className="product-info">
           <a href="item-v1.html">
-            <p className="text-header" title={this.props.product.title}>{this.props.product.title}</p>
+            <p className="text-header" title={this.props.product.title}>
+              {this.props.product.title}
+            </p>
           </a>
-          <p className="product-description">{substring(this.props.product.body, 35, '.....')}</p>
+          <p className="product-description">
+            {substring(this.props.product.body, 35, ".....")}
+          </p>
           <a href="shop-gridview-v1.html">
             <p className="category primary">{this.props.product.website}</p>
           </a>
-          <p className="price"><span>₹</span>{(this.props.product.price) ? this.props.product.price : 'NA'}</p>
+          <p className="price">
+            <span>₹</span>
+            {this.props.product.price ? this.props.product.price : "NA"}
+          </p>
         </div>
         <hr className="line-separator" />
         <div className="user-rating">
@@ -35,9 +42,8 @@ class ManageProductCard extends Component {
           </NavLink>
         </div>
       </div>
-    )
+    );
   }
 }
-
 
 export default ManageProductCard;

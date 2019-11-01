@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
-import TopImage from '../../assets/top_items.png';
+import React, { Component } from "react";
+import TopImage from "../../assets/top_items.png";
 
-import Search from './Search';
+import Search from "./Search";
 
 class HomeBanner extends Component {
   render() {
@@ -9,9 +9,14 @@ class HomeBanner extends Component {
       <div className="banner-wrap">
         <section className="banner">
           <h5>Welcome to</h5>
-          <h1>The Biggest <span>Marketplace</span></h1>
-          <p>Advertise your birds for sale on the Birdtrader website to THOUSANDS of daily visitors.
-            What's more, you can place a basic ad online for FREE!</p>
+          <h1>
+            The Biggest <span>Marketplace</span>
+          </h1>
+          <p>
+            Advertise your birds for sale on the Birdtrader website to THOUSANDS
+            of daily visitors. What's more, you can place a basic ad online for
+            FREE!
+          </p>
           <img src={TopImage} alt="banner-img" />
           <div className="search-widget">
             <Search></Search>

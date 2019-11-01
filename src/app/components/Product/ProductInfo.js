@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
 class ProductInfo extends Component {
   render() {
@@ -27,7 +27,6 @@ class ProductInfo extends Component {
             <p className="text-header">Price:</p>
             <p>{this.props.product.price}</p>
           </div>
-         
         </div>
       </div>
     );

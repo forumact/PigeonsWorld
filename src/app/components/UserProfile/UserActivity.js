@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component } from "react";
 
 export default class UserActivity extends Component {
   render() {
@@ -26,6 +26,6 @@ export default class UserActivity extends Component {
           <a href="author-badges.html">Author Badges (16)</a>
         </li>
       </ul>
-    )
+    );
   }
 }

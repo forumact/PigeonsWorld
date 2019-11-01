@@ -1,12 +1,11 @@
-import React, { Component } from 'react';
-import { GET_USER_PRODUCTS } from '../Redux/actions';
+import React, { Component } from "react";
+import { GET_USER_PRODUCTS } from "../Redux/actions";
 import { connect } from "react-redux";
 import Pagination from "react-js-pagination";
-import ProductAddButton from '../components/Product/ProductAddButton';
-import ManageProductCard from '../components/Product/ManageProductCard';
+import ProductAddButton from "../components/Product/ProductAddButton";
+import ManageProductCard from "../components/Product/ManageProductCard";
 
 class ManageItems extends Component {
-
   constructor(props) {
     super(props);
     this.state = {
@@ -14,7 +13,7 @@ class ManageItems extends Component {
       activePage: 1,
       itemsCountPerPage: 9,
       totalItemsCount: 1
-    }
+    };
 
     //Bind this event on click method
     this.handlePageChange = this.handlePageChange.bind(this);
@@ -22,28 +21,26 @@ class ManageItems extends Component {
 
   handlePageChange(pageNumber) {
     const payload = {
-      'numberofitem': 11,
-      'uid': localStorage.getItem('uid'),
-      'pagenumber': pageNumber - 1,
-    }
+      numberofitem: 11,
+      uid: localStorage.getItem("uid"),
+      pagenumber: pageNumber - 1
+    };
     console.log(`active page is ${pageNumber}`);
     this.props.getUserProducts(payload);
     this.setState({
       activePage: pageNumber
-    })
+    });
   }
-
 
   componentDidMount() {
     const payload = {
-      'numberofitem': 11,
-      'pagenumber': 0,
-      'uid': localStorage.getItem('uid'),
-    }
+      numberofitem: 11,
+      pagenumber: 0,
+      uid: localStorage.getItem("uid")
+    };
     this.props.getUserProducts(payload);
     document.title = `Pigeons World | Products`;
   }
-
 
   render() {
     const { products, count } = this.props.userProducts;
@@ -55,12 +52,17 @@ class ManageItems extends Component {
         <div className="product-list grid column4-wrap">
           <ProductAddButton></ProductAddButton>
           {(products || []).map(product => {
-            return <ManageProductCard key={product.id} product={product}></ManageProductCard>
+            return (
+              <ManageProductCard
+                key={product.id}
+                product={product}
+              ></ManageProductCard>
+            );
           })}
         </div>
         <div className="clearfix"></div>
         <div className="pager tertiary">
-          {count ?
+          {count ? (
             <Pagination
               activePage={this.state.activePage}
               itemsCountPerPage={this.state.numberofitem}
@@ -70,30 +72,30 @@ class ManageItems extends Component {
               itemClass="pager-item"
               linkClass="page-link-class"
             />
-            : null
-          }
+          ) : null}
         </div>
       </div>
     );
   }
 }
 
-
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   return {
     userProducts: state.userProducts
-  }
-}
+  };
+};
 
-const mapDispatchToProps = (dispatch) => {
-
+const mapDispatchToProps = dispatch => {
   return {
-    getUserProducts: (payload) => {
+    getUserProducts: payload => {
       dispatch({ type: GET_USER_PRODUCTS, payload: payload });
-    },
-  }
-}
+    }
+  };
+};
 
-export default connect(mapStateToProps, mapDispatchToProps)(ManageItems);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(ManageItems);
 
 //export default ManageItems;

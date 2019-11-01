@@ -1,13 +1,12 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
 class ItemNavigation extends Component {
-
   constructor(props) {
     super(props);
     this.state = {
       hover: false
-    }
+    };
 
     this.hoverOn = this.hoverOn.bind(this);
     this.hoverOff = this.hoverOff.bind(this);
@@ -16,15 +15,14 @@ class ItemNavigation extends Component {
   hoverOn() {
     this.setState({
       hover: true
-    })
+    });
   }
 
   hoverOff() {
     this.setState({
       hover: false
-    })
+    });
   }
-
 
   render() {
     return (
@@ -32,7 +30,13 @@ class ItemNavigation extends Component {
         <div className="product-settings primary dropdown-handle">
           <span className="sl-icon icon-settings"></span>
         </div>
-        <ul className={this.state.hover ? "dropdown small hover-effect open" : "dropdown small hover-effect closed"}>
+        <ul
+          className={
+            this.state.hover
+              ? "dropdown small hover-effect open"
+              : "dropdown small hover-effect closed"
+          }
+        >
           <li className="dropdown-item">
             <div className="dp-triangle"></div>
             <Link to={`update-item/${this.props.nid}`}>Edit Item</Link>

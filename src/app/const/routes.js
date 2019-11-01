@@ -1,124 +1,124 @@
-import { lazy } from 'react';
+import { lazy } from "react";
 
 export const MyRoutes = [
   {
-    path: '/',
-    component: lazy(() => import('../containers/Home')),
+    path: "/",
+    component: lazy(() => import("../containers/Home")),
     title: "Home",
-    menu: "yes",
+    menu: "yes"
   },
   {
-    path: '/blog',
-    component: lazy(() => import('../containers/Blog')),
+    path: "/blog",
+    component: lazy(() => import("../containers/Blog")),
     title: "Blog",
-    menu: "yes",
+    menu: "yes"
   },
   {
-    path: '/how-to-shop',
-    component: lazy(() => import('../containers/HowToShop')),
+    path: "/how-to-shop",
+    component: lazy(() => import("../containers/HowToShop")),
     title: "HOW TO SHOP",
-    menu: "no",
+    menu: "no"
   },
   {
-    path: '/products',
-    component: lazy(() => import('../containers/Products')),
+    path: "/products",
+    component: lazy(() => import("../containers/Products")),
     title: "Products",
-    menu: "yes",
+    menu: "yes"
   },
   {
-    path: '/services',
-    component: lazy(() => import('../components/OurServices')),
+    path: "/services",
+    component: lazy(() => import("../components/OurServices")),
     title: "Services",
-    menu: "no",
+    menu: "no"
   },
   {
-    path: '/online-goods',
-    component: lazy(() => import('../containers/OnlineGoods')),
+    path: "/online-goods",
+    component: lazy(() => import("../containers/OnlineGoods")),
     title: "Online Goods",
-    menu: "yes",
+    menu: "yes"
   },
   {
-    path: '/products/:pid',
-    component: lazy(() => import('../containers/ProductDetails')),
+    path: "/products/:pid",
+    component: lazy(() => import("../containers/ProductDetails")),
     title: "Product Details",
-    menu: "no",
+    menu: "no"
   },
   {
-    path: '/login',
-    component: lazy(() => import('../containers/Login')),
+    path: "/login",
+    component: lazy(() => import("../containers/Login")),
     title: "Login",
-    menu: "no",
+    menu: "no"
   },
   {
-    path: '/user-register',
-    component: lazy(() => import('../containers/UserRegister')),
+    path: "/user-register",
+    component: lazy(() => import("../containers/UserRegister")),
     title: "User Register",
-    menu: "no",
+    menu: "no"
   },
   {
-    path: '/upload-items',
-    component: lazy(() => import('../containers/UploadItem')),
+    path: "/upload-items",
+    component: lazy(() => import("../containers/UploadItem")),
     title: "Upload Items",
-    menu: "no",
+    menu: "no"
   },
   {
-    path: '/update-item/:id',
-    component: lazy(() => import('../containers/UpdateItem')),
+    path: "/update-item/:id",
+    component: lazy(() => import("../containers/UpdateItem")),
     title: "Update Item",
-    menu: "no",
+    menu: "no"
   },
   {
-    path: '/manage-items',
-    component: lazy(() => import('../containers/ManageItems')),
+    path: "/manage-items",
+    component: lazy(() => import("../containers/ManageItems")),
     title: "Manage Items",
-    menu: "no",
+    menu: "no"
   },
   {
-    path: '/user-edit',
-    component: lazy(() => import('../containers/AccountSettings')),
+    path: "/user-edit",
+    component: lazy(() => import("../containers/AccountSettings")),
     title: "Account Settings",
-    menu: "no",
+    menu: "no"
   },
   {
-    path: '/favourites/:uid',
-    component: lazy(() => import('../containers/Favourites')),
+    path: "/favourites/:uid",
+    component: lazy(() => import("../containers/Favourites")),
     title: "Favourites",
-    menu: "no",
+    menu: "no"
   },
   {
-    path: '/contact',
-    component: lazy(() => import('../containers/Contact')),
+    path: "/contact",
+    component: lazy(() => import("../containers/Contact")),
     title: "Contact",
-    menu: "no",
+    menu: "no"
   },
   {
-    path: '/user/:uid',
-    component: lazy(() => import('../containers/UserProfile')),
+    path: "/user/:uid",
+    component: lazy(() => import("../containers/UserProfile")),
     title: "Author's Profile",
-    menu: "no",
+    menu: "no"
   },
   {
-    path: '/blog/:id',
-    component: lazy(() => import('../containers/BlogDetails')),
+    path: "/blog/:id",
+    component: lazy(() => import("../containers/BlogDetails")),
     title: "Blog Details",
-    menu: "no",
+    menu: "no"
   },
   {
-    path: '/demo',
-    component: lazy(() => import('../components/FileUpload')),
+    path: "/demo",
+    component: lazy(() => import("../components/FileUpload")),
     title: "File Upload Demo",
-    menu: "no",
+    menu: "no"
   },
   {
-    path: '/user/:uid/items',
-    component: lazy(() => import('../containers/UserItems')),
+    path: "/user/:uid/items",
+    component: lazy(() => import("../containers/UserItems")),
     title: "User Items",
-    menu: "no",
+    menu: "no"
   },
   {
-    path: '*',
-    component: lazy(() => import('../containers/NotFound')),
+    path: "*",
+    component: lazy(() => import("../containers/NotFound")),
     title: "Blog Details",
-    menu: "no",
-  },
+    menu: "no"
+  }
 ];

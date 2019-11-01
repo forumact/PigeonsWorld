@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import TopImage from '../assets/top_items.png';
-import { PigeonCategory } from '../helper/MainHelper';
+import React, { Component } from "react";
+import TopImage from "../assets/top_items.png";
+import { PigeonCategory } from "../helper/MainHelper";
 
 class HomeBanner extends Component {
   render() {
@@ -8,17 +8,30 @@ class HomeBanner extends Component {
       <div className="banner-wrap">
         <section className="banner">
           <h5>Welcome to</h5>
-          <h1>The Biggest <span>Marketplace</span></h1>
-          <p>Advertise your birds for sale on the Birdtrader website to THOUSANDS of daily visitors. 
-            What's more, you can place a basic ad online for FREE!</p>
+          <h1>
+            The Biggest <span>Marketplace</span>
+          </h1>
+          <p>
+            Advertise your birds for sale on the Birdtrader website to THOUSANDS
+            of daily visitors. What's more, you can place a basic ad online for
+            FREE!
+          </p>
           <img src={TopImage} alt="banner-img" />
           <div className="search-widget">
             <form className="search-widget-form">
-              <input type="text" name="category_name" placeholder="Looking for..." />
+              <input
+                type="text"
+                name="category_name"
+                placeholder="Looking for..."
+              />
               <label htmlFor="categories" className="select-block">
                 <select name="categories" id="categories">
-                  {PigeonCategory.map((cat) => {
-                    return <option value={cat} key={cat}>{cat}</option>;
+                  {PigeonCategory.map(cat => {
+                    return (
+                      <option value={cat} key={cat}>
+                        {cat}
+                      </option>
+                    );
                   })}
                 </select>
               </label>

@@ -1,19 +1,18 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import HeadLine from "../components/HeadLine";
 import ProductCard from "../components/Product/ProductCard";
 import { connect } from "react-redux";
 
 class OnlineGoods extends Component {
-
   constructor(props) {
     super(props);
     this.state = {
       products: {}
-    }
+    };
   }
 
   render() {
-    const title = 'Online Goods';
+    const title = "Online Goods";
     const { products, count } = this.props.products;
     return (
       <div>
@@ -41,7 +40,12 @@ class OnlineGoods extends Component {
               <div className="product-showcase">
                 <div className="product-list grid column3-4-wrap">
                   {(products || []).map(product => {
-                    return <ProductCard key={product.id} product={product}></ProductCard>
+                    return (
+                      <ProductCard
+                        key={product.id}
+                        product={product}
+                      ></ProductCard>
+                    );
                   })}
                 </div>
               </div>
@@ -51,16 +55,17 @@ class OnlineGoods extends Component {
       </div>
     );
   }
-
 }
-
 
 //export default OnlineGoods;
 
-const mapStateToProps = (state) => {  
+const mapStateToProps = state => {
   return {
     products: state.products
-  }
-}
+  };
+};
 
-export default connect(mapStateToProps, null)(OnlineGoods);
+export default connect(
+  mapStateToProps,
+  null
+)(OnlineGoods);

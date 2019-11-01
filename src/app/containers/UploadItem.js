@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import UploaditemForm from "../Forms/UploadItemForm";
-import UploadGuidelines from '../components/UploadItems/UploadGuidelines';
-import UploadQueue from '../components/UploadItems/UploadQueue';
+import UploadGuidelines from "../components/UploadItems/UploadGuidelines";
+import UploadQueue from "../components/UploadItems/UploadQueue";
 
 class UploadItem extends Component {
   render() {

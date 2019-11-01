@@ -1,13 +1,12 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import { getProductFilter } from "../../Networks";
 
 export default class ProductsFilter extends Component {
-
   constructor() {
     super();
     this.state = {
       productFilter: []
-    }
+    };
   }
 
   render() {
@@ -21,21 +20,23 @@ export default class ProductsFilter extends Component {
               <div key={i}>
                 <input type="checkbox" id={`filter${i}`} name={`filter${i}`} />
                 <label htmlFor={`filter${i}`}>
-                  <span className="checkbox tertiary"><span></span></span>
+                  <span className="checkbox tertiary">
+                    <span></span>
+                  </span>
                   {product.field_item_category}
                   <span className="quantity">{product.nid_count}</span>
                 </label>
               </div>
-            )
+            );
           })}
         </form>
       </div>
-    )
+    );
   }
 
   componentDidMount() {
-    getProductFilter().then((response) => {
-      this.setState({ productFilter: response.data })
+    getProductFilter().then(response => {
+      this.setState({ productFilter: response.data });
     });
   }
 }

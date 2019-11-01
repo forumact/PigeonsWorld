@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 
 export default function UploadQueue() {
   return (
@@ -22,5 +22,5 @@ export default function UploadQueue() {
         </div>
       </div>
     </div>
-  )
+  );
 }

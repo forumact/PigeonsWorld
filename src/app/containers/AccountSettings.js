@@ -1,11 +1,10 @@
-import React, { Component } from 'react';
-import SocialMediaForm from '../Forms/SocialMediaForm';
-import BillingInformation from '../Forms/BillingInformation';
-import ShippingInformation from '../Forms/ShippingInformation';
-import AccountSettingsForm from '../Forms/AccountSettingsForm';
+import React, { Component } from "react";
+import SocialMediaForm from "../Forms/SocialMediaForm";
+import BillingInformation from "../Forms/BillingInformation";
+import ShippingInformation from "../Forms/ShippingInformation";
+import AccountSettingsForm from "../Forms/AccountSettingsForm";
 
 class AccountSettings extends Component {
-
   // submit = values => {
   //   console.log(values);
   //   try {
@@ -27,7 +26,7 @@ class AccountSettings extends Component {
 
   socialsubmit = values => {
     console.log(values);
-  }
+  };
 
   render() {
     return (
@@ -36,7 +35,7 @@ class AccountSettings extends Component {
           <h4>Account Settings</h4>
         </div>
         <div className="form-box-items">
-          <div className="form-box-item">            
+          <div className="form-box-item">
             <AccountSettingsForm></AccountSettingsForm>
           </div>
           <div className="form-box-item spaced">
@@ -52,7 +51,6 @@ class AccountSettings extends Component {
       </div>
     );
   }
-
 }
 
 export default AccountSettings;

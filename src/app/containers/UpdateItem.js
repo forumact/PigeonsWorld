@@ -1,16 +1,14 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import UploaditemForm from "../Forms/UploadItemForm";
-import UploadGuidelines from '../components/UploadItems/UploadGuidelines';
-import UploadQueue from '../components/UploadItems/UploadQueue';
+import UploadGuidelines from "../components/UploadItems/UploadGuidelines";
+import UploadQueue from "../components/UploadItems/UploadQueue";
 
 export default class UpdateItem extends Component {
-
   constructor(props) {
     super(props);
     this.state = {
       hide: true
-    }
-
+    };
   }
   render() {
     return (

@@ -1,13 +1,13 @@
-import React from 'react';
-import LoginForm from '../Forms/LoginForm';
-import { login } from '../Networks';
+import React from "react";
+import LoginForm from "../Forms/LoginForm";
+import { login } from "../Networks";
 
 class Login extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      userobject: ''
-    }
+      userobject: ""
+    };
   }
 
   submit = values => {
@@ -19,27 +19,26 @@ class Login extends React.Component {
 
       //this.props.getUserlogin(payload);
 
-      login(payload).then((response) => {
+      login(payload).then(response => {
         const userdetails = {
-          'csrf': response.data.csrf_token,
-          'uid': response.data.uid,
-          'avatar': response.data.avatar
-        }
-        this.setState({ user: userdetails })
-        localStorage.setItem('csrf', response.data.csrf_token);
-        localStorage.setItem('avatar', response.data.user_pic);
-        localStorage.setItem('uid', response.data.uid);
-        localStorage.setItem('username', response.data.name);
+          csrf: response.data.csrf_token,
+          uid: response.data.uid,
+          avatar: response.data.avatar
+        };
+        this.setState({ user: userdetails });
+        localStorage.setItem("csrf", response.data.csrf_token);
+        localStorage.setItem("avatar", response.data.user_pic);
+        localStorage.setItem("uid", response.data.uid);
+        localStorage.setItem("username", response.data.name);
         this.props.history.push("/");
       });
     } catch (e) {
       console.log(`Axios request failed: ${e}`);
     }
-
-  }
+  };
 
   redirect() {
-    this.props.history.push('/');
+    this.props.history.push("/");
   }
 
   render() {
@@ -58,7 +57,6 @@ class Login extends React.Component {
       </div>
     );
   }
-
 }
 
 // const mapStateToProps = (state) => {

@@ -1,14 +1,13 @@
-import React, { Component } from 'react'
+import React, { Component } from "react";
 import HeadLine from "../components/HeadLine";
 import ProductCard from "../components/Product/ProductCard";
 import { connect } from "react-redux";
 import Pagination from "react-js-pagination";
-import { GET_PRODUCTS } from '../Redux/actions';
-import ProductSideBar from '../components/Product/ProductSideBar';
-import ProductsFilter from '../components/Product/ProductsFilter';
+import { GET_PRODUCTS } from "../Redux/actions";
+import ProductSideBar from "../components/Product/ProductSideBar";
+import ProductsFilter from "../components/Product/ProductsFilter";
 
 class Products extends Component {
-
   constructor(props) {
     super(props);
     this.state = {
@@ -16,7 +15,7 @@ class Products extends Component {
       activePage: 1,
       itemsCountPerPage: 9,
       totalItemsCount: 1
-    }
+    };
 
     //Bind this event on click method
     this.handlePageChange = this.handlePageChange.bind(this);
@@ -24,27 +23,27 @@ class Products extends Component {
 
   handlePageChange(pageNumber) {
     const payload = {
-      'numberofitem': 9,
-      'pagenumber': pageNumber - 1,
-    }
+      numberofitem: 9,
+      pagenumber: pageNumber - 1
+    };
     console.log(`active page is ${pageNumber}`);
     this.props.getProducts(payload);
     this.setState({
       activePage: pageNumber
-    })
+    });
   }
 
   componentDidMount() {
     const payload = {
-      'numberofitem': 9,
-      'pagenumber': 0,
-    }
+      numberofitem: 9,
+      pagenumber: 0
+    };
     this.props.getProducts(payload);
     document.title = `Pigeons World | Products`;
   }
 
   render() {
-    const title = 'Products';
+    const title = "Products";
     const { products, count } = this.props.products;
     return (
       <div>
@@ -58,13 +57,18 @@ class Products extends Component {
               <div className="product-showcase">
                 <div className="product-list grid column3-4-wrap">
                   {(products || []).map(product => {
-                    return <ProductCard key={product.id} product={product}></ProductCard>
+                    return (
+                      <ProductCard
+                        key={product.id}
+                        product={product}
+                      ></ProductCard>
+                    );
                   })}
                 </div>
               </div>
               <div className="clearfix"></div>
               <div className="pager tertiary">
-                {count ?
+                {count ? (
                   <Pagination
                     activePage={this.state.activePage}
                     itemsCountPerPage={9}
@@ -74,8 +78,7 @@ class Products extends Component {
                     itemClass="pager-item"
                     linkClass="page-link-class"
                   />
-                  : null
-                }
+                ) : null}
               </div>
             </div>
             <div className="sidebar">
@@ -85,23 +88,25 @@ class Products extends Component {
           </div>
         </div>
       </div>
-    )
+    );
   }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   return {
     products: state.products
-  }
-}
+  };
+};
 
-const mapDispatchToProps = (dispatch) => {
-
+const mapDispatchToProps = dispatch => {
   return {
-    getProducts: (payload) => {
+    getProducts: payload => {
       dispatch({ type: GET_PRODUCTS, payload: payload });
-    },
-  }
-}
+    }
+  };
+};
 
-export default connect(mapStateToProps, mapDispatchToProps)(Products);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Products);
