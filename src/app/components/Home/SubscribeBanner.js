@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import NewIcon from '../assets/news_icon.png';
+import NewIcon from '../../assets/news_icon.png';
 
 class SubscribeBanner extends Component {
     render() {

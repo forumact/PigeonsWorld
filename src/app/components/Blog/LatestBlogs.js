@@ -1,15 +1,14 @@
-import React, { Component } from 'react';
-import { fetchBlogLatest } from '../../Networks';
-import { NavLink } from 'react-router-dom';
+import React, { Component } from "react";
+import { fetchBlogLatest } from "../../Networks";
+import { NavLink } from "react-router-dom";
 
 class LatestBlogs extends Component {
-
   constructor() {
     super();
 
     this.state = {
       latestblog: []
-    }
+    };
   }
 
   render() {
@@ -18,31 +17,36 @@ class LatestBlogs extends Component {
         <h4>{this.props.title}</h4>
         <hr className="line-separator" />
         {(this.state.latestblog || []).map(blog => {
-          return (<div className="item-preview" key={blog.id}>
-            <NavLink exact to={`/blog/${blog.id}`}>
-              <figure className="product-preview-image small liquid">
-                <img src={blog.img} alt="" />
-              </figure>
-            </NavLink>
-            <NavLink exact to={`/blog/${blog.id}`}>
-              <p className="text-header small">{blog.title}</p>
-            </NavLink>
-            <p className="category tiny primary"><NavLink exact to={`/blog/${blog.id}`}>Design Inspires</NavLink></p>
-            <div className="metadata">
-              <div className="meta-item">
-                <span className="icon-bubble"></span>
-                <p>{blog.comment_count}</p>
-              </div>
-              <div className="meta-item">
-                <span className="icon-eye"></span>
-                <p>68</p>
+          return (
+            <div className="item-preview" key={blog.id}>
+              <NavLink exact to={`/blog/${blog.id}`}>
+                <figure className="product-preview-image small liquid">
+                  <img src={blog.img} alt="" />
+                </figure>
+              </NavLink>
+              <NavLink exact to={`/blog/${blog.id}`}>
+                <p className="text-header small">{blog.title}</p>
+              </NavLink>
+              <p className="category tiny primary">
+                <NavLink exact to={`/blog/${blog.id}`}>
+                  Design Inspires
+                </NavLink>
+              </p>
+              <div className="metadata">
+                <div className="meta-item">
+                  <span className="icon-bubble"></span>
+                  <p>{blog.comment_count}</p>
+                </div>
+                <div className="meta-item">
+                  <span className="icon-eye"></span>
+                  <p>68</p>
+                </div>
               </div>
             </div>
-          </div>);
+          );
         })}
-
       </div>
-    )
+    );
   }
 
   componentDidMount() {
@@ -51,12 +55,11 @@ class LatestBlogs extends Component {
       nid: this.props.nid
     };
 
-    fetchBlogLatest(data).then((response) => {
+    fetchBlogLatest(data).then(response => {
       this.setState({
         latestblog: response.data
-      })
+      });
     });
-
   }
 
   componentDidUpdate(prevProps) {
@@ -66,14 +69,13 @@ class LatestBlogs extends Component {
         nid: this.props.nid
       };
 
-      fetchBlogLatest(data).then((response) => {
+      fetchBlogLatest(data).then(response => {
         this.setState({
           latestblog: response.data
-        })
+        });
       });
     }
   }
-
 }
 
 export default LatestBlogs;

@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import HeadLine from "../components/HeadLine";
 import CommentsList from "../components/CommentsList";
-import ProductInfo from '../components/Product/ProductInfo';
-import { fetchProductDetails } from '../Networks';
-import ProductSeller from '../components/Product/ProductSeller';
-import ProductMarketing from '../components/Product/ProductMarketing';
-import SocilaMediaShareLinks from '../components/SocilaMediaShareLinks';
+import ProductInfo from "../components/Product/ProductInfo";
+import { fetchProductDetails } from "../Networks";
+import ProductSeller from "../components/Product/ProductSeller";
+import ProductMarketing from "../components/Product/ProductMarketing";
+import SocilaMediaShareLinks from "../components/SocilaMediaShareLinks";
 
 class ProductDetails extends Component {
   constructor() {
@@ -13,9 +13,8 @@ class ProductDetails extends Component {
 
     this.state = {
       product: []
-    }
+    };
   }
-
 
   render() {
     const { title, body, img } = this.state.product;
@@ -32,8 +31,7 @@ class ProductDetails extends Component {
             <div className="content left">
               <article className="post">
                 <div className="post-image">
-                  <figure
-                    className="product-preview-image large liquid imgLiquid_bgSize imgLiquid_ready">
+                  <figure className="product-preview-image large liquid imgLiquid_bgSize imgLiquid_ready">
                     <img src={img} alt="" />
                   </figure>
                 </div>
@@ -54,20 +52,18 @@ class ProductDetails extends Component {
     );
   }
 
-
   componentDidMount() {
     const data = {
       id: this.props.match.params.pid
     };
 
-    fetchProductDetails(data).then((response) => {
+    fetchProductDetails(data).then(response => {
       this.setState({
         product: response.data
-      })
+      });
       document.title = `Pigeons World | ${response.data.title}`;
     });
   }
-
 }
 
 export default ProductDetails;

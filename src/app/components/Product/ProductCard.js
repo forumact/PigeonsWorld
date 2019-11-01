@@ -2,22 +2,10 @@ import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
 import { substring } from '../../helper';
 import ProductImage from "../../assets/joystick_m.jpg";
-import { flag } from '../../Networks';
+import Flag from './Flag';
 
 class ProductCard extends Component {
-  // constructor(props) {
-  //     super(props);
-  //     //console.log(props)
-  // }
 
-  yourfavorites(e, id, flagstatus) {
-    e.preventDefault();
-    if (flagstatus === 'Flagged') {
-      console.log(id, 'item already flagged');
-      return false;
-    }
-    flag(id);
-  }
   render() {
     let img = this.props.product.img ? this.props.product.img : ProductImage;
     return (
@@ -37,16 +25,7 @@ class ProductCard extends Component {
                 <p>Go to Item</p>
               </NavLink>
             </div>
-            <div className="preview-action">
-              <a href="/">
-                <div className="circle tiny secondary">
-                  <span onClick={(e) => this.yourfavorites(e, this.props.product.id, this.props.product.flag)} className="icon-heart"></span>
-                </div>
-              </a>
-              <a href="/">
-                <p>Favourites +</p>
-              </a>
-            </div>
+            <Flag id={this.props.product.id} flag={this.props.product.flag}></Flag>
           </div>
         </div>
         <div className="product-info">

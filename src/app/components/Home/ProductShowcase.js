@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import ProductCard from "./Product/ProductCard";
+import ProductCard from "../Product/ProductCard";
 import { connect } from "react-redux";
 
 class ProductShowcase extends Component {

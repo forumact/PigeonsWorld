@@ -1,18 +1,17 @@
-import React from 'react';
-import { Field, reduxForm } from 'redux-form'
-import { renderField } from "../helper"
-
+import React from "react";
+import { Field, reduxForm } from "redux-form";
+import { renderField } from "../helper";
 
 const validate = values => {
-  const errors = {}
+  const errors = {};
   if (!values.social_fb_link) {
-    errors.social_fb_link = 'Required'
+    errors.social_fb_link = "Required";
   }
   if (!values.social_twt_link) {
-    errors.social_twt_link = 'Required'
+    errors.social_twt_link = "Required";
   }
-  return errors
-}
+  return errors;
+};
 
 let SocialMediaForm = props => {
   const { handleSocialSubmit } = props;
@@ -23,64 +22,128 @@ let SocialMediaForm = props => {
       <form onSubmit={handleSocialSubmit}>
         <div className="input-container">
           <ul className="share-links">
-            <li><a href="/" className="fb">&nbsp;</a></li>
+            <li>
+              <a href="/" className="fb">
+                &nbsp;
+              </a>
+            </li>
           </ul>
-          <Field id="social_fb_link" name="social_fb_link" type="text" component={renderField}
-            placeholder="Enter your social link here..." />
+          <Field
+            id="social_fb_link"
+            name="social_fb_link"
+            type="text"
+            component={renderField}
+            placeholder="Enter your social link here..."
+          />
         </div>
 
         <div className="input-container">
           <ul className="share-links">
-            <li><a href="/" className="twt">&nbsp;</a></li>
+            <li>
+              <a href="/" className="twt">
+                &nbsp;
+              </a>
+            </li>
           </ul>
-          <Field id="social_twt_link" name="social_twt_link" type="text" component={renderField}
-            placeholder="Enter your social link here..." />
+          <Field
+            id="social_twt_link"
+            name="social_twt_link"
+            type="text"
+            component={renderField}
+            placeholder="Enter your social link here..."
+          />
         </div>
         <div className="input-container">
           <ul className="share-links">
-            <li><a href="/" className="twt">&nbsp;</a></li>
+            <li>
+              <a href="/" className="twt">
+                &nbsp;
+              </a>
+            </li>
           </ul>
-          <Field id="social_twt_link" name="social_twt_link" type="text" component={renderField}
-            placeholder="Enter your social link here..." />
+          <Field
+            id="social_twt_link"
+            name="social_twt_link"
+            type="text"
+            component={renderField}
+            placeholder="Enter your social link here..."
+          />
         </div>
         <div className="input-container">
           <ul className="share-links">
-            <li><a href="/" className="twt">&nbsp;</a></li>
+            <li>
+              <a href="/" className="twt">
+                &nbsp;
+              </a>
+            </li>
           </ul>
-          <Field id="social_twt_link" name="social_twt_link" type="text" component={renderField}
-            placeholder="Enter your social link here..." />
+          <Field
+            id="social_twt_link"
+            name="social_twt_link"
+            type="text"
+            component={renderField}
+            placeholder="Enter your social link here..."
+          />
         </div>
         <div className="input-container">
           <ul className="share-links">
-            <li><a href="/" className="twt">&nbsp;</a></li>
+            <li>
+              <a href="/" className="twt">
+                &nbsp;
+              </a>
+            </li>
           </ul>
-          <Field id="social_twt_link" name="social_twt_link" type="text" component={renderField}
-            placeholder="Enter your social link here..." />
+          <Field
+            id="social_twt_link"
+            name="social_twt_link"
+            type="text"
+            component={renderField}
+            placeholder="Enter your social link here..."
+          />
         </div>
         <div className="input-container">
           <ul className="share-links">
-            <li><a href="/" className="twt">&nbsp;</a></li>
+            <li>
+              <a href="/" className="twt">
+                &nbsp;
+              </a>
+            </li>
           </ul>
-          <Field id="social_twt_link" name="social_twt_link" type="text" component={renderField}
-            placeholder="Enter your social link here..." />
+          <Field
+            id="social_twt_link"
+            name="social_twt_link"
+            type="text"
+            component={renderField}
+            placeholder="Enter your social link here..."
+          />
         </div>
         <div className="input-container">
           <ul className="share-links">
-            <li><a href="/" className="twt">&nbsp;</a></li>
+            <li>
+              <a href="/" className="twt">
+                &nbsp;
+              </a>
+            </li>
           </ul>
-          <Field id="social_twt_link" name="social_twt_link" type="text" component={renderField}
-            placeholder="Enter your social link here..." />
-        </div>        
-        <button form="profile-info-form" className="button mid-short primary">Save Changes</button>
+          <Field
+            id="social_twt_link"
+            name="social_twt_link"
+            type="text"
+            component={renderField}
+            placeholder="Enter your social link here..."
+          />
+        </div>
+        <button form="profile-info-form" className="button mid-short primary">
+          Save Changes
+        </button>
       </form>
     </div>
   );
-}
-
+};
 
 SocialMediaForm = reduxForm({
-  form: 'socialmedia',
+  form: "socialmedia",
   validate
-})(SocialMediaForm)
+})(SocialMediaForm);
 
 export default SocialMediaForm;
