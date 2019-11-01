@@ -5,7 +5,7 @@ import { substring } from "../../helper";
 class BlogCard extends Component {
   render() {
     let {
-      id,
+      nid,
       img,
       title,
       created,
@@ -15,17 +15,17 @@ class BlogCard extends Component {
     } = this.props.blog;
     return (
       <div className="blog-post-preview-item column">
-        <Link to={`/blog/${id}`}>
+        <Link to={`/blog/${nid}`}>
           <figure className="product-preview-image big liquid">
             <img src={img} alt="pigeon" />
           </figure>
         </Link>
         <div className="blog-post-preview-item-info">
           <p className="text-header mid">
-            <Link to={`/blog/${id}`}>{substring(title, 20, ".....")}</Link>
+            <Link to={`/blog/${nid}`}>{substring(title, 20, ".....")}</Link>
           </p>
           <div className="meta-line">
-            <Link to={`/blog/${id}`}>
+            <Link to={`/blog/${nid}`}>
               <p className="category primary">{country_of_origin}</p>
             </Link>
             <p>{created}</p>
@@ -44,7 +44,7 @@ class BlogCard extends Component {
               <p>68</p>
             </div>
           </div>
-          <Link to={`/blog/${id}`} className={"more-button primary"}>
+          <Link to={`/blog/${nid}`} className={"more-button primary"}>
             Read More...
           </Link>
         </div>

@@ -18,17 +18,17 @@ class LatestBlogs extends Component {
         <hr className="line-separator" />
         {(this.state.latestblog || []).map(blog => {
           return (
-            <div className="item-preview" key={blog.id}>
-              <NavLink exact to={`/blog/${blog.id}`}>
+            <div className="item-preview" key={blog.nid}>
+              <NavLink exact to={`/blog/${blog.nid}`}>
                 <figure className="product-preview-image small liquid">
                   <img src={blog.img} alt="" />
                 </figure>
               </NavLink>
-              <NavLink exact to={`/blog/${blog.id}`}>
+              <NavLink exact to={`/blog/${blog.nid}`}>
                 <p className="text-header small">{blog.title}</p>
               </NavLink>
               <p className="category tiny primary">
-                <NavLink exact to={`/blog/${blog.id}`}>
+                <NavLink exact to={`/blog/${blog.nid}`}>
                   Design Inspires
                 </NavLink>
               </p>

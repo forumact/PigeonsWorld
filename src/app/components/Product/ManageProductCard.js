@@ -6,12 +6,12 @@ import ItemNavigation from "../Navigation/ItemNavigation";
 class ManageProductCard extends Component {
   render() {
     return (
-      <div className="product-item column" key={this.props.product.id}>
+      <div className="product-item column" key={this.props.product.nid}>
         <div className="product-preview-actions">
           <figure className="product-preview-image">
             <img src={this.props.product.img} alt="product" />
           </figure>
-          <ItemNavigation nid={this.props.product.id}></ItemNavigation>
+          <ItemNavigation nid={this.props.product.nid}></ItemNavigation>
         </div>
         <div className="product-info">
           <a href="item-v1.html">

@@ -24,11 +24,11 @@ class BlogDetails extends Component {
             <div className="sidebar right">
               <LatestBlogs
                 title="Latest Blogs"
-                nid={this.props.match.params.id}
+                nid={this.props.match.params.nid}
               ></LatestBlogs>
               <LatestBlogs
                 title="Popular Blogs"
-                nid={this.props.match.params.id}
+                nid={this.props.match.params.nid}
               ></LatestBlogs>
             </div>
             <div className="content left">
@@ -47,7 +47,7 @@ class BlogDetails extends Component {
                 <hr className="line-separator" />
                 <SocilaMediaShareLinks></SocilaMediaShareLinks>
               </article>
-              <CommentsList nid={this.props.match.params.id}></CommentsList>
+              <CommentsList nid={this.props.match.params.nid}></CommentsList>
             </div>
           </div>
         </div>
@@ -57,7 +57,7 @@ class BlogDetails extends Component {
 
   componentDidMount() {
     const data = {
-      id: this.props.match.params.id
+      nid: this.props.match.params.nid
     };
 
     fetchBlogDetails(data).then(response => {
@@ -70,9 +70,9 @@ class BlogDetails extends Component {
 
   componentDidUpdate(prevProps) {
     //Typical usage, don't forget to compare the props
-    if (this.props.match.params.id !== prevProps.match.params.id) {
+    if (this.props.match.params.nid !== prevProps.match.params.nid) {
       const data = {
-        id: this.props.match.params.id
+        nid: this.props.match.params.nid
       };
       fetchBlogDetails(data).then(response => {
         this.setState({

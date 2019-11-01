@@ -38,7 +38,7 @@ class CommentsList extends Component {
           <div className="tab-content void open">
             <div className="comment-list">
               {this.state.commentlist.map(c => (
-                <div key={c.id}>
+                <div key={c.cid}>
                   <div className="comment-wrap" key={c.id}>
                     <Link to={`/user/${c.uid}`}>
                       <figure className="user-avatar medium">
@@ -69,7 +69,7 @@ class CommentsList extends Component {
 
   componentDidMount() {
     const data = {
-      id: this.props.nid
+      nid: this.props.nid
     };
 
     fetchCommentList(data).then(response => {
@@ -84,7 +84,7 @@ class CommentsList extends Component {
     if (this.props.nid !== prevProps.nid) {
       //Typical usage, don't forget to compare the props
       const data = {
-        id: this.props.nid
+        nid: this.props.nid
       };
 
       fetchCommentList(data).then(response => {

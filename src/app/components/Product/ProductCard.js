@@ -15,30 +15,30 @@ class ProductCard extends Component {
           </figure>
           <div className="preview-actions">
             <div className="preview-action">
-              <NavLink exact to={`/products/${this.props.product.id}`}>
+              <NavLink exact to={`/products/${this.props.product.nid}`}>
                 <div className="circle tiny primary">
                   <span className="icon-tag"></span>
                 </div>
               </NavLink>
-              <NavLink exact to={`/products/${this.props.product.id}`}>
+              <NavLink exact to={`/products/${this.props.product.nid}`}>
                 <p>Go to Item</p>
               </NavLink>
             </div>
             <Flag
-              id={this.props.product.id}
+              nid={this.props.product.nid}
               flag={this.props.product.flag}
             ></Flag>
           </div>
         </div>
         <div className="product-info">
-          <NavLink exact to={`/products/${this.props.product.id}`}>
+          <NavLink exact to={`/products/${this.props.product.nid}`}>
             <p className="text-header" title={this.props.product.title}>
               {substring(this.props.product.title, 18, ".....")}
             </p>
           </NavLink>
           <p>&nbsp;</p>
           {/* <p className="product-description">{substring(this.props.product.body, 10, '.....')}</p> */}
-          <NavLink exact to={`/products/${this.props.product.id}`}>
+          <NavLink exact to={`/products/${this.props.product.nid}`}>
             <p className="category tertiary">{this.props.product.website}</p>
           </NavLink>
           <p className="price">

@@ -2,9 +2,9 @@ import React, { Component } from "react";
 import { flag } from "../../Networks";
 
 export default class ProductMarketing extends Component {
-  yourfavorites(e, id) {
+  yourfavorites(e, nid) {
     e.preventDefault();
-    flag(id);
+    flag(nid);
   }
 
   render() {

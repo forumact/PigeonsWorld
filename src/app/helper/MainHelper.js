@@ -106,7 +106,7 @@ export function preparecommentobject(commenttxt, nid) {
     uid: Uid,
     subject: commenttxt,
     uname: "admin",
-    id: nid,
+    nid: nid,
     avatar: Avatar
   };
 

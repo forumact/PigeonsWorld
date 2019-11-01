@@ -22,7 +22,7 @@ class ProductShowcase extends Component {
             <div id="pl-1" className="product-list grid column4-wrap">
               {(products || []).map(product => {
                 return (
-                  <ProductCard key={product.id} product={product}></ProductCard>
+                  <ProductCard key={product.nid} product={product}></ProductCard>
                 );
               })}
             </div>

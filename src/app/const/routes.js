@@ -62,7 +62,7 @@ export const MyRoutes = [
     menu: "no"
   },
   {
-    path: "/update-item/:id",
+    path: "/update-item/:nid",
     component: lazy(() => import("../containers/UpdateItem")),
     title: "Update Item",
     menu: "no"
@@ -98,7 +98,7 @@ export const MyRoutes = [
     menu: "no"
   },
   {
-    path: "/blog/:id",
+    path: "/blog/:nid",
     component: lazy(() => import("../containers/BlogDetails")),
     title: "Blog Details",
     menu: "no"
