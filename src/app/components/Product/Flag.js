@@ -2,17 +2,17 @@ import React, { Component } from "react";
 import { flag } from "../../Networks";
 
 class Flag extends Component {
-  yourfavorites(e, fid, flagstatus) {
+  yourfavorites(e, nid, flagstatus) {
     e.preventDefault();
     if (flagstatus === "Flagged") {
-      console.log(fid, "item already flagged");
+      console.log(nid, "item already flagged");
       return false;
     }
-    flag(fid);
+    flag(nid);
   }
 
   render() {
-    const { fid, flag } = this.props;
+    const { nid, flag } = this.props;
     if (flag == "stop") {
       return null;
     }
@@ -21,7 +21,7 @@ class Flag extends Component {
         <a href="/">
           <div className="circle tiny secondary">
             <span
-              onClick={e => this.yourfavorites(e, fid, flag)}
+              onClick={e => this.yourfavorites(e, nid, flag)}
               className="icon-heart"
             ></span>
           </div>
