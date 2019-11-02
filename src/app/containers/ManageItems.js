@@ -54,7 +54,7 @@ class ManageItems extends Component {
           {(products || []).map(product => {
             return (
               <ManageProductCard
-                key={product.id}
+                key={product.nid}
                 product={product}
               ></ManageProductCard>
             );
