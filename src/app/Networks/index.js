@@ -98,7 +98,7 @@ export async function productUpdate(data) {
 }
 
 export async function seach(data) {
-  return await axiosInstance.get(`/entity/search_page/${data}`);
+  return await axiosInstance.get(`/api/v1/search/node/?q=${data}`);
 }
 
 export async function fileupload(data, fileApi) {

@@ -21,6 +21,10 @@ form > button[type="submit"][disabled] {
   text-transform: uppercase;
 }
 
+.strtocaptalize{
+  text-transform: capitalize;
+}
+
 .loader {
   position: absolute;
   top: calc(50% - 4em);

@@ -5,7 +5,7 @@ class HeadLine extends Component {
     return (
       <div className="section-headline-wrap v2">
         <div className="section-headline">
-          <h2>{this.props.title}</h2>
+          <h2 className="strtocaptalize">{this.props.title}</h2>
           <p>
             Home<span className="separator">/</span>
             <span className="current-section">{this.props.title}</span>

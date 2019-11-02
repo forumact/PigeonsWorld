@@ -135,6 +135,13 @@ export const MyRoutes = [
     exact: true
   },
   {
+    path: "/searc/:category/input",
+    component: lazy(() => import("../containers/Search")),
+    title: "Search Results",
+    menu: "no",
+    exact: true
+  },
+  {
     path: "*",
     component: lazy(() => import("../containers/NotFound")),
     title: "Blog Details",

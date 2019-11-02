@@ -7,7 +7,6 @@ import UserActivity from "../components/UserProfile/UserActivity";
 import UserReputation from "../components/UserProfile/UserReputation";
 import UserProfileMeta from "../components/UserProfile/UserProfileMeta";
 import { GET_USER_PRODUCTS } from "../Redux/actions";
-import { Link } from "react-router-dom";
 import { getUserBasicInfo } from "../Networks";
 
 class UserProfile extends Component {
@@ -31,18 +30,14 @@ class UserProfile extends Component {
           <div className="section overflowable">
             <div className="sidebar left author-profile">
               <UserBio userbasic={this.state.userbasic}></UserBio>
-              <UserActivity></UserActivity>
+              <UserActivity uid={this.props.match.params.uid}></UserActivity>
               <UserReputation></UserReputation>
             </div>
             <div className="content right">
               <div className="headline buttons primary">
-                <h4>{this.state.userbasic.username} Items</h4>
-                <Link
-                  to={`/user/${this.props.match.params.uid}/items`}
-                  className="button mid-short dark-light"
-                >
-                  See all the items
-                </Link>
+                <h4 className="strtocaptalize">
+                  {this.state.userbasic.username} Items
+                </h4>
               </div>
               <div className="product-list grid column3-4-wrap">
                 {(products || []).map(product => {
@@ -64,9 +59,10 @@ class UserProfile extends Component {
   }
 
   componentDidMount() {
+    console.log(this.state);
     const userpayload = {
       uid: this.props.match.params.uid
-    }
+    };
     getUserBasicInfo(userpayload).then(response => {
       this.setState({ userbasic: response.data });
     });

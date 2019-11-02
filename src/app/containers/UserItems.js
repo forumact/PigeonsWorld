@@ -7,30 +7,31 @@ import UserActivity from "../components/UserProfile/UserActivity";
 import UserReputation from "../components/UserProfile/UserReputation";
 import UserProfileMeta from "../components/UserProfile/UserProfileMeta";
 import { GET_USER_PRODUCTS } from "../Redux/actions";
+import { getUserBasicInfo } from "../Networks";
 //import { Link } from "react-router-dom";
 
 class UserItems extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      userProducts: {}
+      userProducts: {},
+      userbasic: {}
     };
   }
 
-  render() {
-    console.log(this.props);
-    const title = "Author's Profile";
+  render() {    
+    const title = `${this.state.userbasic.username}'s Items`;
     const { products } = this.props.userProducts;
     return (
       <div>
         <HeadLine title={title}></HeadLine>
         <div className={"author-profile-banner"}></div>
-        <UserProfileMeta uid={this.props.match.params.uid}></UserProfileMeta>
+        <UserProfileMeta userbasic={this.state.userbasic}></UserProfileMeta>
         <div className="section-wrap">
           <div className="section overflowable">
             <div className="sidebar left author-profile">
-              <UserBio uid={this.props.match.params.uid}></UserBio>
-              <UserActivity></UserActivity>
+              <UserBio userbasic={this.state.userbasic}></UserBio>
+              <UserActivity uid={this.props.match.params.uid}></UserActivity>
               <UserReputation></UserReputation>
             </div>
             <div className="content right">
@@ -41,7 +42,7 @@ class UserItems extends Component {
                 {(products || []).map(product => {
                   return (
                     <ProductCard
-                      key={product.id}
+                      key={product.nid}
                       product={product}
                     ></ProductCard>
                   );
@@ -57,6 +58,13 @@ class UserItems extends Component {
   }
 
   componentDidMount() {
+    const userpayload = {
+      uid: this.props.match.params.uid
+    };
+    getUserBasicInfo(userpayload).then(response => {
+      this.setState({ userbasic: response.data });
+    });
+
     const payload = {
       numberofitem: 9,
       pagenumber: 0,

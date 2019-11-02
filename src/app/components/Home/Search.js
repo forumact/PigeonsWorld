@@ -36,7 +36,7 @@ class Search extends Component {
 
   render() {
     return (
-      <form className="search-widget-form">
+      <form className="search-widget-form" autoComplete="off">
         <input
           type="text"
           name="category_name"
