@@ -12,7 +12,7 @@ class UserActivity extends Component {
           <NavLink to={`/user/${this.props.uid}/items`}>Author's Items</NavLink>
         </li>
         <li className="dropdown-item" onClick={e => e.preventDefault()}>
-          <a href="author-profile-messages.html">Message Board</a>
+          <NavLink to={`/user/${this.props.uid}/message`}>Message Board</NavLink>          
         </li>
         <li className="dropdown-item" onClick={e => e.preventDefault()}>
           <a href="author-profile-reviews.html">Customer Reviews (42)</a>

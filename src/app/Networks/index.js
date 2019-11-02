@@ -129,3 +129,11 @@ export async function getUserBasicInfo(data) {
 export async function userloginCheck(data) {
   return await axiosInstance.post("/api/v1/user-check-status", {});
 }
+
+export async function privatemessagecreate(data) {
+  return await axiosInstance.post("/api/v1/privatemessage/create", data);
+}
+
+export async function userRegister(data){
+  return await axiosInstance.post("/api/v1/user/create", data);
+}

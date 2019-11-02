@@ -135,10 +135,17 @@ export const MyRoutes = [
     exact: true
   },
   {
+    path: "/user/:uid/message",
+    component: lazy(() => import("../containers/PrivateMessage")),
+    title: "User Message",
+    menu: "no",
+    exact: true
+  },
+  {
     path: "/searc/:category/input",
     component: lazy(() => import("../containers/Search")),
     title: "Search Results",
-    menu: "no",
+    menu: "yes",
     exact: true
   },
   {
