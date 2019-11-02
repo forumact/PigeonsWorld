@@ -40,7 +40,7 @@ export const MyRoutes = [
     path: "/online-goods",
     component: lazy(() => import("../containers/OnlineGoods")),
     title: "Online Goods",
-    menu: "yes",
+    menu: "no",
     exact: true
   },
   {

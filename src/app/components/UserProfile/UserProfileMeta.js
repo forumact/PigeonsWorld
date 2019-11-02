@@ -1,13 +1,13 @@
 import React, { Component } from "react";
-import { getUserBasicInfo } from "../../Networks";
+
 
 export default class UserProfileMeta extends Component {
-  constructor() {
-    super();
-    this.state = {
-      userbasic: []
-    };
-  }
+  // constructor() {
+  //   super();
+  //   this.state = {
+  //     userbasic: []
+  //   };
+  // }
 
   render() {
     return (
@@ -16,19 +16,19 @@ export default class UserProfileMeta extends Component {
           <div className="author-profile-info">
             <div className="author-profile-info-item">
               <p className="text-header">Member Since:</p>
-              <p>{this.state.userbasic.member_since}</p>
+              <p>{this.props.userbasic.member_since}</p>
             </div>
             <div className="author-profile-info-item">
               <p className="text-header">Total Sales:</p>
-              <p>{this.state.userbasic.total_items}</p>
+              <p>{this.props.userbasic.total_items}</p>
             </div>
             <div className="author-profile-info-item">
               <p className="text-header">Mail:</p>
-              <p>{this.state.userbasic.email}</p>
+              <p>{this.props.userbasic.email}</p>
             </div>
             <div className="author-profile-info-item">
               <p className="text-header">Contact:</p>
-              <p>{this.state.userbasic.contact}</p>
+              <p>{this.props.userbasic.contact}</p>
             </div>
           </div>
         </div>
@@ -38,8 +38,6 @@ export default class UserProfileMeta extends Component {
 
   componentDidMount() {
     //console.log(this.props);
-    getUserBasicInfo(this.props).then(response => {
-      this.setState({ userbasic: response.data });
-    });
+ 
   }
 }

@@ -11,12 +11,12 @@ export default class ProductMarketing extends Component {
     return (
       <div className="sidebar-item void buttons">
         <a href="/" className="button big dark purchase">
-          <span className="currency">199</span>
+          <span className="indian-currency">{this.props.product.price}</span>
           <span>Purchase Now!</span>
         </a>
         <a href="/" className="button big tertiary wcart">
           <span className="icon-present"></span>
-          Add to the Cart
+          {this.props.product.status}
         </a>
         <a
           href="/"
@@ -24,7 +24,7 @@ export default class ProductMarketing extends Component {
           onClick={e => this.yourfavorites(e, this.props.nid)}
         >
           <span className="icon-heart"></span>
-          <span className="fav-count">652</span>
+          <span className="fav-count">{this.props.product.flag_count}</span>
           Add to Favourites
         </a>
       </div>

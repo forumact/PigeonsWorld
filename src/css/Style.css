@@ -822,7 +822,7 @@ input[type="checkbox"]:checked + label > span > span {
   left: 38px;
 }
 
-.button.big span.currency {
+.button.big span.currency, .button.big span.indian-currency {
   margin-right: 15px;
   font-size: 36px;
   position: relative;
@@ -831,6 +831,14 @@ input[type="checkbox"]:checked + label > span > span {
 
 .button.big span.currency:before {
   content: "$";
+  font-size: 18px;
+  position: relative;
+  top: -4px;
+  left: -1px;
+}
+
+.button.big span.indian-currency:before {
+  content: "₹";
   font-size: 18px;
   position: relative;
   top: -4px;

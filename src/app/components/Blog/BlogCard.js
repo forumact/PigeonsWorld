@@ -11,7 +11,8 @@ class BlogCard extends Component {
       created,
       body,
       country_of_origin,
-      comment_count
+      comment_count,
+      flag_count
     } = this.props.blog;
     return (
       <div className="blog-post-preview-item column">
@@ -41,7 +42,7 @@ class BlogCard extends Component {
             </div>
             <div className="meta-item">
               <span className="icon-eye"></span>
-              <p>68</p>
+              <p>{flag_count}</p>
             </div>
           </div>
           <Link to={`/blog/${nid}`} className={"more-button primary"}>

@@ -8,33 +8,35 @@ import UserReputation from "../components/UserProfile/UserReputation";
 import UserProfileMeta from "../components/UserProfile/UserProfileMeta";
 import { GET_USER_PRODUCTS } from "../Redux/actions";
 import { Link } from "react-router-dom";
+import { getUserBasicInfo } from "../Networks";
 
 class UserProfile extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      userProducts: {}
+      userProducts: {},
+      userbasic: {}
     };
   }
 
   render() {
-    const title = "Author's Profile";
+    const title = `${this.state.userbasic.username}'s Profile`;
     const { products } = this.props.userProducts;
     return (
       <div>
         <HeadLine title={title}></HeadLine>
         <div className={"author-profile-banner"}></div>
-        <UserProfileMeta uid={this.props.match.params.uid}></UserProfileMeta>
+        <UserProfileMeta userbasic={this.state.userbasic}></UserProfileMeta>
         <div className="section-wrap">
           <div className="section overflowable">
             <div className="sidebar left author-profile">
-              <UserBio uid={this.props.match.params.uid}></UserBio>
+              <UserBio userbasic={this.state.userbasic}></UserBio>
               <UserActivity></UserActivity>
               <UserReputation></UserReputation>
             </div>
             <div className="content right">
               <div className="headline buttons primary">
-                <h4>Arulraj Items</h4>
+                <h4>{this.state.userbasic.username} Items</h4>
                 <Link
                   to={`/user/${this.props.match.params.uid}/items`}
                   className="button mid-short dark-light"
@@ -46,7 +48,7 @@ class UserProfile extends Component {
                 {(products || []).map(product => {
                   return (
                     <ProductCard
-                      key={product.id}
+                      key={product.nid}
                       product={product}
                     ></ProductCard>
                   );
@@ -62,6 +64,13 @@ class UserProfile extends Component {
   }
 
   componentDidMount() {
+    const userpayload = {
+      uid: this.props.match.params.uid
+    }
+    getUserBasicInfo(userpayload).then(response => {
+      this.setState({ userbasic: response.data });
+    });
+
     const payload = {
       numberofitem: 9,
       pagenumber: 0,

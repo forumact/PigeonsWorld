@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import { substring } from "../helper";
+import { substring, IndianRupee } from "../helper";
 
 class FavouriteCard extends Component {
   render() {
@@ -78,7 +78,7 @@ class FavouriteCard extends Component {
         </div>
         <div className="price-info">
           <p className="price medium">
-            <span>$</span>
+            <span>{IndianRupee}</span>
             {this.props.fav.price}
           </p>
         </div>

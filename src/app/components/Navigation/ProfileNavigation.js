@@ -53,6 +53,9 @@ class ProfileNavigation extends Component {
       this.props.history.push("/");
       console.log("login session removed");
     });
+    this.setState({
+      userObject: {}
+    });
     this.props.history.push("/");
   };
 

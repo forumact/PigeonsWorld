@@ -24,7 +24,7 @@ class ProductDetails extends Component {
         <div className="section-wrap">
           <div className="section">
             <div className="sidebar right">
-              <ProductMarketing></ProductMarketing>
+              <ProductMarketing product={this.state.product}></ProductMarketing>
               <ProductInfo product={this.state.product}></ProductInfo>
               <ProductSeller uid={this.state.product.uid}></ProductSeller>
             </div>

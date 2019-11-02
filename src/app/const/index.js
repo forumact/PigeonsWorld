@@ -2,6 +2,8 @@ export const ItemCategory = ["Fancy", "Homing", "Racing"];
 
 export const ItemConditions = ["Chick", "Patta", "Adult", "Pair"];
 
+export const ItemStatus = ["Available", "SoldOut"];
+
 export const Vr = ["Vectorized", "Rasterized"];
 
 export const city = [

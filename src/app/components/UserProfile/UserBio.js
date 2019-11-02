@@ -2,23 +2,23 @@ import React, { Component } from "react";
 import { getSellerInfo } from "../../Networks";
 
 export default class AuthorBio extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      userBio: {}
-    };
-  }
+  // constructor(props) {
+  //   super(props);
+  //   this.state = {
+  //     userBio: {}
+  //   };
+  // }
 
   render() {
     return (
       <div className="sidebar-item author-bio">
         <a href="user-profile.html" className="user-avatar-wrap medium">
           <figure className="user-avatar medium">
-            <img src={this.state.userBio.picture} alt="" />
+            <img src={this.props.userbasic.picture} alt="" />
           </figure>
         </a>
-        <p className="text-header">{this.state.userBio.name}</p>
-        <p className="text-oneline">{this.state.userBio.about}</p>
+        <p className="text-header">{this.props.userbasic.username}</p>
+        <p className="text-oneline">{this.props.userbasic.about}</p>
         <ul className="share-links">
           <li>
             <a href="/" className="fb">
@@ -46,11 +46,11 @@ export default class AuthorBio extends Component {
     );
   }
 
-  componentDidMount() {
-    getSellerInfo(this.props).then(response => {
-      this.setState({
-        userBio: response.data
-      });
-    });
-  }
+  // componentDidMount() {
+  //   getSellerInfo(this.props).then(response => {
+  //     this.setState({
+  //       userBio: response.data
+  //     });
+  //   });
+  // }
 }

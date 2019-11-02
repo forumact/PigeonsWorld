@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { ItemCategory, ItemConditions, city } from "../const";
+import { ItemCategory, ItemConditions, city, ItemStatus } from "../const";
 import FileUpload from "../components/FileUpload";
 import { productCreate, productUpdate, fetchProductDetails } from "../Networks";
 import { IndianRupee } from '../helper';
@@ -14,7 +14,7 @@ class UploadItemForm extends Component {
       item_picture: "",
       item_picture2: "",
       item_price: "",
-      item_dimensions: "",
+      item_status: "",
       item_conditions: "",
       item_city: "",
       item_tags: "",
@@ -57,7 +57,7 @@ class UploadItemForm extends Component {
           item_picture: "",
           item_picture2: "",
           item_price: "",
-          item_dimensions: "",
+          item_status: "",
           item_conditions: "",
           item_city: "",
           item_tags: "",
@@ -177,16 +177,31 @@ class UploadItemForm extends Component {
           ></input>
         </div>
         <div className="input-container half">
-          <label htmlFor="item_dimensions" className="rl-label required">
-            Item Dimensions
+          <label htmlFor="item_status" className="rl-label required">
+            Item Status
           </label>
-          <input
-            name="item_dimensions"
+          {/* <input
+            name="item_status"
             type="text"
-            placeholder="Enter them item dimensions here..."
-            value={this.state.item_dimensions}
+            placeholder="Enter them item status here..."
+            value={this.state.item_status}
             onChange={this.handleInputChange}
-          ></input>
+          ></input> */}
+          <select
+              name="item_status"
+              form="carform"
+              value={this.state.item_status}
+              onChange={this.handleInputChange}
+            >
+              <option />
+              {ItemStatus.map((item, index) => {
+                return (
+                  <option value={item} key={index}>
+                    {item}
+                  </option>
+                );
+              })}
+            </select>
         </div>
         <div className="clearfix"></div>
         <div className="input-container half">
@@ -270,7 +285,7 @@ class UploadItemForm extends Component {
           item_description: response.data.body,
           item_picture2: response.data.title,
           item_price: response.data.price,
-          item_dimensions: response.data.title,
+          item_status: response.data.status,
           item_conditions: response.data.condition,
           item_city: response.data.city,
           item_tags: response.data.title,
