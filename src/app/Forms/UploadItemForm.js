@@ -258,10 +258,10 @@ class UploadItemForm extends Component {
   componentDidMount() {
     console.log(this.props);
     const data = {
-      id: this.props.nid ? this.props.nid : ""
+      nid: this.props.nid ? this.props.nid : ""
     };
 
-    if (data.id) {
+    if (data.nid) {
       fetchProductDetails(data).then(response => {
         this.setState({
           item_name: response.data.title,

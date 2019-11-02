@@ -13,7 +13,7 @@ class Flag extends Component {
 
   render() {
     const { nid, flag } = this.props;
-    if (flag == "stop") {
+    if (flag === "stop") {
       return null;
     }
     return (

@@ -41,7 +41,7 @@ class Blog extends Component {
           <div className="section">
             <div className="blog-post-preview v1 column3-wrap">
               {(blogs || []).map(blog => (
-                <BlogCard key={blog.id} blog={blog}></BlogCard>
+                <BlogCard key={blog.nid} blog={blog}></BlogCard>
               ))}
             </div>
             <div className="pager tertiary">

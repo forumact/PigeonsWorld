@@ -52,7 +52,6 @@ export default class ProductSeller extends Component {
 
   componentDidUpdate(prevProps) {
     if (this.props.uid !== prevProps.uid) {
-      console.log(this.props);
       const payload = {
         uid: this.props.uid
       };

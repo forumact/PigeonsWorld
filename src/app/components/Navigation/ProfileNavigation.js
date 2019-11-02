@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import { Avatar, Uid } from "../../helper";
 import { userLogout } from "../../Networks";
 import { withRouter } from "react-router-dom";
 
@@ -8,22 +7,38 @@ class ProfileNavigation extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      hover: false
+      hover: false,
+      userObject: {}
     };
 
     this.hoverOn = this.hoverOn.bind(this);
     this.hoverOff = this.hoverOff.bind(this);
   }
 
+  componentDidMount() {
+    const loggedin = localStorage.getItem("csrf");
+    const username = localStorage.getItem("username");
+    const userpic = localStorage.getItem("avatar");
+    const uid = localStorage.getItem("uid");
+
+    let user = {
+      username: username,
+      loggedin: loggedin,
+      userpic: userpic,
+      uid: uid
+    };
+    this.setState({
+      userObject: user
+    });
+  }
+
   hoverOn() {
-    console.log(1);
     this.setState({
       hover: true
     });
   }
 
   hoverOff() {
-    console.log(2);
     this.setState({
       hover: false
     });
@@ -42,9 +57,7 @@ class ProfileNavigation extends Component {
   };
 
   render() {
-    const loggedin = localStorage.getItem("csrf");
-    const username = localStorage.getItem("username");
-
+    const { loggedin, userpic, username, uid } = this.state.userObject;
     return (
       <div className="user-board">
         {loggedin ? (
@@ -57,7 +70,7 @@ class ProfileNavigation extends Component {
               <div className="outer-ring">
                 <div className="inner-ring"></div>
                 <figure className="user-avatar">
-                  <img src={Avatar} alt="avatar" />
+                  <img src={userpic} alt="avatar" />
                 </figure>
               </div>
               <p className="user-name">{username}</p>
@@ -71,7 +84,7 @@ class ProfileNavigation extends Component {
               >
                 <li className="dropdown-item">
                   <div className="dropdown-triangle"></div>
-                  <Link to={`/user/${Uid}`}>Profile Page</Link>
+                  <Link to={`/user/${uid}`}>Profile Page</Link>
                 </li>
                 <li className="dropdown-item">
                   <Link to={`/user-edit`}>Account Settings</Link>
@@ -85,7 +98,7 @@ class ProfileNavigation extends Component {
               </ul>
             </div>
             <div className="account-information">
-              <Link to={`/favourites/${Uid}`}>
+              <Link to={`/favourites/${uid}`}>
                 <div className="account-wishlist-quickview">
                   <span className="icon-heart"></span>
                 </div>

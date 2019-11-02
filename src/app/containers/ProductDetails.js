@@ -54,7 +54,7 @@ class ProductDetails extends Component {
 
   componentDidMount() {
     const data = {
-      id: this.props.match.params.pid
+      nid: this.props.match.params.nid
     };
 
     fetchProductDetails(data).then(response => {

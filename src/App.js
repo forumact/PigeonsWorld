@@ -11,10 +11,37 @@ import SimpleLineIcon from "react-simple-line-icons";
 import { HideHeaderRegion } from "./app/helper";
 import { Provider } from "react-redux";
 import { getStore } from "./app/Redux/store";
+import { userloginCheck } from "../src/app/Networks";
 
 const store = getStore();
 
 class App extends Component {
+  checkLoginStatus() {
+    userloginCheck()
+      .then(response => {
+        if (
+          response.data.logged_in &&
+          this.state.loggedInStatus === "NOT_LOGGED_IN"
+        ) {
+          this.setState({
+            loggedInStatus: "LOGGED_IN",
+            user: response.data.user
+          });
+        } else if (
+          !response.data.logged_in &
+          (this.state.loggedInStatus === "LOGGED_IN")
+        ) {
+          this.setState({
+            loggedInStatus: "NOT_LOGGED_IN",
+            user: {}
+          });
+        }
+      })
+      .catch(error => {
+        console.log("check login error", error);
+      });
+  }
+
   render() {
     const current_path = this.props.location.pathname;
     return (
@@ -41,6 +68,7 @@ class App extends Component {
     // userloginCheck().then((response) => {
     //   console.log(response);
     // });
+    //this.checkLoginStatus();
   }
 }
 

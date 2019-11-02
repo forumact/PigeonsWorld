@@ -69,6 +69,7 @@ let LoginForm = props => {
               Sign up now
             </Link>
           </p>
+          <span id="error"></span>
           <button type="submit" className="button mid dark">
             Login <span className="primary">Now!</span>
           </button>

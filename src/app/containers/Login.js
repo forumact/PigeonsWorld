@@ -20,6 +20,11 @@ class Login extends React.Component {
       //this.props.getUserlogin(payload);
 
       login(payload).then(response => {
+        console.log(response);
+        if (response.data.invalid) {
+          document.getElementById("error").innerHTML = response.data.invalid;
+          return false;
+        }
         const userdetails = {
           csrf: response.data.csrf_token,
           uid: response.data.uid,

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import ProductCard from "../Product/ProductCard";
 import { connect } from "react-redux";
+import { GET_PRODUCTS } from "../../Redux/actions";
 
 class ProductShowcase extends Component {
   constructor(props) {
@@ -8,6 +9,15 @@ class ProductShowcase extends Component {
     this.state = {
       products: {}
     };
+  }
+
+  componentDidMount() {
+    const payload = {
+      numberofitem: 12,
+      pagenumber: 0
+    };
+    this.props.getProducts(payload);
+    document.title = `Pigeons World | Products`;
   }
 
   render() {
@@ -22,7 +32,10 @@ class ProductShowcase extends Component {
             <div id="pl-1" className="product-list grid column4-wrap">
               {(products || []).map(product => {
                 return (
-                  <ProductCard key={product.nid} product={product}></ProductCard>
+                  <ProductCard
+                    key={product.nid}
+                    product={product}
+                  ></ProductCard>
                 );
               })}
             </div>
@@ -41,7 +54,15 @@ const mapStateToProps = state => {
   };
 };
 
+const mapDispatchToProps = dispatch => {
+  return {
+    getProducts: payload => {
+      dispatch({ type: GET_PRODUCTS, payload: payload });
+    }
+  };
+};
+
 export default connect(
   mapStateToProps,
-  null
+  mapDispatchToProps
 )(ProductShowcase);

@@ -59,7 +59,7 @@ class Products extends Component {
                   {(products || []).map(product => {
                     return (
                       <ProductCard
-                        key={product.id}
+                        key={product.nid}
                         product={product}
                       ></ProductCard>
                     );

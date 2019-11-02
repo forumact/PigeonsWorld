@@ -38,7 +38,7 @@ export const MyRoutes = [
     menu: "yes"
   },
   {
-    path: "/products/:pid",
+    path: "/products/:nid",
     component: lazy(() => import("../containers/ProductDetails")),
     title: "Product Details",
     menu: "no"
