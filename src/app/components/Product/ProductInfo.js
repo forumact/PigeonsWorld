@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { IndianRupee } from "../../helper";
 
 class ProductInfo extends Component {
   render() {
@@ -25,7 +26,7 @@ class ProductInfo extends Component {
           </div>
           <div className="information-layout-item">
             <p className="text-header">Price:</p>
-            <p>{this.props.product.price}</p>
+            <p>{IndianRupee}{this.props.product.price}</p>
           </div>
         </div>
       </div>

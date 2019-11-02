@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
-import { substring } from "../../helper";
+import { substring, IndianRupee } from "../../helper";
 import ProductImage from "../../assets/joystick_m.jpg";
 import Flag from "./Flag";
 
@@ -39,10 +39,10 @@ class ProductCard extends Component {
           <p>&nbsp;</p>
           {/* <p className="product-description">{substring(this.props.product.body, 10, '.....')}</p> */}
           <NavLink exact to={`/products/${this.props.product.nid}`}>
-            <p className="category tertiary">{this.props.product.website}</p>
+            <p className="category tertiary">{this.props.product.category}</p>
           </NavLink>
           <p className="price">
-            <span>$</span>
+            <span>{IndianRupee}</span>
             {this.props.product.price ? this.props.product.price : "NA"}
           </p>
         </div>

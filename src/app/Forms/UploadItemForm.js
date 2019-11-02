@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { ItemCategory, ItemConditions, city } from "../const";
 import FileUpload from "../components/FileUpload";
 import { productCreate, productUpdate, fetchProductDetails } from "../Networks";
+import { IndianRupee } from '../helper';
 
 class UploadItemForm extends Component {
   constructor(props) {
@@ -165,7 +166,7 @@ class UploadItemForm extends Component {
         </div>
         <div className="input-container half">
           <label htmlFor="price" className="rl-label required">
-            Price
+            Price({IndianRupee})
           </label>
           <input
             name="item_price"

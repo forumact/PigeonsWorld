@@ -1,12 +1,32 @@
 import React, { Component } from "react";
 import { getProductFilter } from "../../Networks";
+import { arrayRemove } from "../../helper";
+import { GET_PRODUCTS } from "../../Redux/actions";
+import { connect } from "react-redux";
 
-export default class ProductsFilter extends Component {
+let filter = [];
+class ProductsFilter extends Component {
   constructor() {
     super();
     this.state = {
-      productFilter: []
+      productFilter: [],
+      selected: {}
     };
+  }
+
+  handleChange(e) {
+    if (filter.indexOf(e.target.value) !== -1) {
+      filter = arrayRemove(filter, e.target.value);
+    } else {
+      filter.push(e.target.value);
+    }
+    console.log("final", filter);
+    const payload = {
+      numberofitem: 9,
+      pagenumber: 0,
+      filter: filter
+    };
+    this.props.getProducts(payload);
   }
 
   render() {
@@ -18,7 +38,17 @@ export default class ProductsFilter extends Component {
           {(this.state.productFilter || []).map((product, i) => {
             return (
               <div key={i}>
-                <input type="checkbox" id={`filter${i}`} name={`filter${i}`} />
+                <input
+                  type="checkbox"
+                  id={`filter${i}`}
+                  name={`filter${i}`}
+                  value={
+                    product.field_item_category
+                      ? product.field_item_category
+                      : ""
+                  }
+                  onChange={e => this.handleChange(e)}
+                />
                 <label htmlFor={`filter${i}`}>
                   <span className="checkbox tertiary">
                     <span></span>
@@ -40,3 +70,22 @@ export default class ProductsFilter extends Component {
     });
   }
 }
+
+const mapStateToProps = state => {
+  return {
+    products: state.products
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    getProducts: payload => {
+      dispatch({ type: GET_PRODUCTS, payload: payload });
+    }
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(ProductsFilter);

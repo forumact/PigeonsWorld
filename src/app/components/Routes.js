@@ -20,7 +20,7 @@ class Routes extends Component {
                 title={route.title}
                 key={route.path}
                 path={route.path}
-                exact
+                exact={route.exact}
                 component={route.component}
               />
             );

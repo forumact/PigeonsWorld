@@ -52,8 +52,9 @@ class FavouriteCard extends Component {
           <p className="text-header tiny">
             Item Condition: <span>{this.props.fav.condition}</span>
           </p>
+          <br/>
           <p className="text-header tiny">
-            Dimensions: <span>4x6 Inches (with 0,25 bleed)</span>
+          Item Category: <span>{this.props.fav.category}</span>
           </p>
           {/* <p className="text-header tiny">
                         Tags:
