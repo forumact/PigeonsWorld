@@ -134,6 +134,10 @@ export async function privatemessagecreate(data) {
   return await axiosInstance.post("/api/v1/privatemessage/create", data);
 }
 
-export async function userRegister(data){
+export async function userRegister(data) {
   return await axiosInstance.post("/api/v1/user/create", data);
+}
+
+export async function fetchUserDetails() {
+  return await axiosInstance.post("/api/v1/user", {});
 }

@@ -14,7 +14,7 @@ export default class PrivateMessage extends Component {
           >
             New Message
           </a>
-          <a href="#" className="button mid-short primary">
+          <a href="/" className="button mid-short primary">
             Delete Selected
           </a>
         </div>

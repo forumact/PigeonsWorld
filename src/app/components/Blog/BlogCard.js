@@ -27,12 +27,12 @@ class BlogCard extends Component {
           </p>
           <div className="meta-line">
             <Link to={`/blog/${nid}`}>
-              <p className="category primary">{country_of_origin}</p>
+              <p className="category primary">{substring(country_of_origin, 20, ".....")}</p>
             </Link>
             <p>{created}</p>
           </div>
           <div className="description-preview">
-            <p>{substring(body, 180, ".....")}</p>
+            <p>{substring(body, 160, ".....")}</p>
             {/* <div dangerouslySetInnerHTML={{ __html: body }} /> */}
           </div>
           <div className="metadata">

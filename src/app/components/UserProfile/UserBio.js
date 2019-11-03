@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { getSellerInfo } from "../../Networks";
 
 export default class AuthorBio extends Component {
   // constructor(props) {

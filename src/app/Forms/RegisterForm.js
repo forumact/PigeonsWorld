@@ -84,7 +84,7 @@ class RegisterForm extends Component {
               maxLength="150"
             ></input>
             <label htmlFor="user_name" className="rl-label required">
-              User Name
+              Account Name
             </label>
             <input
               name="user_name"

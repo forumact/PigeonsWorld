@@ -118,9 +118,9 @@ class ProfileNavigation extends Component {
             </Link>
           ) : (
             <>
-              <Link to={"/user-edit"} className="button primary">
+              {/* <Link to={"/user-edit"} className="button primary">
                 Become a Seller
-              </Link>
+              </Link> */}
               <button
                 type="submit"
                 className="button secondary"

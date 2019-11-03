@@ -21,7 +21,11 @@ class ProductShowcase extends Component {
   }
 
   render() {
-    const { products } = this.props.products;
+    const { products, count } = this.props.products;
+
+    if (!count) {
+      return null;
+    }
     return (
       <div id="product-sideshow-wrap">
         <div id="product-sideshow">

@@ -14,16 +14,16 @@ class ManageProductCard extends Component {
           <ItemNavigation nid={this.props.product.nid}></ItemNavigation>
         </div>
         <div className="product-info">
-          <a href="item-v1.html">
+          <NavLink to={`/products/${this.props.product.nid}`}>
             <p className="text-header" title={this.props.product.title}>
               {this.props.product.title}
             </p>
-          </a>
+          </NavLink>
           <p className="product-description">
             {substring(this.props.product.body, 35, ".....")}
           </p>
           <a href="shop-gridview-v1.html">
-            <p className="category primary">{this.props.product.website}</p>
+            <p className="category primary">{this.props.product.category}</p>
           </a>
           <p className="price">
             <span>₹</span>

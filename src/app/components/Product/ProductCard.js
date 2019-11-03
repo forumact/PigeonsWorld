@@ -1,12 +1,11 @@
 import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
 import { substring, IndianRupee } from "../../helper";
-import ProductImage from "../../assets/joystick_m.jpg";
 import Flag from "./Flag";
 
 class ProductCard extends Component {
   render() {
-    let img = this.props.product.img ? this.props.product.img : ProductImage;
+    let img = this.props.product.img ? this.props.product.img : '';
     return (
       <div className="product-item column">
         <div className="product-preview-actions">
@@ -54,7 +53,7 @@ class ProductCard extends Component {
             </figure>
           </NavLink>
           <NavLink to={`/user/${this.props.product.uid}`}>
-            <p className="text-header tiny">{this.props.product.username}</p>
+            <p className="text-header tiny strtocaptalize">{this.props.product.username}</p>
           </NavLink>
         </div>
       </div>

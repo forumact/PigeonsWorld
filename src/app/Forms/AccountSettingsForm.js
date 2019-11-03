@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 import { city } from "../const";
-import { userUpdate } from "../Networks";
+import { userUpdate, fetchUserDetails } from "../Networks";
 import FileUpload from "../components/FileUpload";
 
 const validate = values => {
   const errors = {};
-  if (!values.acc_name) {
-    errors.acc_name = "Required";
+  if (!values.username) {
+    errors.username = "Required";
   }
   if (!values.new_pwd) {
     errors.new_pwd = "Required";
@@ -14,12 +14,12 @@ const validate = values => {
   if (!values.new_pwd2) {
     errors.new_pwd2 = "Required";
   }
-  if (!values.new_email) {
-    errors.new_email = "Required";
+  if (!values.email) {
+    errors.email = "Required";
   }
 
-  if (!values.website_url) {
-    errors.website_url = "Required";
+  if (!values.website) {
+    errors.website = "Required";
   }
 
   if (!values.about) {
@@ -33,17 +33,20 @@ class AccountSettingsForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      acc_name: "",
+      first_name: "",
+      last_name: "",
+      username: "",
       mobile: "",
       new_pwd: "",
       new_pwd2: "",
-      website_url: "",
-      new_email: "",
+      website: "",
+      email: "",
       city: "",
       about: "",
       show_balance: "",
-      email_notif: "",
-      user_picture: ""
+      notification: "",
+      user_picture: "",
+      uid: 0
     };
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -52,7 +55,7 @@ class AccountSettingsForm extends Component {
 
   handleInputChange(event) {
     const target = event.target;
-    const value = target.value;
+    const value = target.type === "checkbox" ? target.checked : target.value;
     const name = target.name;
     let formv = {
       [name]: value
@@ -72,17 +75,20 @@ class AccountSettingsForm extends Component {
     userUpdate(this.state).then(response => {
       console.log(response);
       this.setState({
-        acc_name: "",
+        first_name: "",
+        last_name: "",
+        username: "",
         mobile: "",
         new_pwd: "",
         new_pwd2: "",
-        website_url: "",
-        new_email: "",
+        website: "",
+        email: "",
         city: "",
         about: "",
         show_balance: "",
-        email_notif: "",
-        user_picture: ""
+        notification: "",
+        user_picture: "",
+        uid: response.data.uid
       });
     });
   }
@@ -110,14 +116,40 @@ class AccountSettingsForm extends Component {
               onChange={this.handleInputChange}
             ></input>
           </div>
+          <div className="input-container half">
+            <label htmlFor="first_name" className="rl-label">
+              First Name
+            </label>
+            <input
+              id="first_name"
+              name="first_name"
+              value={this.state.first_name}
+              onChange={this.handleInputChange}
+              type="text"
+              placeholder="Enter your first name here..."
+            />
+          </div>
+          <div className="input-container half">
+            <label htmlFor="last_name" className="rl-label">
+              Last Name
+            </label>
+            <input
+              id="last_name"
+              name="last_name"
+              value={this.state.last_name}
+              onChange={this.handleInputChange}
+              type="text"
+              placeholder="Enter your last name here..."
+            />
+          </div>
           <div className="input-container">
-            <label htmlFor="acc_name" className="rl-label required">
+            <label htmlFor="username" className="rl-label required">
               Account Name
             </label>
             <input
-              id="acc_name"
-              name="acc_name"
-              value={this.state.acc_name}
+              id="username"
+              name="username"
+              value={this.state.username}
               onChange={this.handleInputChange}
               type="text"
               placeholder="Enter your account name here..."
@@ -165,13 +197,13 @@ class AccountSettingsForm extends Component {
           </div>
 
           <div className="input-container">
-            <label htmlFor="new_email" className="rl-label">
+            <label htmlFor="email" className="rl-label">
               Email
             </label>
             <input
-              id="new_email"
-              name="new_email"
-              value={this.state.new_email}
+              id="email"
+              name="email"
+              value={this.state.email}
               onChange={this.handleInputChange}
               type="email"
               placeholder="Enter your email address here..."
@@ -179,13 +211,13 @@ class AccountSettingsForm extends Component {
           </div>
 
           <div className="input-container half">
-            <label htmlFor="website_url" className="rl-label">
+            <label htmlFor="website" className="rl-label">
               Website
             </label>
             <input
-              id="website_url"
-              name="website_url"
-              value={this.state.website_url}
+              id="website"
+              name="website"
+              value={this.state.website}
               onChange={this.handleInputChange}
               type="text"
               placeholder="Enter your website link here..."
@@ -230,28 +262,14 @@ class AccountSettingsForm extends Component {
           <div className="input-container">
             <label className="rl-label">Preferences</label>
             <input
-              id="show_balance"
-              name="show_balance"
-              value={this.state.show_balance}
+              id="notification"
+              name="notification"
+              value={this.state.notification}
               onChange={this.handleInputChange}
               type="checkbox"
               component="input"
             />
-            <label htmlFor="show_balance" className="label-check">
-              <span className="checkbox primary">
-                <span></span>
-              </span>
-              Show account balance in the status bar
-            </label>
-            <input
-              id="email_notif"
-              name="email_notif"
-              value={this.state.email_notif}
-              onChange={this.handleInputChange}
-              type="checkbox"
-              component="input"
-            />
-            <label htmlFor="email_notif" className="label-check">
+            <label htmlFor="notification" className="label-check">
               <span className="checkbox primary">
                 <span></span>
               </span>
@@ -267,6 +285,28 @@ class AccountSettingsForm extends Component {
         </form>
       </div>
     );
+  }
+
+  componentDidMount() {
+    console.log(this.props);
+    fetchUserDetails().then(response => {
+      this.setState({
+        first_name: response.data.first_name,
+        last_name: response.data.last_name,
+        username: response.data.username,
+        mobile: response.data.mobile,
+        new_pwd: response.data.uid,
+        new_pwd2: response.data.uid,
+        website: response.data.website,
+        email: response.data.email,
+        city: response.data.city,
+        about: response.data.about,
+        show_balance: "",
+        notification: response.data.notification,
+        user_picture: "",
+        uid: response.data.uid
+      });
+    });
   }
 }
 

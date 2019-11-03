@@ -24,7 +24,6 @@ class Blog extends Component {
       numberofitem: 9,
       pagenumber: pageNumber - 1
     };
-    console.log(`active page is ${pageNumber}`);
     this.props.getBlogs(payload);
     this.setState({
       activePage: pageNumber

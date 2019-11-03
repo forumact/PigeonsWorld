@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import HeadLine from "../components/HeadLine";
 import  image1  from "../assets/how_to_shop_01.png";
 import  image2  from "../assets/how_to_shop_02.png";
@@ -26,9 +27,7 @@ const HowToShop = () => {
               henderit in voluptate velit esse cillum dolore eu fugiat nulla
               pariatur.
             </p>
-            <a href="#" className="button mid dark">
-              Create your <span className="primary">New Account</span>
-            </a>
+            <Link to={`/user-register`} className="button mid dark">Create your <span className="primary">New Account</span></Link>
           </div>
         </div>
         <div className="ht-banner void pink">
@@ -47,7 +46,7 @@ const HowToShop = () => {
               henderit in voluptate velit esse cillum dolore eu fugiat nulla
               pariatur.
             </p>
-            <a href="#" className="button mid dark">
+            <a href="/" className="button mid dark">
               <span className="primary">Most Popular</span> Items
             </a>
           </div>
@@ -68,7 +67,7 @@ const HowToShop = () => {
               henderit in voluptate velit esse cillum dolore eu fugiat nulla
               pariatur.
             </p>
-            <a href="#" className="button mid dark">
+            <a href="/" className="button mid dark">
               Our <span className="primary">Payment Methods</span>
             </a>
           </div>
