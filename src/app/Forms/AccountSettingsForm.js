@@ -73,20 +73,19 @@ class AccountSettingsForm extends Component {
     const file = document.querySelector(".file");
     file.value = "";
     userUpdate(this.state).then(response => {
-      console.log(response);
       this.setState({
-        first_name: "",
-        last_name: "",
-        username: "",
-        mobile: "",
+        first_name: response.data.first_name,
+        last_name: response.data.last_name,
+        username: response.data.username,
+        mobile: response.data.mobile,
         new_pwd: "",
         new_pwd2: "",
-        website: "",
-        email: "",
-        city: "",
-        about: "",
+        website: response.data.website,
+        email: response.data.email,
+        city: response.data.city,
+        about: response.data.about,
         show_balance: "",
-        notification: "",
+        notification: response.data.notification,
         user_picture: "",
         uid: response.data.uid
       });
@@ -295,8 +294,8 @@ class AccountSettingsForm extends Component {
         last_name: response.data.last_name,
         username: response.data.username,
         mobile: response.data.mobile,
-        new_pwd: response.data.uid,
-        new_pwd2: response.data.uid,
+        new_pwd: "",
+        new_pwd2: "",
         website: response.data.website,
         email: response.data.email,
         city: response.data.city,
