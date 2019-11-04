@@ -76,7 +76,7 @@ class ProfileNavigation extends Component {
                   <img src={userpic} alt="avatar" />
                 </figure>
               </div>
-              <p className="user-name">{username}</p>
+              <p className="user-name strtocaptalize">{username}</p>
               <p className="user-money">$745.00</p>
               <ul
                 className={

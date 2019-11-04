@@ -6,6 +6,7 @@ import { fetchProductDetails } from "../Networks";
 import ProductSeller from "../components/Product/ProductSeller";
 import ProductMarketing from "../components/Product/ProductMarketing";
 import SocilaMediaShareLinks from "../components/SocilaMediaShareLinks";
+import AuthorsItem from "../components/Product/AuthorsItem";
 
 class ProductDetails extends Component {
   constructor() {
@@ -27,6 +28,7 @@ class ProductDetails extends Component {
               <ProductMarketing product={this.state.product}></ProductMarketing>
               <ProductInfo product={this.state.product}></ProductInfo>
               <ProductSeller uid={this.state.product.uid}></ProductSeller>
+              <AuthorsItem product={this.state.product}></AuthorsItem>
             </div>
             <div className="content left">
               <article className="post">

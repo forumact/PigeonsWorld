@@ -64,6 +64,7 @@ export default class FileUpload extends Component {
         </div>
         <div className="clearfix"></div>
         <input
+          multiple
           className="file"
           type="file"
           name="file"

@@ -30,7 +30,7 @@ class FavouriteCard extends Component {
               </figure>
             </Link>
             <Link to={`/user/${this.props.fav.uid}`}>
-              <p className="text-header tiny">{this.props.fav.uname}</p>
+              <p className="text-header tiny strtocaptalize">{this.props.fav.uname}</p>
             </Link>
           </div>
           <div className="metadata">
