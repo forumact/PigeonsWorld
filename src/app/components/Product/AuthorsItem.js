@@ -11,7 +11,7 @@ export default class AuthorsItem extends Component {
             <span className="pin featured">Featured</span>
             <div className="product-preview-actions">
               <figure className="product-preview-image">
-                <img src={this.props.product.img} alt="product-image" />
+                <img src={this.props.product.img} alt="product" />
               </figure>
               <div className="preview-actions">
                 <div className="preview-action">
@@ -25,12 +25,12 @@ export default class AuthorsItem extends Component {
                   </a>
                 </div>
                 <div className="preview-action">
-                  <a href="#">
+                  <a href="/">
                     <div className="circle tiny secondary">
                       <span className="icon-heart"></span>
                     </div>
                   </a>
-                  <a href="#">
+                  <a href="/">
                     <p>Favourites +</p>
                   </a>
                 </div>

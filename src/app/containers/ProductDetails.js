@@ -46,7 +46,7 @@ class ProductDetails extends Component {
                 <hr className="line-separator" />
                 <SocilaMediaShareLinks></SocilaMediaShareLinks>
               </article>
-              <CommentsList nid={this.props.match.params.pid}></CommentsList>
+              <CommentsList nid={this.props.match.params.nid}></CommentsList>
             </div>
           </div>
         </div>

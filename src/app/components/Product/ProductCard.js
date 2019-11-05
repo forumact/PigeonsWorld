@@ -36,7 +36,7 @@ class ProductCard extends Component {
             </p>
           </NavLink>
           <p>&nbsp;</p>
-          {/* <p className="product-description">{substring(this.props.product.body, 10, '.....')}</p> */}
+          <p className="product-description">{substring(this.props.product.body, 30, '.....')}</p>
           <NavLink exact to={`/products/${this.props.product.nid}`}>
             <p className="category tertiary">{this.props.product.category}</p>
           </NavLink>

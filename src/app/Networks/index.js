@@ -25,7 +25,7 @@ axiosInstance.interceptors.request.use(
 // Add a response interceptor
 axiosInstance.interceptors.response.use(
   function(response) {
-    console.log("Rest-API", response.data);
+    //console.log("Rest-API", response.data);
     return response;
   },
   function(error) {

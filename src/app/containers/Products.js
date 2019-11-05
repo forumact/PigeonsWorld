@@ -68,7 +68,7 @@ class Products extends Component {
               </div>
               <div className="clearfix"></div>
               <div className="pager tertiary">
-                {count ? (
+                {count > 9 ? (
                   <Pagination
                     activePage={this.state.activePage}
                     itemsCountPerPage={9}

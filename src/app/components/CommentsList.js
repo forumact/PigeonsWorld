@@ -13,9 +13,7 @@ class CommentsList extends Component {
     };
   }
 
-  submit = (values, dispatch) => {
-    // print the form values to the console
-    console.log(values.comment);
+  submit = (values, dispatch) => {    
     let msg = preparecommentobject(values.comment, this.props.nid);
     this.setState({
       commentlist: [...this.state.commentlist, msg]
@@ -39,7 +37,7 @@ class CommentsList extends Component {
             <div className="comment-list">
               {this.state.commentlist.map(c => (
                 <div key={c.cid}>
-                  <div className="comment-wrap" key={c.id}>
+                  <div className="comment-wrap" key={c.cid}>
                     <Link to={`/user/${c.uid}`}>
                       <figure className="user-avatar medium">
                         <img src={c.avatar} alt="" />
