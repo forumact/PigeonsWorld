@@ -141,3 +141,7 @@ export async function userRegister(data) {
 export async function fetchUserDetails() {
   return await axiosInstance.post("/api/v1/user", {});
 }
+
+export async function fetchUserItems(data) {
+  return await axiosInstance.post("/api/v1/user/items", data);
+}

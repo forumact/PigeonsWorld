@@ -28,7 +28,7 @@ class ProductDetails extends Component {
               <ProductMarketing product={this.state.product}></ProductMarketing>
               <ProductInfo product={this.state.product}></ProductInfo>
               <ProductSeller uid={this.state.product.uid}></ProductSeller>
-              <AuthorsItem product={this.state.product}></AuthorsItem>
+              <AuthorsItem uid={this.state.product.uid}></AuthorsItem>
             </div>
             <div className="content left">
               <article className="post">
