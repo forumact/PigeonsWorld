@@ -2,11 +2,70 @@ import React, { Component } from "react";
 import { ItemCategory, ItemConditions, city, ItemStatus } from "../const";
 import FileUpload from "../components/FileUpload";
 import { productCreate, productUpdate, fetchProductDetails } from "../Networks";
-import { IndianRupee } from '../helper';
+import { IndianRupee } from "../helper";
+import FormValidator from "../FormValidator";
 
 class UploadItemForm extends Component {
   constructor(props) {
     super(props);
+
+    this.validator = new FormValidator([
+      {
+        field: "item_category",
+        method: "isEmpty",
+        validWhen: false,
+        message: "Item category is empty."
+      },
+      {
+        field: "item_name",
+        method: "isEmpty",
+        validWhen: false,
+        message: "Item name is empty."
+      },
+      {
+        field: "item_description",
+        method: "isEmpty",
+        validWhen: false,
+        message: "Description is required."
+      },
+      // {
+      //   field: "item_picture",
+      //   method: "isEmpty",
+      //   validWhen: false,
+      //   message: "Picture is required."
+      // },
+      {
+        field: "item_price",
+        method: "isEmpty",
+        validWhen: false,
+        message: "Price is required."
+      },
+      {
+        field: "item_status",
+        method: "isEmpty",
+        validWhen: false,
+        message: "Item status is required."
+      },
+      {
+        field: "item_conditions",
+        method: "isEmpty",
+        validWhen: false,
+        message: "Item Conditions is required."
+      },
+      {
+        field: "item_city",
+        method: "isEmpty",
+        validWhen: false,
+        message: "Item City is required."
+      },
+      {
+        field: "item_tags",
+        method: "isEmpty",
+        validWhen: false,
+        message: "Item tags is required."
+      }
+    ]);
+
     this.state = {
       item_category: "",
       item_name: "",
@@ -18,11 +77,14 @@ class UploadItemForm extends Component {
       item_conditions: "",
       item_city: "",
       item_tags: "",
-      item_nid: 0
+      item_nid: 0,
+      validation: this.validator.valid()
     };
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleInputFileChange = this.handleInputFileChange.bind(this);
+
+    this.submitted = false;
   }
 
   handleInputChange(event) {
@@ -42,34 +104,46 @@ class UploadItemForm extends Component {
   handleSubmit(event) {
     event.preventDefault();
     console.log(this.state);
+
+    const validation = this.validator.validate(this.state);
+    this.setState({ validation });
+    this.submitted = true;
+
+    //return false;
     const file = document.querySelector(".file");
     file.value = "";
-    console.log(this.state.item_nid);
-    if (this.state.item_nid) {
-      productUpdate(this.state).then(response => {});
-    } else {
-      productCreate(this.state).then(response => {
-        console.log(response);
-        this.setState({
-          item_name: "",
-          item_category: "",
-          item_description: "",
-          item_picture: "",
-          item_picture2: "",
-          item_price: "",
-          item_status: "",
-          item_conditions: "",
-          item_city: "",
-          item_tags: "",
-          item_nid: 0
+    console.log(validation.isValid);
+    if (validation.isValid) {
+      if (this.state.item_nid) {
+        productUpdate(this.state).then(response => {});
+      } else {
+        productCreate(this.state).then(response => {
+          console.log(response);
+          this.setState({
+            item_name: "",
+            item_category: "",
+            item_description: "",
+            item_picture: "",
+            item_picture2: "",
+            item_price: "",
+            item_status: "",
+            item_conditions: "",
+            item_city: "",
+            item_tags: "",
+            item_nid: 0
+          });
         });
-      });
+      }
     }
     return false;
   }
 
   render() {
     const fileApi = "/api/v1/file/upload/node/pegion/field_pegion";
+
+    let validation = this.submitted
+      ? this.validator.validate(this.state)
+      : this.state.validation;
 
     return (
       <form id="upload_form" onSubmit={this.handleSubmit} autoComplete="off">
@@ -85,6 +159,7 @@ class UploadItemForm extends Component {
             onChange={this.handleInputChange}
             maxLength="150"
           ></input>
+          <span className="form-error">{validation.item_name.message}</span>
         </div>
         <div className="input-container">
           <label htmlFor="category" className="rl-label required">
@@ -106,6 +181,7 @@ class UploadItemForm extends Component {
               })}
             </select>
           </label>
+          <span className="form-error">{validation.item_category.message}</span>
         </div>
         <div className="input-container">
           <label htmlFor="item_description" className="rl-label required">
@@ -119,6 +195,9 @@ class UploadItemForm extends Component {
             value={this.state.item_description}
             onChange={this.handleInputChange}
           ></textarea>
+          <span className="form-error">
+            {validation.item_description.message}
+          </span>
         </div>
         <div className="input-container">
           <label className="rl-label required">Upload Main File</label>
@@ -141,6 +220,7 @@ class UploadItemForm extends Component {
               <p>Pack of Cartoon Illustrations.zip</p>
             </div>
           </div>
+          {/* <span className="form-error">{validation.item_picture.message}</span> */}
         </div>
         <div className="input-container">
           <label className="rl-label required">Upload Main Image</label>
@@ -175,6 +255,7 @@ class UploadItemForm extends Component {
             value={this.state.item_price}
             onChange={this.handleInputChange}
           ></input>
+          <span className="form-error">{validation.item_price.message}</span>
         </div>
         <div className="input-container half">
           <label htmlFor="item_status" className="rl-label required">
@@ -188,20 +269,21 @@ class UploadItemForm extends Component {
             onChange={this.handleInputChange}
           ></input> */}
           <select
-              name="item_status"
-              form="carform"
-              value={this.state.item_status}
-              onChange={this.handleInputChange}
-            >
-              <option />
-              {ItemStatus.map((item, index) => {
-                return (
-                  <option value={item} key={index}>
-                    {item}
-                  </option>
-                );
-              })}
-            </select>
+            name="item_status"
+            form="carform"
+            value={this.state.item_status}
+            onChange={this.handleInputChange}
+          >
+            <option />
+            {ItemStatus.map((item, index) => {
+              return (
+                <option value={item} key={index}>
+                  {item}
+                </option>
+              );
+            })}
+          </select>
+          <span className="form-error">{validation.item_status.message}</span>
         </div>
         <div className="clearfix"></div>
         <div className="input-container half">
@@ -225,6 +307,9 @@ class UploadItemForm extends Component {
               })}
             </select>
           </label>
+          <span className="form-error">
+            {validation.item_conditions.message}
+          </span>
         </div>
         <div className="input-container half">
           <label htmlFor="city" className="rl-label required">
@@ -247,6 +332,7 @@ class UploadItemForm extends Component {
               })}
             </select>
           </label>
+          <span className="form-error">{validation.item_city.message}</span>
         </div>
         <div className="input-container">
           <label htmlFor="item_tags" className="rl-label required">
@@ -259,6 +345,7 @@ class UploadItemForm extends Component {
             value={this.state.item_tags}
             onChange={this.handleInputChange}
           ></input>
+          <span className="form-error">{validation.item_tags.message}</span>
         </div>
         <hr className="line-separator" />
         {/* <button  type="submit" className="button big dark">Submit Item <span className="primary">for Review</span></button> */}
