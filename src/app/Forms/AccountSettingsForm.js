@@ -2,36 +2,69 @@ import React, { Component } from "react";
 import { city } from "../const";
 import { userUpdate, fetchUserDetails } from "../Networks";
 import FileUpload from "../components/FileUpload";
-
-const validate = values => {
-  const errors = {};
-  if (!values.username) {
-    errors.username = "Required";
-  }
-  if (!values.new_pwd) {
-    errors.new_pwd = "Required";
-  }
-  if (!values.new_pwd2) {
-    errors.new_pwd2 = "Required";
-  }
-  if (!values.email) {
-    errors.email = "Required";
-  }
-
-  if (!values.website) {
-    errors.website = "Required";
-  }
-
-  if (!values.about) {
-    errors.about = "Required";
-  }
-
-  return errors;
-};
+import FormValidator from "../FormValidator";
 
 class AccountSettingsForm extends Component {
   constructor(props) {
     super(props);
+
+    this.validator = new FormValidator([
+      {
+        field: "first_name",
+        method: "isEmpty",
+        validWhen: false,
+        message: "First name is empty."
+      },
+      {
+        field: "last_name",
+        method: "isEmpty",
+        validWhen: false,
+        message: "Last name is empty."
+      },
+      {
+        field: "username",
+        method: "isEmpty",
+        validWhen: false,
+        message: "Username is required."
+      },
+      {
+        field: "mobile",
+        method: "isEmpty",
+        validWhen: false,
+        message: "Mobile is required."
+      },
+      {
+        field: "website",
+        method: "isEmpty",
+        validWhen: false,
+        message: "Website is required."
+      },
+      {
+        field: "email",
+        method: "isEmpty",
+        validWhen: false,
+        message: "Email status is required."
+      },
+      {
+        field: "city",
+        method: "isEmpty",
+        validWhen: false,
+        message: "City is required."
+      },
+      {
+        field: "about",
+        method: "isEmpty",
+        validWhen: false,
+        message: "About is required."
+      },
+      {
+        field: "user_picture",
+        method: "isEmpty",
+        validWhen: false,
+        message: "Picture is required."
+      }
+    ]);
+
     this.state = {
       first_name: "",
       last_name: "",
@@ -46,7 +79,8 @@ class AccountSettingsForm extends Component {
       show_balance: "",
       notification: "",
       user_picture: "",
-      uid: 0
+      uid: 0,
+      validation: this.validator.valid()
     };
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -70,30 +104,43 @@ class AccountSettingsForm extends Component {
   handleSubmit(event) {
     event.preventDefault();
     console.log(this.state);
+
+    const validation = this.validator.validate(this.state);
+    this.setState({ validation });
+    this.submitted = true;
+
     const file = document.querySelector(".file");
     file.value = "";
-    userUpdate(this.state).then(response => {
-      this.setState({
-        first_name: response.data.first_name,
-        last_name: response.data.last_name,
-        username: response.data.username,
-        mobile: response.data.mobile,
-        new_pwd: "",
-        new_pwd2: "",
-        website: response.data.website,
-        email: response.data.email,
-        city: response.data.city,
-        about: response.data.about,
-        show_balance: "",
-        notification: response.data.notification,
-        user_picture: "",
-        uid: response.data.uid
+    console.log(validation.isValid)
+    if (validation.isValid) {
+      userUpdate(this.state).then(response => {
+        this.setState({
+          first_name: response.data.first_name,
+          last_name: response.data.last_name,
+          username: response.data.username,
+          mobile: response.data.mobile,
+          new_pwd: "",
+          new_pwd2: "",
+          website: response.data.website,
+          email: response.data.email,
+          city: response.data.city,
+          about: response.data.about,
+          show_balance: "",
+          notification: response.data.notification,
+          user_picture: "",
+          uid: response.data.uid
+        });
       });
-    });
+    }
   }
 
   render() {
     const fileApi = "/api/v1/file/upload/user/user/user_picture";
+
+    let validation = this.submitted
+      ? this.validator.validate(this.state)
+      : this.state.validation;
+
     return (
       <div>
         <form id="profile-info-form" onSubmit={this.handleSubmit}>
@@ -114,6 +161,7 @@ class AccountSettingsForm extends Component {
               value={this.state.user_picture}
               onChange={this.handleInputChange}
             ></input>
+            <span className="form-error">{validation.user_picture.message}</span>
           </div>
           <div className="input-container half">
             <label htmlFor="first_name" className="rl-label">
@@ -127,6 +175,7 @@ class AccountSettingsForm extends Component {
               type="text"
               placeholder="Enter your first name here..."
             />
+            <span className="form-error">{validation.first_name.message}</span>
           </div>
           <div className="input-container half">
             <label htmlFor="last_name" className="rl-label">
@@ -140,6 +189,7 @@ class AccountSettingsForm extends Component {
               type="text"
               placeholder="Enter your last name here..."
             />
+            <span className="form-error">{validation.last_name.message}</span>
           </div>
           <div className="input-container">
             <label htmlFor="username" className="rl-label required">
@@ -153,6 +203,7 @@ class AccountSettingsForm extends Component {
               type="text"
               placeholder="Enter your account name here..."
             />
+            <span className="form-error">{validation.username.message}</span>
           </div>
           <div className="input-container">
             <label htmlFor="mobile" className="rl-label required">
@@ -166,6 +217,7 @@ class AccountSettingsForm extends Component {
               type="text"
               placeholder="Enter your mobile number here..."
             />
+            <span className="form-error">{validation.mobile.message}</span>
           </div>
           <div className="input-container half">
             <label htmlFor="new_pwd" className="rl-label">
@@ -179,6 +231,7 @@ class AccountSettingsForm extends Component {
               type="password"
               placeholder="Enter your password here..."
             />
+            {/* <span className="form-error">{validation.new_pwd.message}</span> */}
           </div>
 
           <div className="input-container half">
@@ -193,6 +246,7 @@ class AccountSettingsForm extends Component {
               type="password"
               placeholder="Repeat your password here..."
             />
+            {/* <span className="form-error">{validation.new_pwd2.message}</span> */}
           </div>
 
           <div className="input-container">
@@ -207,6 +261,7 @@ class AccountSettingsForm extends Component {
               type="email"
               placeholder="Enter your email address here..."
             />
+            <span className="form-error">{validation.email.message}</span>
           </div>
 
           <div className="input-container half">
@@ -221,6 +276,7 @@ class AccountSettingsForm extends Component {
               type="text"
               placeholder="Enter your website link here..."
             />
+            <span className="form-error">{validation.website.message}</span>
           </div>
 
           <div className="input-container half">
@@ -242,6 +298,7 @@ class AccountSettingsForm extends Component {
                 ))}
               </select>
             </label>
+            <span className="form-error">{validation.city.message}</span>
           </div>
 
           <div className="input-container">
@@ -256,6 +313,7 @@ class AccountSettingsForm extends Component {
               type="text"
               placeholder="This will appear bellow to your avatar... (max 140 char)"
             />
+            <span className="form-error">{validation.about.message}</span>
           </div>
 
           <div className="input-container">
@@ -274,6 +332,7 @@ class AccountSettingsForm extends Component {
               </span>
               Send me email notifications
             </label>
+            {/* <span className="form-error">{validation.notification.message}</span> */}
           </div>
           {/* <button form="profile-info-form" className="button mid-short primary">Save Changes</button> */}
           <input

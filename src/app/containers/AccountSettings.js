@@ -42,7 +42,7 @@ class AccountSettings extends Component {
           <UploadQueue></UploadQueue>
           <UploadGuidelines></UploadGuidelines>
         </div>
-        <div class="clearfix"></div>
+        <div className="clearfix"></div>
       </div>
     );
   }

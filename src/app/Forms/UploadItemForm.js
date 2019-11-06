@@ -28,12 +28,12 @@ class UploadItemForm extends Component {
         validWhen: false,
         message: "Description is required."
       },
-      // {
-      //   field: "item_picture",
-      //   method: "isEmpty",
-      //   validWhen: false,
-      //   message: "Picture is required."
-      // },
+      {
+        field: "item_picture",
+        method: "isEmpty",
+        validWhen: false,
+        message: "Picture is required."
+      },
       {
         field: "item_price",
         method: "isEmpty",
@@ -139,7 +139,7 @@ class UploadItemForm extends Component {
   }
 
   render() {
-    const fileApi = "/api/v1/file/upload/node/pegion/field_pegion";
+    const fileApi = "/api/v1/file/upload/node/pigeon/field_pigeon";
 
     let validation = this.submitted
       ? this.validator.validate(this.state)
@@ -220,7 +220,7 @@ class UploadItemForm extends Component {
               <p>Pack of Cartoon Illustrations.zip</p>
             </div>
           </div>
-          {/* <span className="form-error">{validation.item_picture.message}</span> */}
+          <span className="form-error">{validation.item_picture.message}</span>
         </div>
         <div className="input-container">
           <label className="rl-label required">Upload Main Image</label>
@@ -261,13 +261,6 @@ class UploadItemForm extends Component {
           <label htmlFor="item_status" className="rl-label required">
             Item Status
           </label>
-          {/* <input
-            name="item_status"
-            type="text"
-            placeholder="Enter them item status here..."
-            value={this.state.item_status}
-            onChange={this.handleInputChange}
-          ></input> */}
           <select
             name="item_status"
             form="carform"
