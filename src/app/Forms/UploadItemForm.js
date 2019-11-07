@@ -1,5 +1,11 @@
 import React, { Component } from "react";
-import { ItemCategory, ItemConditions, city, ItemStatus } from "../const";
+import {
+  ItemCategory,
+  ItemConditions,
+  city,
+  ItemStatus,
+  UploadFormValidation
+} from "../const";
 import FileUpload from "../components/FileUpload";
 import { productCreate, productUpdate, fetchProductDetails } from "../Networks";
 import { IndianRupee } from "../helper";
@@ -9,62 +15,7 @@ class UploadItemForm extends Component {
   constructor(props) {
     super(props);
 
-    this.validator = new FormValidator([
-      {
-        field: "item_category",
-        method: "isEmpty",
-        validWhen: false,
-        message: "Item category is empty."
-      },
-      {
-        field: "item_name",
-        method: "isEmpty",
-        validWhen: false,
-        message: "Item name is empty."
-      },
-      {
-        field: "item_description",
-        method: "isEmpty",
-        validWhen: false,
-        message: "Description is required."
-      },
-      {
-        field: "item_picture",
-        method: "isEmpty",
-        validWhen: false,
-        message: "Picture is required."
-      },
-      {
-        field: "item_price",
-        method: "isEmpty",
-        validWhen: false,
-        message: "Price is required."
-      },
-      {
-        field: "item_status",
-        method: "isEmpty",
-        validWhen: false,
-        message: "Item status is required."
-      },
-      {
-        field: "item_conditions",
-        method: "isEmpty",
-        validWhen: false,
-        message: "Item Conditions is required."
-      },
-      {
-        field: "item_city",
-        method: "isEmpty",
-        validWhen: false,
-        message: "Item City is required."
-      },
-      {
-        field: "item_tags",
-        method: "isEmpty",
-        validWhen: false,
-        message: "Item tags is required."
-      }
-    ]);
+    this.validator = new FormValidator(UploadFormValidation);
 
     this.state = {
       item_category: "",

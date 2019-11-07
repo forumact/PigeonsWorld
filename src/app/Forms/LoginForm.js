@@ -23,25 +23,29 @@ let LoginForm = props => {
         <p>Enter now to your account and start buying and selling!</p>
       </div>
       <div className="form-popup-content">
-        <form onSubmit={handleSubmit} id="login-form2">
-          <label htmlFor="username5" className="rl-label">
-            Username
-          </label>
-          <Field
-            name="username"
-            component={renderField}
-            type="text"
-            placeholder="Enter your username here..."
-          />
-          <label htmlFor="password5" className="rl-label">
-            Password
-          </label>
-          <Field
-            name="password"
-            component={renderField}
-            type="password"
-            placeholder="Enter your password here..."
-          />
+        <form onSubmit={handleSubmit} id="login-form2" autoComplete="offs">
+          <div className="input-container">
+            <label htmlFor="username5" className="rl-label">
+              Username
+            </label>
+            <Field
+              name="username"
+              component={renderField}
+              type="text"
+              placeholder="Enter your username here..."
+            />
+          </div>
+          <div className="input-container">
+            <label htmlFor="password5" className="rl-label">
+              Password
+            </label>
+            <Field
+              name="password"
+              component={renderField}
+              type="password"
+              placeholder="Enter your password here..."
+            />
+          </div>
           <Field
             name="remember"
             id="remember"

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { city } from "../const";
+import { city, AccountFormValidation } from "../const";
 import { userUpdate, fetchUserDetails } from "../Networks";
 import FileUpload from "../components/FileUpload";
 import FormValidator from "../FormValidator";
@@ -8,62 +8,7 @@ class AccountSettingsForm extends Component {
   constructor(props) {
     super(props);
 
-    this.validator = new FormValidator([
-      {
-        field: "first_name",
-        method: "isEmpty",
-        validWhen: false,
-        message: "First name is empty."
-      },
-      {
-        field: "last_name",
-        method: "isEmpty",
-        validWhen: false,
-        message: "Last name is empty."
-      },
-      {
-        field: "username",
-        method: "isEmpty",
-        validWhen: false,
-        message: "Username is required."
-      },
-      {
-        field: "mobile",
-        method: "isEmpty",
-        validWhen: false,
-        message: "Mobile is required."
-      },
-      {
-        field: "website",
-        method: "isEmpty",
-        validWhen: false,
-        message: "Website is required."
-      },
-      {
-        field: "email",
-        method: "isEmpty",
-        validWhen: false,
-        message: "Email status is required."
-      },
-      {
-        field: "city",
-        method: "isEmpty",
-        validWhen: false,
-        message: "City is required."
-      },
-      {
-        field: "about",
-        method: "isEmpty",
-        validWhen: false,
-        message: "About is required."
-      },
-      {
-        field: "user_picture",
-        method: "isEmpty",
-        validWhen: false,
-        message: "Picture is required."
-      }
-    ]);
+    this.validator = new FormValidator(AccountFormValidation);
 
     this.state = {
       first_name: "",
@@ -290,7 +235,7 @@ class AccountSettingsForm extends Component {
                 value={this.state.city}
                 onChange={this.handleInputChange}
               >
-                <option value="0">Select your City...</option>
+                <option value="0"></option>
                 {city.map((c, i) => (
                   <option value={c} key={i}>
                     {c}

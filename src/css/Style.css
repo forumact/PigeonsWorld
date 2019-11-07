@@ -822,7 +822,8 @@ input[type="checkbox"]:checked + label > span > span {
   left: 38px;
 }
 
-.button.big span.currency, .button.big span.indian-currency {
+.button.big span.currency,
+.button.big span.indian-currency {
   margin-right: 15px;
   font-size: 36px;
   position: relative;
@@ -7235,11 +7236,11 @@ header .account-actions .button:last-child {
   margin-bottom: 16px;
 }
 
-.form-popup input[type="text"],
+/*.form-popup input[type="text"],
 .form-popup input[type="email"],
 .form-popup input[type="password"] {
   margin-bottom: 24px;
-}
+}*/
 
 .form-popup .label-check {
   display: inline-block;
