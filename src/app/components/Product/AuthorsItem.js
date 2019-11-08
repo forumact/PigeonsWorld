@@ -52,13 +52,14 @@ export default class AuthorsItem extends Component {
                     <p className="text-header">{product.title}</p>
                   </a>
                   <p className="product-description">
-                  {substring(product.body, 35, '.....')}
+                    {substring(product.body, 35, ".....")}
                   </p>
                   <a href="shop-gridview-v1.html">
                     <p className="category primary">{product.category}</p>
                   </a>
                   <p className="price">
-                    <span>{IndianRupee}</span>{product.price}
+                    <span>{IndianRupee}</span>
+                    {product.price}
                   </p>
                 </div>
                 <hr className="line-separator" />
@@ -69,7 +70,7 @@ export default class AuthorsItem extends Component {
                     </figure>
                   </a>
                   <a href="author-profile.html">
-                    <p className="text-header tiny">{product.username}</p>
+                    <p className="text-header tiny strtocaptalize">{product.username}</p>
                   </a>
                 </div>
               </div>
@@ -81,15 +82,17 @@ export default class AuthorsItem extends Component {
     );
   }
 
-  componentDidMount() {
-    const data = {
-      uid: this.props.uid
-    };
+  componentDidUpdate(prevProps) {
+    if (this.props.uid !== prevProps.uid) {
+      const data = {
+        uid: this.props.uid
+      };
 
-    fetchUserItems(data).then(response => {
-      this.setState({
-        products: response.data.products
+      fetchUserItems(data).then(response => {
+        this.setState({
+          products: response.data.products
+        });
       });
-    });
+    }
   }
 }

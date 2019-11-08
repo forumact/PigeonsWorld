@@ -116,22 +116,20 @@ class UploadItemForm extends Component {
           <label htmlFor="category" className="rl-label required">
             Select Category
           </label>
-          <label htmlFor="category" className="select-block">
-            <select
-              name="item_category"
-              value={this.state.item_category}
-              onChange={this.handleInputChange}
-            >
-              <option />
-              {ItemCategory.map((item, index) => {
-                return (
-                  <option value={item} key={index}>
-                    {item}
-                  </option>
-                );
-              })}
-            </select>
-          </label>
+          <select
+            name="item_category"
+            value={this.state.item_category}
+            onChange={this.handleInputChange}
+          >
+            <option />
+            {ItemCategory.map((item, index) => {
+              return (
+                <option value={item} key={index}>
+                  {item}
+                </option>
+              );
+            })}
+          </select>
           <span className="form-error">{validation.item_category.message}</span>
         </div>
         <div className="input-container">
@@ -152,7 +150,7 @@ class UploadItemForm extends Component {
         </div>
         <div className="input-container">
           <label className="rl-label required">Upload Main File</label>
-          <div className="upload-file">
+          <div className="upload-file mb-0">
             <div className="upload-file-actions">
               <FileUpload
                 onChange={this.handleInputFileChange}
@@ -168,14 +166,13 @@ class UploadItemForm extends Component {
                 value={this.state.item_picture}
                 onChange={this.handleInputChange}
               ></input>
-              <p>Pack of Cartoon Illustrations.zip</p>
             </div>
           </div>
           <span className="form-error">{validation.item_picture.message}</span>
         </div>
         <div className="input-container">
           <label className="rl-label required">Upload Main Image</label>
-          <div className="upload-file">
+          <div className="upload-file mb-0">
             <div className="upload-file-actions">
               <FileUpload
                 onChange={this.handleInputFileChange}
@@ -234,23 +231,21 @@ class UploadItemForm extends Component {
           <label htmlFor="item_conditions" className="rl-label required">
             Item Conditions
           </label>
-          <label htmlFor="item_conditions" className="select-block">
-            <select
-              name="item_conditions"
-              form="carform"
-              value={this.state.item_conditions}
-              onChange={this.handleInputChange}
-            >
-              <option />
-              {ItemConditions.map((item, index) => {
-                return (
-                  <option value={item} key={index}>
-                    {item}
-                  </option>
-                );
-              })}
-            </select>
-          </label>
+          <select
+            name="item_conditions"
+            form="carform"
+            value={this.state.item_conditions}
+            onChange={this.handleInputChange}
+          >
+            <option />
+            {ItemConditions.map((item, index) => {
+              return (
+                <option value={item} key={index}>
+                  {item}
+                </option>
+              );
+            })}
+          </select>
           <span className="form-error">
             {validation.item_conditions.message}
           </span>
@@ -259,23 +254,21 @@ class UploadItemForm extends Component {
           <label htmlFor="city" className="rl-label required">
             City
           </label>
-          <label htmlFor="city" className="select-block">
-            <select
-              name="item_city"
-              form="carform"
-              value={this.state.item_city}
-              onChange={this.handleInputChange}
-            >
-              <option />
-              {city.map((item, index) => {
-                return (
-                  <option value={item} key={index}>
-                    {item}
-                  </option>
-                );
-              })}
-            </select>
-          </label>
+          <select
+            name="item_city"
+            form="carform"
+            value={this.state.item_city}
+            onChange={this.handleInputChange}
+          >
+            <option />
+            {city.map((item, index) => {
+              return (
+                <option value={item} key={index}>
+                  {item}
+                </option>
+              );
+            })}
+          </select>
           <span className="form-error">{validation.item_city.message}</span>
         </div>
         <div className="input-container">
@@ -293,11 +286,9 @@ class UploadItemForm extends Component {
         </div>
         <hr className="line-separator" />
         {/* <button  type="submit" className="button big dark">Submit Item <span className="primary">for Review</span></button> */}
-        <input
-          type="submit"
-          className="button big dark"
-          value={this.state.item_nid > 0 ? "Update" : "Submit"}
-        />
+        <button type="submit" className="button big dark">
+          {this.state.item_nid > 0 ? "Update" : "Submit"}
+        </button>
       </form>
     );
   }

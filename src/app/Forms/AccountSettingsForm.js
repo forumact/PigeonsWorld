@@ -56,7 +56,7 @@ class AccountSettingsForm extends Component {
 
     const file = document.querySelector(".file");
     file.value = "";
-    console.log(validation.isValid)
+    console.log(validation.isValid);
     if (validation.isValid) {
       userUpdate(this.state).then(response => {
         this.setState({
@@ -106,7 +106,9 @@ class AccountSettingsForm extends Component {
               value={this.state.user_picture}
               onChange={this.handleInputChange}
             ></input>
-            <span className="form-error">{validation.user_picture.message}</span>
+            <span className="form-error">
+              {validation.user_picture.message}
+            </span>
           </div>
           <div className="input-container half">
             <label htmlFor="first_name" className="rl-label">
@@ -280,11 +282,9 @@ class AccountSettingsForm extends Component {
             {/* <span className="form-error">{validation.notification.message}</span> */}
           </div>
           {/* <button form="profile-info-form" className="button mid-short primary">Save Changes</button> */}
-          <input
-            type="submit"
-            className="button mid-short primary"
-            value="Save Changes"
-          />
+          <button type="submit" className="button mid-short primary">
+            Save Changes
+          </button>
         </form>
       </div>
     );
