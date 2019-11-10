@@ -8,6 +8,8 @@ import ProductMarketing from "../components/Product/ProductMarketing";
 import SocilaMediaShareLinks from "../components/SocilaMediaShareLinks";
 import AuthorsItem from "../components/Product/AuthorsItem";
 
+import ImageSlider from "../components/Product/ImageSlider";
+
 class ProductDetails extends Component {
   constructor() {
     super();
@@ -37,6 +39,7 @@ class ProductDetails extends Component {
                     <img src={img} alt="" />
                   </figure>
                 </div>
+                <ImageSlider image={img}></ImageSlider>
                 <div className="post-content">
                   <div className="post-paragraph">
                     {/* {body} */}

@@ -101,6 +101,11 @@ form > button[type="submit"][disabled] {
   color: #f21c5e;
 }
 
-.mb-0{
+.mb-0 {
   margin-bottom: 0 !important;
+}
+
+.post-image-slides .image-slide figure {
+  background-position: center center;
+  background-size: cover;
 }

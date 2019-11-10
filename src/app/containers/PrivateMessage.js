@@ -6,40 +6,14 @@ import Modal from "../components/Modal/Modal";
 export default class PrivateMessage extends Component {
   constructor() {
     super();
-
-    this.state = {
-      isShowing: false
-    };
   }
-
-  openModalHandler = () => {
-    this.setState({
-      isShowing: true
-    });
-  };
-
-  closeModalHandler = () => {
-    this.setState({
-      isShowing: false
-    });
-  };
 
   render() {
     return (
       <div className="dashboard-content">
-        {this.state.isShowing ? (
-          <div onClick={this.closeModalHandler} className="back-drop"></div>
-        ) : null}
-
         <div className="headline buttons two primary">
           <h4>Your Inbox (36)</h4>
-          <a
-            href="#new-message-popup"
-            className="button mid-short secondary open-new-message"
-            onClick={this.openModalHandler}
-          >
-            New Message
-          </a>
+          <Modal />
           <a href="/" className="button mid-short primary">
             Delete Selected
           </a>
@@ -83,60 +57,6 @@ export default class PrivateMessage extends Component {
             </div>
           </div>
         </div>
-        <Modal
-          className="modal"
-          show={this.state.isShowing}
-          close={this.closeModalHandler}
-        >
-          <div id="new-message-popup" className="form-popup new-message">
-            <div className="form-popup-content">
-              <h4 className="popup-title">Write a New Message</h4>
-              <hr className="line-separator" />
-              <form className="new-message-form">
-                <div className="input-container field-add">
-                  <label htmlFor="mailto" className="rl-label b-label required">
-                    To:
-                  </label>
-                  <label htmlFor="mailto" className="select-block">
-                    <select name="mailto" id="mailto">
-                      <option value="0">
-                        Select from the authors you follow...
-                      </option>
-                      <option value="1">Vynil Brush</option>
-                      <option value="2">Jenny_Block</option>
-                    </select>
-                  </label>
-                  <div className="button dark-light add-field"></div>
-                </div>
-                <div className="input-container">
-                  <label htmlFor="subject" className="rl-label b-label">
-                    Subject:
-                  </label>
-                  <input
-                    type="text"
-                    id="subject"
-                    name="subject"
-                    placeholder="Enter your subject here..."
-                  />
-                </div>
-                <div className="input-container">
-                  <label htmlFor="message" className="rl-label b-label required">
-                    Your Message:
-                  </label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    placeholder="Write your message here..."
-                  ></textarea>
-                </div>
-                <button className="button mid dark">
-                  Send <span className="primary">Message</span>
-                </button>
-              </form>
-            </div>
-            <div className="close-btn mfp-close"></div>
-          </div>
-        </Modal>
       </div>
     );
   }
