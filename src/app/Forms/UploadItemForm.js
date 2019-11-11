@@ -4,7 +4,8 @@ import {
   ItemConditions,
   city,
   ItemStatus,
-  UploadFormValidation
+  UploadFormValidation,
+  FileApiArray
 } from "../const";
 import FileUpload from "../components/FileUpload";
 import { productCreate, productUpdate, fetchProductDetails } from "../Networks";
@@ -21,8 +22,10 @@ class UploadItemForm extends Component {
       item_category: "",
       item_name: "",
       item_description: "",
-      item_picture: "",
+      item_picture1: "",
       item_picture2: "",
+      item_picture3: "",
+      item_picture4: "",
       item_price: "",
       item_status: "",
       item_conditions: "",
@@ -74,8 +77,10 @@ class UploadItemForm extends Component {
             item_name: "",
             item_category: "",
             item_description: "",
-            item_picture: "",
+            item_picture1: "",
             item_picture2: "",
+            item_picture3: "",
+            item_picture4: "",
             item_price: "",
             item_status: "",
             item_conditions: "",
@@ -90,8 +95,6 @@ class UploadItemForm extends Component {
   }
 
   render() {
-    const fileApi = "/api/v1/file/upload/node/pigeon/field_pigeon";
-
     let validation = this.submitted
       ? this.validator.validate(this.state)
       : this.state.validation;
@@ -148,50 +151,36 @@ class UploadItemForm extends Component {
             {validation.item_description.message}
           </span>
         </div>
-        <div className="input-container">
-          <label className="rl-label required">Upload Main File</label>
-          <div className="upload-file mb-0">
-            <div className="upload-file-actions">
-              <FileUpload
-                onChange={this.handleInputFileChange}
-                targetField="item_picture"
-                fileApi={fileApi}
-              ></FileUpload>
-              <input
-                className="hide"
-                name="item_picture"
-                id="pic1"
-                type="hidden"
-                placeholder="Enter them item name here..."
-                value={this.state.item_picture}
-                onChange={this.handleInputChange}
-              ></input>
+
+        {FileApiArray.map(fileApi => {
+          return (
+            <div className="input-container" key={fileApi.id}>
+              <label className="rl-label required">{`Upload Image ${fileApi.id}`}</label>
+              <div className="upload-file mb-0">
+                <div className="upload-file-actions">
+                  <FileUpload
+                    onChange={this.handleInputFileChange}
+                    targetField={`item_picture${fileApi.id}`}
+                    fileApi={fileApi.url}
+                  ></FileUpload>
+                  <input
+                    className="hide"
+                    name={`item_picture${fileApi.id}`}
+                    id={`pic${fileApi.id}`}
+                    type="hidden"
+                    placeholder="Enter them item name here..."
+                    value={this.state.item_picture}
+                    onChange={this.handleInputChange}
+                  ></input>
+                </div>
+              </div>
+              <span className="form-error">
+                {fileApi.id == 1 ? validation.item_picture1.message : ""}
+              </span>
             </div>
-          </div>
-          <span className="form-error">{validation.item_picture.message}</span>
-        </div>
-        <div className="input-container">
-          <label className="rl-label required">Upload Main Image</label>
-          <div className="upload-file mb-0">
-            <div className="upload-file-actions">
-              <FileUpload
-                onChange={this.handleInputFileChange}
-                targetField="item_picture2"
-                fileApi={fileApi}
-              ></FileUpload>
-              <input
-                className="hide"
-                name="item_picture2"
-                id="pic1"
-                type="hidden"
-                placeholder="Enter them item name here..."
-                value={this.state.item_picture2}
-                onChange={this.handleInputChange}
-              ></input>
-              <p>Pack of Cartoon Illustrations.zip</p>
-            </div>
-          </div>
-        </div>
+          );
+        })}
+
         <div className="input-container half">
           <label htmlFor="price" className="rl-label required">
             Price({IndianRupee})
@@ -305,7 +294,10 @@ class UploadItemForm extends Component {
           item_name: response.data.title,
           item_category: response.data.category,
           item_description: response.data.body,
+          item_picture1: response.data.title,
           item_picture2: response.data.title,
+          item_picture3: response.data.title,
+          item_picture4: response.data.title,
           item_price: response.data.price,
           item_status: response.data.status,
           item_conditions: response.data.condition,

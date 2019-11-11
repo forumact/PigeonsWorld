@@ -5,7 +5,7 @@ import Flag from "./Flag";
 
 class ProductCard extends Component {
   render() {
-    let img = this.props.product.img ? this.props.product.img : '';
+    let img = this.props.product.img1 ? this.props.product.img1 : '';
     return (
       <div className="product-item column">
         <div className="product-preview-actions">

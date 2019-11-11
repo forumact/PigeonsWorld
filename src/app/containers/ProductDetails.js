@@ -20,7 +20,7 @@ class ProductDetails extends Component {
   }
 
   render() {
-    const { title, body, img } = this.state.product;
+    const { title, body, img1, img2, img3, img4 } = this.state.product;
     return (
       <div>
         <HeadLine title={title}></HeadLine>
@@ -36,10 +36,10 @@ class ProductDetails extends Component {
               <article className="post">
                 <div className="post-image">
                   <figure className="product-preview-image large liquid imgLiquid_bgSize imgLiquid_ready">
-                    <img src={img} alt="" />
+                    <img src={img1} alt="" />
                   </figure>
                 </div>
-                <ImageSlider image={img}></ImageSlider>
+                <ImageSlider image={(img1, img2, img3, img4)}></ImageSlider>
                 <div className="post-content">
                   <div className="post-paragraph">
                     {/* {body} */}

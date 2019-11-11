@@ -167,7 +167,7 @@ export const UploadFormValidation = [
     message: "Description is required."
   },
   {
-    field: "item_picture",
+    field: "item_picture1",
     method: "isEmpty",
     validWhen: false,
     message: "Picture is required."
@@ -201,5 +201,24 @@ export const UploadFormValidation = [
     method: "isEmpty",
     validWhen: false,
     message: "Item tags is required."
+  }
+];
+
+export const FileApiArray = [
+  {
+    id: "1",
+    url: "/api/v1/file/upload/node/pigeon/field_pigeon1"
+  },
+  {
+    id: 2,
+    url: "/api/v1/file/upload/node/pigeon/field_pigeon2"
+  },
+  {
+    id: 3,
+    url: "/api/v1/file/upload/node/pigeon/field_pigeon3"
+  },
+  {
+    id: 4,
+    url: "/api/v1/file/upload/node/pigeon/field_pigeon4"
   }
 ];
