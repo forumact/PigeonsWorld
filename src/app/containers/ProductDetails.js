@@ -11,16 +11,23 @@ import AuthorsItem from "../components/Product/AuthorsItem";
 import ImageSlider from "../components/Product/ImageSlider";
 
 class ProductDetails extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.state = {
-      product: []
+      product: [],
+      image: ""
     };
+    this.changeProductImage = this.changeProductImage.bind(this);
+  }
+
+  changeProductImage(field, value) {    
+    this.setState({ [field]: value });    
   }
 
   render() {
     const { title, body, img1, img2, img3, img4 } = this.state.product;
+    let imgArray = [img1, img2, img3, img4];
     return (
       <div>
         <HeadLine title={title}></HeadLine>
@@ -36,10 +43,17 @@ class ProductDetails extends Component {
               <article className="post">
                 <div className="post-image">
                   <figure className="product-preview-image large liquid imgLiquid_bgSize imgLiquid_ready">
-                    <img src={img1} alt="" />
+                    <img
+                      id="product-src"
+                      src={this.state.image ? this.state.image : img1}
+                      alt="product"
+                    />
                   </figure>
                 </div>
-                <ImageSlider image={(img1, img2, img3, img4)}></ImageSlider>
+                <ImageSlider
+                  image={imgArray}
+                  onChange={this.changeProductImage}
+                ></ImageSlider>
                 <div className="post-content">
                   <div className="post-paragraph">
                     {/* {body} */}

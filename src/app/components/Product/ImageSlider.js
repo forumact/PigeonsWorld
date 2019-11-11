@@ -7,9 +7,20 @@ export default class ImageSlider extends Component {
     this.state = {
       slider: []
     };
+
+    this.changePath = this.changePath.bind(this);
+  }
+
+  changePath(e) {
+    let backgroundStyle = window
+      .getComputedStyle(e.target, null)
+      .getPropertyValue("background-image");
+    let img = backgroundStyle
+      .substring(4, backgroundStyle.length - 1)
+      .replace('"', "");    
+    this.props.onChange("image", img);
   }
   render() {
-    const items = [254, 45, 212, 365, 2543];
     return (
       <div className="post-image-slides" style={{ left: "0px" }}>
         <div className="image-slides-wrap full">
@@ -19,17 +30,18 @@ export default class ImageSlider extends Component {
             data-slide-visible-small="2"
             data-slide-count="5"
           >
-            {items.map((item, i) => (
+            {this.props.image.map((item, i) => (
               <div
                 arul={i}
                 key={i}
-                className={(i==0) ? `image-slide selected` : `image-slide`}
+                className={i == 0 ? `image-slide selected` : `image-slide`}
                 style={{ left: `${i * 106}px` }}
               >
                 <div className="overlay"></div>
                 <figure
                   className="product-preview-image thumbnail liquid"
-                  style={{ backgroundImage: `url(${this.props.image})` }}
+                  style={{ backgroundImage: `url(${item})` }}
+                  onClick={this.changePath}
                 >
                   {/* <img src={ProductImg1} alt="" /> */}
                 </figure>

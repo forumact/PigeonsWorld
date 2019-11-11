@@ -175,7 +175,7 @@ class UploadItemForm extends Component {
                 </div>
               </div>
               <span className="form-error">
-                {fileApi.id == 1 ? validation.item_picture1.message : ""}
+                {fileApi.id === 1 ? validation.item_picture1.message : ""}
               </span>
             </div>
           );
