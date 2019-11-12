@@ -35,7 +35,7 @@ class BlogDetails extends Component {
               <article className="post">
                 <div className="post-image">
                   <figure className="product-preview-image large liquid imgLiquid_bgSize imgLiquid_ready">
-                    <img src={img} alt="" />
+                    <img id="product-src" src={img} alt="" />
                   </figure>
                 </div>
                 <div className="post-content">

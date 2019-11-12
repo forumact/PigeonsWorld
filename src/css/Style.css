@@ -1606,11 +1606,14 @@ header,
   width: 836px;
   height: 484px;
   text-align: center;
+  background-color: #888;
 }
 
 .product-preview-image.big {
   width: 358px;
   height: 208px;
+  text-align: center;
+  background-color: #888;
 }
 
 .product-preview-image.thumbnail {
@@ -4209,6 +4212,8 @@ header .account-actions .button:last-child {
 
 .product-list .product-item .product-preview-image {
   position: absolute;
+  text-align: center;
+  background-color: #888;
 }
 
 .product-list .product-item .product-info {

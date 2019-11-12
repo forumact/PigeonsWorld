@@ -18,7 +18,7 @@ class BlogCard extends Component {
       <div className="blog-post-preview-item column">
         <Link to={`/blog/${nid}`}>
           <figure className="product-preview-image big liquid">
-            <img src={img} alt="pigeon" />
+            <img id="product-src" src={img} alt="pigeon" />
           </figure>
         </Link>
         <div className="blog-post-preview-item-info">

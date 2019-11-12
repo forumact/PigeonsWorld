@@ -42,7 +42,7 @@ class ItemNavigation extends Component {
             <Link to={`update-item/${this.props.nid}`}>Edit Item</Link>
           </li>
           <li className="dropdown-item">
-            <a href="/">Duplicate</a>
+            <Link to={`products/${this.props.nid}`}>View</Link>
           </li>
           <li className="dropdown-item">
             <a href="/">Share</a>

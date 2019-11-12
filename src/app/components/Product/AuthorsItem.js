@@ -22,7 +22,7 @@ export default class AuthorsItem extends Component {
                 <span className="pin featured">Featured</span>
                 <div className="product-preview-actions">
                   <figure className="product-preview-image">
-                    <img src={product.img} alt="product" />
+                    <img id="product-src" src={product.img} alt="product" />
                   </figure>
                   <div className="preview-actions">
                     <div className="preview-action">

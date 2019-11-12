@@ -10,7 +10,7 @@ class ProductCard extends Component {
       <div className="product-item column">
         <div className="product-preview-actions">
           <figure className="product-preview-image">
-            <img src={img} alt="product" />
+            <img id="product-src" src={img} alt="product" />
           </figure>
           <div className="preview-actions">
             <div className="preview-action">
@@ -55,6 +55,9 @@ class ProductCard extends Component {
           <NavLink to={`/user/${this.props.product.uid}`}>
             <p className="text-header tiny strtocaptalize">{this.props.product.username}</p>
           </NavLink>
+          <div className="rating tooltip tooltipstered">
+            <span className="icon-camera"></span>&nbsp;4
+          </div>
         </div>
       </div>
     );
