@@ -17,7 +17,7 @@ export default class ImageSlider extends Component {
       .getPropertyValue("background-image");
     let img = backgroundStyle
       .substring(4, backgroundStyle.length - 1)
-      .replace('"', "");    
+      .replace('"', "").replace('"', "");    
     this.props.onChange("image", img);
   }
   render() {
@@ -36,8 +36,7 @@ export default class ImageSlider extends Component {
                 key={i}
                 className={i == 0 ? `image-slide selected` : `image-slide`}
                 style={{ left: `${i * 106}px` }}
-              >
-                <div className="overlay"></div>
+              > 
                 <figure
                   className="product-preview-image thumbnail liquid"
                   style={{ backgroundImage: `url(${item})` }}

@@ -52,6 +52,9 @@ figure {
 figure > img {
   width: 100%;
 }
+figure > img#product-src{
+	width: auto;
+}
 
 figure > figcaption {
   display: none;
@@ -1602,6 +1605,7 @@ header,
 .product-preview-image.large {
   width: 836px;
   height: 484px;
+  text-align: center;
 }
 
 .product-preview-image.big {
