@@ -142,10 +142,10 @@ export const MyRoutes = [
     exact: true
   },
   {
-    path: "/searc/:category/input",
+    path: "/search/:category/:input",
     component: lazy(() => import("../containers/Search")),
     title: "Search Results",
-    menu: "yes",
+    menu: "no",
     exact: true
   },
   {

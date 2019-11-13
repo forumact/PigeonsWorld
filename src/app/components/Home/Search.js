@@ -1,51 +1,63 @@
 import React, { Component } from "react";
-import Suggestions from "./Suggestions";
+import { withRouter } from "react-router-dom";
 import { PigeonCategory } from "../../const";
-import { seach } from "../../Networks";
 
 class Search extends Component {
-  state = {
-    query: "",
-    results: []
+  constructor(props) {
+    super(props);
+    this.state = {
+      // query: "",
+      // results: ["arulraj", "murugavel", "barathi"]
+      search: "",
+      categories: "All"
+    };
+    this.handleInputChange = this.handleInputChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  // getInfo = () => {
+  //   seach(this.state.query).then(({ data }) => {
+  //     this.setState({
+  //       results: data.data
+  //     });
+  //   });
+  // };
+
+  handleInputChange = event => {
+    const { name, value } = event.target;
+    let formv = {
+      [name]: value
+    };
+    this.setState(formv);
   };
 
-  getInfo = () => {
-    //axios.get(`${API_URL}?api_key=${API_KEY}&prefix=${this.state.query}&limit=7`)
-    seach(this.state.query).then(({ data }) => {
-      this.setState({
-        results: data.data
-      });
-    });
-  };
-
-  handleInputChange = () => {
-    this.setState(
-      {
-        query: this.search.value
-      },
-      () => {
-        if (this.state.query && this.state.query.length > 3) {
-          if (this.state.query.length % 2 === 0) {
-            this.getInfo();
-          }
-        } else if (!this.state.query) {
-        }
-      }
+  handleSubmit(e) {
+    e.preventDefault();
+    this.props.history.push(
+      `/search/${this.state.categories}/${this.state.search}`
     );
-  };
+  }
 
   render() {
     return (
-      <form className="search-widget-form" autoComplete="off">
+      <form
+        className="search-widget-form"
+        onSubmit={this.handleSubmit}
+        autoComplete="off"
+      >
         <input
           type="text"
-          name="category_name"
+          name="search"
           placeholder="Search for..."
           ref={input => (this.search = input)}
           onChange={this.handleInputChange}
         />
         <label htmlFor="categories" className="select-block">
-          <select name="categories" id="categories">
+          <select
+            name="categories"
+            id="categories"
+            onChange={this.handleInputChange}
+          >
             {PigeonCategory.map(cat => {
               return (
                 <option value={cat} key={cat}>
@@ -56,10 +68,9 @@ class Search extends Component {
           </select>
         </label>
         <button className="button medium dark">Search Now!</button>
-        <Suggestions results={this.state.results} />
       </form>
     );
   }
 }
 
-export default Search;
+export default withRouter(Search);

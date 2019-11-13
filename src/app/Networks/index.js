@@ -97,8 +97,9 @@ export async function productUpdate(data) {
   return await axiosInstance.post("/api/v1/pigeons/update", data);
 }
 
-export async function seach(data) {
-  return await axiosInstance.get(`/api/v1/search/node/?q=${data}`);
+export async function siteSeach(data) {
+  //return await axiosInstance.get(`/api/v1/site-search?_format=json&title=${data.title}`);
+  return await axiosInstance.post("api/v1/search", data);
 }
 
 export async function fileupload(data, fileApi) {
