@@ -24,6 +24,7 @@ class AccountSettingsForm extends Component {
       show_balance: "",
       notification: "",
       user_picture: "",
+      avatar: "",
       uid: 0,
       validation: this.validator.valid()
     };
@@ -72,7 +73,8 @@ class AccountSettingsForm extends Component {
           about: response.data.about,
           show_balance: "",
           notification: response.data.notification,
-          user_picture: "",
+          user_picture: response.data.user_picture,
+          avatar: "",
           uid: response.data.uid
         });
       });
@@ -96,6 +98,7 @@ class AccountSettingsForm extends Component {
               onChange={this.handleInputFileChange}
               targetField="user_picture"
               fileApi={fileApi}
+              image={this.state.avatar}
             ></FileUpload>
             <input
               className="hide"
@@ -306,7 +309,8 @@ class AccountSettingsForm extends Component {
         about: response.data.about,
         show_balance: "",
         notification: response.data.notification,
-        user_picture: "",
+        user_picture: response.data.user_picture,
+        avatar: response.data.avatar,
         uid: response.data.uid
       });
     });

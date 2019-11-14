@@ -75,4 +75,27 @@ export default class FileUpload extends Component {
       </div>
     );
   }
+
+  // componentDidMount() {
+  //   let { avatar, targetField } = this.props;
+  //   console.log(targetField);
+  //   console.log(avatar);
+  //   if (avatar !== "") {
+  //     document.getElementById("preview_" + targetField).src = avatar;
+  //   }
+  // }
+
+  componentDidUpdate(prevProps) {
+    if (this.props.image !== prevProps.image) {
+      let { image, targetField } = this.props;
+      console.log(targetField);
+      console.log(image);
+      if (image !== "") {
+        document.getElementById("preview_" + targetField).src = image;
+        this.setState({
+          hide: false
+        });
+      }
+    }
+  }
 }

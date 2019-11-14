@@ -2,17 +2,28 @@ import React, { Component } from "react";
 import { siteSeach } from "../Networks";
 import HeadLine from "../components/HeadLine";
 import ProductCard from "../components/Product/ProductCard";
+import NoDataFound from "../components/NoDataFound";
 
 class Search extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      searchItems: []
+      searchItems: [],
+      noData: 0
     };
   }
 
   render() {
-    console.log(this.state.searchItems);
+    console.log(this.state);
+    if (this.state.noData === 0) {
+      return (
+        <div>
+          <HeadLine title="Search"></HeadLine>
+          <NoDataFound></NoDataFound>
+        </div>
+      );
+    }
+
     return (
       <div>
         <HeadLine title="Search"></HeadLine>
@@ -20,7 +31,10 @@ class Search extends Component {
           <div className="section">
             <div className="content full">
               <div className="headline primary">
-                <h4>{this.state.searchItems ? this.state.searchItems.length: '0'} Product Found</h4>
+                <h4>
+                  {this.state.searchItems ? this.state.searchItems.length : "0"}{" "}
+                  Product Found
+                </h4>
                 <div className="view-selectors">
                   <a
                     href="favourites.html"
@@ -75,7 +89,8 @@ class Search extends Component {
     };
     siteSeach(payload).then(response => {
       this.setState({
-        searchItems: response.data.searchItems
+        searchItems: response.data.searchItems,
+        noData: response.data.searchItems ? response.data.searchItems.length : 0
       });
     });
   }

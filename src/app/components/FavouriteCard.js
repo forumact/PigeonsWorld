@@ -12,11 +12,16 @@ class FavouriteCard extends Component {
           </figure>
         </Link>
         <div className="product-info">
-          <Link to={`/products/${this.props.fav.nid}`}>
-            <p className="text-header">{this.props.fav.title}</p>
+          <Link
+            to={`/products/${this.props.fav.nid}`}
+            title={this.props.fav.title}
+          >
+            <p className="text-header">
+              {substring(this.props.fav.title, 25, ".....")}
+            </p>
           </Link>
           <p className="product-description">
-            {substring(this.props.fav.body, 15, ".....")}
+            {substring(this.props.fav.body, 35, ".....")}
           </p>
           <a href="shop-gridview-v1.html">
             <p className="category primary">{this.props.fav.category}</p>
@@ -30,7 +35,9 @@ class FavouriteCard extends Component {
               </figure>
             </Link>
             <Link to={`/user/${this.props.fav.uid}`}>
-              <p className="text-header tiny strtocaptalize">{this.props.fav.uname}</p>
+              <p className="text-header tiny strtocaptalize">
+                {this.props.fav.uname}
+              </p>
             </Link>
           </div>
           <div className="metadata">
@@ -52,9 +59,9 @@ class FavouriteCard extends Component {
           <p className="text-header tiny">
             Item Condition: <span>{this.props.fav.condition}</span>
           </p>
-          <br/>
+          <br />
           <p className="text-header tiny">
-          Item Category: <span>{this.props.fav.category}</span>
+            Item Category: <span>{this.props.fav.category}</span>
           </p>
           {/* <p className="text-header tiny">
                         Tags:

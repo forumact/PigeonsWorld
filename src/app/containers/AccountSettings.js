@@ -3,29 +3,7 @@ import AccountSettingsForm from "../Forms/AccountSettingsForm";
 import UploadQueue from "../components/UploadItems/UploadQueue";
 import UploadGuidelines from "../components/UploadItems/UploadGuidelines";
 
-class AccountSettings extends Component {
-  // submit = values => {
-  //   console.log(values);
-  //   try {
-  //     const userdata = {
-  //       name: values.acc_name,
-  //       pass: values.password,
-  //       email: values.new_email,
-  //       website_url: values.website_url,
-  //       about: values.about,
-  //     };
-  //     userUpdate(userdata).then((response) => {
-  //       console.log(response);
-  //     });
-  //   } catch (e) {
-  //     console.log(`Axios request failed: ${e}`);
-  //   }
-
-  // }
-
-  socialsubmit = values => {
-    console.log(values);
-  };
+class AccountSettings extends Component {  
 
   render() {
     return (

@@ -14,7 +14,7 @@ class UserActivity extends Component {
         <li className="dropdown-item" onClick={e => e.preventDefault()}>
           <NavLink to={`/user/${this.props.uid}/message`}>Message Board</NavLink>          
         </li>
-        <li className="dropdown-item" onClick={e => e.preventDefault()}>
+        {/* <li className="dropdown-item" onClick={e => e.preventDefault()}>
           <a href="author-profile-reviews.html">Customer Reviews (42)</a>
         </li>
         <li className="dropdown-item" onClick={e => e.preventDefault()}>
@@ -25,7 +25,7 @@ class UserActivity extends Component {
         </li>
         <li className="dropdown-item" onClick={e => e.preventDefault()}>
           <a href="author-badges.html">Author Badges (16)</a>
-        </li>
+        </li> */}
       </ul>
     );
   }

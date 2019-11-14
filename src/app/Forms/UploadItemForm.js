@@ -78,9 +78,13 @@ class UploadItemForm extends Component {
             item_category: "",
             item_description: "",
             item_picture1: "",
+            item_url1: "",
             item_picture2: "",
+            item_url2: "",
             item_picture3: "",
+            item_url3: "",
             item_picture4: "",
+            item_url4: "",
             item_price: "",
             item_status: "",
             item_conditions: "",
@@ -162,6 +166,7 @@ class UploadItemForm extends Component {
                     onChange={this.handleInputFileChange}
                     targetField={`item_picture${fileApi.id}`}
                     fileApi={fileApi.url}
+                    image={this.state["item_url" + fileApi.id]}
                   ></FileUpload>
                   <input
                     className="hide"
@@ -169,7 +174,7 @@ class UploadItemForm extends Component {
                     id={`pic${fileApi.id}`}
                     type="hidden"
                     placeholder="Enter them item name here..."
-                    value={this.state.item_picture}
+                    value={this.state["item_picture" + fileApi.id]}
                     onChange={this.handleInputChange}
                   ></input>
                 </div>
@@ -294,10 +299,14 @@ class UploadItemForm extends Component {
           item_name: response.data.title,
           item_category: response.data.category,
           item_description: response.data.body,
-          item_picture1: response.data.title,
-          item_picture2: response.data.title,
-          item_picture3: response.data.title,
-          item_picture4: response.data.title,
+          item_picture1: response.data.picture1,
+          item_url1: response.data.img1,
+          item_picture2: response.data.picture2,
+          item_url2: response.data.img2,
+          item_picture3: response.data.picture3,
+          item_url3: response.data.img3,
+          item_picture4: response.data.picture4,
+          item_url4: response.data.img4,
           item_price: response.data.price,
           item_status: response.data.status,
           item_conditions: response.data.condition,
