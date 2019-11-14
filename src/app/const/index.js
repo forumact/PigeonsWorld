@@ -204,6 +204,21 @@ export const UploadFormValidation = [
   }
 ];
 
+export const LoginFormValidation = [
+  {
+    field: "username",
+    method: "isEmpty",
+    validWhen: false,
+    message: "Username is empty."
+  },
+  {
+    field: "password",
+    method: "isEmpty",
+    validWhen: false,
+    message: "Password is empty."
+  }
+];
+
 export const FileApiArray = [
   {
     id: "1",

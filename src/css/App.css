@@ -114,13 +114,17 @@ form > button[type="submit"][disabled] {
   background-size: cover;
 }
 
-.gchanges{
- background-color:  #e61852 !important;
- display: inline !important;
- color: #fff;
- font-weight: 700 !important;
+.gchanges {
+  background-color: #e61852 !important;
+  display: inline !important;
+  color: #fff !important;
+  font-weight: 700 !important;
+  float: right !important;
 }
 
-.gchanges div{
+.gchanges div {
   display: none;
+}
+.gchanges span {
+  font-weight: 700 !important;
 }

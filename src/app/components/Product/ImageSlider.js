@@ -34,7 +34,7 @@ export default class ImageSlider extends Component {
               <div
                 arul={i}
                 key={i}
-                className={i == 0 ? `image-slide selected` : `image-slide`}
+                className={i === 0 ? `image-slide selected` : `image-slide`}
                 style={{ left: `${i * 106}px` }}
               > 
                 <figure

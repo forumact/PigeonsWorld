@@ -36,14 +36,12 @@ class Search extends Component {
                   Product Found
                 </h4>
                 <div className="view-selectors">
-                  <a
-                    href="favourites.html"
-                    className="view-selector grid active"
-                  ></a>
-                  <a
-                    href="favourites-listview.html"
-                    className="view-selector list"
-                  ></a>
+                  <a href="/" className="view-selector grid active">
+                    &nbsp;
+                  </a>
+                  <a href="/" className="view-selector list">
+                    &nbsp;
+                  </a>
                 </div>
                 <form id="shop_filter_form" name="shop_filter_form">
                   <label htmlFor="price_filter" className="select-block">

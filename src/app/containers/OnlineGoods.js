@@ -4,12 +4,12 @@ import ProductCard from "../components/Product/ProductCard";
 import { connect } from "react-redux";
 
 class OnlineGoods extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      products: {}
-    };
-  }
+  // constructor(props) {
+  //   super(props);
+  //   this.state = {
+  //     products: {}
+  //   };
+  // }
 
   render() {
     const title = "Online Goods";
@@ -65,7 +65,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(
-  mapStateToProps,
-  null
-)(OnlineGoods);
+export default connect(mapStateToProps, null)(OnlineGoods);

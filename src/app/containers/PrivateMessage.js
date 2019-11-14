@@ -4,9 +4,9 @@ import { privatemessagecreate } from "../Networks";
 import Modal from "../components/Modal/Modal";
 
 export default class PrivateMessage extends Component {
-  constructor() {
-    super();
-  }
+  // constructor() {
+  //   super();
+  // }
 
   render() {
     return (
