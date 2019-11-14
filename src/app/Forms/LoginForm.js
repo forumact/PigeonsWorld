@@ -2,6 +2,9 @@ import React from "react";
 import { Field, reduxForm } from "redux-form";
 import { Link } from "react-router-dom";
 import { renderField } from "../helper";
+import FacebookLogin from 'react-facebook-login';
+import GoogleLogin from 'react-google-login';
+import { loginCheckandCreate } from "../Networks";
 
 const validate = values => {
   const errors = {};
@@ -12,6 +15,17 @@ const validate = values => {
     errors.password = "Required";
   }
   return errors;
+};
+
+const responseFacebook = response => {
+  console.log(response);
+};
+
+
+const responseGoogle = response => {
+  loginCheckandCreate(response).then(response => {
+      console.log(response.data);
+    });
 };
 
 let LoginForm = props => {
@@ -79,12 +93,22 @@ let LoginForm = props => {
           </button>
         </form>
         <hr className="line-separator double" />
-        <a href="/" className="button mid fb half">
-          Login with Facebook
-        </a>
-        <a href="/" className="button mid twt half">
-          Login with Twitter
-        </a>
+
+        <FacebookLogin
+          appId="Your FacebookAPP ID"
+          autoLoad={false}
+          fields="name,email,picture"
+          callback={responseFacebook}
+          cssClass="button mid fb half mt-0"
+        />
+
+        <GoogleLogin
+        clientId="451309071348-s18cpe800jrf5ajf4kq1drne328clv97.apps.googleusercontent.com"
+        buttonText="Login with Google"
+        onSuccess={responseGoogle}
+        onFailure={responseGoogle}
+        className="button mid tertiary half gchanges mt-0"
+        />
       </div>
     </div>
   );

@@ -146,3 +146,7 @@ export async function fetchUserDetails() {
 export async function fetchUserItems(data) {
   return await axiosInstance.post("/api/v1/user/items", data);
 }
+
+export async function loginCheckandCreate(data) {
+  return await axiosInstance.post("/api/v1/logincheck", data);
+}

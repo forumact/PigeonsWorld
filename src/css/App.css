@@ -105,7 +105,22 @@ form > button[type="submit"][disabled] {
   margin-bottom: 0 !important;
 }
 
+.mt-0 {
+  margin-top: 0 !important;
+}
+
 .post-image-slides .image-slide figure {
   background-position: center center;
   background-size: cover;
+}
+
+.gchanges{
+ background-color:  #e61852 !important;
+ display: inline !important;
+ color: #fff;
+ font-weight: 700 !important;
+}
+
+.gchanges div{
+  display: none;
 }
