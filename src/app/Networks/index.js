@@ -11,9 +11,12 @@ axiosInstance.interceptors.request.use(
     if (config.url.indexOf("/file/upload/") < 0) {
       config.headers = {
         "Content-Type": "application/json",
-        "Access-Control-Allow-Origin": "*",
-        "X-CSRF-Token": localStorage.getItem("csrf")
+        "Access-Control-Allow-Origin": "*",       
       };
+      if(localStorage.getItem("csrf")){
+        config.headers['X-CSRF-Token'] = localStorage.getItem("csrf");
+      }
+      //"X-CSRF-Token": 
     }
     return config;
   },

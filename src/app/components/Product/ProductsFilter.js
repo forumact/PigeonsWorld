@@ -6,12 +6,13 @@ import { connect } from "react-redux";
 
 let filter = [];
 class ProductsFilter extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
-      productFilter: [],
-      selected: {}
+      productFilter: []
     };
+
+    this.handleChange = this.handleChange.bind(this);
   }
 
   handleChange(e) {
@@ -21,12 +22,7 @@ class ProductsFilter extends Component {
       filter.push(e.target.value);
     }
     console.log("final", filter);
-    const payload = {
-      numberofitem: 9,
-      pagenumber: 0,
-      filter: filter
-    };
-    this.props.getProducts(payload);
+    this.props.filterChange(filter);
   }
 
   render() {
@@ -67,21 +63,4 @@ class ProductsFilter extends Component {
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    products: state.products
-  };
-};
-
-const mapDispatchToProps = dispatch => {
-  return {
-    getProducts: payload => {
-      dispatch({ type: GET_PRODUCTS, payload: payload });
-    }
-  };
-};
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(ProductsFilter);
+export default ProductsFilter;

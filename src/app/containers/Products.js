@@ -14,17 +14,32 @@ class Products extends Component {
       products: {},
       activePage: 1,
       itemsCountPerPage: 9,
-      totalItemsCount: 1
+      totalItemsCount: 1,
+      productFilter: []
     };
 
     //Bind this event on click method
     this.handlePageChange = this.handlePageChange.bind(this);
+    this.handleFilterChange = this.handleFilterChange.bind(this);
+  }
+
+  handleFilterChange(filter) {
+    const payload = {
+      numberofitem: 9,
+      pagenumber: 0,
+      filter: filter
+    };
+    this.props.getProducts(payload);
+    this.setState({
+      productFilter: filter
+    });
   }
 
   handlePageChange(pageNumber) {
     const payload = {
       numberofitem: 9,
-      pagenumber: pageNumber - 1
+      pagenumber: pageNumber - 1,
+      filter:this.state.productFilter
     };
     console.log(`active page is ${pageNumber}`);
     this.props.getProducts(payload);
@@ -83,7 +98,7 @@ class Products extends Component {
             </div>
             <div className="sidebar">
               <ProductSideBar></ProductSideBar>
-              <ProductsFilter></ProductsFilter>
+              <ProductsFilter filterChange={this.handleFilterChange}></ProductsFilter>
             </div>
           </div>
         </div>
@@ -106,7 +121,4 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Products);
+export default connect(mapStateToProps, mapDispatchToProps)(Products);
