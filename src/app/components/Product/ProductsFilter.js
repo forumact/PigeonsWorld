@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import { getProductFilter } from "../../Networks";
 import { arrayRemove } from "../../helper";
 
@@ -31,7 +31,7 @@ class ProductsFilter extends Component {
         <form id="shop_search_form" name="shop_search_form">
           {(this.state.productFilter || []).map((product, i) => {
             return (
-              <div key={i}>
+              <Fragment key={i}>
                 <input
                   type="checkbox"
                   id={`filter_${i}`}
@@ -46,7 +46,7 @@ class ProductsFilter extends Component {
                   {product.field_category}
                   <span className="quantity">{product.nid_count}</span>
                 </label>
-              </div>
+              </Fragment>
             );
           })}
         </form>

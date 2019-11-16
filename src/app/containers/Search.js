@@ -3,6 +3,8 @@ import { siteSeach } from "../Networks";
 import HeadLine from "../components/HeadLine";
 import ProductCard from "../components/Product/ProductCard";
 import NoDataFound from "../components/NoDataFound";
+import SearchResultFilter from "../components/SearchResultFilter";
+import Pagination from "react-js-pagination";
 
 class Search extends Component {
   constructor(props) {
@@ -11,6 +13,27 @@ class Search extends Component {
       searchItems: [],
       noData: 0
     };
+
+    this.handlePageChange = this.handlePageChange.bind(this);
+  }
+
+  handlePageChange(pageNumber) {
+    const payload = {
+      key: this.props.match.params.input,
+      category: this.props.match.params.category,
+      numberofitem: 12,
+      pagenumber: pageNumber - 1
+    };
+    console.log(`active page is ${pageNumber}`);
+    siteSeach(payload).then(response => {
+      this.setState({
+        searchItems: response.data.searchItems,
+        noData: response.data.count ? response.data.count : 0
+      });
+    });
+    this.setState({
+      activePage: pageNumber
+    });
   }
 
   render() {
@@ -31,32 +54,8 @@ class Search extends Component {
           <div className="section">
             <div className="content full">
               <div className="headline primary">
-                <h4>
-                  {this.state.searchItems ? this.state.searchItems.length : "0"}{" "}
-                  Product Found
-                </h4>
-                <div className="view-selectors">
-                  <a href="/" className="view-selector grid active">
-                    &nbsp;
-                  </a>
-                  <a href="/" className="view-selector list">
-                    &nbsp;
-                  </a>
-                </div>
-                <form id="shop_filter_form" name="shop_filter_form">
-                  <label htmlFor="price_filter" className="select-block">
-                    <select name="price_filter" id="price_filter">
-                      <option value="0">Price (High to Low)</option>
-                      <option value="1">Price (Low to High)</option>
-                    </select>
-                  </label>
-                  <label htmlFor="itemspp_filter" className="select-block">
-                    <select name="itemspp_filter" id="itemspp_filter">
-                      <option value="0">12 Items Per Page</option>
-                      <option value="1">6 Items Per Page</option>
-                    </select>
-                  </label>
-                </form>
+                <h4>{this.state.noData} Product Found</h4>
+                <SearchResultFilter></SearchResultFilter>
                 <div className="clearfix"></div>
               </div>
             </div>
@@ -64,7 +63,6 @@ class Search extends Component {
               <div className="product-list grid column4-wrap">
                 {(this.state.searchItems || []).map(product => {
                   return (
-                    // <ProductCard></ProductCard>
                     <ProductCard
                       key={product.nid}
                       product={product}
@@ -72,6 +70,20 @@ class Search extends Component {
                   );
                 })}
               </div>
+            </div>
+            <div className="clearfix"></div>
+            <div className="pager tertiary">
+              {this.state.noData > 12 ? (
+                <Pagination
+                  activePage={this.state.activePage}
+                  itemsCountPerPage={12}
+                  totalItemsCount={this.state.noData}
+                  pageRangeDisplayed={5}
+                  onChange={this.handlePageChange}
+                  itemClass="pager-item"
+                  linkClass="page-link-class"
+                />
+              ) : null}
             </div>
           </div>
         </section>
@@ -82,13 +94,15 @@ class Search extends Component {
   componentDidMount() {
     console.log(this.props.match.params);
     const payload = {
-      key: this.props.match.params.input
-      //category: this.props.match.params.input
+      key: this.props.match.params.input,
+      numberofitem: 12,
+      pagenumber: 0,
+      category: this.props.match.params.category
     };
     siteSeach(payload).then(response => {
       this.setState({
         searchItems: response.data.searchItems,
-        noData: response.data.searchItems ? response.data.searchItems.length : 0
+        noData: response.data.count ? response.data.count : 0
       });
     });
   }
