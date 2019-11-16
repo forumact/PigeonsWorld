@@ -12,11 +12,11 @@ export default function ProductInfo(props) {
         <p>{props.product.update}</p>
       </div>
       <div className="information-layout-item">
-        <p className="text-header">Item Category:</p>
+        <p className="text-header">Category:</p>
         <p>{props.product.category}</p>
       </div>
       <div className="information-layout-item">
-        <p className="text-header">Item Condition:</p>
+        <p className="text-header">Gender:</p>
         <p className="strtoupper">{props.product.condition}</p>
       </div>
       <div className="information-layout-item">

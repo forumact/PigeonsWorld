@@ -161,13 +161,13 @@ export const UploadFormValidation = [
     field: "item_category",
     method: "isEmpty",
     validWhen: false,
-    message: "Item category is empty."
+    message: "Category is empty."
   },
   {
     field: "item_name",
     method: "isEmpty",
     validWhen: false,
-    message: "Item name is empty."
+    message: "Advert Title is empty."
   },
   {
     field: "item_description",
@@ -191,25 +191,25 @@ export const UploadFormValidation = [
     field: "item_status",
     method: "isEmpty",
     validWhen: false,
-    message: "Item status is required."
+    message: "Status is required."
   },
   {
     field: "item_conditions",
     method: "isEmpty",
     validWhen: false,
-    message: "Item Conditions is required."
+    message: "Gender is required."
   },
   {
     field: "item_city",
     method: "isEmpty",
     validWhen: false,
-    message: "Item City is required."
+    message: "City is required."
   },
   {
     field: "item_tags",
     method: "isEmpty",
     validWhen: false,
-    message: "Item tags is required."
+    message: "Tags is required."
   }
 ];
 

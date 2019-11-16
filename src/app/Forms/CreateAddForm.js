@@ -12,7 +12,7 @@ import { productCreate, productUpdate, fetchProductDetails } from "../Networks";
 import { IndianRupee } from "../helper";
 import FormValidator from "../FormValidator";
 
-class UploadItemForm extends Component {
+class CreateAddForm extends Component {
   constructor(props) {
     super(props);
 
@@ -107,7 +107,7 @@ class UploadItemForm extends Component {
       <form id="upload_form" onSubmit={this.handleSubmit} autoComplete="off">
         <div className="input-container">
           <label htmlFor="item_name" className="rl-label required">
-            Name of the Item (Max 150 Characters)
+            Advert Title (Max 150 Characters)
           </label>
           <input
             name="item_name"
@@ -121,7 +121,7 @@ class UploadItemForm extends Component {
         </div>
         <div className="input-container">
           <label htmlFor="category" className="rl-label required">
-            Select Category
+            Category
           </label>
           <select
             name="item_category"
@@ -141,7 +141,7 @@ class UploadItemForm extends Component {
         </div>
         <div className="input-container">
           <label htmlFor="item_description" className="rl-label required">
-            Item Description
+            Description
           </label>
           <textarea
             rows="4"
@@ -180,7 +180,7 @@ class UploadItemForm extends Component {
                 </div>
               </div>
               <span className="form-error">
-                {fileApi.id === 1 ? validation.item_picture1.message : ""}
+                {fileApi.id === "1" ? validation.item_picture1.message : ""}
               </span>
             </div>
           );
@@ -201,7 +201,7 @@ class UploadItemForm extends Component {
         </div>
         <div className="input-container half">
           <label htmlFor="item_status" className="rl-label required">
-            Item Status
+            Status
           </label>
           <select
             name="item_status"
@@ -223,7 +223,7 @@ class UploadItemForm extends Component {
         <div className="clearfix"></div>
         <div className="input-container half">
           <label htmlFor="item_conditions" className="rl-label required">
-            Item Conditions
+            Gender
           </label>
           <select
             name="item_conditions"
@@ -267,7 +267,7 @@ class UploadItemForm extends Component {
         </div>
         <div className="input-container">
           <label htmlFor="item_tags" className="rl-label required">
-            Item Tags
+            Tags
           </label>
           <input
             name="item_tags"
@@ -321,4 +321,4 @@ class UploadItemForm extends Component {
   }
 }
 
-export default UploadItemForm;
+export default CreateAddForm;

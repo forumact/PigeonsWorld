@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import UploaditemForm from "../Forms/UploadItemForm";
+import CreateAddForm from "../Forms/CreateAddForm";
 import UploadGuidelines from "../components/UploadItems/UploadGuidelines";
 import UploadQueue from "../components/UploadItems/UploadQueue";
 
@@ -20,7 +20,7 @@ export default class UpdateItem extends Component {
           <div className="form-box-item full">
             <h4>Item Specifications</h4>
             <hr className="line-separator" />
-            <UploaditemForm nid={this.props.match.params.nid} />
+            <CreateAddForm nid={this.props.match.params.nid} />
           </div>
         </div>
         <div className="form-box-items wrap-1-3 right">

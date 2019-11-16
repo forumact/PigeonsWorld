@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { userLogout } from "../../Networks";
 import { withRouter } from "react-router-dom";
+import { MyRoutes } from "../../const/routes";
 
 class ProfileNavigation extends Component {
   constructor(props) {
@@ -85,11 +86,25 @@ class ProfileNavigation extends Component {
                     : "dropdown small hover-effect closed"
                 }
               >
+                {MyRoutes.map((route, i) => {
+                  if (route.profilenav === "yes") {
+                    return (
+                      <li className="dropdown-item" key={i}>
+                        <div
+                          className={i === 0 ? "dropdown-triangle" : ""}
+                        ></div>
+                        <Link to={route.path}>{route.title}</Link>
+                      </li>
+                    );
+                  } else {
+                    return "";
+                  }
+                })}
                 <li className="dropdown-item">
-                  <div className="dropdown-triangle"></div>
+                  <div className=""></div>
                   <Link to={`/user/${uid}`}>Profile Page</Link>
                 </li>
-                <li className="dropdown-item">
+                {/*<li className="dropdown-item">
                   <Link to={`/user-edit`}>Account Settings</Link>
                 </li>
                 <li className="dropdown-item">
@@ -97,7 +112,7 @@ class ProfileNavigation extends Component {
                 </li>
                 <li className="dropdown-item">
                   <Link to={`/manage-items`}>Manage Item</Link>
-                </li>
+                </li> */}
               </ul>
             </div>
             <div className="account-information">
