@@ -1,9 +1,10 @@
 import React, { Component } from "react";
+import { colorclass } from "../helper";
 
 class HeadLine extends Component {
   render() {
     return (
-      <div className="section-headline-wrap v2">
+      <div className={`section-headline-wrap ${colorclass}`}>
         <div className="section-headline">
           <h2 className="strtocaptalize">{this.props.title}</h2>
           <p>

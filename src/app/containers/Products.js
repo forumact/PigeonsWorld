@@ -40,7 +40,7 @@ class Products extends Component {
     const payload = {
       numberofitem: numberofitem,
       pagenumber: pageNumber - 1,
-      filter:this.state.productFilter
+      filter: this.state.productFilter
     };
     console.log(`active page is ${pageNumber}`);
     this.props.getProducts(payload);
@@ -99,7 +99,9 @@ class Products extends Component {
             </div>
             <div className="sidebar">
               {/* <ProductSideBar></ProductSideBar> */}
-              <ProductsFilter filterChange={this.handleFilterChange}></ProductsFilter>
+              <ProductsFilter
+                filterChange={this.handleFilterChange}
+              ></ProductsFilter>
             </div>
           </div>
         </div>

@@ -131,3 +131,7 @@ export function arrayRemove(arr, value) {
 }
 
 export const IndianRupee = "₹";
+
+let colorversion = ["v1", "v2", "v3"];
+
+export const colorclass = colorversion[Math.floor(Math.random() * colorversion.length)];

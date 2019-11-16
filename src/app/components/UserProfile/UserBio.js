@@ -21,8 +21,12 @@ export default class AuthorBio extends Component {
             <img src={this.props.userbasic.picture} alt="" />
           </figure>
         </a>
-        <p className="text-header">{this.props.userbasic.username}</p>
-        <p className="text-oneline">{this.props.userbasic.about}</p>
+        <p className="text-header strtocaptalize">{this.props.userbasic.username}</p>
+        <p className="text-oneline">
+          {this.props.userbasic.about}
+          <br />
+          {this.props.userbasic.city}
+        </p>
         <ul className="share-links">
           <li>
             <a href="/" className="fb">
