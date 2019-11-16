@@ -2,7 +2,7 @@
   float: left;
   line-height: 66px;
 }
-.section-headline-wrap {
+.section-headline-wrap.v1 {
   background: url("../app/assets/section_headline_bg.png") no-repeat center,
     linear-gradient(to right, #05e6aa, #1cbdf9);
   background-size: cover;
@@ -10,6 +10,10 @@
 .section-headline-wrap.v2 {
   background: url("../app/assets/section_headline_bg.png") no-repeat center,
     linear-gradient(to right, #f21c5e, #1cc1e4);
+}
+.section-headline-wrap.v3 {
+    background: url("../app/assets/section_headline_bg.png") no-repeat center, 
+	linear-gradient(to right, #1595de, #00dcdd);
 }
 
 form > button[type="submit"][disabled] {
