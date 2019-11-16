@@ -18,7 +18,7 @@ export const Username = localStorage.getItem("username")
  */
 export function useTitle(titleOrFn) {
   useEffect(() => {
-    document.title = `Pigeons World | ${titleOrFn}`;
+    document.title = `${titleOrFn} | Pigeons World`;
   });
 }
 
@@ -111,7 +111,7 @@ export function preparecommentobject(commenttxt, nid) {
     uname: Username,
     nid: nid,
     avatar: Avatar,
-    cid:0,
+    cid: 0
   };
 
   return msg;
@@ -130,5 +130,4 @@ export function arrayRemove(arr, value) {
   });
 }
 
-
-export const IndianRupee = '₹';
+export const IndianRupee = "₹";

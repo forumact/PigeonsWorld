@@ -98,7 +98,7 @@ class Products extends Component {
               </div>
             </div>
             <div className="sidebar">
-              <ProductSideBar></ProductSideBar>
+              {/* <ProductSideBar></ProductSideBar> */}
               <ProductsFilter filterChange={this.handleFilterChange}></ProductsFilter>
             </div>
           </div>

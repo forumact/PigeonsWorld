@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import "./css/App.css";
 import "./css/Style.css";
 import "./css/Banner.css";
@@ -48,12 +48,12 @@ class App extends Component {
       <Provider store={store}>
         <div className="App">
           {!(HideHeaderRegion.indexOf(current_path) > -1) ? (
-            <>
+            <Fragment>
               <Header />
               <MainMenu />
               <Routes />
               <Footer />
-            </>
+            </Fragment>
           ) : (
             <Routes />
           )}

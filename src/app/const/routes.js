@@ -28,7 +28,7 @@ export const MyRoutes = [
   {
     path: "/how-to-shop",
     component: lazy(() => import("../containers/HowToShop")),
-    title: "HOW TO SHOP",
+    title: "How To Shop",
     menu: "yes",
     exact: true,
     profilenav: "no"

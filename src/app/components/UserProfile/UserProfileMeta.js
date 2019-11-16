@@ -19,7 +19,7 @@ export default class UserProfileMeta extends Component {
               <p>{this.props.userbasic.member_since}</p>
             </div>
             <div className="author-profile-info-item">
-              <p className="text-header">Total Sales:</p>
+              <p className="text-header">Total Ads:</p>
               <p>{this.props.userbasic.total_items}</p>
             </div>
             <div className="author-profile-info-item">
