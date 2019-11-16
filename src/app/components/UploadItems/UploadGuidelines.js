@@ -21,6 +21,8 @@ export default function UploadGuidelines() {
             2. File size should be below 2 MB.
             <br />
             3. First image will displayed as Thumbnail.
+            <br />
+            4. For Better Image quality, Upload image size with 832x484
           </p>
         </div>
         <div className="plain-text-box-item">

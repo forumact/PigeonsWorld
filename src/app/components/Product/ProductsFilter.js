@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 import { getProductFilter } from "../../Networks";
 import { arrayRemove } from "../../helper";
-import { GET_PRODUCTS } from "../../Redux/actions";
-import { connect } from "react-redux";
 
 let filter = [];
 class ProductsFilter extends Component {

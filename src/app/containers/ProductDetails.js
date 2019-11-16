@@ -5,7 +5,7 @@ import ProductInfo from "../components/Product/ProductInfo";
 import { fetchProductDetails } from "../Networks";
 import ProductSeller from "../components/Product/ProductSeller";
 import ProductMarketing from "../components/Product/ProductMarketing";
-import SocilaMediaShareLinks from "../components/SocilaMediaShareLinks";
+import SocilaMediaShareLinks from "../components/Product/SocilaMediaShareLinks";
 import AuthorsItem from "../components/Product/AuthorsItem";
 
 import ImageSlider from "../components/Product/ImageSlider";
@@ -21,8 +21,8 @@ class ProductDetails extends Component {
     this.changeProductImage = this.changeProductImage.bind(this);
   }
 
-  changeProductImage(field, value) {    
-    this.setState({ [field]: value });    
+  changeProductImage(field, value) {
+    this.setState({ [field]: value });
   }
 
   render() {
@@ -61,7 +61,9 @@ class ProductDetails extends Component {
                   </div>
                 </div>
                 <hr className="line-separator" />
-                <SocilaMediaShareLinks></SocilaMediaShareLinks>
+                <SocilaMediaShareLinks
+                  url={`http://localhost:3000/products/${this.props.match.params.nid}`}
+                ></SocilaMediaShareLinks>
               </article>
               <CommentsList nid={this.props.match.params.nid}></CommentsList>
             </div>

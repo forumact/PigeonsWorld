@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import HeadLine from "../components/HeadLine";
 import CommentsList from "../components/CommentsList";
 import { fetchBlogDetails } from "../Networks";
-import SocilaMediaShareLinks from "../components/SocilaMediaShareLinks";
+import SocilaMediaShareLinks from "../components/Product/SocilaMediaShareLinks";
 import LatestBlogs from "../components/Blog/LatestBlogs";
 
 class BlogDetails extends Component {

@@ -1,6 +1,11 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { getSellerInfo } from "../../Networks";
+import {
+  FacebookShareButton,
+  TwitterShareButton,
+  WhatsappShareButton
+} from "react-share";
 
 export default class ProductSeller extends Component {
   constructor(props) {
@@ -26,17 +31,35 @@ export default class ProductSeller extends Component {
         <ul className="share-links">
           <li>
             <a href="/" className="fb">
-              &nbsp;
+              <FacebookShareButton
+                url={"http://google.com"}
+                quote={"arulraj"}
+                className="fb"
+              >
+                &nbsp;
+              </FacebookShareButton>
             </a>
           </li>
           <li>
             <a href="/" className="twt">
-              &nbsp;
+              <TwitterShareButton
+                url={"http://google.com"}
+                quote={"arulraj"}
+                className="twt"
+              >
+                &nbsp;
+              </TwitterShareButton>
             </a>
           </li>
           <li>
-            <a href="/" className="db">
-              &nbsp;
+            <a href="/" className="gplus">
+              <WhatsappShareButton
+                url={"http://google.com"}
+                quote={"arulraj"}
+                className="gplus"
+              >
+                &nbsp;
+              </WhatsappShareButton>
             </a>
           </li>
         </ul>

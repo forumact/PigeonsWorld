@@ -1,15 +1,15 @@
 import React from "react";
-import Popup from "reactjs-popup";
+//import Popup from "reactjs-popup";
 
 export default () => (
-  <Popup
-    trigger={
-      <button className="button mid-short secondary open-new-message">
-        New Message
-      </button>
-    }
-    modal
-  >
+  // <Popup
+  //   trigger={
+  //     <button className="button mid-short secondary open-new-message">
+  //       New Message
+  //     </button>
+  //   }
+  //   modal
+  // >
     <div className="mfp-content">
       <div id="new-message-popup" className="form-popup1 new-message">
         <div className="form-popup-content1">
@@ -54,5 +54,5 @@ export default () => (
         <div className="close-btn mfp-close"></div>
       </div>
     </div>
-  </Popup>
+  
 );
