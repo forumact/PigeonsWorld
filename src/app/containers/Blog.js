@@ -4,6 +4,7 @@ import BlogCard from "../components/Blog/BlogCard";
 import { connect } from "react-redux";
 import Pagination from "react-js-pagination";
 import { GET_BLOGS } from "../Redux/actions";
+import { numberofitem } from "../const";
 
 class Blog extends Component {
   constructor(props) {
@@ -11,7 +12,7 @@ class Blog extends Component {
     this.state = {
       blogs: {},
       activePage: 1,
-      itemsCountPerPage: 9,
+      itemsCountPerPage: numberofitem,
       totalItemsCount: 1
     };
 
@@ -21,7 +22,7 @@ class Blog extends Component {
 
   handlePageChange(pageNumber) {
     const payload = {
-      numberofitem: 9,
+      numberofitem: numberofitem,
       pagenumber: pageNumber - 1
     };
     this.props.getBlogs(payload);
@@ -64,7 +65,7 @@ class Blog extends Component {
 
   componentDidMount() {
     const payload = {
-      numberofitem: 9,
+      numberofitem: numberofitem,
       pagenumber: 0
     };
     this.props.getBlogs(payload);

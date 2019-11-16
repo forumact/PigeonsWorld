@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import Pagination from "react-js-pagination";
 import ProductAddButton from "../components/Product/ProductAddButton";
 import ManageProductCard from "../components/Product/ManageProductCard";
+import { numberofitem } from "../const";
 
 class ManageItems extends Component {
   constructor(props) {
@@ -11,7 +12,7 @@ class ManageItems extends Component {
     this.state = {
       products: {},
       activePage: 1,
-      itemsCountPerPage: 9,
+      itemsCountPerPage: numberofitem,
       totalItemsCount: 1
     };
 
@@ -21,7 +22,7 @@ class ManageItems extends Component {
 
   handlePageChange(pageNumber) {
     const payload = {
-      numberofitem: 11,
+      numberofitem: numberofitem,
       uid: localStorage.getItem("uid"),
       pagenumber: pageNumber - 1
     };
@@ -34,7 +35,7 @@ class ManageItems extends Component {
 
   componentDidMount() {
     const payload = {
-      numberofitem: 11,
+      numberofitem: numberofitem,
       pagenumber: 0,
       uid: localStorage.getItem("uid")
     };
@@ -62,7 +63,7 @@ class ManageItems extends Component {
         </div>
         <div className="clearfix"></div>
         <div className="pager tertiary">
-          {count ? (
+          {count > numberofitem ? (
             <Pagination
               activePage={this.state.activePage}
               itemsCountPerPage={this.state.numberofitem}
@@ -93,9 +94,6 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(ManageItems);
+export default connect(mapStateToProps, mapDispatchToProps)(ManageItems);
 
 //export default ManageItems;

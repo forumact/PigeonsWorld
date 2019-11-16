@@ -5,6 +5,7 @@ import HeadLine from "../components/HeadLine";
 import FavouriteCard from "../components/FavouriteCard";
 import { GET_USER_FAVOURITES } from "../Redux/actions";
 import Pagination from "react-js-pagination";
+import { numberofitem } from "../const";
 
 class Favourites extends Component {
   constructor(props) {
@@ -12,7 +13,7 @@ class Favourites extends Component {
     this.state = {
       userFavourites: {},
       activePage: 1,
-      itemsCountPerPage: 10,
+      itemsCountPerPage: numberofitem,
       totalItemsCount: 1
     };
 
@@ -22,7 +23,7 @@ class Favourites extends Component {
 
   handlePageChange(pageNumber) {
     const payload = {
-      numberofitem: 10,
+      numberofitem: numberofitem,
       pagenumber: pageNumber - 1,
       uid: this.props.match.params.uid
     };
@@ -60,7 +61,7 @@ class Favourites extends Component {
                 {count > 9? (
                   <Pagination
                     activePage={this.state.activePage}
-                    itemsCountPerPage={10}
+                    itemsCountPerPage={numberofitem}
                     totalItemsCount={count}
                     pageRangeDisplayed={5}
                     onChange={this.handlePageChange}
@@ -78,7 +79,7 @@ class Favourites extends Component {
 
   componentDidMount() {
     const payload = {
-      numberofitem: 10,
+      numberofitem: numberofitem,
       pagenumber: 0,
       uid: this.props.match.params.uid
     };

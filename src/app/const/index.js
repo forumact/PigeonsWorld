@@ -1,6 +1,15 @@
 export const ItemCategory = ["Fancy", "Homing", "Racing"];
 
-export const ItemConditions = ["Chick", "Patta", "Adult", "Pair"];
+export const ItemConditions = [
+  "Chick",
+  "Patta",
+  "Adult",
+  "Pair",
+  "Male",
+  "Female",
+  "Mixed Gender",
+  "Trio"
+];
 
 export const ItemStatus = ["Available", "SoldOut"];
 
@@ -237,3 +246,5 @@ export const FileApiArray = [
     url: "/api/v1/file/upload/node/pigeon/field_pigeon4"
   }
 ];
+
+export const numberofitem = 12;

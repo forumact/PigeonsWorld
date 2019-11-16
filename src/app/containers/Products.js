@@ -6,6 +6,7 @@ import Pagination from "react-js-pagination";
 import { GET_PRODUCTS } from "../Redux/actions";
 import ProductSideBar from "../components/Product/ProductSideBar";
 import ProductsFilter from "../components/Product/ProductsFilter";
+import { numberofitem } from "../const";
 
 class Products extends Component {
   constructor(props) {
@@ -13,7 +14,7 @@ class Products extends Component {
     this.state = {
       products: {},
       activePage: 1,
-      itemsCountPerPage: 9,
+      itemsCountPerPage: numberofitem,
       totalItemsCount: 1,
       productFilter: []
     };
@@ -25,7 +26,7 @@ class Products extends Component {
 
   handleFilterChange(filter) {
     const payload = {
-      numberofitem: 9,
+      numberofitem: numberofitem,
       pagenumber: 0,
       filter: filter
     };
@@ -37,7 +38,7 @@ class Products extends Component {
 
   handlePageChange(pageNumber) {
     const payload = {
-      numberofitem: 9,
+      numberofitem: numberofitem,
       pagenumber: pageNumber - 1,
       filter:this.state.productFilter
     };
@@ -50,7 +51,7 @@ class Products extends Component {
 
   componentDidMount() {
     const payload = {
-      numberofitem: 9,
+      numberofitem: numberofitem,
       pagenumber: 0
     };
     this.props.getProducts(payload);
@@ -83,10 +84,10 @@ class Products extends Component {
               </div>
               <div className="clearfix"></div>
               <div className="pager tertiary">
-                {count > 9 ? (
+                {count > numberofitem ? (
                   <Pagination
                     activePage={this.state.activePage}
-                    itemsCountPerPage={9}
+                    itemsCountPerPage={numberofitem}
                     totalItemsCount={count}
                     pageRangeDisplayed={5}
                     onChange={this.handlePageChange}

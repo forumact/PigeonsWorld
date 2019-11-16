@@ -5,7 +5,7 @@ import ProductCard from "../components/Product/ProductCard";
 import NoDataFound from "../components/NoDataFound";
 import SearchResultFilter from "../components/SearchResultFilter";
 import Pagination from "react-js-pagination";
-
+import { numberofitem } from "../const";
 class Search extends Component {
   constructor(props) {
     super(props);
@@ -21,7 +21,7 @@ class Search extends Component {
     const payload = {
       key: this.props.match.params.input,
       category: this.props.match.params.category,
-      numberofitem: 12,
+      numberofitem: numberofitem,
       pagenumber: pageNumber - 1
     };
     console.log(`active page is ${pageNumber}`);
@@ -37,7 +37,6 @@ class Search extends Component {
   }
 
   render() {
-    console.log(this.state);
     if (this.state.noData === 0) {
       return (
         <div>
@@ -73,10 +72,10 @@ class Search extends Component {
             </div>
             <div className="clearfix"></div>
             <div className="pager tertiary">
-              {this.state.noData > 12 ? (
+              {this.state.noData > numberofitem ? (
                 <Pagination
                   activePage={this.state.activePage}
-                  itemsCountPerPage={12}
+                  itemsCountPerPage={numberofitem}
                   totalItemsCount={this.state.noData}
                   pageRangeDisplayed={5}
                   onChange={this.handlePageChange}
@@ -92,10 +91,9 @@ class Search extends Component {
   }
 
   componentDidMount() {
-    console.log(this.props.match.params);
     const payload = {
       key: this.props.match.params.input,
-      numberofitem: 12,
+      numberofitem: numberofitem,
       pagenumber: 0,
       category: this.props.match.params.category
     };

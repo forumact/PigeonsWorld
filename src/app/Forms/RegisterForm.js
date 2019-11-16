@@ -144,7 +144,7 @@ class RegisterForm extends Component {
               </label>
               <input
                 name="password"
-                type="text"
+                type="password"
                 placeholder="Enter them password name here..."
                 value={this.state.password}
                 onChange={this.handleInputChange}
