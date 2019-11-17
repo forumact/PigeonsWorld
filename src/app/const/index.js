@@ -254,6 +254,7 @@ export const FileApiArray = [
 ];
 
 export const numberofitem = 12;
+export const commentnumber= 5;
 
 
 export const CommentFormValidation = [

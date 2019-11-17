@@ -1,22 +1,43 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import Pagination from "react-js-pagination";
 import CommentForm from "../Forms/CommentForm";
 import { fetchCommentList } from "../Networks";
-
+import { commentnumber } from "../const";
 
 class CommentsList extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
-      commentlist: []
+      commentlist: [],
+      numberofitem: commentnumber,
+      pagenumber: 0,
+      count: 0
     };
 
     this.attachComment = this.attachComment.bind(this);
+    this.handlePageChange = this.handlePageChange.bind(this);
   }
 
   attachComment(messagejson) {
     this.setState({
       commentlist: [...this.state.commentlist, messagejson]
+    });
+  }
+
+  handlePageChange(pageNumber) {
+    const payload = {
+      nid: this.props.nid,
+      numberofitem: commentnumber,
+      pagenumber: pageNumber - 1
+    };
+    console.log(`active page is ${pageNumber}`);
+    fetchCommentList(payload).then(response => {
+      this.setState({
+        commentlist: response.data.comment,
+        activePage: pageNumber,
+        count: response.data.count
+      });
     });
   }
 
@@ -26,9 +47,7 @@ class CommentsList extends Component {
         <div className="post-tab xmtab">
           <div className="tab-header primary">
             <div className="tab-item selected">
-              <p className="text-header">
-                Comments ({this.state.commentlist.length})
-              </p>
+              <p className="text-header">Comments ({this.state.count})</p>
             </div>
           </div>
           <div className="tab-content void open">
@@ -54,6 +73,19 @@ class CommentsList extends Component {
                   <hr className="line-separator" />
                 </div>
               ))}
+              <div className="pager tertiary">
+                {15 > commentnumber ? (
+                  <Pagination
+                    activePage={this.state.activePage}
+                    itemsCountPerPage={commentnumber}
+                    totalItemsCount={15}
+                    pageRangeDisplayed={5}
+                    onChange={this.handlePageChange}
+                    itemClass="pager-item"
+                    linkClass="page-link-class"
+                  />
+                ) : null}
+              </div>
               <div className="clearfix"></div>
               <CommentForm
                 attachComment={this.attachComment}
@@ -67,28 +99,34 @@ class CommentsList extends Component {
   }
 
   componentDidMount() {
-    const data = {
-      nid: this.props.nid
+    const payload = {
+      nid: this.props.nid,
+      numberofitem: commentnumber,
+      pagenumber: 0
     };
 
-    fetchCommentList(data).then(response => {
+    fetchCommentList(payload).then(response => {
       this.setState({
-        commentlist: response.data
-      });      
+        commentlist: response.data.comment,
+        count: response.data.count
+      });
     });
   }
 
   componentDidUpdate(prevProps) {
     if (this.props.nid !== prevProps.nid) {
       //Typical usage, don't forget to compare the props
-      const data = {
-        nid: this.props.nid
+      const payload = {
+        nid: this.props.nid,
+        numberofitem: commentnumber,
+        pagenumber: 0
       };
 
-      fetchCommentList(data).then(response => {
+      fetchCommentList(payload).then(response => {
         this.setState({
-          commentlist: response.data
-        });        
+          commentlist: response.data.comment,
+          count: response.data.count
+        });
       });
     }
   }
