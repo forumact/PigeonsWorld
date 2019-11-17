@@ -8,7 +8,7 @@ export default function ManageProductCard(props) {
     <div className="product-item column" key={props.product.nid}>
       <div className="product-preview-actions">
         <figure className="product-preview-image">
-          <img id="product-src" src={props.product.img1} alt="product" />
+          <img id="product-src" src={props.product.img[0]} alt="product" />
         </figure>
         <AddNavigation nid={props.product.nid}></AddNavigation>
       </div>

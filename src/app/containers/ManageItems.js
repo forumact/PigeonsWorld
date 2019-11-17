@@ -5,6 +5,7 @@ import Pagination from "react-js-pagination";
 import ProductAddButton from "../components/Product/ProductAddButton";
 import ManageProductCard from "../components/Product/ManageProductCard";
 import { numberofitem } from "../const";
+import { fetuesrobject } from "../helper";
 
 class ManageItems extends Component {
   constructor(props) {
@@ -23,7 +24,7 @@ class ManageItems extends Component {
   handlePageChange(pageNumber) {
     const payload = {
       numberofitem: numberofitem,
-      uid: localStorage.getItem("uid"),
+      uid: fetuesrobject("uid"),
       pagenumber: pageNumber - 1
     };
     console.log(`active page is ${pageNumber}`);
@@ -37,7 +38,7 @@ class ManageItems extends Component {
     const payload = {
       numberofitem: numberofitem,
       pagenumber: 0,
-      uid: localStorage.getItem("uid")
+      uid: fetuesrobject("uid")
     };
     this.props.getUserProducts(payload);
     document.title = `Pigeons World | Products`;

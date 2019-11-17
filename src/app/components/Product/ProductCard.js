@@ -5,7 +5,7 @@ import Flag from "./Flag";
 
 class ProductCard extends Component {
   render() {
-    let img = this.props.product.img1 ? this.props.product.img1 : '';
+    let img = this.props.product.img ? this.props.product.img[0] : "";
     return (
       <div className="product-item column">
         <div className="product-preview-actions">
@@ -36,7 +36,9 @@ class ProductCard extends Component {
             </p>
           </NavLink>
           <p>&nbsp;</p>
-          <p className="product-description">{substring(this.props.product.body, 30, '.....')}</p>
+          <p className="product-description">
+            {substring(this.props.product.body, 30, ".....")}
+          </p>
           <NavLink exact to={`/products/${this.props.product.nid}`}>
             <p className="category tertiary">{this.props.product.category}</p>
           </NavLink>
@@ -53,10 +55,13 @@ class ProductCard extends Component {
             </figure>
           </NavLink>
           <NavLink to={`/user/${this.props.product.uid}`}>
-            <p className="text-header tiny strtocaptalize">{this.props.product.username}</p>
+            <p className="text-header tiny strtocaptalize">
+              {this.props.product.username}
+            </p>
           </NavLink>
           <div className="rating tooltip tooltipstered">
-            <span className="icon-camera"></span>&nbsp;4
+            <span className="icon-camera"></span>&nbsp;
+            {this.props.product.img.length}
           </div>
         </div>
       </div>
