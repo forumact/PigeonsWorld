@@ -81,11 +81,10 @@ export const MyRoutes = [
     exact: true,
     profilenav: "no"
   },
-
   {
-    path: "/update-item/:nid",
-    component: lazy(() => import("../containers/UpdateItem")),
-    title: "Update Item",
+    path: "/update-add/:nid",
+    component: lazy(() => import("../containers/UpdateAdd")),
+    title: "Update Add",
     menu: "no",
     exact: true,
     profilenav: "no"
@@ -113,7 +112,7 @@ export const MyRoutes = [
     menu: "no",
     exact: true,
     profilenav: "no"
-  },  
+  },
   {
     path: "/user/:uid",
     component: lazy(() => import("../containers/UserProfile")),

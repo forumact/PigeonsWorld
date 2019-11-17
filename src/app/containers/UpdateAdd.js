@@ -14,11 +14,11 @@ export default class UpdateItem extends Component {
     return (
       <div className="dashboard-content">
         <div className="headline simple primary">
-          <h4>Update Item</h4>
+          <h4>Tell us about what you're advertising</h4>
         </div>
         <div className="form-box-items wrap-3-1 left">
           <div className="form-box-item full">
-            <h4>Item Specifications</h4>
+            <h4>Advert Details</h4>
             <hr className="line-separator" />
             <CreateAddForm nid={this.props.match.params.nid} />
           </div>

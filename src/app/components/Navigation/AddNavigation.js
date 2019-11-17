@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
-class ItemNavigation extends Component {
+class AddNavigation extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -39,7 +39,7 @@ class ItemNavigation extends Component {
         >
           <li className="dropdown-item">
             <div className="dp-triangle"></div>
-            <Link to={`update-item/${this.props.nid}`}>Edit Item</Link>
+            <Link to={`update-add/${this.props.nid}`}>Update Add</Link>
           </li>
           <li className="dropdown-item">
             <Link to={`products/${this.props.nid}`}>View</Link>
@@ -56,4 +56,4 @@ class ItemNavigation extends Component {
   }
 }
 
-export default ItemNavigation;
+export default AddNavigation;
