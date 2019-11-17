@@ -4939,13 +4939,14 @@ header .account-actions .button:last-child {
 }
 
 .section .content .pager {
-  float: right;
+  float: right !important;
   margin-top: 34px;
 }
 
 .section .pager {
-  /* width: 174px; */
+  /* width: 295px; */
   margin: 34px auto 0;
+  float: right !important;
 }
 
 .section .page-link-class,

@@ -4,6 +4,7 @@ import CommentsList from "../components/CommentsList";
 import { fetchBlogDetails } from "../Networks";
 import SocilaMediaShareLinks from "../components/Product/SocilaMediaShareLinks";
 import LatestBlogs from "../components/Blog/LatestBlogs";
+import {Helmet} from "react-helmet";
 
 class BlogDetails extends Component {
   constructor() {
@@ -18,6 +19,12 @@ class BlogDetails extends Component {
     const { title, body, img } = this.state.blog;
     return (
       <div>
+        <Helmet>
+          <meta charSet="utf-8" />
+          <title>{title}</title>
+          <meta name="description" content={title} />
+          <link rel="canonical" href="http://mysite.com/example" />
+        </Helmet>
         <HeadLine title={title}></HeadLine>
         <div className="section-wrap">
           <div className="section">

@@ -53,7 +53,7 @@ class CommentForm extends Component {
       ? this.validator.validate(this.state)
       : this.state.validation;
 
-    if (fetuesrobject("uid") == 0) {
+    if (fetuesrobject("uid") === 0) {
       return <p>Please login to Post comment.</p>;
     }
     return (

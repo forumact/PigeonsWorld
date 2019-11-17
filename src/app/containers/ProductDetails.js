@@ -7,8 +7,8 @@ import ProductSeller from "../components/Product/ProductSeller";
 import ProductMarketing from "../components/Product/ProductMarketing";
 import SocilaMediaShareLinks from "../components/Product/SocilaMediaShareLinks";
 import AuthorsItem from "../components/Product/AuthorsItem";
-
 import ImageSlider from "../components/Product/ImageSlider";
+import { Helmet } from "react-helmet";
 
 class ProductDetails extends Component {
   constructor(props) {
@@ -30,6 +30,12 @@ class ProductDetails extends Component {
     let imgArray = [img1, img2, img3, img4];
     return (
       <div>
+        <Helmet>
+          <meta charSet="utf-8" />
+          <title>{title}</title>
+          <meta name="description" content={title} />
+          <link rel="canonical" href="http://mysite.com/example" />
+        </Helmet>
         <HeadLine title={title}></HeadLine>
         <div className="section-wrap">
           <div className="section">
