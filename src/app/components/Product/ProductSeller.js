@@ -16,7 +16,7 @@ export default class ProductSeller extends Component {
   }
 
   render() {
-    const { name, picture, uid, created } = this.state.sellerInfo;
+    const { name, picture, uid, created, mobile } = this.state.sellerInfo;
     return (
       <div className="sidebar-item author-bio">
         <h4>Product Seller</h4>
@@ -26,7 +26,7 @@ export default class ProductSeller extends Component {
             <img src={picture} alt="" />
           </figure>
         </Link>
-        <p className="text-header">{name}</p>
+        <p className="text-header strtocaptalize">{name}</p>
         <p className="text-oneline">Member Since: {created}</p>
         <ul className="share-links">
           <li>
@@ -63,12 +63,16 @@ export default class ProductSeller extends Component {
             </a>
           </li>
         </ul>
+        <span className="button mid dark spaced">
+          <span className="icon-phone call-alignment"></span>
+          {mobile}
+        </span>
         <Link to={`/user/${uid}`} className="button mid dark spaced">
           Go to Profile Page
         </Link>
-        <Link to={`/user/${uid}`} className="button mid dark-light">
+        {/* <Link to={`/user/${uid}`} className="button mid dark-light">
           Send a Private Message
-        </Link>
+        </Link> */}
       </div>
     );
   }

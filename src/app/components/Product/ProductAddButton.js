@@ -5,7 +5,7 @@ import uploadnew from "../../assets/uploadnew-bg.jpg";
 export default function ProductAddButton() {
   return (
     <div>
-      <Link to={`/upload-items`}>
+      <Link to={`/create-add`}>
         <div className="product-item upload-new column">
           <div className="product-preview-actions">
             <figure className="product-preview-image">

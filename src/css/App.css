@@ -136,3 +136,14 @@ form > button[type="submit"][disabled] {
 .poistionabs{
   position: absolute;
 }
+
+.call-alignment{
+  position: absolute;
+  font-size: 23px;
+  left:52px;
+  top: 10px;
+}
+
+.SocialMediaShareButton{
+  line-height: 31px;
+}
