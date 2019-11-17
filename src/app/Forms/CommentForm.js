@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Avatar, preparecommentobject } from "../helper";
+import { Avatar, preparecommentobject, fetuesrobject } from "../helper";
 import { CommentFormValidation } from "../const";
 import { commentcreate } from "../Networks";
 import FormValidator from "../FormValidator";
@@ -53,6 +53,9 @@ class CommentForm extends Component {
       ? this.validator.validate(this.state)
       : this.state.validation;
 
+    if (fetuesrobject("uid") == 0) {
+      return <p>Please login to Post comment.</p>;
+    }
     return (
       <div>
         <h3>Leave a Comment</h3>

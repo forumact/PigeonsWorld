@@ -121,10 +121,15 @@ form > button[type="submit"][disabled] {
 .gchanges{
  background-color:  #e61852 !important;
  display: inline !important;
- color: #fff;
- font-weight: 700 !important;
+ color: #fff !important; 
+ float: right !important;
+ box-shadow: none !important;
 }
 
 .gchanges div{
   display: none;
+}
+
+.gchanges span{
+  font-weight: 700 !important;
 }

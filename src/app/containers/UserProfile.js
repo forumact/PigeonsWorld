@@ -35,9 +35,7 @@ class UserProfile extends Component {
             </div>
             <div className="content right">
               <div className="headline buttons primary">
-                <h4 className="strtocaptalize">
-                  {this.state.userbasic.username} Items
-                </h4>
+                <h4 className="strtocaptalize">Latest Items</h4>
               </div>
               <div className="product-list grid column3-4-wrap">
                 {(products || []).map(product => {
@@ -92,7 +90,4 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(UserProfile);
+export default connect(mapStateToProps, mapDispatchToProps)(UserProfile);

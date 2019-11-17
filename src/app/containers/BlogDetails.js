@@ -45,7 +45,9 @@ class BlogDetails extends Component {
                   </div>
                 </div>
                 <hr className="line-separator" />
-                <SocilaMediaShareLinks></SocilaMediaShareLinks>
+                <SocilaMediaShareLinks
+                  url={`http://localhost:3000/products/${this.props.match.params.nid}`}
+                ></SocilaMediaShareLinks>
               </article>
               <CommentsList nid={this.props.match.params.nid}></CommentsList>
             </div>

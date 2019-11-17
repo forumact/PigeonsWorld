@@ -52,7 +52,7 @@ class CommentsList extends Component {
           </div>
           <div className="tab-content void open">
             <div className="comment-list">
-              {this.state.commentlist.map(c => (
+              {(this.state.commentlist || []).map(c => (
                 <div key={c.cid}>
                   <div className="comment-wrap" key={c.cid}>
                     <Link to={`/user/${c.uid}`}>
@@ -74,7 +74,7 @@ class CommentsList extends Component {
                 </div>
               ))}
               <div className="pager tertiary">
-                {15 > commentnumber ? (
+                {this.state.count > commentnumber ? (
                   <Pagination
                     activePage={this.state.activePage}
                     itemsCountPerPage={commentnumber}

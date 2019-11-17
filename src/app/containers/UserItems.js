@@ -19,8 +19,8 @@ class UserItems extends Component {
     };
   }
 
-  render() {    
-    const title = `${this.state.userbasic.username}'s Items`;
+  render() {
+    const title = `${this.state.userbasic.username}'s Profile`;
     const { products } = this.props.userProducts;
     return (
       <div>
@@ -36,7 +36,9 @@ class UserItems extends Component {
             </div>
             <div className="content right">
               <div className="headline buttons primary">
-                <h4>Arulraj Items</h4>
+                <h4 className="strtocaptalize">
+                  {this.state.userbasic.username}'s Items
+                </h4>
               </div>
               <div className="product-list grid column3-4-wrap">
                 {(products || []).map(product => {
@@ -90,7 +92,4 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(UserItems);
+export default connect(mapStateToProps, mapDispatchToProps)(UserItems);
