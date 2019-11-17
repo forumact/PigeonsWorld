@@ -20,7 +20,7 @@ class ProductCard extends Component {
                 </div>
               </NavLink>
               <NavLink exact to={`/products/${this.props.product.nid}`}>
-                <p>Go to Item</p>
+                <p>Go to Ad</p>
               </NavLink>
             </div>
             <Flag

@@ -66,7 +66,7 @@ const HowToShop = () => {
               THOUSANDS of daily visitors. What's more, you can place a basic ad
               online for FREE!.
             </p>
-            <Link to={`/create-add`} className="button mid dark">
+            <Link to={`/create-ad`} className="button mid dark">
               Place a <span className="primary">FREE ADD</span> now
             </Link>
           </div>

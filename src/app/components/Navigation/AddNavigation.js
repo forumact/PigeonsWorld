@@ -39,7 +39,7 @@ class AddNavigation extends Component {
         >
           <li className="dropdown-item">
             <div className="dp-triangle"></div>
-            <Link to={`update-add/${this.props.nid}`}>Update Add</Link>
+            <Link to={`update-ad/${this.props.nid}`}>Update Ad</Link>
           </li>
           <li className="dropdown-item">
             <Link to={`products/${this.props.nid}`}>View</Link>

@@ -2,9 +2,9 @@ import { lazy } from "react";
 
 export const MyRoutes = [
   {
-    path: "/create-add",
+    path: "/create-ad",
     component: lazy(() => import("../containers/CreateAdd")),
-    title: "Place An Add",
+    title: "Place An Ad",
     menu: "no",
     exact: true,
     profilenav: "yes"
@@ -82,9 +82,9 @@ export const MyRoutes = [
     profilenav: "no"
   },
   {
-    path: "/update-add/:nid",
-    component: lazy(() => import("../containers/UpdateAdd")),
-    title: "Update Add",
+    path: "/update-ad/:nid",
+    component: lazy(() => import("../containers/UpdateAd")),
+    title: "Update Ad",
     menu: "no",
     exact: true,
     profilenav: "no"

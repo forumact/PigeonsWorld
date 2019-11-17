@@ -3,7 +3,7 @@ import CreateAddForm from "../Forms/CreateAddForm";
 import UploadGuidelines from "../components/UploadItems/UploadGuidelines";
 import UploadQueue from "../components/UploadItems/UploadQueue";
 
-export default class UpdateItem extends Component {
+export default class UpdateAd extends Component {
   constructor(props) {
     super(props);
     this.state = {

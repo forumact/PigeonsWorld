@@ -33,7 +33,7 @@ export default class AuthorsItem extends Component {
                         </div>
                       </NavLink>
                       <NavLink to={`/products/${product.nid}`}>
-                        <p>Go to Item</p>
+                        <p>Go to Ad</p>
                       </NavLink>
                     </div>
                     <div className="preview-action">
