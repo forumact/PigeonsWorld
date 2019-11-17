@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import CreateAddForm from "../Forms/CreateAddForm";
+import CreateAdForm from "../Forms/CreateAdForm";
 import UploadGuidelines from "../components/UploadItems/UploadGuidelines";
 import UploadQueue from "../components/UploadItems/UploadQueue";
 
@@ -20,7 +20,7 @@ export default class UpdateAd extends Component {
           <div className="form-box-item full">
             <h4>Advert Details</h4>
             <hr className="line-separator" />
-            <CreateAddForm nid={this.props.match.params.nid} />
+            <CreateAdForm nid={this.props.match.params.nid} />
           </div>
         </div>
         <div className="form-box-items wrap-1-3 right">

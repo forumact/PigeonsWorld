@@ -3,7 +3,7 @@ import { lazy } from "react";
 export const MyRoutes = [
   {
     path: "/create-ad",
-    component: lazy(() => import("../containers/CreateAdd")),
+    component: lazy(() => import("../containers/CreateAd")),
     title: "Place An Ad",
     menu: "no",
     exact: true,
