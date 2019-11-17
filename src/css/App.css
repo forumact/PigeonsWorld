@@ -133,3 +133,6 @@ form > button[type="submit"][disabled] {
 .gchanges span{
   font-weight: 700 !important;
 }
+.poistionabs{
+  position: absolute;
+}

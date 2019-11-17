@@ -265,3 +265,12 @@ export const CommentFormValidation = [
     message: "Comment is empty."
   }  
 ];
+
+export const HomeSearchFormValidation = [
+  {
+    field: "search",
+    method: "isEmpty",
+    validWhen: false,
+    message: "Search is empty."
+  }  
+];
