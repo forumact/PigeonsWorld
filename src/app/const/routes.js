@@ -113,15 +113,7 @@ export const MyRoutes = [
     menu: "no",
     exact: true,
     profilenav: "no"
-  },
-  {
-    path: "/contact",
-    component: lazy(() => import("../containers/Contact")),
-    title: "Contact",
-    menu: "no",
-    exact: true,
-    profilenav: "no"
-  },
+  },  
   {
     path: "/user/:uid",
     component: lazy(() => import("../containers/UserProfile")),

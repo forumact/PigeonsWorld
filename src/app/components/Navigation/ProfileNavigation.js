@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { userLogout } from "../../Networks";
 import { withRouter } from "react-router-dom";
 import { MyRoutes } from "../../const/routes";
+import { fetuesrobject } from "../../helper";
 
 class ProfileNavigation extends Component {
   constructor(props) {
@@ -17,10 +18,10 @@ class ProfileNavigation extends Component {
   }
 
   componentDidMount() {
-    const loggedin = localStorage.getItem("csrf");
-    const username = localStorage.getItem("username");
-    const userpic = localStorage.getItem("avatar");
-    const uid = localStorage.getItem("uid");
+    const loggedin = fetuesrobject("csrf_token");
+    const username = fetuesrobject("name");
+    const userpic = fetuesrobject("user_pic");
+    const uid = fetuesrobject("uid");
 
     let user = {
       username: username,
@@ -47,10 +48,7 @@ class ProfileNavigation extends Component {
 
   onSubmit = props => {
     userLogout().then(response => {
-      localStorage.removeItem("csrf");
-      localStorage.removeItem("avatar");
-      localStorage.removeItem("uid");
-      localStorage.removeItem("username");
+      localStorage.removeItem("userObject");
       this.props.history.push("/");
       console.log("login session removed");
     });

@@ -57,10 +57,7 @@ class LoginForm extends Component {
             avatar: response.data.avatar
           };
           this.setState({ user: userdetails });
-          localStorage.setItem("csrf", response.data.csrf_token);
-          localStorage.setItem("avatar", response.data.user_pic);
-          localStorage.setItem("uid", response.data.uid);
-          localStorage.setItem("username", response.data.name);
+          localStorage.setItem('userObject', JSON.stringify(response.data));          
           this.props.history.push("/");
         });
       } catch (e) {
@@ -94,11 +91,11 @@ class LoginForm extends Component {
         <div className="form-popup-content">
           <form
             onSubmit={this.handleSubmit}
-            id="login-form2"
-            autoComplete="offs"
+            id="login-form"
+            autoComplete="off"
           >
             <div className="input-container">
-              <label htmlFor="username5" className="rl-label">
+              <label htmlFor="username" className="rl-label">
                 Username
               </label>
               <input
@@ -111,7 +108,7 @@ class LoginForm extends Component {
               <span className="form-error">{validation.username.message}</span>
             </div>
             <div className="input-container">
-              <label htmlFor="password5" className="rl-label">
+              <label htmlFor="password" className="rl-label">
                 Password
               </label>
               <input

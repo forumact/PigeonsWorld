@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { IndianRupee, substring } from "../../helper";
 import { fetchUserItems } from "../../Networks";
+import { NavLink } from "react-router-dom";
 
 export default class AuthorsItem extends Component {
   constructor() {
@@ -26,14 +27,14 @@ export default class AuthorsItem extends Component {
                   </figure>
                   <div className="preview-actions">
                     <div className="preview-action">
-                      <a href="item-v1.html">
+                      <NavLink to={`/products/${product.nid}`}>
                         <div className="circle tiny primary">
                           <span className="icon-tag"></span>
                         </div>
-                      </a>
-                      <a href="item-v1.html">
+                      </NavLink>
+                      <NavLink to={`/products/${product.nid}`}>
                         <p>Go to Item</p>
-                      </a>
+                      </NavLink>
                     </div>
                     <div className="preview-action">
                       <a href="/">
@@ -48,9 +49,9 @@ export default class AuthorsItem extends Component {
                   </div>
                 </div>
                 <div className="product-info">
-                  <a href="item-v1.html">
+                  <NavLink to={`/products/${product.nid}`}>
                     <p className="text-header">{product.title}</p>
-                  </a>
+                  </NavLink>
                   <p className="product-description">
                     {substring(product.body, 35, ".....")}
                   </p>
@@ -64,14 +65,16 @@ export default class AuthorsItem extends Component {
                 </div>
                 <hr className="line-separator" />
                 <div className="user-rating">
-                  <a href="author-profile.html">
+                  <NavLink to={`/user/${product.uid}`}>
                     <figure className="user-avatar small">
                       <img src={product.avatar} alt="user-avatar" />
                     </figure>
-                  </a>
-                  <a href="author-profile.html">
-                    <p className="text-header tiny strtocaptalize">{product.username}</p>
-                  </a>
+                  </NavLink>
+                  <NavLink to={`/user/${product.uid}`}>
+                    <p className="text-header tiny strtocaptalize">
+                      {product.username}
+                    </p>
+                  </NavLink>
                 </div>
               </div>
             );

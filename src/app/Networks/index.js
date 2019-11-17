@@ -1,5 +1,5 @@
 import axios from "axios";
-import { querystring } from "../helper";
+import { querystring, fetuesrobject } from "../helper";
 
 const axiosInstance = axios.create({
   baseURL: "http://pigeonsworld.local"
@@ -11,12 +11,12 @@ axiosInstance.interceptors.request.use(
     if (config.url.indexOf("/file/upload/") < 0) {
       config.headers = {
         "Content-Type": "application/json",
-        "Access-Control-Allow-Origin": "*",       
+        "Access-Control-Allow-Origin": "*"
       };
-      if(localStorage.getItem("csrf")){
-        config.headers['X-CSRF-Token'] = localStorage.getItem("csrf");
+
+      if (fetuesrobject("csrf_token")) {
+        config.headers["X-CSRF-Token"] = fetuesrobject("csrf_token");
       }
-      //"X-CSRF-Token": 
     }
     return config;
   },
@@ -111,10 +111,12 @@ export async function fileupload(data, fileApi) {
     headers: {
       "Content-Type": "application/octet-stream",
       "Content-Disposition": `file; filename="${data.file_name}"`,
-      "Access-Control-Allow-Origin": "*",
-      "X-CSRF-Token": localStorage.getItem("csrf")
+      "Access-Control-Allow-Origin": "*"
     }
   };
+  if (fetuesrobject("csrf_token")) {
+    options.headers["X-CSRF-Token"] = fetuesrobject("csrf_token");
+  }
   return await axiosInstance.post(fileApi, image_data, options);
 }
 

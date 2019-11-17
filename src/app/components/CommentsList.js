@@ -1,9 +1,8 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import CommentForm from "../Forms/CommentForm";
-import { fetchCommentList, commentcreate } from "../Networks";
-import { reset } from "redux-form";
-import { preparecommentobject } from "../helper";
+import { fetchCommentList } from "../Networks";
+
 
 class CommentsList extends Component {
   constructor() {
@@ -11,16 +10,15 @@ class CommentsList extends Component {
     this.state = {
       commentlist: []
     };
+
+    this.attachComment = this.attachComment.bind(this);
   }
 
-  submit = (values, dispatch) => {    
-    let msg = preparecommentobject(values.comment, this.props.nid);
+  attachComment(messagejson) {
     this.setState({
-      commentlist: [...this.state.commentlist, msg]
+      commentlist: [...this.state.commentlist, messagejson]
     });
-    dispatch(reset("comment"));
-    commentcreate(msg);
-  };
+  }
 
   render() {
     return (
@@ -57,7 +55,10 @@ class CommentsList extends Component {
                 </div>
               ))}
               <div className="clearfix"></div>
-              <CommentForm onSubmit={this.submit} />
+              <CommentForm
+                attachComment={this.attachComment}
+                nid={this.props.nid}
+              />
             </div>
           </div>
         </div>
@@ -73,8 +74,7 @@ class CommentsList extends Component {
     fetchCommentList(data).then(response => {
       this.setState({
         commentlist: response.data
-      });
-      //document.title = `Pigeons World | ${response.data.title}`;
+      });      
     });
   }
 
@@ -88,8 +88,7 @@ class CommentsList extends Component {
       fetchCommentList(data).then(response => {
         this.setState({
           commentlist: response.data
-        });
-        //document.title = `Pigeons World | ${response.data.title}`;
+        });        
       });
     }
   }

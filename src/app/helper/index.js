@@ -1,17 +1,34 @@
 import React, { useEffect } from "react";
 import defaultPic from "../assets/avatar.jpg";
 
-export const Avatar = localStorage.getItem("avatar")
-  ? localStorage.getItem("avatar")
+export function getMapValue(obj, key) {
+  if (obj.hasOwnProperty(key)) return obj[key];
+  return null;
+}
+
+export function fetuesrobject(key) {
+  let retrieveduserObject = localStorage.getItem("userObject");
+  let retrievedObject = JSON.parse(retrieveduserObject);
+  if (retrieveduserObject) {
+    return getMapValue(retrievedObject, key);
+  }
+  return 0;
+}
+
+export const Avatar = fetuesrobject('user_pic')
+  ? fetuesrobject('user_pic')
   : defaultPic;
 
-export const Uid = localStorage.getItem("uid")
-  ? localStorage.getItem("uid")
-  : "";
-export const Username = localStorage.getItem("username")
-  ? localStorage.getItem("username")
-  : "Anonymous";
+export const Uid = fetuesrobject('uid') ? fetuesrobject('uid') : "";
+export const Username = fetuesrobject('name') ? fetuesrobject('name') : "Anonymous";
 
+
+export const IndianRupee = "₹";
+
+let colorversion = ["v1", "v2", "v3"];
+
+export const colorclass =
+  colorversion[Math.floor(Math.random() * colorversion.length)];
 /**
  * Method used to set page title
  * @param titleOrFn
@@ -129,9 +146,3 @@ export function arrayRemove(arr, value) {
     return ele !== value;
   });
 }
-
-export const IndianRupee = "₹";
-
-let colorversion = ["v1", "v2", "v3"];
-
-export const colorclass = colorversion[Math.floor(Math.random() * colorversion.length)];

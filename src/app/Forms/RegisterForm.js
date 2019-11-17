@@ -3,7 +3,7 @@ import { userRegister } from "../Networks";
 import FileUpload from "../components/FileUpload";
 import { withRouter } from "react-router-dom";
 import FormValidator from "../FormValidator";
-import { RegisterFormValidate } from "../const";
+import { city, RegisterFormValidate } from "../const";
 
 class RegisterForm extends Component {
   constructor(props) {
@@ -18,6 +18,7 @@ class RegisterForm extends Component {
       email: "",
       password: "",
       user_picture: "",
+      city: "",
       validation: this.validator.valid()
     };
     this.handleInputChange = this.handleInputChange.bind(this);
@@ -26,9 +27,7 @@ class RegisterForm extends Component {
   }
 
   handleInputChange(event) {
-    const target = event.target;
-    const value = target.value;
-    const name = target.name;
+    const { name, value } = event.target;
     let formv = {
       [name]: value
     };
@@ -81,6 +80,28 @@ class RegisterForm extends Component {
             autoComplete="off"
           >
             <div className="input-container">
+              <label htmlFor="userpciture" className="rl-label required">
+                Profile Image
+              </label>
+              <FileUpload
+                onChange={this.handleInputFileChange}
+                targetField="user_picture"
+                fileApi={fileApi}
+              ></FileUpload>
+              <input
+                className="hide"
+                name="user_picture"
+                id="pic1"
+                type="hidden"
+                placeholder="Enter them item name here..."
+                value={this.state.user_picture}
+                onChange={this.handleInputChange}
+              ></input>
+              <span className="form-error">
+                {validation.user_picture.message}
+              </span>
+            </div>
+            <div className="input-container">
               <label htmlFor="first_name" className="rl-label required">
                 First Name
               </label>
@@ -109,6 +130,27 @@ class RegisterForm extends Component {
                 maxLength="150"
               ></input>
               <span className="form-error">{validation.last_name.message}</span>
+            </div>
+            <div className="input-container">
+              <label htmlFor="city" className="rl-label required">
+                City
+              </label>
+              <select
+                name="city"
+                form="carform"
+                value={this.state.city}
+                onChange={this.handleInputChange}
+              >
+                <option />
+                {city.map((item, index) => {
+                  return (
+                    <option value={item} key={index}>
+                      {item}
+                    </option>
+                  );
+                })}
+              </select>
+              <span className="form-error">{validation.city.message}</span>
             </div>
             <div className="input-container">
               <label htmlFor="user_name" className="rl-label required">
@@ -152,28 +194,7 @@ class RegisterForm extends Component {
               ></input>
               <span className="form-error">{validation.password.message}</span>
             </div>
-            <div className="input-container">
-              <label htmlFor="password" className="rl-label required">
-                Profile Image
-              </label>
-              <FileUpload
-                onChange={this.handleInputFileChange}
-                targetField="user_picture"
-                fileApi={fileApi}
-              ></FileUpload>
-              <input
-                className="hide"
-                name="user_picture"
-                id="pic1"
-                type="hidden"
-                placeholder="Enter them item name here..."
-                value={this.state.user_picture}
-                onChange={this.handleInputChange}
-              ></input>
-              <span className="form-error">
-                {validation.user_picture.message}
-              </span>
-            </div>
+
             <button className="button mid dark">
               Register <span className="primary">Now!</span>
             </button>

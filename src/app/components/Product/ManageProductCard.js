@@ -31,11 +31,11 @@ export default function ManageProductCard(props) {
       </div>
       <hr className="line-separator" />
       <div className="user-rating">
-        <a href="author-profile.html">
+        <NavLink to={`/user/${props.product.uid}`}>
           <figure className="user-avatar small">
             <img src={props.product.avatar} alt="user-avatar" />
           </figure>
-        </a>
+        </NavLink>
         <NavLink to={`/user/${props.product.uid}`}>
           <p className="text-header tiny">{props.product.username}</p>
         </NavLink>

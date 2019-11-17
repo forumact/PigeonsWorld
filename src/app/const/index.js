@@ -79,6 +79,12 @@ export const RegisterFormValidate = [
     message: "Account Name is required."
   },
   {
+    field: "city",
+    method: "isEmpty",
+    validWhen: false,
+    message: "City is required."
+  },
+  {
     field: "email",
     method: "isEmail",
     validWhen: true,
@@ -248,3 +254,13 @@ export const FileApiArray = [
 ];
 
 export const numberofitem = 12;
+
+
+export const CommentFormValidation = [
+  {
+    field: "comment",
+    method: "isEmpty",
+    validWhen: false,
+    message: "Comment is empty."
+  }  
+];

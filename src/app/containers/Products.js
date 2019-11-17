@@ -4,7 +4,6 @@ import ProductCard from "../components/Product/ProductCard";
 import { connect } from "react-redux";
 import Pagination from "react-js-pagination";
 import { GET_PRODUCTS } from "../Redux/actions";
-import ProductSideBar from "../components/Product/ProductSideBar";
 import ProductsFilter from "../components/Product/ProductsFilter";
 import { numberofitem } from "../const";
 
@@ -97,8 +96,7 @@ class Products extends Component {
                 ) : null}
               </div>
             </div>
-            <div className="sidebar">
-              {/* <ProductSideBar></ProductSideBar> */}
+            <div className="sidebar">              
               <ProductsFilter
                 filterChange={this.handleFilterChange}
               ></ProductsFilter>
