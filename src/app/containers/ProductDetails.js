@@ -85,6 +85,22 @@ class ProductDetails extends Component {
       document.title = `Pigeons World | ${response.data.title}`;
     });
   }
+
+  componentDidUpdate(prevProps) {
+    if (this.props.match.params.nid !== prevProps.match.params.nid) {
+      //Typical usage, don't forget to compare the props
+      const data = {
+        nid: this.props.match.params.nid
+      };
+
+      fetchProductDetails(data).then(response => {
+        this.setState({
+          product: response.data
+        });
+        document.title = `Pigeons World | ${response.data.title}`;
+      });
+    }
+  }
 }
 
 export default ProductDetails;
