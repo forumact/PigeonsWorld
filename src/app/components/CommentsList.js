@@ -78,7 +78,7 @@ class CommentsList extends Component {
                   <Pagination
                     activePage={this.state.activePage}
                     itemsCountPerPage={commentnumber}
-                    totalItemsCount={15}
+                    totalItemsCount={this.state.count}
                     pageRangeDisplayed={5}
                     onChange={this.handlePageChange}
                     itemClass="pager-item"
