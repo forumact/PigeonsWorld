@@ -1,58 +1,40 @@
+import "./Modal.css";
 import React from "react";
-//import Popup from "reactjs-popup";
+import ReactDOM from 'react-dom';
+// These two containers are siblings in the DOM
+const modalRoot = document.getElementById("modal-root");
 
-export default () => (
-  // <Popup
-  //   trigger={
-  //     <button className="button mid-short secondary open-new-message">
-  //       New Message
-  //     </button>
-  //   }
-  //   modal
-  // >
-    <div className="mfp-content">
-      <div id="new-message-popup" className="form-popup1 new-message">
-        <div className="form-popup-content1">
-          <hr className="line-separator" />
-          <div className="input-container field-add">
-            <label htmlFor="mailto" className="rl-label b-label required">
-              To:
-            </label>
-            <label htmlFor="mailto" className="select-block">
-              <select name="mailto" id="mailto">
-                <option value="0">Select from the authors you follow...</option>
-                <option value="1">Vynil Brush</option>
-                <option value="2">Jenny_Block</option>
-              </select>
-            </label>
-          </div>
-          <div className="input-container">
-            <label htmlFor="subject" className="rl-label b-label">
-              Subject:
-            </label>
-            <input
-              type="text"
-              id="subject"
-              name="subject"
-              placeholder="Enter your subject here..."
-            />
-          </div>
-          <div className="input-container">
-            <label htmlFor="message" className="rl-label b-label required">
-              Your Message:
-            </label>
-            <textarea
-              id="message"
-              name="message"
-              placeholder="Write your message here..."
-            ></textarea>
-          </div>
-          <button className="button mid dark">
-            Send <span className="primary">Message</span>
-          </button>
-        </div>
-        <div className="close-btn mfp-close"></div>
-      </div>
-    </div>
-  
-);
+// Let's create a Modal component that is an abstraction around
+// the portal API.
+class Modal extends React.Component {
+  constructor(props) {
+    super(props);
+    // Create a div that we'll render the modal into. Because each
+    // Modal component has its own element, we can render multiple
+    // modal components into the modal container.
+    this.el = document.createElement("div");
+  }
+
+  componentDidMount() {
+    // Append the element into the DOM on mount. We'll render
+    // into the modal container element (see the HTML tab).
+    modalRoot.appendChild(this.el);
+  }
+
+  componentWillUnmount() {
+    // Remove the element from the DOM when we unmount
+    modalRoot.removeChild(this.el);
+  }
+
+  render() {
+    // Use a portal to render the children into the element
+    return ReactDOM.createPortal(
+      // Any valid React child: JSX, strings, arrays, etc.
+      this.props.children,
+      // A DOM element
+      this.el
+    );
+  }
+}
+
+export default Modal;

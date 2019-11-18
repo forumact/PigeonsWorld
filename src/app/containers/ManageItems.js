@@ -63,7 +63,7 @@ class ManageItems extends Component {
           })}
         </div>
         <div className="clearfix"></div>
-        <div className="pager tertiary">
+        <div className="pager tertiary fright">
           {count > numberofitem ? (
             <Pagination
               activePage={this.state.activePage}

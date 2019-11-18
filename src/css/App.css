@@ -12,8 +12,8 @@
     linear-gradient(to right, #f21c5e, #1cc1e4);
 }
 .section-headline-wrap.v3 {
-    background: url("../app/assets/section_headline_bg.png") no-repeat center, 
-	linear-gradient(to right, #1595de, #00dcdd);
+  background: url("../app/assets/section_headline_bg.png") no-repeat center,
+    linear-gradient(to right, #1595de, #00dcdd);
 }
 
 form > button[type="submit"][disabled] {
@@ -118,32 +118,40 @@ form > button[type="submit"][disabled] {
   background-size: cover;
 }
 
-.gchanges{
- background-color:  #e61852 !important;
- display: inline !important;
- color: #fff !important; 
- float: right !important;
- box-shadow: none !important;
+.gchanges {
+  background-color: #e61852 !important;
+  display: inline !important;
+  color: #fff !important;
+  float: right !important;
+  box-shadow: none !important;
 }
 
-.gchanges div{
+.gchanges div {
   display: none;
 }
 
-.gchanges span{
+.gchanges span {
   font-weight: 700 !important;
 }
-.poistionabs{
+.poistionabs {
   position: absolute;
 }
 
-.call-alignment{
+.call-alignment {
   position: absolute;
   font-size: 23px;
-  left:52px;
+  left: 52px;
   top: 10px;
 }
 
-.SocialMediaShareButton{
+.SocialMediaShareButton {
   line-height: 31px;
+}
+
+.fright {
+  float: right !important;
+}
+
+.fleft {
+  float: left !important;
 }
