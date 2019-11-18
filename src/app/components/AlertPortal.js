@@ -17,12 +17,12 @@ class AlertPortal extends React.Component {
   componentDidMount() {
     // Append the element into the DOM on mount. We'll render
     // into the modal container element (see the HTML tab).
-    modalRoot.appendChild(this.el);
+    alertRoot.appendChild(this.el);
   }
 
   componentWillUnmount() {
     // Remove the element from the DOM when we unmount
-    modalRoot.removeChild(this.el);
+    alertRoot.removeChild(this.el);
   }
 
   render() {

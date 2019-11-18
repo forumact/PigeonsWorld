@@ -3,6 +3,7 @@ import { Avatar } from "../helper";
 import { privatemessagecreate } from "../Networks";
 import Modal from "../components/Modal/Modal";
 import PrivateMessageForm from "../Forms/PrivateMessageForm";
+import AlertPortal from "../components/AlertPortal";
 
 export default class PrivateMessage extends Component {
   constructor(props) {
@@ -28,6 +29,21 @@ export default class PrivateMessage extends Component {
       </Modal>
     ) : null;
 
+    const alert = 1 ? (
+      <AlertPortal>
+        <div className="message info xmalert alert-box">
+          <div className="message-type"></div>
+          <p className="text-header">Title</p>
+          <p className="info">Lorem ipsum...</p>
+          <img
+            className="close-btn"
+            src="images/dashboard/notif-close-icon.png"
+            alt="close-icon"
+          />
+        </div>
+      </AlertPortal>
+    ) : null;
+
     return (
       <div className="dashboard-content">
         <div className="headline buttons two primary">
@@ -40,6 +56,7 @@ export default class PrivateMessage extends Component {
             New Message
           </button>
           {modal}
+          {alert}
         </div>
         <div className="inbox-messages">
           <div className="inbox-message">
