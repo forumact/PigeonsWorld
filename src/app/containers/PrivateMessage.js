@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Avatar } from "../helper";
 import { privatemessagecreate } from "../Networks";
 import Modal from "../components/Modal/Modal";
+import PrivateMessageForm from "../Forms/PrivateMessageForm";
 
 export default class PrivateMessage extends Component {
   constructor(props) {
@@ -23,59 +24,7 @@ export default class PrivateMessage extends Component {
   render() {
     const modal = this.state.showModal ? (
       <Modal>
-        <div className="modal">
-          <div id="new-message-popup" className="form-popup new-message">
-            <div className="form-popup-content">
-              <h4 className="popup-title">Write a New Message</h4>
-              <hr className="line-separator" />
-              <form className="new-message-form">
-                <div className="input-container field-add">
-                  <label for="mailto" className="rl-label b-label required">
-                    To:
-                  </label>
-                  <label for="mailto" className="select-block">
-                    <select name="mailto" id="mailto">
-                      <option value="0">
-                        Select from the authors you follow...
-                      </option>
-                      <option value="1">Vynil Brush</option>
-                      <option value="2">Jenny_Block</option>
-                    </select>
-                  </label>
-                  <div className="button dark-light add-field"></div>
-                </div>
-                <div className="input-container">
-                  <label for="subject" className="rl-label b-label">
-                    Subject:
-                  </label>
-                  <input
-                    type="text"
-                    id="subject"
-                    name="subject"
-                    placeholder="Enter your subject here..."
-                  />
-                </div>
-                <div className="input-container">
-                  <label for="message" className="rl-label b-label required">
-                    Your Message:
-                  </label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    placeholder="Write your message here..."
-                  ></textarea>
-                </div>
-
-                <button className="button mid dark">
-                  Send <span className="primary">Message</span>
-                </button>
-              </form>
-            </div>
-            <div onClick={this.handleHide} className="close-btn mfp-close">
-              x
-            </div>
-          </div>
-        </div>
+        <PrivateMessageForm handleHide={this.handleHide}></PrivateMessageForm>
       </Modal>
     ) : null;
 
@@ -86,7 +35,7 @@ export default class PrivateMessage extends Component {
           <button
             onClick={this.handleShow}
             href="#new-message-popup"
-            class="button mid-short secondary open-new-message"
+            className="button mid-short secondary open-new-message"
           >
             New Message
           </button>
