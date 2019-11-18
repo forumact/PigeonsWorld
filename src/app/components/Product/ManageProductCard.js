@@ -39,6 +39,10 @@ export default function ManageProductCard(props) {
         <NavLink to={`/user/${props.product.uid}`}>
           <p className="text-header tiny">{props.product.username}</p>
         </NavLink>
+        <div className="rating tooltip tooltipstered">
+          <span className="icon-camera"></span>&nbsp;
+          {props.product.img.length}
+        </div>
       </div>
     </div>
   );

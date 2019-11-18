@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import HeadLine from "../components/HeadLine";
 import CommentsList from "../components/CommentsList";
 import ProductInfo from "../components/Product/ProductInfo";
@@ -26,10 +26,10 @@ class ProductDetails extends Component {
   }
 
   render() {
-    const { title, body, img1, img2, img3, img4 } = this.state.product;
-    let imgArray = [img1, img2, img3, img4];
+    const { title, body, img } = this.state.product;
+    let img1 = img ? img[0] : "";
     return (
-      <div>
+      <Fragment>
         <Helmet>
           <meta charSet="utf-8" />
           <title>{title}</title>
@@ -57,7 +57,7 @@ class ProductDetails extends Component {
                   </figure>
                 </div>
                 <ImageSlider
-                  image={imgArray}
+                  image={img}
                   onChange={this.changeProductImage}
                 ></ImageSlider>
                 <div className="post-content">
@@ -75,7 +75,7 @@ class ProductDetails extends Component {
             </div>
           </div>
         </div>
-      </div>
+      </Fragment>
     );
   }
 

@@ -17,7 +17,7 @@ export default class ImageSlider extends Component {
       .getPropertyValue("background-image");
     let img = backgroundStyle
       .substring(4, backgroundStyle.length - 1)
-      .replace('"', "").replace('"', "");    
+      .replace('"', "").replace('"', "");          
     this.props.onChange("image", img);
   }
   render() {
@@ -30,7 +30,7 @@ export default class ImageSlider extends Component {
             data-slide-visible-small="2"
             data-slide-count="5"
           >
-            {this.props.image.map((item, i) => (
+            {(this.props.image || []).map((item, i) => (
               <div
                 arul={i}
                 key={i}
