@@ -2,6 +2,20 @@ import React, { Component } from "react";
 import LogoSmall from "../../assets/logo_small.png";
 
 class Footer extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      product_count: "156",
+      members_count: "346",
+      sellers_count: "56"
+    };
+  }
+
+  getYear() {
+    return new Date().getFullYear();
+  }
+
   render() {
     return (
       <footer>
@@ -12,39 +26,53 @@ class Footer extends Component {
                 <img src={LogoSmall} alt="logo-small" />
               </figure>
               <p>
-                Lorem ipsum dolor sit amet, consectetur isicing elit, sed do
-                eiusmod tempor incididunt ut labo dolore magna ua.
+                Search thousands of birds ads on one of the TN's leading Pigeons
+                classified sites.
               </p>
               <ul className="company-info-list">
                 <li className="company-info-item">
                   <span className="icon-present"></span>
                   <p>
-                    <span>850.296</span> Products
+                    <span>{this.state.product_count}</span> Products
                   </p>
                 </li>
                 <li className="company-info-item">
                   <span className="icon-energy"></span>
                   <p>
-                    <span>1.207.300</span> Members
+                    <span>{this.state.members_count}</span> Members
                   </p>
                 </li>
                 <li className="company-info-item">
                   <span className="icon-user"></span>
                   <p>
-                    <span>74.059</span> Sellers
+                    <span>{this.state.sellers_count}</span> Sellers
                   </p>
+                </li>
+              </ul>
+              <ul className="social-links">
+                <li className="social-link fb">
+                  <a href="#"></a>
+                </li>
+                <li className="social-link twt">
+                  <a href="#"></a>
+                </li>
+                <li className="social-link db">
+                  <a href="#"></a>
+                </li>
+                <li className="social-link rss">
+                  <a href="#"></a>
                 </li>
               </ul>
             </div>
             <div className="link-info">
               <p className="footer-title">Our Community</p>
               <ul className="link-list">
-                <li className="link-item">
+                {/* <li className="link-item">
                   <div className="bullet"></div>
                   <a href="http://odindesign-themes.com/emerald-dragon/index.html#">
                     How to Join us
                   </a>
-                </li>
+                </li> */}
                 <li className="link-item">
                   <div className="bullet"></div>
                   <a href="http://odindesign-themes.com/emerald-dragon/index.html#">
@@ -63,24 +91,24 @@ class Footer extends Component {
                     Emerald Blog
                   </a>
                 </li>
-                <li className="link-item">
+                {/* <li className="link-item">
                   <div className="bullet"></div>
                   <a href="http://odindesign-themes.com/emerald-dragon/index.html#">
                     Free Goods
                   </a>
-                </li>
-                <li className="link-item">
+                </li> */}
+                {/* <li className="link-item">
                   <div className="bullet"></div>
                   <a href="http://odindesign-themes.com/emerald-dragon/index.html#">
                     Job Oportunities
                   </a>
-                </li>
+                </li> */}
               </ul>
             </div>
-            <div className="link-info">
+            {/* <div className="link-info">
               <p className="footer-title">Member Links</p>
               <ul className="link-list">
-                <li className="link-item">
+                 <li className="link-item">
                   <div className="bullet"></div>
                   <a href="http://odindesign-themes.com/emerald-dragon/index.html#">
                     Partner Program
@@ -109,7 +137,7 @@ class Footer extends Component {
                   <a href="http://odindesign-themes.com/emerald-dragon/index.html#">
                     World Meetings
                   </a>
-                </li>
+                </li> 
                 <li className="link-item">
                   <div className="bullet"></div>
                   <a href="http://odindesign-themes.com/emerald-dragon/index.html#">
@@ -117,7 +145,7 @@ class Footer extends Component {
                   </a>
                 </li>
               </ul>
-            </div>
+            </div> */}
             <div className="link-info">
               <p className="footer-title">Help and FAQs</p>
               <ul className="link-list">
@@ -139,36 +167,22 @@ class Footer extends Component {
                     Terms and Conditions
                   </a>
                 </li>
-                <li className="link-item">
-                  <div className="bullet"></div>
-                  <a href="http://odindesign-themes.com/emerald-dragon/index.html#">
-                    Products Licenses
-                  </a>
-                </li>
-                <li className="link-item">
-                  <div className="bullet"></div>
-                  <a href="http://odindesign-themes.com/emerald-dragon/index.html#">
-                    Security Information
-                  </a>
-                </li>
               </ul>
             </div>
-            <div className="twitter-feed">
+            {/* <div className="twitter-feed">
               <p className="footer-title">Twitter Feed</p>
               <ul className="tweets">
                 <p className="loading">Loading twitter feed...</p>
               </ul>
-            </div>
+            </div> */}
           </div>
         </div>
         <div id="footer-bottom-wrap">
           <div id="footer-bottom">
             <p>
               <span>©</span>
-              <a href="http://odindesign-themes.com/emerald-dragon/index.html">
-                Arulraj
-              </a>{" "}
-              Template - All Rights Reserved 2019
+              <a href="/">Arulraj</a> Template - All Rights Reserved{" "}
+              {this.getYear()}
             </p>
           </div>
         </div>
