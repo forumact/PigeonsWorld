@@ -3,12 +3,12 @@ import { Avatar } from "../helper";
 import { privatemessagecreate } from "../Networks";
 import Modal from "../components/Modal/Modal";
 import PrivateMessageForm from "../Forms/PrivateMessageForm";
-import AlertPortal from "../components/AlertPortal";
+import Notify from "../components/AlertPortal";
 
 export default class PrivateMessage extends Component {
   constructor(props) {
     super(props);
-    this.state = { showModal: false };
+    this.state = { showModal: false, showAlert: false };
 
     this.handleShow = this.handleShow.bind(this);
     this.handleHide = this.handleHide.bind(this);
@@ -29,19 +29,8 @@ export default class PrivateMessage extends Component {
       </Modal>
     ) : null;
 
-    const alert = 1 ? (
-      <AlertPortal>
-        <div className="message info xmalert alert-box">
-          <div className="message-type"></div>
-          <p className="text-header">Title</p>
-          <p className="info">Lorem ipsum...</p>
-          <img
-            className="close-btn"
-            src="images/dashboard/notif-close-icon.png"
-            alt="close-icon"
-          />
-        </div>
-      </AlertPortal>
+    const alert = this.state.showAlert ? (
+      <Notify showhide="true" message="Form Updated Successfully."></Notify>
     ) : null;
 
     return (
@@ -102,9 +91,10 @@ export default class PrivateMessage extends Component {
   }
 
   componentDidMount() {
-    const userpayload = {
-      uid: this.props.match.params.uid
-    };
-    privatemessagecreate(userpayload).then(response => {});
+    this.setState({ showAlert: true });
+    // const userpayload = {
+    //   uid: this.props.match.params.uid
+    // };
+    // privatemessagecreate(userpayload).then(response => {});
   }
 }

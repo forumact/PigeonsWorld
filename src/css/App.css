@@ -155,3 +155,15 @@ form > button[type="submit"][disabled] {
 .fleft {
   float: left !important;
 }
+
+.alertstyle {
+  visibility: visible;
+  opacity: 1;
+  position: fixed !important;
+  z-index: 100000;
+  transition: all 0.3s ease-in-out 0s;
+  top: auto;
+  bottom: 30px;
+  left: auto;
+  right: 30px;
+}
