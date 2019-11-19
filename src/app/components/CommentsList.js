@@ -21,7 +21,8 @@ class CommentsList extends Component {
 
   attachComment(messagejson) {
     this.setState({
-      commentlist: [...this.state.commentlist, messagejson]
+      commentlist: [...this.state.commentlist, messagejson],
+      count: this.state.count + 1
     });
   }
 
@@ -52,27 +53,34 @@ class CommentsList extends Component {
           </div>
           <div className="tab-content void open">
             <div className="comment-list">
-              {(this.state.commentlist || []).map(c => (
-                <div key={c.cid}>
-                  <div className="comment-wrap" key={c.cid}>
-                    <Link to={`/user/${c.uid}`}>
-                      <figure className="user-avatar medium">
-                        <img src={c.avatar} alt="" />
-                      </figure>
-                    </Link>
-                    <div className="comment">
-                      <p className="text-header">{c.uname}</p>
-                      {/* <span className="pin greyed">Purchased</span> */}
-                      <p className="timestamp">{c.created}</p>
-                      {/* <a href="/" className="report">Report</a> */}
-                      <div
-                        dangerouslySetInnerHTML={{ __html: c.comment_body }}
-                      />
+              {(this.state.commentlist || []).map(c => {
+                return (
+                  <div key={c.cid}>
+                    <div className="comment-wrap" key={c.cid}>
+                      <Link to={`/user/${c.uid}`}>
+                        <figure className="user-avatar medium">
+                          <img src={c.avatar} alt="" />
+                        </figure>
+                      </Link>
+                      <div className="comment">
+                        <Link to={`/user/${c.uid}`}>
+                          <p className="text-header strtocaptalize">
+                            {c.uname}
+                          </p>
+                        </Link>
+                        {/* <span className="pin greyed">Purchased</span> */}
+                        <p className="timestamp">{c.created}</p>
+                        {/* <a href="/" className="report">Report</a> */}
+                        <div
+                          dangerouslySetInnerHTML={{ __html: c.comment_body }}
+                          className="post-paragraph"
+                        />
+                      </div>
                     </div>
+                    <hr className="line-separator" />
                   </div>
-                  <hr className="line-separator" />
-                </div>
-              ))}
+                );
+              })}
               <div className="pager tertiary">
                 {this.state.count > commentnumber ? (
                   <Pagination

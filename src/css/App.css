@@ -167,3 +167,12 @@ form > button[type="submit"][disabled] {
   left: auto;
   right: 30px;
 }
+
+.post-paragraph{
+  color: #888;
+  font-size: 0.875em;
+  line-height: 1.71429em;
+  font-weight: 600;
+  white-space: pre-line;
+  font-family: "Titillium Web", sans-serif;
+}

@@ -61,10 +61,11 @@ class ProductDetails extends Component {
                   onChange={this.changeProductImage}
                 ></ImageSlider>
                 <div className="post-content">
-                  <div className="post-paragraph">
-                    {/* {body} */}
-                    <div dangerouslySetInnerHTML={{ __html: body }} />
-                  </div>
+                  {/* {body} */}
+                  <div
+                    className="post-paragraph"
+                    dangerouslySetInnerHTML={{ __html: body }}
+                  />
                 </div>
                 <hr className="line-separator" />
                 <SocilaMediaShareLinks

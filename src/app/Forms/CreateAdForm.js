@@ -11,6 +11,7 @@ import FileUpload from "../components/FileUpload";
 import { productCreate, productUpdate, fetchProductDetails } from "../Networks";
 import { IndianRupee } from "../helper";
 import FormValidator from "../FormValidator";
+import { withRouter } from "react-router-dom";
 
 class CreateAddForm extends Component {
   constructor(props) {
@@ -69,7 +70,9 @@ class CreateAddForm extends Component {
     console.log(validation.isValid);
     if (validation.isValid) {
       if (this.state.item_nid) {
-        productUpdate(this.state).then(response => {});
+        productUpdate(this.state).then(response => {
+          this.props.history.push(`/products/${this.state.item_nid}`);
+        });
       } else {
         productCreate(this.state).then(response => {
           console.log(response);
@@ -92,6 +95,7 @@ class CreateAddForm extends Component {
             item_tags: "",
             item_nid: 0
           });
+          this.props.history.push(`/products/${response.data.nid}`);
         });
       }
     }
@@ -321,4 +325,4 @@ class CreateAddForm extends Component {
   }
 }
 
-export default CreateAddForm;
+export default withRouter(CreateAddForm);

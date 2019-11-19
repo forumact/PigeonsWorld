@@ -16,8 +16,7 @@ class ProductShowcase extends Component {
       numberofitem: 12,
       pagenumber: 0
     };
-    this.props.getProducts(payload);
-    document.title = `Pigeons World | Products`;
+    this.props.getProducts(payload);    
   }
 
   render() {

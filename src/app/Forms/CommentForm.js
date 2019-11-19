@@ -11,7 +11,7 @@ class CommentForm extends Component {
     this.validator = new FormValidator(CommentFormValidation);
 
     this.state = {
-      comment: "",
+      comment: [],
       validation: this.validator.valid()
     };
 
@@ -26,14 +26,11 @@ class CommentForm extends Component {
     let formv = {
       [name]: value
     };
-    console.log(formv);
     this.setState(formv);
   }
 
   handleSubmit(event) {
     event.preventDefault();
-
-    console.log(this.state);
     const validation = this.validator.validate(this.state);
     this.setState({ validation });
     this.submitted = true;
