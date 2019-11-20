@@ -158,7 +158,7 @@ class LoginForm extends Component {
           />
 
           <GoogleLogin
-            clientId="451309071348-s18cpe800jrf5ajf4kq1drne328clv97.apps.googleusercontent.com"
+            clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
             buttonText="Login with Google"
             onSuccess={this.responseGoogle}
             onFailure={this.responseGoogle}

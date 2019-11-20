@@ -1,14 +1,15 @@
 import React, { Component } from "react";
 import LogoSmall from "../../assets/logo_small.png";
+import { fetchFooterDetails } from "../../Networks";
 
 class Footer extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      product_count: "156",
-      members_count: "346",
-      sellers_count: "56"
+      products_count: "",
+      members_count: "",
+      sellers_count: ""
     };
   }
 
@@ -16,7 +17,18 @@ class Footer extends Component {
     return new Date().getFullYear();
   }
 
-  render() {
+  componentDidMount() {
+    fetchFooterDetails().then(response => {
+      
+      this.setState({
+        products_count: response.data.products_count,
+        members_count: response.data.members_count,
+        sellers_count: response.data.sellers_count,
+      });
+    });
+  }
+
+  render() {    
     return (
       <footer>
         <div id="footer-top-wrap">
@@ -33,7 +45,7 @@ class Footer extends Component {
                 <li className="company-info-item">
                   <span className="icon-present"></span>
                   <p>
-                    <span>{this.state.product_count}</span> Products
+                    <span>{this.state.products_count}</span> Products
                   </p>
                 </li>
                 <li className="company-info-item">
