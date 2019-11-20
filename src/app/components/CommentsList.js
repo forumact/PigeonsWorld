@@ -73,7 +73,7 @@ class CommentsList extends Component {
                         {/* <a href="/" className="report">Report</a> */}
                         <div
                           dangerouslySetInnerHTML={{ __html: c.comment_body }}
-                          className="post-paragraph"
+                          className="product-post-paragraph"
                         />
                       </div>
                     </div>

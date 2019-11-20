@@ -36,7 +36,7 @@ class Favourites extends Component {
 
   render() {
     const { flags, count } = this.props.userFavourites;
-    const title = "Favourites";
+    const title = "Your Favourites";
     return (
       <div>
         <HeadLine title={title}></HeadLine>

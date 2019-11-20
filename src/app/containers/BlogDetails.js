@@ -45,7 +45,7 @@ class BlogDetails extends Component {
                   </figure>
                 </div>
                 <div className="post-content">
-                  <div className="post-paragraph">
+                  <div className="product-post-paragraph">
                     {/* {body} */}
                     <div dangerouslySetInnerHTML={{ __html: body }} />
                   </div>

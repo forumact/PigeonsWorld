@@ -57,11 +57,11 @@ class FavouriteCard extends Component {
         </div>
         <div className="item-metadata">
           <p className="text-header tiny">
-            Item Condition: <span>{this.props.fav.condition}</span>
+            Gender: <span>{this.props.fav.condition}</span>
           </p>
           <br />
           <p className="text-header tiny">
-            Item Category: <span>{this.props.fav.category}</span>
+            Category: <span>{this.props.fav.category}</span>
           </p>
           {/* <p className="text-header tiny">
                         Tags:

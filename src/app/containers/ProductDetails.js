@@ -62,7 +62,7 @@ class ProductDetails extends Component {
                 <div className="post-content">
                   {/* {body} */}
                   <div
-                    className="post-paragraph"
+                    className="product-post-paragraph"
                     dangerouslySetInnerHTML={{ __html: body }}
                   />
                 </div>

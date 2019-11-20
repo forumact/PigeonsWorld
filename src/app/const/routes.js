@@ -162,6 +162,14 @@ export const MyRoutes = [
     profilenav: "no"
   },
   {
+    path: "/privacy-policy",
+    component: lazy(() => import("../containers/PrivacyPolicy")),
+    title: "Terms and Conditions",
+    menu: "no",
+    exact: true,
+    profilenav: "no"
+  },
+  {
     path: "*",
     component: lazy(() => import("../containers/NotFound")),
     title: "Blog Details",

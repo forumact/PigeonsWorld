@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { GET_USER_PRODUCTS } from "../Redux/actions";
 import { connect } from "react-redux";
 import Pagination from "react-js-pagination";
-import ProductAddButton from "../components/Product/ProductAddButton";
+//import ProductAddButton from "../components/Product/ProductAddButton";
 import ManageProductCard from "../components/Product/ManageProductCard";
 import { numberofitem } from "../const";
 import { fetuesrobject } from "../helper";

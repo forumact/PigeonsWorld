@@ -168,11 +168,39 @@ form > button[type="submit"][disabled] {
   right: 30px;
 }
 
-.post-paragraph{
+.product-post-paragraph {
   color: #888;
   font-size: 0.875em;
   line-height: 1.71429em;
   font-weight: 600;
   white-space: pre-line;
   font-family: "Titillium Web", sans-serif;
+}
+
+.social-links .social-link.rss a {
+  width: 12px;
+  height: 13px;
+  background: url("../app/assets/social/rss.png") no-repeat center;
+  top: 1px;
+}
+
+.social-links .social-link.db a {
+  width: 12px;
+  height: 13px;
+  background: url("../app/assets/social/db.png") no-repeat center;
+  top: 1px;
+}
+
+.social-links .social-link.twt a {
+  width: 12px;
+  height: 13px;
+  background: url("../app/assets/social/twt.png") no-repeat center;
+  top: 1px;
+}
+
+.social-links .social-link.fb a {
+  width: 12px;
+  height: 13px;
+  background: url("../app/assets/social/fb.png") no-repeat center;
+  top: 1px;
 }

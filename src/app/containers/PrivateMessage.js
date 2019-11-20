@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Avatar } from "../helper";
-import { privatemessagecreate } from "../Networks";
+//import { privatemessagecreate } from "../Networks";
 import Modal from "../components/Modal/Modal";
 import PrivateMessageForm from "../Forms/PrivateMessageForm";
 import Notify from "../components/AlertPortal";

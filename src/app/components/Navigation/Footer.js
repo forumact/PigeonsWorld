@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import LogoSmall from "../../assets/logo_small.png";
 import { fetchFooterDetails } from "../../Networks";
+import { Link } from "react-router-dom";
 
 class Footer extends Component {
   constructor(props) {
@@ -19,16 +20,15 @@ class Footer extends Component {
 
   componentDidMount() {
     fetchFooterDetails().then(response => {
-      
       this.setState({
         products_count: response.data.products_count,
         members_count: response.data.members_count,
-        sellers_count: response.data.sellers_count,
+        sellers_count: response.data.sellers_count
       });
     });
   }
 
-  render() {    
+  render() {
     return (
       <footer>
         <div id="footer-top-wrap">
@@ -63,16 +63,16 @@ class Footer extends Component {
               </ul>
               <ul className="social-links">
                 <li className="social-link fb">
-                  <a href="#"></a>
+                  <a href="/">&nbsp;</a>
                 </li>
                 <li className="social-link twt">
-                  <a href="#"></a>
+                  <a href="/">&nbsp;</a>
                 </li>
                 <li className="social-link db">
-                  <a href="#"></a>
+                  <a href="/">&nbsp;</a>
                 </li>
                 <li className="social-link rss">
-                  <a href="#"></a>
+                  <a href="/">&nbsp;</a>
                 </li>
               </ul>
             </div>
@@ -175,18 +175,10 @@ class Footer extends Component {
                 </li>
                 <li className="link-item">
                   <div className="bullet"></div>
-                  <a href="http://odindesign-themes.com/emerald-dragon/index.html#">
-                    Terms and Conditions
-                  </a>
+                  <Link to="/privacy-policy">Privacy Policy</Link>
                 </li>
               </ul>
-            </div>
-            {/* <div className="twitter-feed">
-              <p className="footer-title">Twitter Feed</p>
-              <ul className="tweets">
-                <p className="loading">Loading twitter feed...</p>
-              </ul>
-            </div> */}
+            </div>            
           </div>
         </div>
         <div id="footer-bottom-wrap">
