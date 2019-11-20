@@ -35,7 +35,7 @@ export const colorclass =
  */
 export function useTitle(titleOrFn) {
   useEffect(() => {
-    document.title = `${titleOrFn} | Pigeons World`;
+    document.title = `${titleOrFn} | ${process.env.REACT_APP_DOC_TITLE}`;
   });
 }
 

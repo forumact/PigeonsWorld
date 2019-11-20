@@ -2,7 +2,7 @@ import axios from "axios";
 import { querystring, fetuesrobject } from "../helper";
 
 const axiosInstance = axios.create({
-  baseURL: "http://pigeonsworld.local"
+  baseURL: `${process.env.REACT_APP_API_ENDPOINT}`
 });
 
 // Add a request interceptor

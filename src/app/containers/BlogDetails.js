@@ -20,8 +20,7 @@ class BlogDetails extends Component {
     return (
       <div>
         <Helmet>
-          <meta charSet="utf-8" />
-          <title>{title}</title>
+          <meta charSet="utf-8" />          
           <meta name="description" content={title} />
           <link rel="canonical" href="http://mysite.com/example" />
         </Helmet>
@@ -73,7 +72,7 @@ class BlogDetails extends Component {
       this.setState({
         blog: response.data
       });
-      document.title = `Pigeons World | ${response.data.title}`;
+      document.title = `${response.data.title} | ${process.env.REACT_APP_DOC_TITLE}`;
     });
   }
 
@@ -87,7 +86,7 @@ class BlogDetails extends Component {
         this.setState({
           blog: response.data
         });
-        document.title = `Pigeons World | ${response.data.title}`;
+        document.title = `${response.data.title} | ${process.env.REACT_APP_DOC_TITLE}`;
       });
     }
   }

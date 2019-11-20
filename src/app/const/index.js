@@ -254,8 +254,7 @@ export const FileApiArray = [
 ];
 
 export const numberofitem = 12;
-export const commentnumber= 5;
-
+export const commentnumber = 5;
 
 export const CommentFormValidation = [
   {
@@ -263,7 +262,7 @@ export const CommentFormValidation = [
     method: "isEmpty",
     validWhen: false,
     message: "Comment is empty."
-  }  
+  }
 ];
 
 export const HomeSearchFormValidation = [
@@ -272,5 +271,14 @@ export const HomeSearchFormValidation = [
     method: "isEmpty",
     validWhen: false,
     message: "Search is empty."
-  }  
+  }
+];
+
+export const NewsletterFormValidation = [
+  {
+    field: "subscribe_email",
+    method: "isEmail",
+    validWhen: true,
+    message: "That is not a valid email."
+  }
 ];

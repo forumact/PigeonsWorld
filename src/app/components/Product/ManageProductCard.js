@@ -14,8 +14,8 @@ export default function ManageProductCard(props) {
       </div>
       <div className="product-info">
         <NavLink to={`/products/${props.product.nid}`}>
-          <p className="text-header" title={props.product.title}>
-            {props.product.title}
+          <p className="text-header" title={props.product.title}>            
+            {substring(props.product.title, 25, ".....")}
           </p>
         </NavLink>
         <p className="product-description">

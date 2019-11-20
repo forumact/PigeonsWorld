@@ -32,7 +32,7 @@ class ProductCard extends Component {
         <div className="product-info">
           <NavLink exact to={`/products/${this.props.product.nid}`}>
             <p className="text-header" title={this.props.product.title}>
-              {substring(this.props.product.title, 18, ".....")}
+              {substring(this.props.product.title, 25, ".....")}
             </p>
           </NavLink>
           <p>&nbsp;</p>

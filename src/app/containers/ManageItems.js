@@ -52,7 +52,7 @@ class ManageItems extends Component {
           <h4>{count} Manage Items</h4>
         </div>
         <div className="product-list grid column4-wrap">
-          <ProductAddButton></ProductAddButton>
+          {/* <ProductAddButton></ProductAddButton> */}
           {(products || []).map(product => {
             return (
               <ManageProductCard
@@ -67,9 +67,9 @@ class ManageItems extends Component {
           {count > numberofitem ? (
             <Pagination
               activePage={this.state.activePage}
-              itemsCountPerPage={this.state.numberofitem}
+              itemsCountPerPage={numberofitem}
               totalItemsCount={count}
-              pageRangeDisplayed={3}
+              pageRangeDisplayed={5}
               onChange={this.handlePageChange}
               itemClass="pager-item"
               linkClass="page-link-class"

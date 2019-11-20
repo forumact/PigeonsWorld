@@ -53,8 +53,7 @@ class Products extends Component {
       numberofitem: numberofitem,
       pagenumber: 0
     };
-    this.props.getProducts(payload);
-    document.title = `Products | Pigeons World`;
+    this.props.getProducts(payload);    
   }
 
   render() {

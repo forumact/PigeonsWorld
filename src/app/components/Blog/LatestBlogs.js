@@ -63,9 +63,9 @@ class LatestBlogs extends Component {
   }
 
   componentDidUpdate(prevProps) {
-    if (this.props.type !== prevProps.type) {
+    if (this.props.nid !== prevProps.nid) {
       const data = {
-        type: this.props.type,
+        type: this.props.title,
         nid: this.props.nid
       };
 

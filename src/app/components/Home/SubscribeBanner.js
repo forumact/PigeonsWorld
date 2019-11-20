@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import NewIcon from "../../assets/news_icon.png";
+import Newsletter from "../../Forms/NewsletterForm";
 
 class SubscribeBanner extends Component {
   render() {
@@ -14,15 +15,7 @@ class SubscribeBanner extends Component {
               <p className="subscribe-title">Subscribe to our Newsletter</p>
               <p>And receive the latest news and offers</p>
             </div>
-            <form className="subscribe-form">
-              <input
-                type="text"
-                name="subscribe_email"
-                id="subscribe_email"
-                placeholder="Enter your email here..."
-              />
-              <button className="button medium dark">Subscribe!</button>
-            </form>
+            <Newsletter></Newsletter>
           </div>
         </div>
       </div>
