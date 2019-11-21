@@ -15,13 +15,14 @@ export function fetuesrobject(key) {
   return 0;
 }
 
-export const Avatar = fetuesrobject('user_pic')
-  ? fetuesrobject('user_pic')
+export const Avatar = fetuesrobject("user_pic")
+  ? fetuesrobject("user_pic")
   : defaultPic;
 
-export const Uid = fetuesrobject('uid') ? fetuesrobject('uid') : "";
-export const Username = fetuesrobject('name') ? fetuesrobject('name') : "Anonymous";
-
+export const Uid = fetuesrobject("uid") ? fetuesrobject("uid") : "";
+export const Username = fetuesrobject("name")
+  ? fetuesrobject("name")
+  : "Anonymous";
 
 export const IndianRupee = "₹";
 
@@ -128,7 +129,7 @@ export function preparecommentobject(commenttxt, nid) {
     uname: Username,
     nid: nid,
     avatar: Avatar,
-    cid: 0
+    cid: +new Date()
   };
 
   return msg;

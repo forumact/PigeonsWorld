@@ -8,22 +8,24 @@ import { commentnumber } from "../const";
 class CommentsList extends Component {
   constructor(props) {
     super(props);
+
     this.state = {
-      commentlist: [],
       numberofitem: commentnumber,
       pagenumber: 0,
-      count: 0
+      count: 0,
+      commentlist: []
     };
 
     this.attachComment = this.attachComment.bind(this);
     this.handlePageChange = this.handlePageChange.bind(this);
   }
 
-  attachComment(messagejson) {
+  attachComment(messagejson) {    
     this.setState({
-      commentlist: [...this.state.commentlist, messagejson],
+      commentlist: [...(this.state.commentlist || []), messagejson],
       count: this.state.count + 1
     });
+    console.log(this.state);
   }
 
   handlePageChange(pageNumber) {
