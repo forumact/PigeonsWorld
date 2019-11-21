@@ -4,7 +4,7 @@ import ProductCard from "../components/Product/ProductCard";
 import UserBio from "../components/UserProfile/UserBio";
 import { connect } from "react-redux";
 import UserActivity from "../components/UserProfile/UserActivity";
-import UserReputation from "../components/UserProfile/UserReputation";
+//import UserReputation from "../components/UserProfile/UserReputation";
 import UserProfileMeta from "../components/UserProfile/UserProfileMeta";
 import { GET_USER_PRODUCTS } from "../Redux/actions";
 import { getUserBasicInfo } from "../Networks";
@@ -31,7 +31,7 @@ class UserProfile extends Component {
             <div className="sidebar left author-profile">
               <UserBio userbasic={this.state.userbasic}></UserBio>
               <UserActivity uid={this.props.match.params.uid}></UserActivity>
-              <UserReputation></UserReputation>
+              {/* <UserReputation></UserReputation> */}
             </div>
             <div className="content right">
               <div className="headline buttons primary">

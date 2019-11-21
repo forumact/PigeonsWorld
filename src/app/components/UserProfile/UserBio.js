@@ -21,10 +21,13 @@ export default class AuthorBio extends Component {
             <img src={this.props.userbasic.picture} alt="" />
           </figure>
         </a>
-        <p className="text-header strtocaptalize">{this.props.userbasic.username}</p>
+        <p className="text-header strtocaptalize">
+          {this.props.userbasic.username}
+        </p>
         <p className="text-oneline">
           {this.props.userbasic.about}
           <br />
+          <span className="icon-location-pin"> </span>
           {this.props.userbasic.city}
         </p>
         <ul className="share-links">
@@ -62,12 +65,12 @@ export default class AuthorBio extends Component {
             </a>
           </li>
         </ul>
-        <a href="/" className="button mid dark spaced">
+        {/* <a href="/" className="button mid dark spaced">
           Add to <span className="primary">Followers</span>
         </a>
         <a href="/" className="button mid dark-light">
           Send a Private Message
-        </a>
+        </a> */}
       </div>
     );
   }
