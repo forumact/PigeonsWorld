@@ -591,7 +591,7 @@ label > .checkbox span {
   height: 100%;
   border-radius: 4px;
   display: none;
-  background: url("../app/assets/check.png") no-repeat center;
+  background: url("../assets/check.png") no-repeat center;
 }
 
 label .quantity {
@@ -1337,7 +1337,7 @@ input[type="checkbox"]:checked + label > span > span {
   position: absolute;
   left: 50%;
   margin-left: -485px;
-  background: url("../app/assets/searchbar_texture.png") no-repeat center,
+  background: url("../assets/searchbar_texture.png") no-repeat center,
     linear-gradient(to right, #05e6aa, #1cbdf9);
   background-size: cover;
 }
@@ -6126,7 +6126,7 @@ header .account-actions .button:last-child {
 }
 
 .author-profile-banner {
-  background: url("../app/assets/profile_banner.jpg") no-repeat center;
+  background: url("../assets/profile_banner.jpg") no-repeat center;
   background-size: cover;
   min-height: 300px;
 }
@@ -6524,33 +6524,33 @@ header .account-actions .button:last-child {
 }
 
 .share-links li a.fb {
-  background-image: url("../app/assets/social/fb.png");
+  background-image: url("../assets/social/fb.png");
   background-color: #355599;
 }
 
 .share-links li a.twt {
-  background-image: url("../app/assets/social/twt.png");
+  background-image: url("../assets/social/twt.png");
   background-color: #0fccf4;
 }
 .share-links li a.db {
-  background-image: url("../app/assets/social/db.png");
+  background-image: url("../assets/social/db.png");
   background-color: #f63f6e;
 }
 .share-links li a.rss {
-  background-image: url("../app/assets/social/rss.png");
+  background-image: url("../assets/social/rss.png");
   background-position: 50% 45%;
   background-color: #ffa312;
 }
 .share-links li a.gplus {
-  background-image: url("../app/assets/social/gplus.png");
+  background-image: url("../assets/social/gplus.png");
   background-color: #e0133a;
 }
 .share-links li a.be {
-  background-image: url("../app/assets/social/be.png");
+  background-image: url("../assets/social/be.png");
   background-color: #0d79ab;
 }
 .share-links li a.de {
-  background-image: url("../app/assets/social/de.png");
+  background-image: url("../assets/social/de.png");
   background-color: #05cc47;
 }
 
@@ -7332,7 +7332,7 @@ header .account-actions .button:last-child {
 }
 
 .form-popup .form-popup-headline.secondary {
-  background: url("../app/assets/section_headline_bg.png") no-repeat center
+  background: url("../assets/section_headline_bg.png") no-repeat center
     #1cbdf9;
   background-size: cover;
 }

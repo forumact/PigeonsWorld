@@ -1,9 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import HeadLine from "../components/HeadLine";
-import image1 from "../assets/how_to_shop_01.png";
-import image2 from "../assets/how_to_shop_02.png";
-import image3 from "../assets/how_to_shop_03.png";
+import image1 from "../../assets/how_to_shop_01.png";
+import image2 from "../../assets/how_to_shop_02.png";
+import image3 from "../../assets/how_to_shop_03.png";
 
 const HowToShop = () => {
   const title = "How To Shop";

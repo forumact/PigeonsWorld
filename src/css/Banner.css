@@ -1,5 +1,5 @@
 .banner-wrap {
-  background: url("../app/assets/home_banner.jpg") no-repeat center;
+  background: url("../assets/home_banner.jpg") no-repeat center;
   background-size: cover;
 }
 .banner {
@@ -52,7 +52,7 @@
   margin-top: 36px;
 }
 #subscribe-banner-wrap {
-  background: url("../app/assets/subscribe_banner_bg.png") no-repeat center,
+  background: url("../assets/subscribe_banner_bg.png") no-repeat center,
     linear-gradient(to right, #05e6aa, #1cbdf9);
   background-size: cover;
 }

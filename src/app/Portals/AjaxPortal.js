@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from "react";
 import ReactDOM from "react-dom";
-import notifycloseicon from "../assets/notif-close-icon.png";
+import notifycloseicon from "../../assets/notif-close-icon.png";
 import "./Modal/Modal.css";
 import { getUserBasicInfo } from "../Networks";
 

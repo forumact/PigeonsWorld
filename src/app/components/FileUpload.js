@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { fileupload } from "../Networks";
-import CloseIcon from "../../app/assets/close-icon-small.png";
+import CloseIcon from "../../assets/close-icon-small.png";
 
 export default class FileUpload extends Component {
   constructor(props) {

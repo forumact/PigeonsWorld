@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from "react";
 import ReactDOM from "react-dom";
-import notifycloseicon from "../assets/notif-close-icon.png";
-import alertlogo from "../assets/alert-logo.png";
+import notifycloseicon from "../../assets/notif-close-icon.png";
+import alertlogo from "../../assets/alert-logo.png";
 
 // These two containers are siblings in the DOM
 const alertRoot = document.getElementById("alert-root");

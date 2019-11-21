@@ -3,16 +3,16 @@
   line-height: 66px;
 }
 .section-headline-wrap.v1 {
-  background: url("../app/assets/section_headline_bg.png") no-repeat center,
+  background: url("../assets/section_headline_bg.png") no-repeat center,
     linear-gradient(to right, #05e6aa, #1cbdf9);
   background-size: cover;
 }
 .section-headline-wrap.v2 {
-  background: url("../app/assets/section_headline_bg.png") no-repeat center,
+  background: url("../assets/section_headline_bg.png") no-repeat center,
     linear-gradient(to right, #f21c5e, #1cc1e4);
 }
 .section-headline-wrap.v3 {
-  background: url("../app/assets/section_headline_bg.png") no-repeat center,
+  background: url("../assets/section_headline_bg.png") no-repeat center,
     linear-gradient(to right, #1595de, #00dcdd);
 }
 
@@ -180,27 +180,27 @@ form > button[type="submit"][disabled] {
 .social-links .social-link.rss a {
   width: 12px;
   height: 13px;
-  background: url("../app/assets/social/rss.png") no-repeat center;
+  background: url("../assets/social/rss.png") no-repeat center;
   top: 1px;
 }
 
 .social-links .social-link.db a {
   width: 12px;
   height: 13px;
-  background: url("../app/assets/social/db.png") no-repeat center;
+  background: url("../assets/social/db.png") no-repeat center;
   top: 1px;
 }
 
 .social-links .social-link.twt a {
   width: 12px;
   height: 13px;
-  background: url("../app/assets/social/twt.png") no-repeat center;
+  background: url("../assets/social/twt.png") no-repeat center;
   top: 1px;
 }
 
 .social-links .social-link.fb a {
   width: 12px;
   height: 13px;
-  background: url("../app/assets/social/fb.png") no-repeat center;
+  background: url("../assets/social/fb.png") no-repeat center;
   top: 1px;
 }

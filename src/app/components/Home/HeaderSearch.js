@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from "react";
-import SearchIcon from "../../assets/search-icon.png";
+import SearchIcon from "../../../assets/search-icon.png";
 import { withRouter } from "react-router-dom";
 
 import { HomeSearchFormValidation } from "../../const";

@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import defaultPic from "../assets/avatar.jpg";
+import defaultPic from "../../assets/avatar.jpg";
 
 export function getMapValue(obj, key) {
   if (obj.hasOwnProperty(key)) return obj[key];
