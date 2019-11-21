@@ -56,8 +56,7 @@ class UserProfile extends Component {
     );
   }
 
-  componentDidMount() {
-    console.log(this.state);
+  componentDidMount() {    
     const userpayload = {
       uid: this.props.match.params.uid
     };
@@ -71,8 +70,8 @@ class UserProfile extends Component {
       uid: this.props.match.params.uid
     };
     this.props.getUserProducts(payload);
-    const title = "Arulraj";
-    document.title = `Pigeons World | ${title}`;
+    const title = "Arulraj";    
+    document.title = `${title} | {process.env.REACT_APP_DOC_TITLE}`;
   }
 }
 

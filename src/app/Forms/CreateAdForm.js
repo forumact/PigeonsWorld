@@ -319,7 +319,7 @@ class CreateAddForm extends Component {
           item_picture: response.data.imguri,
           item_nid: response.data.nid
         });
-        document.title = `Pigeons World | ${response.data.title}`;
+        document.title = `${response.data.title} | ${process.env.REACT_APP_DOC_TITLE}`;
       });
     }
   }

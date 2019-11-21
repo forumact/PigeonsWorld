@@ -31,7 +31,7 @@ class ProductDetails extends Component {
     return (
       <Fragment>
         <Helmet>
-          <meta charSet="utf-8" />          
+          <meta charSet="utf-8" />
           <meta name="description" content={title} />
           <link rel="canonical" href="http://mysite.com/example" />
         </Helmet>
@@ -88,7 +88,7 @@ class ProductDetails extends Component {
       this.setState({
         product: response.data
       });
-      document.title = `${response.data.title} | Pigeons World`;
+      document.title = `${response.data.title} | ${process.env.REACT_APP_DOC_TITLE}`;
     });
   }
 
@@ -103,7 +103,7 @@ class ProductDetails extends Component {
         this.setState({
           product: response.data
         });
-        document.title = `${response.data.title} | Pigeons World`;
+        document.title = `${response.data.title} | ${process.env.REACT_APP_DOC_TITLE}`;
       });
     }
   }

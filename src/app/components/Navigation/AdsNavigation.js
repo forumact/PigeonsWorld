@@ -44,12 +44,12 @@ class AddNavigation extends Component {
           <li className="dropdown-item">
             <Link to={`products/${this.props.nid}`}>View</Link>
           </li>
-          <li className="dropdown-item">
+          {/* <li className="dropdown-item">
             <a href="/">Share</a>
           </li>
           <li className="dropdown-item">
             <a href="/">Delete</a>
-          </li>
+          </li> */}
         </ul>
       </div>
     );

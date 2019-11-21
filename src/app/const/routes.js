@@ -90,9 +90,9 @@ export const MyRoutes = [
     profilenav: "no"
   },
   {
-    path: "/manage-items",
-    component: lazy(() => import("../containers/ManageItems")),
-    title: "Manage Items",
+    path: "/manage-ads",
+    component: lazy(() => import("../containers/ManageAds")),
+    title: "Manage Ads",
     menu: "no",
     exact: true,
     profilenav: "yes"
@@ -138,9 +138,9 @@ export const MyRoutes = [
     profilenav: "no"
   },
   {
-    path: "/user/:uid/items",
-    component: lazy(() => import("../containers/UserItems")),
-    title: "User Items",
+    path: "/user/:uid/ads",
+    component: lazy(() => import("../containers/UserAds")),
+    title: "User Ads",
     menu: "no",
     exact: true,
     profilenav: "no"

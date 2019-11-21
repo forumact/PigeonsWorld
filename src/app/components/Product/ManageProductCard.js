@@ -1,7 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import { substring } from "../../helper";
-import AddNavigation from "../Navigation/AddNavigation";
+import AdsNavigation from "../Navigation/AdsNavigation";
 
 export default function ManageProductCard(props) {
   return (
@@ -10,7 +10,7 @@ export default function ManageProductCard(props) {
         <figure className="product-preview-image">
           <img id="product-src" src={props.product.img[0]} alt="product" />
         </figure>
-        <AddNavigation nid={props.product.nid}></AddNavigation>
+        <AdsNavigation nid={props.product.nid}></AdsNavigation>
       </div>
       <div className="product-info">
         <NavLink to={`/products/${props.product.nid}`}>

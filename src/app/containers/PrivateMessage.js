@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import { Avatar } from "../helper";
 //import { privatemessagecreate } from "../Networks";
-import Modal from "../components/Modal/Modal";
+import Modal from "../Portals/Modal/Modal";
 import PrivateMessageForm from "../Forms/PrivateMessageForm";
-import Notify from "../components/AlertPortal";
+import Notify from "../Portals/AlertPortal";
 
 export default class PrivateMessage extends Component {
   constructor(props) {

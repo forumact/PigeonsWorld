@@ -34,8 +34,7 @@ class ProductCard extends Component {
             <p className="text-header" title={this.props.product.title}>
               {substring(this.props.product.title, 25, ".....")}
             </p>
-          </NavLink>
-          <p>&nbsp;</p>
+          </NavLink>          
           <p className="product-description">
             {substring(this.props.product.body, 30, ".....")}
           </p>

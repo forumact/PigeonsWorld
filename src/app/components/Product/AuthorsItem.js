@@ -55,9 +55,9 @@ export default class AuthorsItem extends Component {
                   <p className="product-description">
                     {substring(product.body, 35, ".....")}
                   </p>
-                  <a href="shop-gridview-v1.html">
+                  <NavLink to={`/products/${product.nid}`}>
                     <p className="category primary">{product.category}</p>
-                  </a>
+                  </NavLink>
                   <p className="price">
                     <span>{IndianRupee}</span>
                     {product.price}

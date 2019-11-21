@@ -62,7 +62,8 @@ const HowToShop = () => {
           <div className="ht-banner-content">
             <p className="text-header">Advertise Free</p>
             <p>
-              Advertise your birds for sale on the Pigeons World website to
+              Advertise your birds for sale on the{" "}
+              <strong>{process.env.REACT_APP_DOC_TITLE}</strong> website to
               THOUSANDS of daily visitors. What's more, you can place a basic ad
               online for FREE!.
             </p>

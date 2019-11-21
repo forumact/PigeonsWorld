@@ -7,7 +7,7 @@ import ManageProductCard from "../components/Product/ManageProductCard";
 import { numberofitem } from "../const";
 import { fetuesrobject } from "../helper";
 
-class ManageItems extends Component {
+class ManageAds extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -41,7 +41,6 @@ class ManageItems extends Component {
       uid: fetuesrobject("uid")
     };
     this.props.getUserProducts(payload);
-    document.title = `Pigeons World | Products`;
   }
 
   render() {
@@ -49,7 +48,7 @@ class ManageItems extends Component {
     return (
       <div className="dashboard-content">
         <div className="headline buttons primary">
-          <h4>{count} Manage Items</h4>
+          <h4>{count} Manage Ads</h4>
         </div>
         <div className="product-list grid column4-wrap">
           {/* <ProductAddButton></ProductAddButton> */}
@@ -95,6 +94,6 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(ManageItems);
+export default connect(mapStateToProps, mapDispatchToProps)(ManageAds);
 
 //export default ManageItems;

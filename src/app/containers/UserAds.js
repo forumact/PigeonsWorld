@@ -8,20 +8,41 @@ import UserReputation from "../components/UserProfile/UserReputation";
 import UserProfileMeta from "../components/UserProfile/UserProfileMeta";
 import { GET_USER_PRODUCTS } from "../Redux/actions";
 import { getUserBasicInfo } from "../Networks";
+import { numberofitem } from "../const";
+import Pagination from "react-js-pagination";
 //import { Link } from "react-router-dom";
 
-class UserItems extends Component {
+class UserAds extends Component {
   constructor(props) {
     super(props);
     this.state = {
       userProducts: {},
-      userbasic: {}
+      userbasic: {},
+      activePage: 1,
+      itemsCountPerPage: numberofitem,
+      totalItemsCount: 1
     };
+
+    //Bind this event on click method
+    this.handlePageChange = this.handlePageChange.bind(this);
+  }
+
+  handlePageChange(pageNumber) {
+    const payload = {
+      numberofitem: numberofitem,
+      pagenumber: pageNumber - 1,
+      uid: this.props.match.params.uid
+    };
+    console.log(`active page is ${pageNumber}`);
+    this.props.getUserProducts(payload);
+    this.setState({
+      activePage: pageNumber
+    });
   }
 
   render() {
     const title = `${this.state.userbasic.username}'s Profile`;
-    const { products } = this.props.userProducts;
+    const { products, count } = this.props.userProducts;
     return (
       <div>
         <HeadLine title={title}></HeadLine>
@@ -36,8 +57,12 @@ class UserItems extends Component {
             </div>
             <div className="content right">
               <div className="headline buttons primary">
-                <h4 className="strtocaptalize">
-                  {this.state.userbasic.username}'s Items
+                <h4>
+                  {count}&nbsp;
+                  <span className="strtocaptalize">
+                    {this.state.userbasic.username}
+                  </span>
+                  's Items
                 </h4>
               </div>
               <div className="product-list grid column3-4-wrap">
@@ -51,6 +76,19 @@ class UserItems extends Component {
                 })}
               </div>
               <div className="clearfix"></div>
+              <div className="pager tertiary">
+                {count > numberofitem ? (
+                  <Pagination
+                    activePage={this.state.activePage}
+                    itemsCountPerPage={numberofitem}
+                    totalItemsCount={count}
+                    pageRangeDisplayed={5}
+                    onChange={this.handlePageChange}
+                    itemClass="pager-item"
+                    linkClass="page-link-class"
+                  />
+                ) : null}
+              </div>
             </div>
             <div className="clearfix"></div>
           </div>
@@ -74,7 +112,7 @@ class UserItems extends Component {
     };
     this.props.getUserProducts(payload);
     const title = "Arulraj";
-    document.title = `Pigeons World | ${title}`;
+    document.title = `${title} | {process.env.REACT_APP_DOC_TITLE}`;
   }
 }
 
@@ -92,4 +130,4 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(UserItems);
+export default connect(mapStateToProps, mapDispatchToProps)(UserAds);
