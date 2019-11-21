@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import CreateAdForm from "../Forms/CreateAdForm";
-import UploadGuidelines from "../components/UploadItems/UploadGuidelines";
-import UploadQueue from "../components/UploadItems/UploadQueue";
+import UpdateAdsGuidelines from "../components/UpdateAds/UpdateAdsGuidelines";
+import UpdateAdsQueue from "../components/UpdateAds/UpdateAdsQueue";
 
 export default class UpdateAd extends Component {
   constructor(props) {
@@ -24,8 +24,8 @@ export default class UpdateAd extends Component {
           </div>
         </div>
         <div className="form-box-items wrap-1-3 right">
-          <UploadQueue></UploadQueue>
-          <UploadGuidelines></UploadGuidelines>
+          <UpdateAdsQueue></UpdateAdsQueue>
+          <UpdateAdsGuidelines></UpdateAdsGuidelines>
         </div>
         <div className="clearfix"></div>
       </div>

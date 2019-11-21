@@ -1,10 +1,9 @@
 import React, { Component } from "react";
 import AccountSettingsForm from "../Forms/AccountSettingsForm";
-import UploadQueue from "../components/UploadItems/UploadQueue";
-import UploadGuidelines from "../components/UploadItems/UploadGuidelines";
+import UpdateAdsQueue from "../components/UpdateAds/UpdateAdsQueue";
+import UpdateAdsGuidelines from "../components/UpdateAds/UpdateAdsGuidelines";
 
-class AccountSettings extends Component {  
-
+class AccountSettings extends Component {
   render() {
     return (
       <div className="dashboard-content">
@@ -17,8 +16,8 @@ class AccountSettings extends Component {
           </div>
         </div>
         <div className="form-box-items wrap-1-3 right">
-          <UploadQueue></UploadQueue>
-          <UploadGuidelines></UploadGuidelines>
+          <UpdateAdsQueue></UpdateAdsQueue>
+          <UpdateAdsGuidelines></UpdateAdsGuidelines>
         </div>
         <div className="clearfix"></div>
       </div>

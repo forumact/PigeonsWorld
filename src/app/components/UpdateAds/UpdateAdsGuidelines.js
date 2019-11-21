@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function UploadGuidelines() {
+export default function UpdateAdsGuidelines() {
   return (
     <div className="form-box-item full">
       <h4>Upload Guidelines</h4>
