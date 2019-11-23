@@ -5,20 +5,38 @@ import ProfileNavigation from "./ProfileNavigation";
 import PullIcon from "../../../assets/pull-icon.png";
 import mobileLogo from "../../../assets/logo_mobile.png";
 import MobileNavigation from "./MobileNavigation";
+import MobileProfileNavigation from "./MobileProfileNavigation";
 
 class Header extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      showMenu: "closed"
+      showMenu: "closed",
+      showProfile: "closed"
     };
 
     this.handleShowHide = this.handleShowHide.bind(this);
+    this.handleProfileShowHide = this.handleProfileShowHide.bind(this);
   }
 
   handleShowHide(flag) {
     console.log("1", flag);
     this.setState({ showMenu: flag });
+
+    if (flag == "open") {
+      var element = document.getElementById("shadow-film");
+      element.classList.remove("closed");
+      element.classList.add("open");
+    } else {
+      var element = document.getElementById("shadow-film");
+      element.classList.remove("open");
+      element.classList.add("closed");
+    }
+  }
+
+  handleProfileShowHide(flag) {
+    console.log("1", flag);
+    this.setState({ showProfile: flag });
 
     if (flag == "open") {
       var element = document.getElementById("shadow-film");
@@ -52,7 +70,10 @@ class Header extends Component {
                 <img src={mobileLogo} alt="logo-mobile" />
               </figure>
             </NavLink>
-            <div className="mobile-account-options-handler right secondary">
+            <div
+              className="mobile-account-options-handler right secondary"
+              onClick={() => this.handleProfileShowHide("open")}
+            >
               <span className="icon-user"></span>
             </div>
             <ProfileNavigation></ProfileNavigation>
@@ -62,6 +83,10 @@ class Header extends Component {
           showMenu={this.state.showMenu}
           handler={this.handleShowHide}
         ></MobileNavigation>
+        <MobileProfileNavigation
+          showProfile={this.state.showProfile}
+          handler={this.handleProfileShowHide}
+        ></MobileProfileNavigation>
       </Fragment>
     );
   }

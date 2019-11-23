@@ -25,14 +25,14 @@ export default function UpdateAdsGuidelines() {
             4. For Better Image quality, Upload image size with 832x484
           </p>
         </div>
-        <div className="plain-text-box-item">
+        {/* <div className="plain-text-box-item">
           <p className="text-header">Guide with Links:</p>
           <p>
             <a href="/" className="primary">
               Click here for the link.
             </a>
           </p>
-        </div>
+        </div> */}
       </div>
     </div>
   );
