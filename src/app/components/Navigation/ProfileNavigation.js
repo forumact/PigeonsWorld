@@ -76,7 +76,7 @@ class ProfileNavigation extends Component {
                 </figure>
               </div>
               <p className="user-name strtocaptalize">{username}</p>
-              <p className="user-money">$745.00</p>
+              {/* <p className="user-money">$745.00</p> */}
               <ul
                 className={
                   this.state.hover
