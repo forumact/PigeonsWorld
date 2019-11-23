@@ -282,3 +282,10 @@ export const NewsletterFormValidation = [
     message: "That is not a valid email."
   }
 ];
+
+
+export const facebookLink = "https://www.facebook.com/raj.arul.7923";
+
+export const twitterLink = "https://twitter.com/PetsMarket3";
+
+export const documentTitle = "PetsMarket";

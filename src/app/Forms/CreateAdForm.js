@@ -5,7 +5,8 @@ import {
   city,
   ItemStatus,
   UploadFormValidation,
-  FileApiArray
+  FileApiArray,
+  documentTitle
 } from "../const";
 import FileUpload from "../components/FileUpload";
 import { productCreate, productUpdate, fetchProductDetails } from "../Networks";
@@ -319,7 +320,7 @@ class CreateAddForm extends Component {
           item_picture: response.data.imguri,
           item_nid: response.data.nid
         });
-        document.title = `${response.data.title} | ${process.env.REACT_APP_DOC_TITLE}`;
+        document.title = `${response.data.title} | ${documentTitle}`;
       });
     }
   }

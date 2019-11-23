@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import TopImage from "../../assets/top_items.png";
 import { PigeonCategory } from "../helper/MainHelper";
+import { documentTitle } from "../const";
 
 class HomeBanner extends Component {
   render() {
@@ -12,7 +13,7 @@ class HomeBanner extends Component {
             The Biggest <span>Marketplace</span>
           </h1>
           <p>
-            Advertise your birds for sale on the {process.env.REACT_APP_DOC_TITLE} website to THOUSANDS
+            Advertise your birds for sale on the {documentTitle} website to THOUSANDS
             of daily visitors. What's more, you can place a basic ad online for
             FREE!
           </p>

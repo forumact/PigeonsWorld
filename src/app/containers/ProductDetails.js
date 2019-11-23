@@ -9,6 +9,7 @@ import SocilaMediaShareLinks from "../components/Product/SocilaMediaShareLinks";
 import AuthorsItem from "../components/Product/AuthorsItem";
 import ImageSlider from "../components/Product/ImageSlider";
 import { Helmet } from "react-helmet";
+import { documentTitle } from "../const";
 
 class ProductDetails extends Component {
   constructor(props) {
@@ -88,7 +89,7 @@ class ProductDetails extends Component {
       this.setState({
         product: response.data
       });
-      document.title = `${response.data.title} | ${process.env.REACT_APP_DOC_TITLE}`;
+      document.title = `${response.data.title} | ${documentTitle}`;
     });
   }
 
@@ -103,7 +104,7 @@ class ProductDetails extends Component {
         this.setState({
           product: response.data
         });
-        document.title = `${response.data.title} | ${process.env.REACT_APP_DOC_TITLE}`;
+        document.title = `${response.data.title} | ${documentTitle}`;
       });
     }
   }

@@ -4,6 +4,7 @@ import HeadLine from "../components/HeadLine";
 import image1 from "../../assets/how_to_shop_01.png";
 import image2 from "../../assets/how_to_shop_02.png";
 import image3 from "../../assets/how_to_shop_03.png";
+import { documentTitle } from "../const";
 
 const HowToShop = () => {
   const title = "How To Shop";
@@ -63,7 +64,7 @@ const HowToShop = () => {
             <p className="text-header">Advertise Free</p>
             <p>
               Advertise your birds for sale on the{" "}
-              <strong>{process.env.REACT_APP_DOC_TITLE}</strong> website to
+              <strong>{documentTitle}</strong> website to
               THOUSANDS of daily visitors. What's more, you can place a basic ad
               online for FREE!.
             </p>

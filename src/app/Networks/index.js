@@ -2,7 +2,9 @@ import axios from "axios";
 import { querystring, fetuesrobject } from "../helper";
 
 const axiosInstance = axios.create({
-  baseURL: `${process.env.REACT_APP_API_ENDPOINT}`
+  //baseURL: `${process.env.REACT_APP_API_ENDPOINT}`
+  baseURL: `http://petsmarket.local/drupal/web`
+  //baseURL: `http://petsmarket.co.in/drupal/web`
 });
 
 // Add a request interceptor

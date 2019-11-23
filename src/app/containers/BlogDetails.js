@@ -5,6 +5,7 @@ import { fetchBlogDetails } from "../Networks";
 import SocilaMediaShareLinks from "../components/Product/SocilaMediaShareLinks";
 import LatestBlogs from "../components/Blog/LatestBlogs";
 import {Helmet} from "react-helmet";
+import { documentTitle } from "../const";
 
 class BlogDetails extends Component {
   constructor() {
@@ -72,7 +73,7 @@ class BlogDetails extends Component {
       this.setState({
         blog: response.data
       });
-      document.title = `${response.data.title} | ${process.env.REACT_APP_DOC_TITLE}`;
+      document.title = `${response.data.title} | ${documentTitle}`;
     });
   }
 
@@ -86,7 +87,7 @@ class BlogDetails extends Component {
         this.setState({
           blog: response.data
         });
-        document.title = `${response.data.title} | ${process.env.REACT_APP_DOC_TITLE}`;
+        document.title = `${response.data.title} | ${documentTitle}`;
       });
     }
   }

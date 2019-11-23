@@ -8,7 +8,7 @@ import UserReputation from "../components/UserProfile/UserReputation";
 import UserProfileMeta from "../components/UserProfile/UserProfileMeta";
 import { GET_USER_PRODUCTS } from "../Redux/actions";
 import { getUserBasicInfo } from "../Networks";
-import { numberofitem } from "../const";
+import { numberofitem, documentTitle } from "../const";
 import Pagination from "react-js-pagination";
 //import { Link } from "react-router-dom";
 
@@ -112,7 +112,7 @@ class UserAds extends Component {
     };
     this.props.getUserProducts(payload);
     const title = "Arulraj";
-    document.title = `${title} | {process.env.REACT_APP_DOC_TITLE}`;
+    document.title = `${title} | {documentTitle}`;
   }
 }
 

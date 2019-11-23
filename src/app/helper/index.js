@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import defaultPic from "../../assets/avatar.jpg";
+import { documentTitle } from "../const";
 
 export function getMapValue(obj, key) {
   if (obj.hasOwnProperty(key)) return obj[key];
@@ -36,7 +37,7 @@ export const colorclass =
  */
 export function useTitle(titleOrFn) {
   useEffect(() => {
-    document.title = `${titleOrFn} | ${process.env.REACT_APP_DOC_TITLE}`;
+    document.title = `${titleOrFn} | ${documentTitle}`;
   });
 }
 

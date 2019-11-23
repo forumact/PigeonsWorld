@@ -8,6 +8,7 @@ import UserActivity from "../components/UserProfile/UserActivity";
 import UserProfileMeta from "../components/UserProfile/UserProfileMeta";
 import { GET_USER_PRODUCTS } from "../Redux/actions";
 import { getUserBasicInfo } from "../Networks";
+import { documentTitle} from '../const'
 
 class UserProfile extends Component {
   constructor(props) {
@@ -71,7 +72,7 @@ class UserProfile extends Component {
     };
     this.props.getUserProducts(payload);
     const title = "Arulraj";    
-    document.title = `${title} | {process.env.REACT_APP_DOC_TITLE}`;
+    document.title = `${title} | {documentTitle}`;
   }
 }
 

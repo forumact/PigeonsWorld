@@ -3,6 +3,8 @@ import LogoSmall from "../../../assets/logo_small.png";
 import { fetchFooterDetails } from "../../Networks";
 import { Link } from "react-router-dom";
 
+import { facebookLink, twitterLink } from "../../const";
+
 class Footer extends Component {
   constructor(props) {
     super(props);
@@ -63,16 +65,24 @@ class Footer extends Component {
               </ul>
               <ul className="social-links">
                 <li className="social-link fb">
-                  <a href="/">&nbsp;</a>
+                  <a href={facebookLink} target="_blank">
+                    &nbsp;
+                  </a>
                 </li>
                 <li className="social-link twt">
-                  <a href="/">&nbsp;</a>
+                  <a href={twitterLink} target="_blank">
+                    &nbsp;
+                  </a>
                 </li>
                 <li className="social-link db">
-                  <a href="/">&nbsp;</a>
+                  <a href="/" target="_blank">
+                    &nbsp;
+                  </a>
                 </li>
                 <li className="social-link rss">
-                  <a href="/">&nbsp;</a>
+                  <a href="/" target="_blank">
+                    &nbsp;
+                  </a>
                 </li>
               </ul>
             </div>
@@ -178,7 +188,7 @@ class Footer extends Component {
                   <Link to="/privacy-policy">Privacy Policy</Link>
                 </li>
               </ul>
-            </div>            
+            </div>
           </div>
         </div>
         <div id="footer-bottom-wrap">
