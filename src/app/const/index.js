@@ -289,3 +289,6 @@ export const facebookLink = "https://www.facebook.com/raj.arul.7923";
 export const twitterLink = "https://twitter.com/PetsMarket3";
 
 export const documentTitle = "PetsMarket";
+
+export const googleClientID = '451309071348-s18cpe800jrf5ajf4kq1drne328clv97.apps.googleusercontent.com';
+

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import { LoginFormValidation } from "../const";
+import { LoginFormValidation, googleClientID } from "../const";
 import { login, loginCheckandCreate } from "../../app/Networks";
 import FacebookLogin from "react-facebook-login";
 import GoogleLogin from "react-google-login";
@@ -21,6 +21,7 @@ class LoginForm extends Component {
     };
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.responseGoogle = this.responseGoogle.bind(this);
 
     this.submitted = false;
   }
@@ -57,7 +58,7 @@ class LoginForm extends Component {
             avatar: response.data.avatar
           };
           this.setState({ user: userdetails });
-          localStorage.setItem('userObject', JSON.stringify(response.data));          
+          localStorage.setItem("userObject", JSON.stringify(response.data));
           this.props.history.push("/");
         });
       } catch (e) {
@@ -71,6 +72,14 @@ class LoginForm extends Component {
       console.log(response.data);
       if (response.data.status === 1) {
         console.log("user logged in");
+        const userdetails = {
+          csrf: response.data.csrf_token,
+          uid: response.data.uid,
+          avatar: response.data.avatar
+        };
+        this.setState({ user: userdetails });
+        localStorage.setItem("userObject", JSON.stringify(response.data));
+        this.props.history.push("/");
       }
     });
   }
@@ -89,11 +98,7 @@ class LoginForm extends Component {
           <p>Enter now to your account and start buying and selling!</p>
         </div>
         <div className="form-popup-content">
-          <form
-            onSubmit={this.handleSubmit}
-            id="login-form"
-            autoComplete="off"
-          >
+          <form onSubmit={this.handleSubmit} id="login-form" autoComplete="off">
             <div className="input-container">
               <label htmlFor="username" className="rl-label">
                 Username
@@ -158,7 +163,7 @@ class LoginForm extends Component {
           />
 
           <GoogleLogin
-            clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
+            clientId={googleClientID}
             buttonText="Login with Google"
             onSuccess={this.responseGoogle}
             onFailure={this.responseGoogle}
