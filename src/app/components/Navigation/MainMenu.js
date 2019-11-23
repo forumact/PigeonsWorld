@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { MyRoutes } from "../../const/routes";
+import { MyRoutes } from "../../Routes/routes";
 import { NavLink } from "react-router-dom";
 import HeaderSearch from "../Home/HeaderSearch";
 

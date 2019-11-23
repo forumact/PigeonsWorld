@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Logo from "../../../assets/logo.png";
-import { MyRoutes } from "../../const/routes";
+import { MyRoutes } from "../../Routes/routes";
 import { NavLink } from "react-router-dom";
 
 export default class MobileNavigation extends Component {

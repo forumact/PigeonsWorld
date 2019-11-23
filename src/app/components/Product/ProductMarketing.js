@@ -10,6 +10,10 @@ export default class ProductMarketing extends Component {
   render() {
     return (
       <div className="sidebar-item void buttons">
+        <a href="/" className="button big tertiary wcart">
+          {/* <span className="icon-present"></span> */}
+          <span>Ad Type: {this.props.product.advert_type}</span>
+        </a>
         <a href="/" className="button big dark purchase">
           <span className="indian-currency">{this.props.product.price}</span>
           <span>Purchase Now!</span>

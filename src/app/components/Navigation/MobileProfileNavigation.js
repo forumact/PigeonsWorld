@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from "react";
-import { MyRoutes } from "../../const/routes";
+import { MyRoutes } from "../../Routes/routes";
 import { NavLink, withRouter, Link } from "react-router-dom";
 import { userLogout } from "../../Networks";
 import { fetuesrobject } from "../../helper";

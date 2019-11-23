@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { userLogout } from "../../Networks";
 import { withRouter } from "react-router-dom";
-import { MyRoutes } from "../../const/routes";
+import { MyRoutes } from "../../Routes/routes";
 import { fetuesrobject } from "../../helper";
 
 class ProfileNavigation extends Component {

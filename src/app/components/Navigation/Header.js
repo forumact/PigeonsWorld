@@ -23,7 +23,7 @@ class Header extends Component {
     console.log("1", flag);
     this.setState({ showMenu: flag });
 
-    if (flag == "open") {
+    if (flag === "open") {
       var element = document.getElementById("shadow-film");
       element.classList.remove("closed");
       element.classList.add("open");
@@ -38,7 +38,7 @@ class Header extends Component {
     console.log("1", flag);
     this.setState({ showProfile: flag });
 
-    if (flag == "open") {
+    if (flag === "open") {
       var element = document.getElementById("shadow-film");
       element.classList.remove("closed");
       element.classList.add("open");

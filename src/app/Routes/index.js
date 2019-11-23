@@ -1,7 +1,7 @@
 import React, { Component, Suspense } from "react";
 import { Route, Switch } from "react-router-dom";
-import { MyRoutes } from "../const/routes";
-import Loader from "./Loader";
+import { MyRoutes } from "./routes";
+import Loader from "../components/Loader";
 import { useTitle } from "../helper";
 
 import ReactGA from "react-ga";

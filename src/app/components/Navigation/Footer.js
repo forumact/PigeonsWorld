@@ -65,22 +65,22 @@ class Footer extends Component {
               </ul>
               <ul className="social-links">
                 <li className="social-link fb">
-                  <a href={facebookLink} target="_blank" rel="noopener">
+                  <a href={facebookLink} target="_blank" rel="noopener noreferrer">
                     &nbsp;
                   </a>
                 </li>
                 <li className="social-link twt">
-                  <a href={twitterLink} target="_blank" rel="noopener">
+                  <a href={twitterLink} target="_blank" rel="noopener noreferrer">
                     &nbsp;
                   </a>
                 </li>
                 <li className="social-link db">
-                  <a href="/" target="_blank" rel="noopener">
+                  <a href="/" target="_blank" rel="noopener noreferrer">
                     &nbsp;
                   </a>
                 </li>
                 <li className="social-link rss">
-                  <a href="/" target="_blank" rel="noopener">
+                  <a href="/" target="_blank" rel="noopener noreferrer">
                     &nbsp;
                   </a>
                 </li>

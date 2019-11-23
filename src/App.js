@@ -5,7 +5,7 @@ import "./css/Banner.css";
 import Header from "./app/components/Navigation/Header";
 import Footer from "./app/components/Navigation/Footer";
 import MainMenu from "./app/components/Navigation/MainMenu";
-import Routes from "./app/components/Routes";
+import Routes from "./app/Routes";
 import { withRouter } from "react-router-dom";
 import SimpleLineIcon from "react-simple-line-icons";
 import { HideHeaderRegion } from "./app/helper";

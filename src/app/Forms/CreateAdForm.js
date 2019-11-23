@@ -6,7 +6,8 @@ import {
   ItemStatus,
   UploadFormValidation,
   FileApiArray,
-  documentTitle
+  documentTitle,
+  AdvertType
 } from "../const";
 import FileUpload from "../components/FileUpload";
 import { productCreate, productUpdate, fetchProductDetails } from "../Networks";
@@ -22,6 +23,7 @@ class CreateAddForm extends Component {
 
     this.state = {
       item_category: "",
+      item_advert_type: "",
       item_name: "",
       item_description: "",
       item_picture1: "",
@@ -80,6 +82,7 @@ class CreateAddForm extends Component {
           this.setState({
             item_name: "",
             item_category: "",
+            item_advert_type: "",
             item_description: "",
             item_picture1: "",
             item_url1: "",
@@ -124,7 +127,7 @@ class CreateAddForm extends Component {
           ></input>
           <span className="form-error">{validation.item_name.message}</span>
         </div>
-        <div className="input-container">
+        <div className="input-container half">
           <label htmlFor="category" className="rl-label required">
             Category
           </label>
@@ -143,6 +146,26 @@ class CreateAddForm extends Component {
             })}
           </select>
           <span className="form-error">{validation.item_category.message}</span>
+        </div>
+        <div className="input-container half">
+          <label htmlFor="advert_type" className="rl-label required">
+            Advert type
+          </label>
+          <select
+            name="item_advert_type"
+            value={this.state.item_advert_type}
+            onChange={this.handleInputChange}
+          >
+            <option />
+            {AdvertType.map((item, index) => {
+              return (
+                <option value={item} key={index}>
+                  {item}
+                </option>
+              );
+            })}
+          </select>
+          <span className="form-error">{validation.item_advert_type.message}</span>
         </div>
         <div className="input-container">
           <label htmlFor="item_description" className="rl-label required">
@@ -303,6 +326,7 @@ class CreateAddForm extends Component {
         this.setState({
           item_name: response.data.title,
           item_category: response.data.category,
+          item_advert_type: response.data.category,
           item_description: response.data.body,
           item_picture1: response.data.picture1,
           item_url1: response.data.img[0],

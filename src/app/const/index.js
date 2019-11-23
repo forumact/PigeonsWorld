@@ -59,6 +59,8 @@ export const PigeonCategory = [
   "Patta"
 ];
 
+export const AdvertType = ["For Sale", "Wanted"];
+
 export const RegisterFormValidate = [
   {
     field: "first_name",
@@ -216,6 +218,12 @@ export const UploadFormValidation = [
     method: "isEmpty",
     validWhen: false,
     message: "Tags is required."
+  },
+  {
+    field: "item_advert_type",
+    method: "isEmpty",
+    validWhen: false,
+    message: "Advert type is empty."
   }
 ];
 
@@ -283,12 +291,11 @@ export const NewsletterFormValidation = [
   }
 ];
 
-
 export const facebookLink = "https://www.facebook.com/raj.arul.7923";
 
 export const twitterLink = "https://twitter.com/PetsMarket3";
 
 export const documentTitle = "PetsMarket";
 
-export const googleClientID = '451309071348-s18cpe800jrf5ajf4kq1drne328clv97.apps.googleusercontent.com';
-
+export const googleClientID =
+  "451309071348-s18cpe800jrf5ajf4kq1drne328clv97.apps.googleusercontent.com";
