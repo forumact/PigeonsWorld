@@ -4,8 +4,22 @@ import { MyRoutes } from "../const/routes";
 import Loader from "./Loader";
 import { useTitle } from "../helper";
 
+import ReactGA from "react-ga";
+
+export const initGA = () => {
+  console.log("GA init");
+  ReactGA.initialize("UA-153156664-1");
+};
+
+const loatPageView = () => {
+  ReactGA.set({ page: window.location.pathname });
+  ReactGA.pageview(window.location.pathname);
+};
+
 function RouteWithTitle({ title, ...props }) {
   useTitle(title);
+  initGA();
+  loatPageView();
   return <Route {...props} />;
 }
 
