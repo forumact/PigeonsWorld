@@ -10,6 +10,7 @@ import AuthorsItem from "../components/Product/AuthorsItem";
 import ImageSlider from "../components/Product/ImageSlider";
 import { Helmet } from "react-helmet";
 import { documentTitle, ProdUrl } from "../const";
+import { substring } from "../helper";
 
 class ProductDetails extends Component {
   constructor(props) {
@@ -32,10 +33,20 @@ class ProductDetails extends Component {
     return (
       <Fragment>
         <Helmet>
-          <meta charSet="utf-8" />
-          <meta name="description" content={title} />
+          <meta charSet="utf-8" />          
           <link rel="canonical" href={ProdUrl} />
         </Helmet>
+        <Helmet
+          title={title}
+          meta={[
+            { name: "description", content: substring(body, 150, ".....") },
+            { property: "og:type", content: "Product" },
+            { property: "og:title", content: title },
+            { property: "og:image", content: img1 },
+            { property: "og:url", content: ProdUrl }
+          ]}
+        />
+
         <HeadLine title={title}></HeadLine>
         <div className="section-wrap">
           <div className="section">
