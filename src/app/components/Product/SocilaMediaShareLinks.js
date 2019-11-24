@@ -17,8 +17,8 @@ export default class SocilaMediaShareLinks extends Component {
             <li>
               <a href="/" className="fb">
                 <FacebookShareButton
-                  url={'http://google.com'}
-                  quote={"arulraj"}
+                  url={this.props.url}
+                  quote={this.props.quote}
                   className="fb"
                 >
                   &nbsp;
@@ -28,8 +28,8 @@ export default class SocilaMediaShareLinks extends Component {
             <li>
               <a href="/" className="twt">
                 <TwitterShareButton
-                  url={'http://google.com'}
-                  quote={"arulraj"}
+                  url={this.props.url}
+                  quote={this.props.quote}
                   className="twt"
                 >
                   &nbsp;
@@ -40,7 +40,7 @@ export default class SocilaMediaShareLinks extends Component {
               <a href="/" className="gplus">
                 <WhatsappShareButton
                   url={this.props.url}
-                  quote={"arulraj"}
+                  quote={this.props.quote}
                   className="gplus"
                 >
                   &nbsp;

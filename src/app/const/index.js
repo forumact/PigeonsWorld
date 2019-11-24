@@ -291,11 +291,13 @@ export const NewsletterFormValidation = [
   }
 ];
 
-export const facebookLink = "https://www.facebook.com/raj.arul.7923";
+export const facebookLink = "https://www.facebook.com/petsmarket.co.in";
 
 export const twitterLink = "https://twitter.com/PetsMarket3";
 
 export const documentTitle = "PetsMarket";
 
 export const googleClientID =
-  "451309071348-s18cpe800jrf5ajf4kq1drne328clv97.apps.googleusercontent.com";
+  "1000944645619-7sc2pdff16fp95tqpm08vb9lm9h8r3b7.apps.googleusercontent.com";
+
+export const ProdUrl = 'http://petsmarket.co.in/';

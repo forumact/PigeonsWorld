@@ -9,7 +9,7 @@ import SocilaMediaShareLinks from "../components/Product/SocilaMediaShareLinks";
 import AuthorsItem from "../components/Product/AuthorsItem";
 import ImageSlider from "../components/Product/ImageSlider";
 import { Helmet } from "react-helmet";
-import { documentTitle } from "../const";
+import { documentTitle, ProdUrl } from "../const";
 
 class ProductDetails extends Component {
   constructor(props) {
@@ -34,7 +34,7 @@ class ProductDetails extends Component {
         <Helmet>
           <meta charSet="utf-8" />
           <meta name="description" content={title} />
-          <link rel="canonical" href="http://mysite.com/example" />
+          <link rel="canonical" href={ProdUrl} />
         </Helmet>
         <HeadLine title={title}></HeadLine>
         <div className="section-wrap">
@@ -69,7 +69,8 @@ class ProductDetails extends Component {
                 </div>
                 <hr className="line-separator" />
                 <SocilaMediaShareLinks
-                  url={`http://localhost:3000/products/${this.props.match.params.nid}`}
+                  url={`${ProdUrl}products/${this.props.match.params.nid}`}
+                  quote={title}
                 ></SocilaMediaShareLinks>
               </article>
               <CommentsList nid={this.props.match.params.nid}></CommentsList>
